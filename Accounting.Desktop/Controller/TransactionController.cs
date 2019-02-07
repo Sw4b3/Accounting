@@ -18,16 +18,19 @@ namespace Accounting.Desktop.Controller
             _TransactionRepository = new TransactionRepository();
         }
 
-        public void GetTransactions(DataGridView dataGridView1)
+        public void GetTransactionsDeposit(DataGridView dataGridView1)
         {
-            dataGridView1.DataSource = _TransactionRepository.GetTransactionsRequest().Select(x => new { x.TransactionId, x.Amount, x.Timestamp, x.AccountType, x.TransactionType }).ToList();
+            dataGridView1.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 1).Select(x => new { x.TransactionId, x.Amount, x.Timestamp, x.AccountType, x.TransactionType }).ToList();
+        }
+
+        public void GetTransactionsWithdraw(DataGridView dataGridView1)
+        {
+            dataGridView1.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2).Select(x => new { x.TransactionId, x.Amount, x.Timestamp, x.AccountType, x.TransactionType }).ToList();
         }
 
         public double GetTransactionBalance()
         {
-
             var deposits = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
-
             var withdaws = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2).Select(x => x.Amount).Sum(); 
             return (double)deposits - (double)withdaws;
         }

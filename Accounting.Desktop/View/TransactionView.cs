@@ -34,7 +34,8 @@ namespace Accounting.Desktop.View
                 AcounTypetId = int.Parse(textBox2.Text),
                 TransactionTypeId = _transactionType
             });
-            _mainform.PopulationTransactionTable();
+            _mainform.PopulationTransactionTableDeposit();
+            _mainform.PopulationTransactionTableWithdraw();
             _mainform.CalculateBalance();
             this.Dispose() ;
         }

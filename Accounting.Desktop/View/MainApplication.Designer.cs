@@ -28,36 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataViewTransaction = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dataViewTransactionEx = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).BeginInit();
+            this.dataViewTransactionInc = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionEx)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionInc)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataViewTransaction
+            // dataViewTransactionEx
             // 
-            this.dataViewTransaction.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataViewTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataViewTransactionEx.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransactionEx.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataViewTransactionEx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataViewTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewTransaction.BackgroundColor = System.Drawing.Color.White;
-            this.dataViewTransaction.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataViewTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewTransaction.Location = new System.Drawing.Point(187, 57);
-            this.dataViewTransaction.Name = "dataViewTransaction";
-            this.dataViewTransaction.ReadOnly = true;
-            this.dataViewTransaction.RowHeadersVisible = false;
-            this.dataViewTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransaction.Size = new System.Drawing.Size(492, 443);
-            this.dataViewTransaction.TabIndex = 21;
+            this.dataViewTransactionEx.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransactionEx.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransactionEx.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTransactionEx.Location = new System.Drawing.Point(187, 70);
+            this.dataViewTransactionEx.Name = "dataViewTransactionEx";
+            this.dataViewTransactionEx.ReadOnly = true;
+            this.dataViewTransactionEx.RowHeadersVisible = false;
+            this.dataViewTransactionEx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewTransactionEx.Size = new System.Drawing.Size(464, 501);
+            this.dataViewTransactionEx.TabIndex = 21;
             // 
             // button1
             // 
@@ -71,7 +73,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(341, 28);
+            this.button2.Location = new System.Drawing.Point(681, 28);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 23);
             this.button2.TabIndex = 23;
@@ -82,11 +84,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 524);
+            this.label1.Location = new System.Drawing.Point(184, 588);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Amount: ";
+            this.label1.Text = "Balance:";
             // 
             // panel1
             // 
@@ -95,7 +97,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(160, 561);
+            this.panel1.Size = new System.Drawing.Size(160, 619);
             this.panel1.TabIndex = 25;
             // 
             // button3
@@ -105,7 +107,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.Location = new System.Drawing.Point(18, 516);
+            this.button3.Location = new System.Drawing.Point(18, 574);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 27);
             this.button3.TabIndex = 3;
@@ -113,22 +115,43 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.Shutdown_Click);
             // 
+            // dataViewTransactionInc
+            // 
+            this.dataViewTransactionInc.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransactionInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataViewTransactionInc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataViewTransactionInc.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransactionInc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransactionInc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTransactionInc.Location = new System.Drawing.Point(681, 70);
+            this.dataViewTransactionInc.Name = "dataViewTransactionInc";
+            this.dataViewTransactionInc.ReadOnly = true;
+            this.dataViewTransactionInc.RowHeadersVisible = false;
+            this.dataViewTransactionInc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewTransactionInc.Size = new System.Drawing.Size(464, 501);
+            this.dataViewTransactionInc.TabIndex = 26;
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(714, 561);
+            this.ClientSize = new System.Drawing.Size(1175, 619);
+            this.Controls.Add(this.dataViewTransactionInc);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataViewTransaction);
+            this.Controls.Add(this.dataViewTransactionEx);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MainApplication";
             this.Text = "Accounting";
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionEx)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionInc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,12 +159,13 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataViewTransaction;
+        private System.Windows.Forms.DataGridView dataViewTransactionEx;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dataViewTransactionInc;
     }
 }
 
