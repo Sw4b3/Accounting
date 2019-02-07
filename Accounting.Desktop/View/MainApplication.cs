@@ -44,5 +44,10 @@ namespace Accounting.Desktop
         {
             new TransactionView(_transactionController, this, 2).Show();
         }
+
+        private void Shutdown_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
