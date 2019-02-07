@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Accounting.Desktop.Controller
 {
-   public class TransactionController
+    public class TransactionController
     {
         public TransactionRepository _TransactionRepository;
 
@@ -20,7 +20,16 @@ namespace Accounting.Desktop.Controller
 
         public void GetTransactions(DataGridView dataGridView1)
         {
-            dataGridView1.DataSource = _TransactionRepository.GetTransactionsRequest().Select(x => new { x.TransactionId, x.Amount, x.Timestamp, x.AcounTypetId, x.TransactionTypeId }).ToList();
+            dataGridView1.DataSource = _TransactionRepository.GetTransactionsRequest().Select(x => new { x.TransactionId, x.Amount, x.Timestamp, x.AccountType, x.TransactionType }).ToList();
+        }
+
+        public double GetTransactionBalance()
+        {
+
+            var deposits = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
+
+            var withdaws = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2).Select(x => x.Amount).Sum(); 
+            return (double)deposits - (double)withdaws;
         }
 
         public void SaveTransaction(TransactionRequest transaction)

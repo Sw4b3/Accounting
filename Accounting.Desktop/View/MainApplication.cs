@@ -22,6 +22,7 @@ namespace Accounting.Desktop
             InitializeComponent();
             _transactionController = new TransactionController();
             PopulationTransactionTable();
+            CalculateBalance();
         }
 
         public void PopulationTransactionTable()
@@ -29,14 +30,19 @@ namespace Accounting.Desktop
             _transactionController.GetTransactions(dataViewTransaction);
         }
 
+        public void CalculateBalance()
+        {
+            label1.Text = "Amount: "+_transactionController.GetTransactionBalance().ToString();
+        }
+
         private void Deposit_Click(object sender, EventArgs e)
         {
-            new Transaction(_transactionController,this,1).Show();
+            new TransactionView(_transactionController, this, 1).Show();
         }
 
         private void Withdraw_Click(object sender, EventArgs e)
         {
-            new Transaction(_transactionController, this, 2).Show();
+            new TransactionView(_transactionController, this, 2).Show();
         }
     }
 }

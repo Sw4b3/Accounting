@@ -29,8 +29,8 @@ namespace Accounting.Repository.Common
                             transaction.Amount = (decimal)reader["Amount"];
                             transaction.Timestamp =DateTime.Parse( reader["TransactionTimestamp"].ToString());
                             transaction.TransactionTypeId = (int)reader["TransactionTypeId"];
-                            transaction.AcounTypetId = (int)reader["AcounTypetId"];
-
+                            transaction.AccountType = (string)reader["AccountType"];
+                            transaction.TransactionType = (string)reader["TransactionType"];
                             transactions.Add(transaction);
                         }
                     }
@@ -49,7 +49,7 @@ namespace Accounting.Repository.Common
                 using (var command = new MySqlCommand(request, connection))
                 {
                         command.Parameters.AddWithValue("?Amount", transactions.Amount);
-                        command.Parameters.AddWithValue("?AcounTypetId", transactions.AcounTypetId);
+                        command.Parameters.AddWithValue("?AccounTypetId", transactions.AcounTypetId);
                         command.Parameters.AddWithValue("?TransactionTypeId", transactions.TransactionTypeId);
                         command.ExecuteNonQuery();  
                 }

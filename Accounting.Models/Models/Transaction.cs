@@ -16,7 +16,11 @@ namespace Accounting.Models.Models
 
         public int TransactionTypeId { get; set; }
 
-        public int AcounTypetId { get; set; }
+        public string TransactionType { get; set; }
+
+        public int AccountTypetId { get; set; }
+
+        public string AccountType { get; set; }
 
     }
 }

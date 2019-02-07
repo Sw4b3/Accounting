@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Accounting.Desktop.View
 {
-    public partial class Transaction : Form
+    public partial class TransactionView : Form
     {
         private TransactionController _transactionController;
         private MainApplication _mainform;
         private int _transactionType;
 
-        public Transaction(TransactionController transactionController, MainApplication mainform, int transactionType)
+        public TransactionView(TransactionController transactionController, MainApplication mainform, int transactionType)
         {
             InitializeComponent();
             _transactionController = transactionController;
@@ -35,6 +35,7 @@ namespace Accounting.Desktop.View
                 TransactionTypeId = _transactionType
             });
             _mainform.PopulationTransactionTable();
+            _mainform.CalculateBalance();
             this.Dispose() ;
         }
 

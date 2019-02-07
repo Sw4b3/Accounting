@@ -1,6 +1,6 @@
 ﻿namespace Accounting.Desktop.View
 {
-    partial class Transaction
+    partial class TransactionView
     {
         /// <summary>
         /// Required designer variable.
