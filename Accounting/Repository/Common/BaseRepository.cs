@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System;
+using Accounting.Models.Requests;
 
 namespace Accounting.Repository.Common
 {
@@ -26,7 +27,7 @@ namespace Accounting.Repository.Common
                             var transaction = new Transaction();
                             transaction.TransactionId = (int)reader["TransactionId"];
                             transaction.Amount = (decimal)reader["Amount"];
-                            transaction.Timestamp =DateTime.Parse( reader["Timestamp"].ToString());
+                            transaction.Timestamp =DateTime.Parse( reader["TransactionTimestamp"].ToString());
                             transaction.TransactionTypeId = (int)reader["TransactionTypeId"];
                             transaction.AcounTypetId = (int)reader["AcounTypetId"];
 
@@ -37,6 +38,22 @@ namespace Accounting.Repository.Common
             }
 
             return transactions;
+        }
+
+        public void SaveTransactions(string connectionString, string request, TransactionRequest transactions)
+        {
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (var command = new MySqlCommand(request, connection))
+                {
+                        command.Parameters.AddWithValue("?Amount", transactions.Amount);
+                        command.Parameters.AddWithValue("?AcounTypetId", transactions.AcounTypetId);
+                        command.Parameters.AddWithValue("?TransactionTypeId", transactions.TransactionTypeId);
+                        command.ExecuteNonQuery();  
+                }
+            }
         }
     }
 }

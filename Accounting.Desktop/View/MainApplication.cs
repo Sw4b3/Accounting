@@ -8,24 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Accounting.Desktop.Controller;
+using Accounting.Desktop.View;
 using Accounting.Repository;
 
 namespace Accounting.Desktop
 {
     public partial class MainApplication : Form
     {
-        private TransactionController _TransactionController;
+        private TransactionController _transactionController;
 
         public MainApplication()
         {
             InitializeComponent();
-            _TransactionController = new TransactionController();
+            _transactionController = new TransactionController();
             PopulationTransactionTable();
         }
 
         public void PopulationTransactionTable()
         {
-            _TransactionController.BindClass(dataViewTransaction);
+            _transactionController.GetTransactions(dataViewTransaction);
+        }
+
+        private void Deposit_Click(object sender, EventArgs e)
+        {
+            new Transaction(_transactionController,this,1).Show();
+        }
+
+        private void Withdraw_Click(object sender, EventArgs e)
+        {
+            new Transaction(_transactionController, this, 2).Show();
         }
     }
 }

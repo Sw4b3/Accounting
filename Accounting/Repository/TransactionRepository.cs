@@ -1,4 +1,5 @@
 ﻿using Accounting.Models.Models;
+using Accounting.Models.Requests;
 using Accounting.Repository.Common;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,11 @@ namespace Accounting.Repository
     {
         public IList<Transaction> GetTransactionsRequest() {
             return getTransactions(DatabaseConnection.connection, SQLStoredProcedures.getGetTransaction);
+        }
+
+        public void SaveTransactionsRequest(TransactionRequest request)
+        {
+            SaveTransactions(DatabaseConnection.connection, SQLStoredProcedures.saveGetTransaction, request);
         }
     }
 }

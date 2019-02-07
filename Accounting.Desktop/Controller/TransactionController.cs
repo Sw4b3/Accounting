@@ -1,4 +1,5 @@
-﻿using Accounting.Repository;
+﻿using Accounting.Models.Requests;
+using Accounting.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,14 @@ namespace Accounting.Desktop.Controller
             _TransactionRepository = new TransactionRepository();
         }
 
-        public void BindClass(DataGridView dataGridView1)
+        public void GetTransactions(DataGridView dataGridView1)
         {
             dataGridView1.DataSource = _TransactionRepository.GetTransactionsRequest().Select(x => new { x.TransactionId, x.Amount, x.Timestamp, x.AcounTypetId, x.TransactionTypeId }).ToList();
+        }
+
+        public void SaveTransaction(TransactionRequest transaction)
+        {
+            _TransactionRepository.SaveTransactionsRequest(transaction);
         }
     }
 }
