@@ -41,7 +41,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataViewTransactionInc = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataViewTransactionEx = new System.Windows.Forms.DataGridView();
@@ -53,6 +52,7 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -130,8 +130,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.dataViewTransactionInc);
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.dataViewTransactionEx);
@@ -159,17 +159,8 @@
             this.dataViewTransactionInc.ReadOnly = true;
             this.dataViewTransactionInc.RowHeadersVisible = false;
             this.dataViewTransactionInc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransactionInc.Size = new System.Drawing.Size(465, 481);
+            this.dataViewTransactionInc.Size = new System.Drawing.Size(465, 462);
             this.dataViewTransactionInc.TabIndex = 31;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 566);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Balance:";
             // 
             // button2
             // 
@@ -207,7 +198,7 @@
             this.dataViewTransactionEx.ReadOnly = true;
             this.dataViewTransactionEx.RowHeadersVisible = false;
             this.dataViewTransactionEx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransactionEx.Size = new System.Drawing.Size(465, 481);
+            this.dataViewTransactionEx.Size = new System.Drawing.Size(465, 462);
             this.dataViewTransactionEx.TabIndex = 27;
             // 
             // tabPage2
@@ -330,6 +321,15 @@
             this.dataGridView4.Size = new System.Drawing.Size(465, 481);
             this.dataGridView4.TabIndex = 29;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(21, 527);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Balance: ";
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,7 +369,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataViewTransactionInc;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataViewTransactionEx;
@@ -381,6 +380,7 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Label label3;
     }
 }
 

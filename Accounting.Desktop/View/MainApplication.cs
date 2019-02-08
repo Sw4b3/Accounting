@@ -38,7 +38,7 @@ namespace Accounting.Desktop
 
         public void CalculateBalance()
         {
-            label1.Text = "Balance: "+_transactionController.GetTransactionBalance().ToString();
+            label3.Text = "Balance: "+_transactionController.GetTransactionBalance().ToString();
         }
 
         private void Deposit_Click(object sender, EventArgs e)
