@@ -3,22 +3,23 @@ using Accounting.Models.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
 using System;
 using Accounting.Models.Requests;
+using System.Data;
 
 namespace Accounting.Repository.Common
 {
-   public class BaseRepository: IBaseReposity
+    public class BaseRepository : IBaseReposity
     {
-        public  IList<Transaction> getTransactions(string connectionString, string request) {
+        public IList<Transaction> getTransactions(string connectionString, string _transaction)
+        {
 
-            IList <Transaction> transactions = new List<Transaction>();
+            IList<Transaction> transactions = new List<Transaction>();
 
-            using (var connection = new MySqlConnection(connectionString))
+            using (var _connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-                using (var command = new MySqlCommand(request, connection))
+                _connection.Open();
+                using (var command = new SqlCommand(_transaction, _connection))
                 {
                     using (var reader = command.ExecuteReader())
                     {
@@ -27,7 +28,7 @@ namespace Accounting.Repository.Common
                             var transaction = new Transaction();
                             transaction.TransactionId = (int)reader["TransactionId"];
                             transaction.Amount = (decimal)reader["Amount"];
-                            transaction.Timestamp =DateTime.Parse( reader["TransactionTimestamp"].ToString());
+                            transaction.Timestamp = DateTime.Parse(reader["TransactionTimestamp"].ToString());
                             transaction.TransactionTypeId = (int)reader["TransactionTypeId"];
                             transaction.AccountType = (string)reader["AccountType"];
                             transaction.TransactionType = (string)reader["TransactionType"];
@@ -40,18 +41,19 @@ namespace Accounting.Repository.Common
             return transactions;
         }
 
-        public void SaveTransactions(string connectionString, string request, TransactionRequest transactions)
+        public void SaveTransactions(string _connectionString, string _transaction, TransactionRequest request)
         {
-            using (var connection = new MySqlConnection(connectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
 
-                using (var command = new MySqlCommand(request, connection))
+                using (var command = new SqlCommand(_transaction, connection))
                 {
-                        command.Parameters.AddWithValue("?Amount", transactions.Amount);
-                        command.Parameters.AddWithValue("?AccounTypetId", transactions.AcounTypetId);
-                        command.Parameters.AddWithValue("?TransactionTypeId", transactions.TransactionTypeId);
-                        command.ExecuteNonQuery();  
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@amount", SqlDbType.Decimal).Value = request.Amount;
+                    command.Parameters.AddWithValue("@accountType", SqlDbType.Int).Value = request.AcounTypetId;
+                    command.Parameters.AddWithValue("@transactionType", SqlDbType.Int).Value = request.TransactionTypeId;
+                    command.ExecuteNonQuery();
                 }
             }
         }
