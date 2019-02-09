@@ -11,16 +11,16 @@ namespace Accounting.Desktop.Controller
 {
     class ExpenseController
     {
-        public ExpenseRepository _ExpenseRepository;
+        public ExpenseRepository _expenseRepository;
 
         public ExpenseController()
         {
-            _ExpenseRepository = new ExpenseRepository();
+            _expenseRepository = new ExpenseRepository();
         }
 
         public void GetExpenses(ComboBox comboBox)
         {
-            var expenses = _ExpenseRepository.GetExpenseRequest().Select(x => new ExpenseItem { ExpenseId = x.ExpenseId, ExpenseType = x.ExpenseType }).ToList();
+            var expenses = _expenseRepository.GetExpenseRequest().Select(x => new ExpenseItem { ExpenseId = x.ExpenseId, ExpenseType = x.ExpenseType }).ToList();
             comboBox.DataSource = expenses.ToList();
         }
 

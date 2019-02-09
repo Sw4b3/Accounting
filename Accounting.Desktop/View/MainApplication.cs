@@ -21,10 +21,21 @@ namespace Accounting.Desktop
         {
             InitializeComponent();
             _transactionController = new TransactionController();
+            PopulationAll();
+            Recalculate();
+        }
+
+        public void PopulationAll ()
+        {
+            PopulationTransactionTable();
             PopulationTransactionTableGeneralExpenses();
             PopulationTransactionTablPersonalExpenses();
             PopulationTransactionTableWithdraw();
-            Recalculate();
+        }
+
+        public void PopulationTransactionTable()
+        {
+            _transactionController.GetTransactions(dataViewTransaction);
         }
 
         public void PopulationTransactionTableGeneralExpenses()
@@ -50,14 +61,17 @@ namespace Accounting.Desktop
 
         public void CalculateSubtotal()
         {
-            label1.Text = "Subtotal: " + _transactionController.GetGeneralExpenseSubtotal().ToString();
-            label2.Text = "Subtotal: " + _transactionController.GetPersonalExpenseSubtotal().ToString();
+            labelGeneralExpense.Text = "Subtotal: " + _transactionController.GetGeneralExpenseSubtotal().ToString();
+            labelPersonalExpense.Text = "Subtotal: " + _transactionController.GetPersonalExpenseSubtotal().ToString();
+            labelIncome.Text = "Subtotal: " + _transactionController.GetIncomeSubtotal().ToString();
         }
 
 
         public void CalculateBalance()
         {
-            labelBalance.Text = "Balance: "+_transactionController.GetTransactionBalance().ToString();
+            var balance = _transactionController.GetTransactionBalance().ToString();
+            labelBalanceOverview.Text = "Balance: "+balance;
+            labelBalanceTransaction.Text = "Balance: " + balance; 
         }
 
         private void Deposit_Click(object sender, EventArgs e)

@@ -57,6 +57,7 @@
     <Compile Include="Repository\Common\BaseRepository.cs" />
     <Compile Include="Repository\Common\StoredProcedure.cs" />
     <Compile Include="Repository\ExpenseRepository.cs" />
+    <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\Interface\IBaseReposity.cs" />
     <Compile Include="Repository\TransactionRepository.cs" />
   </ItemGroup>

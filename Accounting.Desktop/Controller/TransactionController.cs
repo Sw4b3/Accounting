@@ -18,6 +18,11 @@ namespace Accounting.Desktop.Controller
             _TransactionRepository = new TransactionRepository();
         }
 
+        public void GetTransactions(DataGridView dataGridView)
+        {
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Select(x => new {x.TransactionId, x.Description, x.Amount, x.Timestamp , x.TransactionType}).ToList();
+        }
+
         public void GetTransactionsGeneralExpenses(DataGridView dataGridView)
         {
             dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2 && x.ExpenseId==2).Select(x => new { x.Description, x.Amount, x.Timestamp }).ToList();
@@ -48,6 +53,11 @@ namespace Accounting.Desktop.Controller
         public double GetPersonalExpenseSubtotal()
         {
            return (double)_TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2  && x.ExpenseId == 3).Select(x => x.Amount).Sum();
+        }
+
+        public double GetIncomeSubtotal()
+        {
+            return (double)_TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
         }
 
         public void SaveTransaction(TransactionRequest transaction)

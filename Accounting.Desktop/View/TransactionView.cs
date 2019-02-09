@@ -16,6 +16,7 @@ namespace Accounting.Desktop.View
     {
         private TransactionController _transactionController;
         private ExpenseController _ExpenseController;
+        private AccountController _AccountController;
         private MainApplication _mainform;
         private int _transactionType;
 
@@ -24,10 +25,11 @@ namespace Accounting.Desktop.View
             InitializeComponent();
             _transactionController = transactionController;
             _ExpenseController = new ExpenseController();
+            _AccountController = new AccountController();
             _mainform = mainform;
             _transactionType = transactionType;
             populateExpenseComboBox();
-            getExpenseId();
+            populateAccountComboBox();
         }
 
         public void populateExpenseComboBox()
@@ -35,9 +37,9 @@ namespace Accounting.Desktop.View
             _ExpenseController.GetExpenses(comboBox1);
         }
 
-        public void getExpenseId()
+        public void populateAccountComboBox()
         {
-            Console.WriteLine();
+            _AccountController.GetAccountComboBox(comboBox2);
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -45,14 +47,12 @@ namespace Accounting.Desktop.View
             _transactionController.SaveTransaction(new TransactionRequest
             {
                 Amount = decimal.Parse(textBox1.Text),
-                AcounTypetId = int.Parse(textBox2.Text),
+                AcounTypetId = int.Parse((_AccountController.GetAccountId(comboBox2).ToString())),
                 TransactionTypeId = _transactionType,
                 ExpenseId = int.Parse(_ExpenseController.GetExpenseId(comboBox1).ToString()),
                 Description = textBox3.Text
             });
-            _mainform.PopulationTransactionTableGeneralExpenses();
-            _mainform.PopulationTransactionTablPersonalExpenses();
-            _mainform.PopulationTransactionTableWithdraw();
+            _mainform.PopulationAll();
             _mainform.Recalculate();
             this.Dispose();
         }

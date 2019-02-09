@@ -26,14 +26,14 @@ namespace Accounting.Repository.Common
                         while (reader.Read())
                         {
                             var transaction = new Transaction();
-                            transaction.TransactionId = (int)reader["TransactionId"];
+                            transaction.TransactionId = (Guid)reader["TransactionId"];
                             transaction.Description = reader["Description"].ToString().Trim();
                             transaction.Amount = (decimal)reader["Amount"];
                             transaction.Timestamp = DateTime.Parse(reader["TransactionTimestamp"].ToString());
                             transaction.TransactionTypeId = (int)reader["TransactionTypeId"];
                             transaction.ExpenseId = (int)reader["ExpenseId"];
-                            transaction.AccountType = (string)reader["AccountType"];
-                            transaction.TransactionType = (string)reader["TransactionType"];
+                            transaction.AccountType = reader["AccountType"].ToString().Trim();
+                            transaction.TransactionType = reader["TransactionType"].ToString().Trim();
                             transactions.Add(transaction);
                         }
                     }
@@ -86,6 +86,32 @@ namespace Accounting.Repository.Common
             }
 
             return expenses;
+        }
+
+        public IList<Account> GetAccounts(string connectionString, string _transaction)
+        {
+
+            IList<Account> accounts = new List<Account>();
+
+            using (var _connection = new SqlConnection(connectionString))
+            {
+                _connection.Open();
+                using (var command = new SqlCommand(_transaction, _connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var account = new Account();
+                            account.AccountId = (int)reader["AccountId"];
+                            account.AccountType = reader["AccountType"].ToString().Trim();
+                            accounts.Add(account);
+                        }
+                    }
+                }
+            }
+
+            return accounts;
         }
     }
 }
