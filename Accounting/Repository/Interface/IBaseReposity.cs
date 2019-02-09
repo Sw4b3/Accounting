@@ -11,6 +11,9 @@ namespace Accounting.Repository.Interface
     public interface IBaseReposity
     {
         IList<Transaction> getTransactions(string connectionString, string request);
+
         void SaveTransactions(string connectionString, string request, TransactionRequest transactions);
+
+        IList<Expense> GetExpenses(string connectionString, string _transaction);
     }
 }

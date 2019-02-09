@@ -61,5 +61,31 @@ namespace Accounting.Repository.Common
                 }
             }
         }
+
+        public IList<Expense> GetExpenses(string connectionString, string _transaction)
+        {
+
+            IList<Expense> expenses = new List<Expense>();
+
+            using (var _connection = new SqlConnection(connectionString))
+            {
+                _connection.Open();
+                using (var command = new SqlCommand(_transaction, _connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var expense = new Expense();
+                            expense.ExpenseId = (int)reader["ExpenseId"];
+                            expense.ExpenseType = reader["ExpenseType"].ToString().Trim();
+                            expenses.Add(expense);
+                        }
+                    }
+                }
+            }
+
+            return expenses;
+        }
     }
 }

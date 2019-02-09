@@ -15,6 +15,7 @@ namespace Accounting.Desktop.View
     public partial class TransactionView : Form
     {
         private TransactionController _transactionController;
+        private ExpenseController _ExpenseController;
         private MainApplication _mainform;
         private int _transactionType;
 
@@ -22,8 +23,21 @@ namespace Accounting.Desktop.View
         {
             InitializeComponent();
             _transactionController = transactionController;
+            _ExpenseController = new ExpenseController();
             _mainform = mainform;
             _transactionType = transactionType;
+            populateExpenseComboBox();
+            getExpenseId();
+        }
+
+        public void populateExpenseComboBox()
+        {
+            _ExpenseController.GetExpenses(comboBox1);
+        }
+
+        public void getExpenseId()
+        {
+            Console.WriteLine();
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -33,14 +47,14 @@ namespace Accounting.Desktop.View
                 Amount = decimal.Parse(textBox1.Text),
                 AcounTypetId = int.Parse(textBox2.Text),
                 TransactionTypeId = _transactionType,
-                ExpenseId = int.Parse(textBox4.Text),
-                Description =textBox3.Text
+                ExpenseId = int.Parse(_ExpenseController.GetExpenseId(comboBox1).ToString()),
+                Description = textBox3.Text
             });
             _mainform.PopulationTransactionTableGeneralExpenses();
             _mainform.PopulationTransactionTablPersonalExpenses();
             _mainform.PopulationTransactionTableWithdraw();
             _mainform.Recalculate();
-            this.Dispose() ;
+            this.Dispose();
         }
 
         private void Cancel_Click(object sender, EventArgs e)

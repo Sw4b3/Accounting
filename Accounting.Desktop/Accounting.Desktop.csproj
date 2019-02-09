@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ExpenseController.cs" />
     <Compile Include="Controller\TransactionController.cs" />
+    <Compile Include="Model\ExpenseItem.cs" />
     <Compile Include="View\TransactionView.cs">
       <SubType>Form</SubType>
     </Compile>

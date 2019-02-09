@@ -10,5 +10,6 @@ namespace Accounting.Repository.Common
     {
         public const string getGetTransaction= "spGetTransactions";
         public const string saveGetTransaction = "spSaveTransaction";
+        public const string getGetExpenses = "spGetExpenses";
     }
 }
