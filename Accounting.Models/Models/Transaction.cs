@@ -12,6 +12,8 @@ namespace Accounting.Models.Models
 
         public decimal Amount { get; set; }
 
+        public string Description { get; set; }
+
         public DateTime Timestamp { get; set; }
 
         public int TransactionTypeId { get; set; }
@@ -21,6 +23,6 @@ namespace Accounting.Models.Models
         public int AccountTypetId { get; set; }
 
         public string AccountType { get; set; }
-
+        public int ExpenseId { get; set; }
     }
 }

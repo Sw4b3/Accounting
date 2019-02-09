@@ -34,16 +34,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataViewTransactionPE = new System.Windows.Forms.DataGridView();
+            this.labelBalance = new System.Windows.Forms.Label();
             this.dataViewTransactionInc = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataViewTransactionEx = new System.Windows.Forms.DataGridView();
+            this.dataViewTransactionGE = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -52,14 +57,14 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionPE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionInc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionEx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionGE)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -130,11 +135,14 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.dataViewTransactionPE);
+            this.tabPage1.Controls.Add(this.labelBalance);
             this.tabPage1.Controls.Add(this.dataViewTransactionInc);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.dataViewTransactionEx);
+            this.tabPage1.Controls.Add(this.dataViewTransactionGE);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -143,14 +151,62 @@
             this.tabPage1.Text = "Overview";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(405, 496);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Subtotal:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(405, 290);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Subtotal: ";
+            // 
+            // dataViewTransactionPE
+            // 
+            this.dataViewTransactionPE.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransactionPE.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataViewTransactionPE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataViewTransactionPE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewTransactionPE.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransactionPE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransactionPE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTransactionPE.Location = new System.Drawing.Point(24, 306);
+            this.dataViewTransactionPE.Name = "dataViewTransactionPE";
+            this.dataViewTransactionPE.ReadOnly = true;
+            this.dataViewTransactionPE.RowHeadersVisible = false;
+            this.dataViewTransactionPE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewTransactionPE.Size = new System.Drawing.Size(465, 187);
+            this.dataViewTransactionPE.TabIndex = 34;
+            // 
+            // labelBalance
+            // 
+            this.labelBalance.AutoSize = true;
+            this.labelBalance.Location = new System.Drawing.Point(21, 527);
+            this.labelBalance.Name = "labelBalance";
+            this.labelBalance.Size = new System.Drawing.Size(52, 13);
+            this.labelBalance.TabIndex = 33;
+            this.labelBalance.Text = "Balance: ";
+            // 
             // dataViewTransactionInc
             // 
             this.dataViewTransactionInc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransactionInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransactionInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataViewTransactionInc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataViewTransactionInc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewTransactionInc.BackgroundColor = System.Drawing.Color.White;
             this.dataViewTransactionInc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataViewTransactionInc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -159,12 +215,12 @@
             this.dataViewTransactionInc.ReadOnly = true;
             this.dataViewTransactionInc.RowHeadersVisible = false;
             this.dataViewTransactionInc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransactionInc.Size = new System.Drawing.Size(465, 462);
+            this.dataViewTransactionInc.Size = new System.Drawing.Size(465, 447);
             this.dataViewTransactionInc.TabIndex = 31;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(518, 17);
+            this.button2.Location = new System.Drawing.Point(24, 17);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 23);
             this.button2.TabIndex = 29;
@@ -174,7 +230,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(24, 17);
+            this.button1.Location = new System.Drawing.Point(518, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 23);
             this.button1.TabIndex = 28;
@@ -182,24 +238,25 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Deposit_Click);
             // 
-            // dataViewTransactionEx
+            // dataViewTransactionGE
             // 
-            this.dataViewTransactionEx.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransactionEx.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataViewTransactionEx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataViewTransactionGE.AllowUserToResizeRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransactionGE.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataViewTransactionGE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataViewTransactionEx.BackgroundColor = System.Drawing.Color.White;
-            this.dataViewTransactionEx.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataViewTransactionEx.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewTransactionEx.Location = new System.Drawing.Point(24, 46);
-            this.dataViewTransactionEx.Name = "dataViewTransactionEx";
-            this.dataViewTransactionEx.ReadOnly = true;
-            this.dataViewTransactionEx.RowHeadersVisible = false;
-            this.dataViewTransactionEx.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransactionEx.Size = new System.Drawing.Size(465, 462);
-            this.dataViewTransactionEx.TabIndex = 27;
+            this.dataViewTransactionGE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewTransactionGE.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransactionGE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransactionGE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTransactionGE.Location = new System.Drawing.Point(24, 46);
+            this.dataViewTransactionGE.Name = "dataViewTransactionGE";
+            this.dataViewTransactionGE.ReadOnly = true;
+            this.dataViewTransactionGE.RowHeadersVisible = false;
+            this.dataViewTransactionGE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewTransactionGE.Size = new System.Drawing.Size(465, 241);
+            this.dataViewTransactionGE.TabIndex = 27;
             // 
             // tabPage2
             // 
@@ -215,8 +272,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -245,8 +302,8 @@
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -275,8 +332,8 @@
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -305,8 +362,8 @@
             // dataGridView4
             // 
             this.dataGridView4.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -320,15 +377,6 @@
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView4.Size = new System.Drawing.Size(465, 481);
             this.dataGridView4.TabIndex = 29;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 527);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Balance: ";
             // 
             // MainApplication
             // 
@@ -347,8 +395,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionPE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionInc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionEx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionGE)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
@@ -371,7 +420,7 @@
         private System.Windows.Forms.DataGridView dataViewTransactionInc;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataViewTransactionEx;
+        private System.Windows.Forms.DataGridView dataViewTransactionGE;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage3;
@@ -380,7 +429,10 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelBalance;
+        private System.Windows.Forms.DataGridView dataViewTransactionPE;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

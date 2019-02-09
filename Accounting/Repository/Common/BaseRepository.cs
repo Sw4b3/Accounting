@@ -27,9 +27,11 @@ namespace Accounting.Repository.Common
                         {
                             var transaction = new Transaction();
                             transaction.TransactionId = (int)reader["TransactionId"];
+                            transaction.Description = reader["Description"].ToString().Trim();
                             transaction.Amount = (decimal)reader["Amount"];
                             transaction.Timestamp = DateTime.Parse(reader["TransactionTimestamp"].ToString());
                             transaction.TransactionTypeId = (int)reader["TransactionTypeId"];
+                            transaction.ExpenseId = (int)reader["ExpenseId"];
                             transaction.AccountType = (string)reader["AccountType"];
                             transaction.TransactionType = (string)reader["TransactionType"];
                             transactions.Add(transaction);
@@ -53,6 +55,8 @@ namespace Accounting.Repository.Common
                     command.Parameters.AddWithValue("@amount", SqlDbType.Decimal).Value = request.Amount;
                     command.Parameters.AddWithValue("@accountType", SqlDbType.Int).Value = request.AcounTypetId;
                     command.Parameters.AddWithValue("@transactionType", SqlDbType.Int).Value = request.TransactionTypeId;
+                    command.Parameters.AddWithValue("@expenseId", SqlDbType.Int).Value = request.ExpenseId;
+                    command.Parameters.AddWithValue("@description", SqlDbType.VarChar).Value = request.Description;
                     command.ExecuteNonQuery();
                 }
             }

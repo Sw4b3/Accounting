@@ -32,11 +32,14 @@ namespace Accounting.Desktop.View
             {
                 Amount = decimal.Parse(textBox1.Text),
                 AcounTypetId = int.Parse(textBox2.Text),
-                TransactionTypeId = _transactionType
+                TransactionTypeId = _transactionType,
+                ExpenseId = int.Parse(textBox4.Text),
+                Description =textBox3.Text
             });
-            _mainform.PopulationTransactionTableDeposit();
+            _mainform.PopulationTransactionTableGeneralExpenses();
+            _mainform.PopulationTransactionTablPersonalExpenses();
             _mainform.PopulationTransactionTableWithdraw();
-            _mainform.CalculateBalance();
+            _mainform.Recalculate();
             this.Dispose() ;
         }
 

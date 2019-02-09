@@ -13,5 +13,9 @@ namespace Accounting.Models.Requests
         public int TransactionTypeId { get; set; }
 
         public int AcounTypetId { get; set; }
+
+        public string Description { get; set; }
+
+        public int ExpenseId { get; set; }
     }
 }

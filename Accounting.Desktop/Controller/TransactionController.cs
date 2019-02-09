@@ -18,14 +18,19 @@ namespace Accounting.Desktop.Controller
             _TransactionRepository = new TransactionRepository();
         }
 
-        public void GetTransactionsDeposit(DataGridView dataGridView1)
+        public void GetTransactionsGeneralExpenses(DataGridView dataGridView)
         {
-            dataGridView1.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 1).Select(x => new { x.TransactionId, x.Amount, x.Timestamp, x.AccountType, x.TransactionType }).ToList();
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2 && x.ExpenseId==2).Select(x => new { x.Description, x.Amount, x.Timestamp }).ToList();
         }
 
-        public void GetTransactionsWithdraw(DataGridView dataGridView1)
+        public void GetTransactionsPersonalExpenses(DataGridView dataGridView)
         {
-            dataGridView1.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2).Select(x => new { x.TransactionId, x.Amount, x.Timestamp, x.AccountType, x.TransactionType }).ToList();
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 3).Select(x => new { x.Description, x.Amount, x.Timestamp}).ToList();
+        }
+
+        public void GetTransactionsWithdraw(DataGridView dataGridView)
+        {
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.Timestamp}).ToList();
         }
 
         public double GetTransactionBalance()
@@ -33,6 +38,16 @@ namespace Accounting.Desktop.Controller
             var deposits = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
             var withdaws = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2).Select(x => x.Amount).Sum(); 
             return (double)deposits - (double)withdaws;
+        }
+
+        public double GetGeneralExpenseSubtotal()
+        {
+            return (double)_TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2 && x.ExpenseId==2).Select(x => x.Amount).Sum();
+        }
+
+        public double GetPersonalExpenseSubtotal()
+        {
+           return (double)_TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2  && x.ExpenseId == 3).Select(x => x.Amount).Sum();
         }
 
         public void SaveTransaction(TransactionRequest transaction)

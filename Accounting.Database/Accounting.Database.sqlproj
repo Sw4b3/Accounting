@@ -67,5 +67,6 @@
     <Build Include="dbo\Tables\AccountTypes.sql" />
     <Build Include="dbo\Stored Procedures\spSaveTransaction.sql" />
     <Build Include="dbo\Stored Procedures\spGetTransactions.sql" />
+    <Build Include="dbo\Tables\ExpenseTypes.sql" />
   </ItemGroup>
 </Project>
