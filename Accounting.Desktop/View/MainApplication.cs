@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Accounting.Desktop.Controller;
 using Accounting.Desktop.View;
+using Accounting.Models.Requests;
 using Accounting.Repository;
 
 namespace Accounting.Desktop
@@ -36,6 +37,15 @@ namespace Accounting.Desktop
         public void PopulationTransactionTable()
         {
             _transactionController.GetTransactions(dataViewTransaction);
+        }
+
+        public void PopulationTransactionTableByDate()
+        {
+            _transactionController.GetTransactionsByDate(dataViewTransaction, new TransactionRequest()
+            {
+                StartDate = dateTimePicker1.Value.ToString("yyyy-MM-dd"),
+                EndDate = dateTimePicker2.Value.ToString("yyyy-MM-dd"),
+            });
         }
 
         public void PopulationTransactionTableGeneralExpenses()
@@ -82,6 +92,11 @@ namespace Accounting.Desktop
         private void Withdraw_Click(object sender, EventArgs e)
         {
             new TransactionView(_transactionController, this, 2).Show();
+        }
+
+        private void FilterByDate_Click(object sender, EventArgs e)
+        {
+            PopulationTransactionTableByDate();
         }
 
         private void Shutdown_Click(object sender, EventArgs e)

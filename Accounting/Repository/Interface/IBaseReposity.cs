@@ -10,7 +10,9 @@ namespace Accounting.Repository.Interface
 {
     public interface IBaseReposity
     {
-        IList<Transaction> getTransactions(string connectionString, string request);
+        IList<Transaction> GetTransactions(string connectionString, string request);
+
+        IList<Transaction> GetTransactionsByDate(string connectionString, string _transaction, TransactionRequest request);
 
         void SaveTransactions(string connectionString, string request, TransactionRequest transactions);
 

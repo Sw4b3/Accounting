@@ -17,5 +17,9 @@ namespace Accounting.Models.Requests
         public string Description { get; set; }
 
         public int ExpenseId { get; set; }
+
+        public string StartDate { get; set; }
+
+        public string EndDate { get; set; }
     }
 }

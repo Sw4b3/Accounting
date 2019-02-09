@@ -9,6 +9,7 @@ namespace Accounting.Repository.Common
     public static class SQLStoredProcedures
     {
         public const string getGetTransaction= "spGetTransactions";
+        public const string getGetTransactionByDate = "spGetTransactionsByDate";
         public const string saveGetTransaction = "spSaveTransaction";
         public const string getGetExpenses = "spGetExpenses";
         public const string getGetAccounts = "spGetAccounts";

@@ -12,7 +12,12 @@ namespace Accounting.Repository
     public class TransactionRepository: BaseRepository
     {
         public IList<Transaction> GetTransactionsRequest() {
-            return getTransactions(DatabaseConnection.connection, SQLStoredProcedures.getGetTransaction);
+            return GetTransactions(DatabaseConnection.connection, SQLStoredProcedures.getGetTransaction);
+        }
+
+        public IList<Transaction> GetTransactionsByDateRequest(TransactionRequest request)
+        {
+            return GetTransactionsByDate(DatabaseConnection.connection, SQLStoredProcedures.getGetTransactionByDate, request);
         }
 
         public void SaveTransactionsRequest(TransactionRequest request)
