@@ -17,11 +17,13 @@ namespace Accounting.Desktop
     public partial class MainApplication : Form
     {
         private TransactionController _transactionController;
+        private AccountController _accountController;
 
         public MainApplication()
         {
             InitializeComponent();
             _transactionController = new TransactionController();
+            _accountController = new AccountController();
             PopulationAll();
             Recalculate();
         }
@@ -63,6 +65,10 @@ namespace Accounting.Desktop
             _transactionController.GetTransactionsWithdraw(dataViewTransactionInc);
         }
 
+        public void PopulateAccountTable() {
+            _accountController.GetAccount(dataGridAccount);
+        }
+
         public void Recalculate()
         {
             CalculateBalance();
@@ -99,9 +105,29 @@ namespace Accounting.Desktop
             PopulationTransactionTableByDate();
         }
 
+        private void AddAccount_Click(object sender, EventArgs e)
+        {
+            new AccountView(this).Show();
+        }
+
         private void Shutdown_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tabControl2.SelectedTab.Name)
+            {
+                case "tabPage5" :
+                    PopulationAll();
+                    break;
+                case "tabPage6":
+                    PopulateAccountTable();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

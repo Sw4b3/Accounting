@@ -1,4 +1,5 @@
 ﻿using Accounting.Desktop.Model;
+using Accounting.Models.Requests;
 using Accounting.Repository.Interface;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,10 @@ namespace Accounting.Desktop.Controller
             _accountRepository = new AccountRepository();
         }
 
+        public void GetAccount(DataGridView dataGrid) {
+            dataGrid.DataSource= _accountRepository.GetAccountRequest().Select(x => new {   x.AccountId,  x.AccountType }).ToList();
+        }
+
         public void GetAccountComboBox(ComboBox comboBox)
         {
             var expenses = _accountRepository.GetAccountRequest().Select(x => new AccountItem { AccountId = x.AccountId, AccountType = x.AccountType }).ToList();
@@ -27,6 +32,11 @@ namespace Accounting.Desktop.Controller
         public int GetAccountId(ComboBox comboBox)
         {
             return ((AccountItem)comboBox.SelectedItem).AccountId;
+        }
+
+        public void SaveAccount(AccountRequest account)
+        {
+            _accountRepository.SaveAccountRequest(account);
         }
     }
 }

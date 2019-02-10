@@ -149,5 +149,21 @@ namespace Accounting.Repository.Common
 
             return accounts;
         }
+
+        public void SaveAccount(string _connectionString, string _transaction, AccountRequest request)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                using (var command = new SqlCommand(_transaction, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@accountType", SqlDbType.VarChar).Value = request.AccountType;
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
 }

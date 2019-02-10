@@ -51,6 +51,12 @@
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Model\AccountItem.cs" />
     <Compile Include="Model\ExpenseItem.cs" />
+    <Compile Include="View\AccountView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AccountView.Designer.cs">
+      <DependentUpon>AccountView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\TransactionView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AccountView.resx">
+      <DependentUpon>AccountView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\TransactionView.resx">
       <DependentUpon>TransactionView.cs</DependentUpon>
     </EmbeddedResource>
