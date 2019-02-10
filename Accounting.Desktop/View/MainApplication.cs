@@ -113,7 +113,7 @@ namespace Accounting.Desktop
         public void CalculateBalance()
         {
             var accountId = _accountController.GetAccountId(comboBoxAccount);
-            var balance = _transactionController.GetTransactionBalance().ToString();
+            var balance = _transactionController.GetTransactionBalance(1).ToString("0.##");
             labelBalanceOverview.Text = "Balance: "+balance;
             labelBalanceTransaction.Text = "Balance: " + balance; 
         }

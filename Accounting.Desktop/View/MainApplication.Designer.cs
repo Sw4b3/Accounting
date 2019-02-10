@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -174,7 +174,7 @@
             // labelIncome
             // 
             this.labelIncome.AutoSize = true;
-            this.labelIncome.Location = new System.Drawing.Point(901, 496);
+            this.labelIncome.Location = new System.Drawing.Point(887, 496);
             this.labelIncome.Name = "labelIncome";
             this.labelIncome.Size = new System.Drawing.Size(49, 13);
             this.labelIncome.TabIndex = 40;
@@ -210,7 +210,7 @@
             // labelPersonalExpense
             // 
             this.labelPersonalExpense.AutoSize = true;
-            this.labelPersonalExpense.Location = new System.Drawing.Point(405, 496);
+            this.labelPersonalExpense.Location = new System.Drawing.Point(391, 496);
             this.labelPersonalExpense.Name = "labelPersonalExpense";
             this.labelPersonalExpense.Size = new System.Drawing.Size(49, 13);
             this.labelPersonalExpense.TabIndex = 36;
@@ -219,7 +219,7 @@
             // labelGeneralExpense
             // 
             this.labelGeneralExpense.AutoSize = true;
-            this.labelGeneralExpense.Location = new System.Drawing.Point(405, 273);
+            this.labelGeneralExpense.Location = new System.Drawing.Point(391, 273);
             this.labelGeneralExpense.Name = "labelGeneralExpense";
             this.labelGeneralExpense.Size = new System.Drawing.Size(52, 13);
             this.labelGeneralExpense.TabIndex = 35;
@@ -228,8 +228,8 @@
             // dataViewTransactionPE
             // 
             this.dataViewTransactionPE.AllowUserToResizeRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransactionPE.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransactionPE.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataViewTransactionPE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataViewTransactionPE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewTransactionPE.BackgroundColor = System.Drawing.Color.White;
@@ -255,8 +255,8 @@
             // dataViewTransactionInc
             // 
             this.dataViewTransactionInc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransactionInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransactionInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataViewTransactionInc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataViewTransactionInc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewTransactionInc.BackgroundColor = System.Drawing.Color.White;
@@ -273,8 +273,8 @@
             // dataViewTransactionGE
             // 
             this.dataViewTransactionGE.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransactionGE.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransactionGE.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataViewTransactionGE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataViewTransactionGE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewTransactionGE.BackgroundColor = System.Drawing.Color.White;
@@ -396,8 +396,8 @@
             // dataViewTransaction
             // 
             this.dataViewTransaction.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataViewTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -432,8 +432,8 @@
             // dataViewTransfer
             // 
             this.dataViewTransfer.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransfer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransfer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataViewTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -521,8 +521,8 @@
             // dataGridAccount
             // 
             this.dataGridAccount.AllowUserToResizeRows = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
