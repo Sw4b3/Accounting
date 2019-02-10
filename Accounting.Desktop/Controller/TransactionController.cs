@@ -18,6 +18,11 @@ namespace Accounting.Desktop.Controller
             _TransactionRepository = new TransactionRepository();
         }
 
+        public void GetTransactions(DataGridView dataGridView)
+        {
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Select(x => new { x.TransactionId, x.Description, x.Amount, x.Timestamp, x.TransactionType }).ToList();
+        }
+
         public void GetTransactions(DataGridView dataGridView, int i)
         {
             dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypetId == i).Select(x => new { x.TransactionId, x.Description, x.Amount, x.Timestamp, x.TransactionType }).ToList();
@@ -30,17 +35,17 @@ namespace Accounting.Desktop.Controller
 
         public void GetTransactionsGeneralExpenses(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2).Select(x => new { x.Description, x.Amount, x.Timestamp }).ToList();
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypetId == 1 && x.TransactionTypeId == 2 && x.ExpenseId == 2).Select(x => new { x.Description, x.Amount, x.Timestamp }).ToList();
         }
 
         public void GetTransactionsPersonalExpenses(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 3).Select(x => new { x.Description, x.Amount, x.Timestamp }).ToList();
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypetId == 1 && x.TransactionTypeId == 2 && x.ExpenseId == 3).Select(x => new { x.Description, x.Amount, x.Timestamp }).ToList();
         }
 
         public void GetTransactionsWithdraw(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.Timestamp }).ToList();
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypetId==1 && x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.Timestamp }).ToList();
         }
 
         public double GetTransactionBalance()

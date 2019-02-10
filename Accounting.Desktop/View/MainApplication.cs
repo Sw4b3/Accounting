@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Accounting.Desktop.Controller;
 using Accounting.Desktop.View;
+using Accounting.Desktop.View.Dialog;
 using Accounting.Models.Requests;
 using Accounting.Repository;
 
@@ -31,15 +32,22 @@ namespace Accounting.Desktop
         public void PopulationAll ()
         {
             PopulationTransactionTable();
+            PopulationTransferTable();
             PopulationTransactionTableGeneralExpenses();
             PopulationTransactionTablPersonalExpenses();
             PopulationTransactionTableWithdraw();
             populateAccountComboBox();
+            populateTransferComboBox();
         }
 
         public void PopulationTransactionTable()
         {
             _transactionController.GetTransactions(dataViewTransaction,1);
+        }
+
+        public void PopulationTransferTable()
+        {
+            _transactionController.GetTransactions(dataViewTransfer);
         }
 
         public void PopulationTransactionTableByDate()
@@ -72,11 +80,17 @@ namespace Accounting.Desktop
 
         public void populateAccountComboBox()
         {
-            _accountController.GetAccountComboBox(comboBox2);
+            _accountController.GetAccountComboBox(comboBoxAccount);
+        }
+
+        public void populateTransferComboBox()
+        {
+            _accountController.GetAccountComboBox(comboBoxTransfer1);
+            _accountController.GetAccountComboBox(comboBoxTransfer2);
         }
 
         public void FilterByAccount() {
-            var accountId = _accountController.GetAccountId(comboBox2);
+            var accountId = _accountController.GetAccountId(comboBoxAccount);
             var balance = _transactionController.GetTransactionBalance(accountId).ToString();
             _transactionController.GetTransactions(dataViewTransaction, accountId);
             labelBalanceTransaction.Text = "Balance: " + balance;
@@ -98,7 +112,7 @@ namespace Accounting.Desktop
 
         public void CalculateBalance()
         {
-            var accountId = _accountController.GetAccountId(comboBox2);
+            var accountId = _accountController.GetAccountId(comboBoxAccount);
             var balance = _transactionController.GetTransactionBalance().ToString();
             labelBalanceOverview.Text = "Balance: "+balance;
             labelBalanceTransaction.Text = "Balance: " + balance; 
@@ -147,6 +161,18 @@ namespace Accounting.Desktop
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             FilterByAccount();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Transfer_Click(object sender, EventArgs e)
+        {
+            var transfer1= _accountController.GetAccountId(comboBoxTransfer1);
+            var transfer2= _accountController.GetAccountId(comboBoxTransfer2);
+            new TransferDialog(this, transfer1, transfer2).Show();
         }
     }
 }
