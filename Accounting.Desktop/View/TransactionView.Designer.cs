@@ -45,7 +45,7 @@
             this.textBox1.Location = new System.Drawing.Point(134, 65);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(134, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.TabIndex = 1;
             // 
             // label1
             // 
@@ -70,7 +70,7 @@
             this.button1.Location = new System.Drawing.Point(62, 170);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Save_Click);
@@ -80,7 +80,7 @@
             this.button2.Location = new System.Drawing.Point(143, 170);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Cancel_Click);
@@ -99,7 +99,7 @@
             this.textBox3.Location = new System.Drawing.Point(134, 39);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(134, 20);
-            this.textBox3.TabIndex = 9;
+            this.textBox3.TabIndex = 0;
             // 
             // label4
             // 
@@ -117,7 +117,7 @@
             this.comboBox1.Location = new System.Drawing.Point(134, 118);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(134, 21);
-            this.comboBox1.TabIndex = 13;
+            this.comboBox1.TabIndex = 4;
             // 
             // comboBox2
             // 
@@ -126,7 +126,7 @@
             this.comboBox2.Location = new System.Drawing.Point(134, 91);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(134, 21);
-            this.comboBox2.TabIndex = 14;
+            this.comboBox2.TabIndex = 3;
             // 
             // TransactionView
             // 
