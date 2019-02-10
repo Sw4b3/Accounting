@@ -34,11 +34,12 @@ namespace Accounting.Desktop
             PopulationTransactionTableGeneralExpenses();
             PopulationTransactionTablPersonalExpenses();
             PopulationTransactionTableWithdraw();
+            populateAccountComboBox();
         }
 
         public void PopulationTransactionTable()
         {
-            _transactionController.GetTransactions(dataViewTransaction);
+            _transactionController.GetTransactions(dataViewTransaction,1);
         }
 
         public void PopulationTransactionTableByDate()
@@ -69,6 +70,18 @@ namespace Accounting.Desktop
             _accountController.GetAccount(dataGridAccount);
         }
 
+        public void populateAccountComboBox()
+        {
+            _accountController.GetAccountComboBox(comboBox2);
+        }
+
+        public void FilterByAccount() {
+            var accountId = _accountController.GetAccountId(comboBox2);
+            var balance = _transactionController.GetTransactionBalance(accountId).ToString();
+            _transactionController.GetTransactions(dataViewTransaction, accountId);
+            labelBalanceTransaction.Text = "Balance: " + balance;
+        }
+
         public void Recalculate()
         {
             CalculateBalance();
@@ -85,9 +98,25 @@ namespace Accounting.Desktop
 
         public void CalculateBalance()
         {
+            var accountId = _accountController.GetAccountId(comboBox2);
             var balance = _transactionController.GetTransactionBalance().ToString();
             labelBalanceOverview.Text = "Balance: "+balance;
             labelBalanceTransaction.Text = "Balance: " + balance; 
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tabControl2.SelectedTab.Name)
+            {
+                case "tabPage5":
+                    PopulationAll();
+                    break;
+                case "tabPage6":
+                    PopulateAccountTable();
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void Deposit_Click(object sender, EventArgs e)
@@ -115,19 +144,9 @@ namespace Accounting.Desktop
             Application.Exit();
         }
 
-        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (tabControl2.SelectedTab.Name)
-            {
-                case "tabPage5" :
-                    PopulationAll();
-                    break;
-                case "tabPage6":
-                    PopulateAccountTable();
-                    break;
-                default:
-                    break;
-            }
+            FilterByAccount();
         }
     }
 }

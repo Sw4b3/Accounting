@@ -32,6 +32,7 @@ namespace Accounting.Repository.Common
                             transaction.Timestamp = DateTime.Parse(reader["TransactionTimestamp"].ToString());
                             transaction.TransactionTypeId = (int)reader["TransactionTypeId"];
                             transaction.ExpenseId = (int)reader["ExpenseId"];
+                            transaction.AccountTypetId = (int)reader["AccountId"];
                             transaction.AccountType = reader["AccountType"].ToString().Trim();
                             transaction.TransactionType = reader["TransactionType"].ToString().Trim();
                             transactions.Add(transaction);
