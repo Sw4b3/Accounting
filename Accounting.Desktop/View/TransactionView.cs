@@ -50,11 +50,11 @@ namespace Accounting.Desktop.View
             {
                 _transactionController.SaveTransaction(new TransactionRequest
                 {
-                    Amount = decimal.Parse(textBox1.Text),
-                    AcounTypetId = int.Parse((_AccountController.GetAccountId(comboBox2).ToString())),
+                    Amount = decimal.Parse(textBox1.Text.Trim()),
+                    AcounTypetId = int.Parse((_AccountController.GetAccountId(comboBox2).ToString().Trim())),
                     TransactionTypeId = _transactionType,
-                    ExpenseId = int.Parse(_ExpenseController.GetExpenseId(comboBox1).ToString()),
-                    Description = textBox3.Text
+                    ExpenseId = int.Parse(_ExpenseController.GetExpenseId(comboBox1).ToString().Trim()),
+                    Description = textBox3.Text.Trim()
                 });
                 _mainform.PopulationAll();
                 _mainform.Recalculate();

@@ -29,7 +29,7 @@ namespace Accounting.Repository.Common
                             transaction.TransactionId = (Guid)reader["TransactionId"];
                             transaction.Description = reader["Description"].ToString().Trim();
                             transaction.Amount = (decimal)reader["Amount"];
-                            transaction.Timestamp = DateTime.Parse(reader["TransactionTimestamp"].ToString());
+                            transaction.TransactionTimestamp =(DateTime)(reader["TransactionTimestamp"]);
                             transaction.TransactionTypeId = (int)reader["TransactionTypeId"];
                             transaction.ExpenseId = (int)reader["ExpenseId"];
                             transaction.AccountTypetId = (int)reader["AccountId"];
@@ -66,7 +66,7 @@ namespace Accounting.Repository.Common
                             transaction.TransactionId = (Guid)reader["TransactionId"];
                             transaction.Description = reader["Description"].ToString().Trim();
                             transaction.Amount = (decimal)reader["Amount"];
-                            transaction.Timestamp = DateTime.Parse(reader["TransactionTimestamp"].ToString());
+                            transaction.TransactionTimestamp = DateTime.Parse(reader["TransactionTimestamp"].ToString());
                             transaction.TransactionTypeId = (int)reader["TransactionTypeId"];
                             transaction.ExpenseId = (int)reader["ExpenseId"];
                             transaction.AccountType = reader["AccountType"].ToString().Trim();
