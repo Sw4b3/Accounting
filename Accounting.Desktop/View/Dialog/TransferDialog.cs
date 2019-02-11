@@ -1,4 +1,5 @@
-﻿using Accounting.Desktop.Controller;
+﻿using Accounting.Desktop.Common;
+using Accounting.Desktop.Controller;
 using Accounting.Models.Requests;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Accounting.Desktop.View.Dialog
     {
         private TransactionController _transactionController;
         private MainApplication _mainform;
+        private Validator _validator;
         private int _transfer1;
         private int _transfer2;
 
@@ -23,6 +25,7 @@ namespace Accounting.Desktop.View.Dialog
         {
             InitializeComponent();
             _transactionController = new TransactionController();
+            _validator = new Validator();
             _mainform = mainApplication;
             _transfer1 = transfer1;
             _transfer2 = transfer2;
@@ -52,13 +55,24 @@ namespace Accounting.Desktop.View.Dialog
             });
         }
 
+        public void saveTransfer() {
+            if (_validator.IsNumber(textBox3.Text))
+            {
+                tranferWithdraw();
+                tranferDepost();
+                _mainform.PopulationAll();
+                _mainform.Recalculate();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid amount", "Error", MessageBoxButtons.OK);
+            }
+        }
+
         private void Save_Click(object sender, EventArgs e)
         {
-            tranferWithdraw();
-            tranferDepost();
-            _mainform.PopulationAll();
-            _mainform.Recalculate();
-            this.Dispose();
+            saveTransfer();
         }
 
         private void Cancel_Click(object sender, EventArgs e)
