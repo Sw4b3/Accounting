@@ -19,7 +19,7 @@ namespace Accounting.Repository.Common
             return res;
         }
 
-        public IList<Transaction> GetTransactionsByDate(string _connectionString, string _transaction, TransactionRequest request)
+        public IList<Transaction> GetTransactionsByDate(string _connectionString, string _transaction, TransactionByDateRequest request)
         {
             List<SqlParameter> sqlParameters = new List<SqlParameter>()
             {

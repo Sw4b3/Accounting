@@ -52,7 +52,7 @@ namespace Accounting.Desktop
 
         public void PopulationTransactionTableByDate()
         {
-            _transactionController.GetTransactionsByDate(dataViewTransaction, new TransactionRequest()
+            _transactionController.GetTransactionsByDate(dataViewTransaction, new TransactionByDateRequest()
             {
                 StartDate = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd")),
                 EndDate = DateTime.Parse(dateTimePicker2.Value.ToString("yyyy-MM-dd")),

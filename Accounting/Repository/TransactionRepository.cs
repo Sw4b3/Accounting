@@ -16,7 +16,7 @@ namespace Accounting.Repository
             return GetTransactions(DatabaseConnection.connection, SQLStoredProcedures.getGetTransaction);
         }
 
-        public IList<Transaction> GetTransactionsByDateRequest(TransactionRequest request)
+        public IList<Transaction> GetTransactionsByDateRequest(TransactionByDateRequest request)
         {
             return GetTransactionsByDate(DatabaseConnection.connection, SQLStoredProcedures.getGetTransactionByDate, request);
         }

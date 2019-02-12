@@ -12,7 +12,7 @@ namespace Accounting.Repository.Interface
     {
         IList<Transaction> GetTransactions(string connectionString, string request);
 
-        IList<Transaction> GetTransactionsByDate(string connectionString, string _transaction, TransactionRequest request);
+        IList<Transaction> GetTransactionsByDate(string connectionString, string _transaction, TransactionByDateRequest request);
 
         void SaveTransactions(string connectionString, string request, TransactionRequest transactions);
 
