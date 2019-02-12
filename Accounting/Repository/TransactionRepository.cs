@@ -11,7 +11,8 @@ namespace Accounting.Repository
 {
     public class TransactionRepository: BaseRepository
     {
-        public IList<Transaction> GetTransactionsRequest() {
+        public IList<Transaction> GetTransactionsRequest()
+        {
             return GetTransactions(DatabaseConnection.connection, SQLStoredProcedures.getGetTransaction);
         }
 
@@ -22,7 +23,7 @@ namespace Accounting.Repository
 
         public void SaveTransactionsRequest(TransactionRequest request)
         {
-            SaveTransactions(DatabaseConnection.connection, SQLStoredProcedures.saveGetTransaction, request);
+            SaveTransactions(DatabaseConnection.connection, SQLStoredProcedures.saveTransaction, request);
         }
     }
 }

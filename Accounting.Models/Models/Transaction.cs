@@ -14,7 +14,7 @@ namespace Accounting.Models.Models
 
         public string Description { get; set; }
 
-        public DateTime Timestamp { get; set; }
+        public DateTime TransactionTimestamp { get; set; }
 
         public int TransactionTypeId { get; set; }
 
@@ -23,6 +23,7 @@ namespace Accounting.Models.Models
         public int AccountTypetId { get; set; }
 
         public string AccountType { get; set; }
+
         public int ExpenseId { get; set; }
     }
 }

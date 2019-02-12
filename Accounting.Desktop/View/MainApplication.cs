@@ -54,8 +54,8 @@ namespace Accounting.Desktop
         {
             _transactionController.GetTransactionsByDate(dataViewTransaction, new TransactionRequest()
             {
-                StartDate = dateTimePicker1.Value.ToString("yyyy-MM-dd"),
-                EndDate = dateTimePicker2.Value.ToString("yyyy-MM-dd"),
+                StartDate = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd")),
+                EndDate = DateTime.Parse(dateTimePicker2.Value.ToString("yyyy-MM-dd")),
             });
         }
 
