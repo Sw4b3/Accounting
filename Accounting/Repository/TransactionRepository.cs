@@ -11,15 +11,9 @@ namespace Accounting.Repository
 {
     public class TransactionRepository: BaseRepository
     {
-        //public IList<Transaction> GetTransactionsRequest() {
-        //    return GetTransactions(DatabaseConnection.connection, SQLStoredProcedures.getGetTransaction);
-        //}
-
         public IList<Transaction> GetTransactionsRequest()
         {
-            DapperRepository _dapperRepository = new DapperRepository();
-            var res= _dapperRepository.ExecuteAsStoredProcAsync<Transaction>(DatabaseConnection.connection, SQLStoredProcedures.getGetTransaction);
-            return res;
+            return GetTransactions(DatabaseConnection.connection, SQLStoredProcedures.getGetTransaction);
         }
 
         public IList<Transaction> GetTransactionsByDateRequest(TransactionRequest request)
@@ -29,7 +23,7 @@ namespace Accounting.Repository
 
         public void SaveTransactionsRequest(TransactionRequest request)
         {
-            SaveTransactions(DatabaseConnection.connection, SQLStoredProcedures.saveGetTransaction, request);
+            SaveTransactions(DatabaseConnection.connection, SQLStoredProcedures.saveTransaction, request);
         }
     }
 }
