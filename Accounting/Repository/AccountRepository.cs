@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Repository.Interface
 {
-    public class AccountRepository : BaseRepository
+    public class AccountRepository : BaseRepository, IAccountRepository
     {
         public IList<Account> GetAccountRequest()
         {

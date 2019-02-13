@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Repository
 {
-    public class ExpenseRepository: BaseRepository
+    public class ExpenseRepository: BaseRepository, IExpenseRepository
     {
         public IList<Expense> GetExpenseRequest()
         {

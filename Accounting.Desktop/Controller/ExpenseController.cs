@@ -1,17 +1,14 @@
 ﻿using Accounting.Desktop.Model;
 using Accounting.Repository;
-using System;
-using System.Collections.Generic;
+using Accounting.Repository.Interface;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.Controller
 {
     class ExpenseController
     {
-        public ExpenseRepository _expenseRepository;
+        private readonly IExpenseRepository _expenseRepository;
 
         public ExpenseController()
         {

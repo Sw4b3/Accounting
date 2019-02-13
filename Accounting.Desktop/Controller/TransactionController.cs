@@ -1,5 +1,6 @@
 ﻿using Accounting.Models.Requests;
 using Accounting.Repository;
+using Accounting.Repository.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Accounting.Desktop.Controller
 {
     public class TransactionController
     {
-        private TransactionRepository _TransactionRepository;
+        private readonly ITransactionRepository _TransactionRepository;
 
         public TransactionController()
         {

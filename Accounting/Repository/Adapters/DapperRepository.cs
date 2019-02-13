@@ -8,7 +8,7 @@ namespace Accounting.Repository.Common
 {
     public class DapperRepository
     {
-        public IList<T> ExecuteAsStoredProc<T>(string connectionString, string storedProcedureName)
+        public static IList<T> ExecuteAsStoredProc<T>(string connectionString, string storedProcedureName)
         {
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
@@ -17,7 +17,7 @@ namespace Accounting.Repository.Common
             }
         }
 
-        public IList<T> ExecuteStoredProc<T>(string connectionString, string storedProcedureName, object request)
+        public static IList<T> ExecuteStoredProc<T>(string connectionString, string storedProcedureName, object request)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -30,7 +30,7 @@ namespace Accounting.Repository.Common
             }
         }
 
-        public void ExecuteStoredProc(string connectionString, string storedProcedureName, object request)
+        public static void ExecuteStoredProc(string connectionString, string storedProcedureName, object request)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -43,7 +43,3 @@ namespace Accounting.Repository.Common
         }
     }
 }
-
-
-
-////https://stackoverflow.com/questions/21598437/execute-stored-procedure-w-parameters-in-dapper?rq=1
