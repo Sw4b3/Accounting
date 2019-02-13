@@ -21,26 +21,13 @@ namespace Accounting.Repository.Common
 
         public IList<Transaction> GetTransactionsByDate(string _connectionString, string _transaction, TransactionByDateRequest request)
         {
-            List<SqlParameter> sqlParameters = new List<SqlParameter>()
-            {
-                new SqlParameter("@startDate", SqlDbType.DateTime){Value = request.StartDate},
-                new SqlParameter("@endDate", SqlDbType.DateTime) { Value = request.EndDate }
-            };
-
-            var res = _dapperRepository.ExecuteStoredProc<Transaction>(_connectionString, _transaction, sqlParameters);
+            var res = _dapperRepository.ExecuteStoredProc<Transaction>(_connectionString, _transaction, request);
             return res;
         }
 
         public void SaveTransactions(string _connectionString, string _transaction, TransactionRequest request)
         {
-            List<SqlParameter> sqlParameters = new List<SqlParameter>() {
-                new SqlParameter("@amount", SqlDbType.Decimal){Value = request.Amount },
-                new SqlParameter("@accountType", SqlDbType.Int){Value = request.AcounTypetId },
-                new SqlParameter("@transactionType", SqlDbType.Int){Value = request.TransactionTypeId },
-                new SqlParameter("@expenseId", SqlDbType.Int){Value = request.ExpenseId },
-                new SqlParameter("@description", SqlDbType.VarChar){Value = request.Description }
-                };
-            _dapperRepository.ExecuteStoredProc(_connectionString, _transaction, sqlParameters);
+            _dapperRepository.ExecuteStoredProc(_connectionString, _transaction, request);
         }
 
         public IList<Expense> GetExpenses(string connectionString, string _transaction)
@@ -57,10 +44,7 @@ namespace Accounting.Repository.Common
 
         public void SaveAccount(string _connectionString, string _transaction, AccountRequest request)
         {
-            List<SqlParameter> sqlParameters = new List<SqlParameter>() {
-                new SqlParameter("@accountType", SqlDbType.VarChar){Value = request.AccountType },
-                };
-            _dapperRepository.ExecuteStoredProc(_connectionString, _transaction, sqlParameters);
+            _dapperRepository.ExecuteStoredProc(_connectionString, _transaction, request);
 
         }
     }

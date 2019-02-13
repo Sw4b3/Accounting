@@ -17,34 +17,26 @@ namespace Accounting.Repository.Common
             }
         }
 
-        public IList<T> ExecuteStoredProc<T>(string connectionString, string storedProcedureName, List<SqlParameter> parameters)
+        public IList<T> ExecuteStoredProc<T>(string connectionString, string storedProcedureName, object request)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var queryParameters = new DynamicParameters();
-                if (parameters != null)
-                {
-                    foreach (SqlParameter sp in parameters)
-                        queryParameters.Add(sp.ParameterName, sp.SqlValue, sp.DbType);
-                }
+
+                var queryParameters = new DynamicParameters(request);
 
                 var res = connection.Query<T>(storedProcedureName, queryParameters, commandType: CommandType.StoredProcedure).ToList();
                 return res;
             }
         }
 
-        public void ExecuteStoredProc(string connectionString, string storedProcedureName, List<SqlParameter> parameters)
+        public void ExecuteStoredProc(string connectionString, string storedProcedureName, object request)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                var queryParameters = new DynamicParameters();
-                if (parameters != null)
-                {
-                    foreach (SqlParameter parameter in parameters)
-                        queryParameters.Add(parameter.ParameterName, parameter.SqlValue, parameter.DbType);
-                }
+
+                var queryParameters = new DynamicParameters(request);
 
                 var res = connection.Query(storedProcedureName, queryParameters, commandType: CommandType.StoredProcedure).ToList();
             }
