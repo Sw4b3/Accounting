@@ -1,8 +1,8 @@
 ﻿
 CREATE PROCEDURE [dbo].[spSaveTransaction]
-@amount decimal,@accountType int,@expenseId int,@transactionType int, @description varchar(100)
+@amount decimal,@accountTypeId int,@expenseId int,@transactionTypeId int, @description varchar(100)
 AS
 BEGIN
-		insert into Transactions(Description,Amount, AccountTypetId,ExpenseId, TransactionTypeId,TransactionTimestamp)
-		values (@description,@amount, @accountType ,@expenseId,@transactionType, CURRENT_TIMESTAMP)
+		insert into Transactions(Description,Amount, AccountTypeId,ExpenseId, TransactionTypeId,TransactionTimestamp)
+		values (@description,@amount, @accountTypeId ,@expenseId,@transactionTypeId, CURRENT_TIMESTAMP)
 END

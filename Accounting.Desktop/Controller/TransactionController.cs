@@ -21,12 +21,12 @@ namespace Accounting.Desktop.Controller
 
         public void GetTransactions(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList();
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList();
         }
 
         public void GetTransactions(DataGridView dataGridView, int i)
         {
-            dataGridView.DataSource = _TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypetId == i).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList();
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.AccountTypeId == i).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList();
         }
 
         public void GetTransactionsByDate(DataGridView dataGridView, TransactionByDateRequest transaction)
@@ -36,47 +36,40 @@ namespace Accounting.Desktop.Controller
 
         public void GetTransactionsGeneralExpenses(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.AccountTypetId == 1 && x.TransactionTypeId == 2 && x.ExpenseId == 2).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2 && x.ExpenseId == 2).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
         }
 
         public void GetTransactionsPersonalExpenses(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.AccountTypetId == 1 && x.TransactionTypeId == 2 && x.ExpenseId == 3).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2 && x.ExpenseId == 3).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
         }
 
         public void GetTransactionsWithdraw(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.AccountTypetId == 1 && x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            dataGridView.DataSource = _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
         }
-
-        //public decimal GetTransactionBalance()
-        //{
-        //    var deposits = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
-        //    var withdaws = _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2).Select(x => x.Amount).Sum();
-        //    return deposits - withdaws;
-        //}
 
         public decimal GetTransactionBalance(int accountId)
         {
-            var deposits = _TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypetId == accountId && x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
-            var withdaws = _TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypetId == accountId && x.TransactionTypeId == 2).Select(x => x.Amount).Sum();
+            var deposits = _TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypeId == accountId && x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
+            var withdaws = _TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypeId == accountId && x.TransactionTypeId == 2).Select(x => x.Amount).Sum();
             var total = deposits - withdaws;
             return Math.Round(total, 2);
         }
 
         public decimal GetGeneralExpenseSubtotal()
         {
-            return _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2).Select(x => x.Amount).Sum();
+            return _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2 && x.AccountTypeId==1).Select(x => x.Amount).Sum();
         }
 
         public decimal GetPersonalExpenseSubtotal()
         {
-            return _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 3).Select(x => x.Amount).Sum();
+            return _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 3 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
         }
 
         public decimal GetIncomeSubtotal()
         {
-            return _TransactionRepository.GetTransactionsRequest().Where(x => x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
+            return _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
         }
 
         public void SaveTransaction(TransactionRequest transaction)

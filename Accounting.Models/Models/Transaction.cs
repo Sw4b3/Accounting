@@ -20,7 +20,7 @@ namespace Accounting.Models.Models
 
         public string TransactionType { get; set; }
 
-        public int AccountTypetId { get; set; }
+        public int AccountTypeId { get; set; }
 
         public string AccountType { get; set; }
 
