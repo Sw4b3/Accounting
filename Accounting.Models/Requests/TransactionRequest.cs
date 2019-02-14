@@ -8,8 +8,6 @@ namespace Accounting.Models.Requests
 {
     public class TransactionRequest
     {
-        public Guid TransactionId { get; set; }
-
         public decimal Amount { get; set; }
 
         public int TransactionTypeId { get; set; }
