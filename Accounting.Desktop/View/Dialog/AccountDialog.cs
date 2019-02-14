@@ -13,22 +13,20 @@ using System.Windows.Forms;
 
 namespace Accounting.Desktop.View
 {
-    public partial class AccountView : Form
+    public partial class AccountDialog : Form
     {
         private AccountController _accountController;
         private MainApplication _mainForm;
-        private Validator _validator;
 
-        public AccountView(MainApplication mainForm)
+        public AccountDialog(MainApplication mainForm)
         {
             InitializeComponent();
-            _validator = new Validator();
             _accountController = new AccountController();
             _mainForm = mainForm;
         }
 
         public void saveAccount() {
-            if (_validator.IsString(textBox3.Text))
+            if (Validator.IsString(textBox3.Text))
             {
                 _accountController.SaveAccount(new AccountRequest
                 {

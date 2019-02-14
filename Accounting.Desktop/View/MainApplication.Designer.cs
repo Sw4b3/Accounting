@@ -412,6 +412,7 @@
             this.dataViewTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataViewTransaction.Size = new System.Drawing.Size(775, 440);
             this.dataViewTransaction.TabIndex = 28;
+            this.dataViewTransaction.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewTransaction_CellDoubleClick);
             // 
             // tabPage3
             // 
@@ -494,7 +495,6 @@
             this.comboBoxTransfer1.Name = "comboBoxTransfer1";
             this.comboBoxTransfer1.Size = new System.Drawing.Size(148, 21);
             this.comboBoxTransfer1.TabIndex = 48;
-            this.comboBoxTransfer1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // tabPage6
             // 

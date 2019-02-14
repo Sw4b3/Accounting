@@ -16,6 +16,8 @@ namespace Accounting.Repository.Interface
 
         void SaveTransactions(string connectionString, string request, TransactionRequest transactions);
 
+        void UpdateTransactions(string _connectionString, string _transaction, TransactionUpdateRequest request);
+
         IList<Expense> GetExpenses(string connectionString, string _transaction);
     }
 }

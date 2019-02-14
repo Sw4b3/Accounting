@@ -135,12 +135,12 @@ namespace Accounting.Desktop
 
         private void Deposit_Click(object sender, EventArgs e)
         {
-            new TransactionView(_transactionController, this, 1).Show();
+            new TransactionAddDialog(_transactionController, this, 1).Show();
         }
 
         private void Withdraw_Click(object sender, EventArgs e)
         {
-            new TransactionView(_transactionController, this, 2).Show();
+            new TransactionAddDialog(_transactionController, this, 2).Show();
         }
 
         private void FilterByDate_Click(object sender, EventArgs e)
@@ -150,7 +150,7 @@ namespace Accounting.Desktop
 
         private void AddAccount_Click(object sender, EventArgs e)
         {
-            new AccountView(this).Show();
+            new AccountDialog(this).Show();
         }
 
         private void Shutdown_Click(object sender, EventArgs e)
@@ -173,6 +173,11 @@ namespace Accounting.Desktop
             var transfer1= _accountController.GetAccountId(comboBoxTransfer1);
             var transfer2= _accountController.GetAccountId(comboBoxTransfer2);
             new TransferDialog(this, transfer1, transfer2).Show();
+        }
+
+        private void dataViewTransaction_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new TransactionEditDialog(_transactionController.GetTransactionDetailsFromDataGridView(dataViewTransaction), this).Show();
         }
     }
 }

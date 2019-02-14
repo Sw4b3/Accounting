@@ -26,5 +26,10 @@ namespace Accounting.Repository
         {
             SaveTransactions(DatabaseConnection.connection, SQLStoredProcedures.saveTransaction, request);
         }
+
+        public void UpdateTransactionsRequest(TransactionUpdateRequest request)
+        {
+            UpdateTransactions(DatabaseConnection.connection, SQLStoredProcedures.updateTransaction, request);
+        }
     }
 }

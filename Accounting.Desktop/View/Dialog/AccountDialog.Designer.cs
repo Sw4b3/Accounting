@@ -1,6 +1,6 @@
 ﻿namespace Accounting.Desktop.View
 {
-    partial class AccountView
+    partial class AccountDialog
     {
         /// <summary>
         /// Required designer variable.

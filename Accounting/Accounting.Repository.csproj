@@ -69,9 +69,9 @@
     <Compile Include="Repository\TransactionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Accounting.Models\Accounting.Models.csproj">
+    <ProjectReference Include="..\Accounting.Models\Accounting.Domain.Model.csproj">
       <Project>{5370e040-1ae7-49fe-abba-4c50ef43b056}</Project>
-      <Name>Accounting.Models</Name>
+      <Name>Accounting.Domain.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

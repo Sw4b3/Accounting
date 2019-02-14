@@ -13,22 +13,20 @@ using System.Windows.Forms;
 
 namespace Accounting.Desktop.View
 {
-    public partial class TransactionView : Form
+    public partial class TransactionAddDialog : Form
     {
         private TransactionController _transactionController;
         private ExpenseController _ExpenseController;
         private AccountController _AccountController;
         private MainApplication _mainform;
-        private Validator _validator;
         private int _transactionType;
 
-        public TransactionView(TransactionController transactionController, MainApplication mainform, int transactionType)
+        public TransactionAddDialog(TransactionController transactionController, MainApplication mainform, int transactionType)
         {
             InitializeComponent();
             _transactionController = transactionController;
             _ExpenseController = new ExpenseController();
             _AccountController = new AccountController();
-            _validator = new Validator();
             _mainform = mainform;
             _transactionType = transactionType;
             populateExpenseComboBox();
@@ -46,7 +44,7 @@ namespace Accounting.Desktop.View
         }
 
         public void SaveTransaction() {
-            if (_validator.IsNumber(textBox1.Text) && _validator.IsString(textBox3.Text))
+            if (Validator.IsNumber(textBox1.Text) && Validator.IsString(textBox3.Text))
             {
                 _transactionController.SaveTransaction(new TransactionRequest
                 {

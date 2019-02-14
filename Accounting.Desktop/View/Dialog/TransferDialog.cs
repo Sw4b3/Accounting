@@ -56,7 +56,7 @@ namespace Accounting.Desktop.View.Dialog
         }
 
         public void saveTransfer() {
-            if (_validator.IsNumber(textBox3.Text))
+            if (Validator.IsNumber(textBox3.Text))
             {
                 tranferWithdraw();
                 tranferDepost();

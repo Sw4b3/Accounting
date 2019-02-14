@@ -59,7 +59,7 @@ namespace Accounting.Desktop.Controller
 
         public decimal GetGeneralExpenseSubtotal()
         {
-            return _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2 && x.AccountTypeId==1).Select(x => x.Amount).Sum();
+            return _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
         }
 
         public decimal GetPersonalExpenseSubtotal()
@@ -72,9 +72,31 @@ namespace Accounting.Desktop.Controller
             return _TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth()).Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
         }
 
+        public TransactionUpdateRequest GetTransactionDetailsFromDataGridView(DataGridView dataGridView)
+        {
+            if (!dataGridView.SelectedRows.Count.Equals(0))
+            {
+                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
+                return new TransactionUpdateRequest
+                {
+
+                    TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()),
+                    Description = selectedRow.Cells[1].Value.ToString(),
+                    Amount = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
+                };
+            }
+            return null;
+        }
+
         public void SaveTransaction(TransactionRequest transaction)
         {
             _TransactionRepository.SaveTransactionsRequest(transaction);
+        }
+
+        public void UpdateTransaction(TransactionUpdateRequest transaction)
+        {
+            _TransactionRepository.UpdateTransactionsRequest(transaction);
         }
 
         public TransactionByDateRequest getCurrentMonth()
@@ -82,7 +104,7 @@ namespace Accounting.Desktop.Controller
             DateTime now = DateTime.Now;
             var startDate = new DateTime(now.Year, now.Month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
-       
+
             return new TransactionByDateRequest()
             {
                 StartDate = startDate,

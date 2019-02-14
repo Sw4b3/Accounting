@@ -9,12 +9,12 @@ namespace Accounting.Desktop.Common
 {
     public class Validator
     {
-        public bool IsString(string request) {
+        public static bool IsString(string request) {
             string pattern = "[A-Za-z]";
             return Regex.IsMatch(request, pattern);
         }
 
-        public bool IsNumber(string request)
+        public static bool IsNumber(string request)
         {
             string pattern = "[0-9]";
             return Regex.IsMatch(request, pattern);

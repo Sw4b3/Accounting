@@ -72,5 +72,6 @@
     <Build Include="dbo\Stored Procedures\spGetTransactionsByDate.sql" />
     <Build Include="dbo\Stored Procedures\spGetAccounts.sql" />
     <Build Include="dbo\Stored Procedures\spSaveAccount.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateTransaction.sql" />
   </ItemGroup>
 </Project>

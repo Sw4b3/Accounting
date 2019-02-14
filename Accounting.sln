@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Repositories", "Accounting\Accounting.Repositories.csproj", "{67B4D3FE-17CD-457B-B916-66BC671EFAF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Repository", "Accounting\Accounting.Repository.csproj", "{67B4D3FE-17CD-457B-B916-66BC671EFAF3}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Accounting.Database", "Accounting.Database\Accounting.Database.sqlproj", "{D3D657F2-FC53-462C-9E33-9080C603CFDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Models", "Accounting.Models\Accounting.Models.csproj", "{5370E040-1AE7-49FE-ABBA-4C50EF43B056}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Domain.Model", "Accounting.Models\Accounting.Domain.Model.csproj", "{5370E040-1AE7-49FE-ABBA-4C50EF43B056}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting.Desktop", "Accounting.Desktop\Accounting.Desktop.csproj", "{B2DB30C4-0F5B-4757-B80B-5734C6086ED9}"
 EndProject
