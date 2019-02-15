@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Repository.Interface
 {
-    public interface IBaseReposity
+    public interface IBaseRepository
     {
         IList<Transaction> GetTransactions(string connectionString, string request);
 

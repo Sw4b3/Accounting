@@ -1,6 +1,7 @@
 ﻿using Accounting.Desktop.Model;
+using Accounting.Domain.Services.Service;
 using Accounting.Models.Requests;
-using Accounting.Repository.Interface;
+
 using System.Linq;
 using System.Windows.Forms;
 
@@ -8,20 +9,20 @@ namespace Accounting.Desktop.Controller
 {
     class AccountController
     {
-        private readonly IAccountRepository _accountRepository;
+        private readonly AccountService _accountService;
 
         public AccountController()
         {
-            _accountRepository = new AccountRepository();
+            _accountService = new AccountService();
         }
 
         public void GetAccount(DataGridView dataGrid) {
-            dataGrid.DataSource= _accountRepository.GetAccountRequest().Select(x => new {   x.AccountId,  x.AccountType }).ToList();
+            dataGrid.DataSource= _accountService.GetAccount().Select(x => new {   x.AccountId,  x.AccountType }).ToList();
         }
 
         public void GetAccountComboBox(ComboBox comboBox)
         {
-            var expenses = _accountRepository.GetAccountRequest().Select(x => new AccountItem { AccountId = x.AccountId, AccountType = x.AccountType }).ToList();
+            var expenses = _accountService.GetAccount().Select(x => new AccountItem { AccountId = x.AccountId, AccountType = x.AccountType }).ToList();
             comboBox.DataSource = expenses.ToList();
         }
 
@@ -32,7 +33,7 @@ namespace Accounting.Desktop.Controller
 
         public void SaveAccount(AccountRequest account)
         {
-            _accountRepository.SaveAccountRequest(account);
+            _accountService.SaveAccount(account);
         }
     }
 }

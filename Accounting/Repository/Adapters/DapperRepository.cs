@@ -21,8 +21,6 @@ namespace Accounting.Repository.Common
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
                 var queryParameters = new DynamicParameters(request);
 
                 var res = connection.Query<T>(storedProcedureName, queryParameters, commandType: CommandType.StoredProcedure).ToList();
@@ -34,8 +32,6 @@ namespace Accounting.Repository.Common
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
                 var queryParameters = new DynamicParameters(request);
 
                 var res = connection.Query(storedProcedureName, queryParameters, commandType: CommandType.StoredProcedure).ToList();

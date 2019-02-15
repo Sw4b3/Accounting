@@ -125,13 +125,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Accounting.Domain.Services\Accounting.Domain.Service.csproj">
+      <Project>{50393977-fd88-4659-85c5-736c81f99de3}</Project>
+      <Name>Accounting.Domain.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Accounting.Models\Accounting.Domain.Model.csproj">
       <Project>{5370E040-1AE7-49FE-ABBA-4C50EF43B056}</Project>
       <Name>Accounting.Domain.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Accounting\Accounting.Repository.csproj">
-      <Project>{67b4d3fe-17cd-457b-b916-66bc671efaf3}</Project>
-      <Name>Accounting.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

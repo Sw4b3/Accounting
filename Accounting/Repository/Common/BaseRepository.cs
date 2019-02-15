@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Accounting.Repository.Common
 {
-    public class BaseRepository : IBaseReposity
+    public class BaseRepository : IBaseRepository
     {
    
         public IList<Transaction> GetTransactions(string _connectionString, string _transaction)

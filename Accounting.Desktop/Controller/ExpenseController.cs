@@ -1,6 +1,5 @@
 ﻿using Accounting.Desktop.Model;
-using Accounting.Repository;
-using Accounting.Repository.Interface;
+using Accounting.Domain.Services.Service;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -8,16 +7,16 @@ namespace Accounting.Desktop.Controller
 {
     class ExpenseController
     {
-        private readonly IExpenseRepository _expenseRepository;
+        private readonly ExpenseServices _expenseServices;
 
         public ExpenseController()
         {
-            _expenseRepository = new ExpenseRepository();
+            _expenseServices = new ExpenseServices();
         }
 
         public void GetExpenses(ComboBox comboBox)
         {
-            var expenses = _expenseRepository.GetExpenseRequest().Select(x => new ExpenseItem { ExpenseId = x.ExpenseId, ExpenseType = x.ExpenseType }).ToList();
+            var expenses = _expenseServices.GetExpenses().Select(x => new ExpenseItem { ExpenseId = x.ExpenseId, ExpenseType = x.ExpenseType }).ToList();
             comboBox.DataSource = expenses.ToList();
         }
 

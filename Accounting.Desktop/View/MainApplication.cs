@@ -11,7 +11,6 @@ using Accounting.Desktop.Controller;
 using Accounting.Desktop.View;
 using Accounting.Desktop.View.Dialog;
 using Accounting.Models.Requests;
-using Accounting.Repository;
 
 namespace Accounting.Desktop
 {
@@ -29,7 +28,7 @@ namespace Accounting.Desktop
             Recalculate();
         }
 
-        public void PopulationAll ()
+        public void PopulationAll()
         {
             PopulationTransactionTable();
             PopulationTransferTable();
@@ -43,7 +42,7 @@ namespace Accounting.Desktop
 
         public void PopulationTransactionTable()
         {
-            _transactionController.GetTransactions(dataViewTransaction,1);
+            _transactionController.GetTransactions(dataViewTransaction, 1);
         }
 
         public void PopulationTransferTable()
@@ -80,7 +79,8 @@ namespace Accounting.Desktop
             _transactionController.GetTransactionsWithdraw(dataViewTransactionInc);
         }
 
-        public void PopulateAccountTable() {
+        public void PopulateAccountTable()
+        {
             _accountController.GetAccount(dataGridAccount);
         }
 
@@ -95,7 +95,8 @@ namespace Accounting.Desktop
             _accountController.GetAccountComboBox(comboBoxTransfer2);
         }
 
-        public void FilterByAccount() {
+        public void FilterByAccount()
+        {
             var accountId = _accountController.GetAccountId(comboBoxAccount);
             var balance = _transactionController.GetTransactionBalance(accountId).ToString();
             _transactionController.GetTransactions(dataViewTransaction, accountId);
@@ -120,8 +121,8 @@ namespace Accounting.Desktop
         {
             var accountId = _accountController.GetAccountId(comboBoxAccount);
             var balance = _transactionController.GetTransactionBalance(1).ToString("0.##");
-            labelBalanceOverview.Text = "Balance: "+balance;
-            labelBalanceTransaction.Text = "Balance: " + balance; 
+            labelBalanceOverview.Text = "Balance: " + balance;
+            labelBalanceTransaction.Text = "Balance: " + balance;
         }
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,8 +177,8 @@ namespace Accounting.Desktop
 
         private void Transfer_Click(object sender, EventArgs e)
         {
-            var transfer1= _accountController.GetAccountId(comboBoxTransfer1);
-            var transfer2= _accountController.GetAccountId(comboBoxTransfer2);
+            var transfer1 = _accountController.GetAccountId(comboBoxTransfer1);
+            var transfer2 = _accountController.GetAccountId(comboBoxTransfer2);
             new TransferDialog(this, transfer1, transfer2).Show();
         }
 

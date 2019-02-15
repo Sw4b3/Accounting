@@ -67,16 +67,17 @@
     <Compile Include="Repository\Interface\IExpenseRepository.cs" />
     <Compile Include="Repository\Interface\ITransactionRepository.cs" />
     <Compile Include="Repository\TransactionRepository.cs" />
+    <Compile Include="Repository\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Accounting.Models\Accounting.Domain.Model.csproj">
       <Project>{5370e040-1ae7-49fe-abba-4c50ef43b056}</Project>
       <Name>Accounting.Domain.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
