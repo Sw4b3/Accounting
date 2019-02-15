@@ -526,7 +526,7 @@
             this.dataGridViewAnalysis.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewAnalysis.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewAnalysis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAnalysis.Location = new System.Drawing.Point(202, 78);
+            this.dataGridViewAnalysis.Location = new System.Drawing.Point(110, 58);
             this.dataGridViewAnalysis.Name = "dataGridViewAnalysis";
             this.dataGridViewAnalysis.ReadOnly = true;
             this.dataGridViewAnalysis.RowHeadersVisible = false;
