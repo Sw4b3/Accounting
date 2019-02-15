@@ -31,5 +31,10 @@ namespace Accounting.Repository
         {
             UpdateTransactions(DatabaseConnection.connection, SQLStoredProcedures.updateTransaction, request);
         }
+
+        public IList<TransactionAnalysis> GetTransactionAnalysisRequest()
+        {
+            return GetTransactionAnalysis(DatabaseConnection.connection, SQLStoredProcedures.getTransactionAnalysis);
+        }
     }
 }

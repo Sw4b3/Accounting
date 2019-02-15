@@ -15,5 +15,6 @@ namespace Accounting.Repository.Common
         public const string getGetExpenses = "spGetExpenses";
         public const string getGetAccounts = "spGetAccounts";
         public const string saveAccount = "spSaveAccount";
+        public const string getTransactionAnalysis = "spGetTransactionsAnalysis";
     }
 }

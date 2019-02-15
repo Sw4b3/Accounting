@@ -33,6 +33,7 @@ namespace Accounting.Desktop
         {
             PopulationTransactionTable();
             PopulationTransferTable();
+            PopulationTransferAnalysisTable();
             PopulationTransactionTableGeneralExpenses();
             PopulationTransactionTablPersonalExpenses();
             PopulationTransactionTableWithdraw();
@@ -48,6 +49,11 @@ namespace Accounting.Desktop
         public void PopulationTransferTable()
         {
             _transactionController.GetTransactions(dataViewTransfer);
+        }
+
+        public void PopulationTransferAnalysisTable()
+        {
+            _transactionController.GetTransactionAnalysis(dataGridViewAnalysis);
         }
 
         public void PopulationTransactionTableByDate()

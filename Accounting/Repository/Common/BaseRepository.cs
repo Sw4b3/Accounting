@@ -34,6 +34,12 @@ namespace Accounting.Repository.Common
             DapperRepository.ExecuteStoredProc(_connectionString, _transaction, request);
         }
 
+        public IList<TransactionAnalysis> GetTransactionAnalysis(string _connectionString, string _transaction)
+        {
+            var res = DapperRepository.ExecuteAsStoredProc<TransactionAnalysis>(_connectionString, _transaction);
+            return res;
+        }
+
         public IList<Expense> GetExpenses(string connectionString, string _transaction)
         {
             var res = DapperRepository.ExecuteAsStoredProc<Expense>(connectionString, _transaction);
