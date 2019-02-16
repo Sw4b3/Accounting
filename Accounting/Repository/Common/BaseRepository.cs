@@ -12,49 +12,49 @@ namespace Accounting.Repository.Common
     public class BaseRepository : IBaseRepository
     {
    
-        public IList<Transaction> GetTransactions(string _connectionString, string _transaction)
+        public IList<Transaction> GetTransactions(string _connectionString, IDbConnection connection, IDbTransaction transaction)
         {
-            var res = DapperRepository.ExecuteAsStoredProc<Transaction>(_connectionString, _transaction);
+            var res = DapperRepository.ExecuteAsStoredProc<Transaction>(_connectionString, SQLStoredProcedures.getGetTransaction, connection, transaction);
             return res;
         }
 
-        public IList<Transaction> GetTransactionsByDate(string _connectionString, string _transaction, TransactionByDateRequest request)
+        public IList<Transaction> GetTransactionsByDate(string _connectionString, TransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction)
         {
-            var res = DapperRepository.ExecuteStoredProc<Transaction>(_connectionString, _transaction, request);
+            var res = DapperRepository.ExecuteStoredProc<Transaction>(_connectionString, SQLStoredProcedures.getGetTransactionByDate,request, connection, transaction);
             return res;
         }
 
-        public void SaveTransactions(string _connectionString, string _transaction, TransactionRequest request)
+        public void SaveTransactions(string _connectionString, TransactionRequest request, IDbConnection connection, IDbTransaction transaction)
         {
-            DapperRepository.ExecuteStoredProc(_connectionString, _transaction, request);
+            DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.saveTransaction, request);
         }
 
-        public void UpdateTransactions(string _connectionString, string _transaction, TransactionUpdateRequest request)
+        public void UpdateTransactions(string _connectionString, TransactionUpdateRequest request, IDbConnection connection, IDbTransaction transaction)
         {
-            DapperRepository.ExecuteStoredProc(_connectionString, _transaction, request);
+            DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.updateTransaction, request, connection,  transaction);
         }
 
-        public IList<TransactionAnalysis> GetTransactionAnalysis(string _connectionString, string _transaction)
+        public IList<TransactionAnalysis> GetTransactionAnalysis(string _connectionString, IDbConnection connection, IDbTransaction transaction)
         {
-            var res = DapperRepository.ExecuteAsStoredProc<TransactionAnalysis>(_connectionString, _transaction);
+            var res = DapperRepository.ExecuteAsStoredProc<TransactionAnalysis>(_connectionString, SQLStoredProcedures.getTransactionAnalysis, connection,  transaction);
             return res;
         }
 
-        public IList<Expense> GetExpenses(string connectionString, string _transaction)
+        public IList<Expense> GetExpenses(string connectionString, IDbConnection connection, IDbTransaction transaction)
         {
-            var res = DapperRepository.ExecuteAsStoredProc<Expense>(connectionString, _transaction);
+            var res = DapperRepository.ExecuteAsStoredProc<Expense>(connectionString, SQLStoredProcedures.getGetExpenses, connection, transaction);
             return res;
         }
 
-        public IList<Account> GetAccounts(string connectionString, string _transaction)
+        public IList<Account> GetAccounts(string connectionString, IDbConnection connection, IDbTransaction transaction)
         {
-            var res = DapperRepository.ExecuteAsStoredProc<Account>(connectionString, _transaction);
+            var res = DapperRepository.ExecuteAsStoredProc<Account>(connectionString, SQLStoredProcedures.getGetAccounts, connection, transaction);
             return res;
         }
 
-        public void SaveAccount(string _connectionString, string _transaction, AccountRequest request)
+        public void SaveAccount(string _connectionString , AccountRequest request, IDbConnection connection, IDbTransaction transaction)
         {
-            DapperRepository.ExecuteStoredProc(_connectionString, _transaction, request);
+            DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.saveAccount, request, connection, transaction);
 
         }
     }

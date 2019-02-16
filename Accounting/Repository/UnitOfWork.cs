@@ -25,12 +25,11 @@ namespace Accounting.Repository
             _transaction = _connection.BeginTransaction();
         }
 
-
         public ITransactionRepository TransactionRepository
         {
             get
             {
-                return _transactionRepository ?? (_transactionRepository = new TransactionRepository());
+                return _transactionRepository ?? (_transactionRepository = new TransactionRepository(_connection, _transaction));
             }
         }
 
@@ -38,7 +37,7 @@ namespace Accounting.Repository
         {
             get
             {
-                return _accountRepository ?? (_accountRepository = new AccountRepository());
+                return _accountRepository ?? (_accountRepository = new AccountRepository(_connection, _transaction));
             }
         }
 
@@ -47,7 +46,7 @@ namespace Accounting.Repository
         {
             get
             {
-                return _expenseRepository ?? (_expenseRepository = new ExpenseRepository());
+                return _expenseRepository ?? (_expenseRepository = new ExpenseRepository(_connection, _transaction));
             }
         }
 
@@ -67,23 +66,15 @@ namespace Accounting.Repository
             {
                 _transaction.Dispose();
                 _transaction = _connection.BeginTransaction();
-                resetRepositories();
+                ResetRepositories();
             }
         }
 
-
-
-        private void resetRepositories()
+        private void ResetRepositories()
         {
             _transactionRepository = null;
+            _accountRepository = null;
+            _expenseRepository = null;
         }
-
-
-
-
-
-
-
     }
-
 }

@@ -8,18 +8,18 @@ namespace Accounting.Repository.Common
 {
     public class DapperRepository
     {
-        public static IList<T> ExecuteAsStoredProc<T>(string connectionString, string storedProcedureName)
+        public static IList<T> ExecuteAsStoredProc<T>(string connectionString, string storedProcedureName, IDbConnection connection =null, IDbTransaction transaction=null)
         {
-            using (IDbConnection connection = new SqlConnection(connectionString))
+            using (connection = new SqlConnection(connectionString))
             {
                 var res = connection.Query<T>(storedProcedureName, commandType: CommandType.StoredProcedure).ToList();
                 return res;
             }
         }
 
-        public static IList<T> ExecuteStoredProc<T>(string connectionString, string storedProcedureName, object request)
+        public static IList<T> ExecuteStoredProc<T>(string connectionString, string storedProcedureName, object request, IDbConnection connection = null, IDbTransaction transaction = null)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (connection = new SqlConnection(connectionString))
             {
                 var queryParameters = new DynamicParameters(request);
 
@@ -28,9 +28,9 @@ namespace Accounting.Repository.Common
             }
         }
 
-        public static void ExecuteStoredProc(string connectionString, string storedProcedureName, object request)
+        public static void ExecuteStoredProc(string connectionString, string storedProcedureName, object request, IDbConnection connection = null, IDbTransaction transaction = null)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (connection = new SqlConnection(connectionString))
             {
                 var queryParameters = new DynamicParameters(request);
 
