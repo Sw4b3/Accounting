@@ -20,9 +20,17 @@ namespace Accounting.Repository
 
         public UnitOfWork()
         {
+            //_connection = new SqlConnection(DatabaseConnection.connection);
+            //_connection.Open();
+            //_transaction = _connection.BeginTransaction();
+         
+        }
+
+        public void CreateUnitOfWork() {
             _connection = new SqlConnection(DatabaseConnection.connection);
             _connection.Open();
             _transaction = _connection.BeginTransaction();
+
         }
 
         public ITransactionRepository TransactionRepository
@@ -67,6 +75,22 @@ namespace Accounting.Repository
                 _transaction.Dispose();
                 _transaction = _connection.BeginTransaction();
                 ResetRepositories();
+                Dispose();
+            }
+        }
+
+        public void Dispose()
+        {
+            if (_transaction != null)
+            {
+                _transaction.Dispose();
+                _transaction = null;
+            }
+
+            if (_connection != null)
+            {
+                _connection.Dispose();
+                _connection = null;
             }
         }
 

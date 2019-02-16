@@ -20,15 +20,17 @@ namespace Accounting.Domain.Services.Service
 
         public IList<Account> GetAccount()
         {
+            uow.CreateUnitOfWork();
             var res = uow.AccountRepository.GetAccountRequest();
-            uow.Commit();
+
             return res;
         }
   
         public void SaveAccount(AccountRequest account)
         {
+            uow.CreateUnitOfWork();
             uow.AccountRepository.SaveAccountRequest(account);
-            uow.Commit();
+ 
         }
     }
 }

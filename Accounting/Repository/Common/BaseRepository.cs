@@ -11,7 +11,7 @@ namespace Accounting.Repository.Common
 {
     public class BaseRepository : IBaseRepository
     {
-   
+
         public IList<Transaction> GetTransactions(string _connectionString, IDbConnection connection, IDbTransaction transaction)
         {
             var res = DapperRepository.ExecuteAsStoredProc<Transaction>(_connectionString, SQLStoredProcedures.getGetTransaction, connection, transaction);
@@ -20,23 +20,23 @@ namespace Accounting.Repository.Common
 
         public IList<Transaction> GetTransactionsByDate(string _connectionString, TransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction)
         {
-            var res = DapperRepository.ExecuteStoredProc<Transaction>(_connectionString, SQLStoredProcedures.getGetTransactionByDate,request, connection, transaction);
+            var res = DapperRepository.ExecuteStoredProc<Transaction>(_connectionString, SQLStoredProcedures.getGetTransactionByDate, request, connection, transaction);
             return res;
         }
 
         public void SaveTransactions(string _connectionString, TransactionRequest request, IDbConnection connection, IDbTransaction transaction)
         {
-            DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.saveTransaction, request);
+            DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.saveTransaction, request, connection, transaction);
         }
 
         public void UpdateTransactions(string _connectionString, TransactionUpdateRequest request, IDbConnection connection, IDbTransaction transaction)
         {
-            DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.updateTransaction, request, connection,  transaction);
+            DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.updateTransaction, request, connection, transaction);
         }
 
         public IList<TransactionAnalysis> GetTransactionAnalysis(string _connectionString, IDbConnection connection, IDbTransaction transaction)
         {
-            var res = DapperRepository.ExecuteAsStoredProc<TransactionAnalysis>(_connectionString, SQLStoredProcedures.getTransactionAnalysis, connection,  transaction);
+            var res = DapperRepository.ExecuteAsStoredProc<TransactionAnalysis>(_connectionString, SQLStoredProcedures.getTransactionAnalysis, connection, transaction);
             return res;
         }
 
@@ -52,7 +52,7 @@ namespace Accounting.Repository.Common
             return res;
         }
 
-        public void SaveAccount(string _connectionString , AccountRequest request, IDbConnection connection, IDbTransaction transaction)
+        public void SaveAccount(string _connectionString, AccountRequest request, IDbConnection connection, IDbTransaction transaction)
         {
             DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.saveAccount, request, connection, transaction);
 

@@ -19,6 +19,7 @@ namespace Accounting.Domain.Services.Service
 
         public IList<Expense> GetExpenses()
         {
+            uow.CreateUnitOfWork();
             var res = uow.ExpenseRepository.GetExpenseRequest();
             return res;
         }
