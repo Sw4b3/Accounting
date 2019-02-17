@@ -55,7 +55,6 @@ namespace Accounting.Repository.Common
         public void SaveAccount(string _connectionString, AccountRequest request, IDbConnection connection, IDbTransaction transaction)
         {
             DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.saveAccount, request, connection, transaction);
-
         }
     }
 }

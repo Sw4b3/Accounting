@@ -1,4 +1,5 @@
-﻿using Accounting.Models.Models;
+﻿using Accounting.Domain.Services.Service.Interface;
+using Accounting.Models.Models;
 using Accounting.Repository;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Domain.Services.Service
 {
-    public class ExpenseServices
+    public class ExpenseServices: IExpenseService
     {
         private readonly UnitOfWork uow;
 
@@ -19,9 +20,16 @@ namespace Accounting.Domain.Services.Service
 
         public IList<Expense> GetExpenses()
         {
-            uow.CreateUnitOfWork();
-            var res = uow.ExpenseRepository.GetExpenseRequest();
-            return res;
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.ExpenseRepository.GetExpenseRequest();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Accounting.Desktop.Controller
 
         public void GetTransactions(DataGridView dataGridView, int i)
         {
-            dataGridView.DataSource = _transactionService.GetTransactions(i).Where(x => x.AccountTypeId == i).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList();
+            dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == i).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList();
         }
 
         public void GetTransactionsByDate(DataGridView dataGridView, TransactionByDateRequest transaction)
@@ -40,37 +40,37 @@ namespace Accounting.Desktop.Controller
 
         public void GetTransactionsGeneralExpenses(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _transactionService.GetTransactionsGeneralExpenses().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2 && x.ExpenseId == 2).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2 && x.ExpenseId == 2).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
         }
 
         public void GetTransactionsPersonalExpenses(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _transactionService.GetTransactionsPersonalExpenses().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2 && x.ExpenseId == 3).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2 && x.ExpenseId == 3).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
         }
 
         public void GetTransactionsWithdraw(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _transactionService.GetTransactionsWithdraw().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
         }
 
         public decimal GetTransactionBalance(int accountId)
         {
-            return _transactionService.GetTransactionBalance(accountId);
+            return _transactionService.GetTransactionBalanceByAccount(accountId);
         }
 
         public decimal GetGeneralExpenseSubtotal()
         {
-            return _transactionService.GetGeneralExpenseSubtotal().Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+            return _transactionService.GetTransactions().Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
         }
 
         public decimal GetPersonalExpenseSubtotal()
         {
-            return _transactionService.GetPersonalExpenseSubtotal().Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 3 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+            return _transactionService.GetTransactions().Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 3 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
         }
 
         public decimal GetIncomeSubtotal()
         {
-            return _transactionService.GetIncomeSubtotal().Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+            return _transactionService.GetTransactions().Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
         }
 
         public TransactionUpdateRequest GetTransactionDetailsFromDataGridView(DataGridView dataGridView)
@@ -99,18 +99,5 @@ namespace Accounting.Desktop.Controller
         {
             _transactionService.UpdateTransaction(transaction);
         }
-
-        //public TransactionByDateRequest getCurrentMonth()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    var startDate = new DateTime(now.Year, now.Month, 1);
-        //    var endDate = startDate.AddMonths(1).AddDays(-1);
-
-        //    return new TransactionByDateRequest()
-        //    {
-        //        StartDate = startDate,
-        //        EndDate = endDate
-        //    };
-        //}
     }
 }

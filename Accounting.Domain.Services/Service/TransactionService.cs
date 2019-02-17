@@ -1,4 +1,5 @@
-﻿using Accounting.Models.Models;
+﻿using Accounting.Domain.Services.Service.Interface;
+using Accounting.Models.Models;
 using Accounting.Models.Requests;
 using Accounting.Repository;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Service
 {
-    public class TransactionService
+    public class TransactionService: ITransactionService
     {
         private UnitOfWork uow;
 
@@ -20,110 +21,78 @@ namespace Accounting.Models.Service
 
         public IList<Transaction> GetTransactions()
         {
-            uow.CreateUnitOfWork();
-            var res = uow.TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth());
-            uow.Commit();
-            return res;
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.TransactionRepository.GetTransactionsByDateRequest(GetCurrentMonth());
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public IList<TransactionAnalysis> GetTransactionAnalysis()
         {
-            uow.CreateUnitOfWork();
-            var res = uow.TransactionRepository.GetTransactionAnalysisRequest();
-            uow.Commit();
-            return res;
-        }
-
-        public IList<Transaction> GetTransactions(int i)
-        {
-            uow.CreateUnitOfWork();
-            var res = uow.TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth());
-            uow.Commit();
-            return res;
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.TransactionRepository.GetTransactionAnalysisRequest();
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public IList<Transaction> GetTransactionsByDate(TransactionByDateRequest transaction)
         {
-            uow.CreateUnitOfWork();
-            var res = uow.TransactionRepository.GetTransactionsByDateRequest(transaction);
-            uow.Commit();
-            return res;
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.TransactionRepository.GetTransactionsByDateRequest(transaction);
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
-
-        public IList<Transaction> GetTransactionsGeneralExpenses()
-        {
-            uow.CreateUnitOfWork();
-            var res = uow.TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth());
-            uow.Commit();
-            return res;
-        }
-
-        public IList<Transaction> GetTransactionsPersonalExpenses()
-        {
-            uow.CreateUnitOfWork();
-            var res = uow.TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth());
-            uow.Commit();
-            return res;
-        }
-
-        public IList<Transaction> GetTransactionsWithdraw()
-        {
-            uow.CreateUnitOfWork();
-            var res = uow.TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth());
-            uow.Commit();
-            return res;
-        }
-
-        public decimal GetTransactionBalance(int accountId)
-        {
-            uow.CreateUnitOfWork();
-            var deposits = uow.TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypeId == accountId && x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
-            var withdaws = uow.TransactionRepository.GetTransactionsRequest().Where(x => x.AccountTypeId == accountId && x.TransactionTypeId == 2).Select(x => x.Amount).Sum();
-            var total = deposits - withdaws;
-            uow.Commit();
-            return Math.Round(total, 2);
-        }
-
-        public IList<Transaction> GetGeneralExpenseSubtotal()
-        {
-            uow.CreateUnitOfWork();
-            var res = uow.TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth());
-            uow.Commit();
-            return res;
-        }
-
-        public IList<Transaction> GetPersonalExpenseSubtotal()
-        {
-            uow.CreateUnitOfWork();
-            var res = uow.TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth());
-            uow.Commit();
-            return res;
-        }
-
-        public IList<Transaction> GetIncomeSubtotal()
-        {
-            uow.CreateUnitOfWork();
-            var res= uow.TransactionRepository.GetTransactionsByDateRequest(getCurrentMonth());
-            uow.Commit();
-            return res;
-        }
-
 
         public void SaveTransaction(TransactionRequest transaction)
         {
-            uow.CreateUnitOfWork();
-            uow.TransactionRepository.SaveTransactionsRequest(transaction);
-            uow.Commit();
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.TransactionRepository.SaveTransactionsRequest(transaction);
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
         public void UpdateTransaction(TransactionUpdateRequest transaction)
         {
-            uow.CreateUnitOfWork();
-            uow.TransactionRepository.UpdateTransactionsRequest(transaction);
-            uow.Commit();
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.TransactionRepository.UpdateTransactionsRequest(transaction);
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
 
-        public TransactionByDateRequest getCurrentMonth()
+        public TransactionByDateRequest GetCurrentMonth()
         {
             DateTime now = DateTime.Now;
             var startDate = new DateTime(now.Year, now.Month, 1);
@@ -134,6 +103,26 @@ namespace Accounting.Models.Service
                 StartDate = startDate,
                 EndDate = endDate
             };
+        }
+
+        public decimal GetTransactionBalanceByAccount(int accountId)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var transactions = uow.TransactionRepository.GetTransactionsRequest();
+                uow.Commit();
+
+                var deposits = transactions.Where(x => x.AccountTypeId == accountId && x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
+                var withdaws = transactions.Where(x => x.AccountTypeId == accountId && x.TransactionTypeId == 2).Select(x => x.Amount).Sum();
+                var total = deposits - withdaws;
+
+                return Math.Round(total, 2);
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
     }
 }
