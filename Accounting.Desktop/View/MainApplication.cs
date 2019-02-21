@@ -186,5 +186,10 @@ namespace Accounting.Desktop
         {
             new TransactionEditDialog(_transactionController.GetTransactionDetailsFromDataGridView(dataViewTransaction), this).Show();
         }
+
+        private void Export_Click(object sender, EventArgs e)
+        {
+            _transactionController.ExportToTransactions();
+        }
     }
 }

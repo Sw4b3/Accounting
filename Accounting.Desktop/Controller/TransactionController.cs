@@ -1,5 +1,6 @@
 ﻿using Accounting.Models.Requests;
 using Accounting.Models.Service;
+using Accounting.Domain.Services.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,6 +72,13 @@ namespace Accounting.Desktop.Controller
         public decimal GetIncomeSubtotal()
         {
             return _transactionService.GetTransactions().Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+        }
+
+        public void ExportToTransactions()
+        {
+            ExcelService _excelService = new ExcelService();
+            var res = _transactionService.GetTransactions();
+            _excelService.ExportToExcel(res.ToList());
         }
 
         public TransactionUpdateRequest GetTransactionDetailsFromDataGridView(DataGridView dataGridView)

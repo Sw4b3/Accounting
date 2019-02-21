@@ -75,6 +75,7 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -297,6 +298,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.comboBoxAccount);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.label2);
@@ -576,6 +578,16 @@
             this.dataGridAccount.Size = new System.Drawing.Size(465, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(34, 136);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(148, 23);
+            this.button7.TabIndex = 48;
+            this.button7.Text = "Export";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.Export_Click);
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,6 +664,7 @@
         private System.Windows.Forms.ComboBox comboBoxTransfer1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dataGridViewAnalysis;
+        private System.Windows.Forms.Button button7;
     }
 }
 
