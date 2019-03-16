@@ -40,9 +40,10 @@ namespace Accounting.Desktop.View
             {
                 _transactionController.UpdateTransaction(new TransactionUpdateRequest
                 {
-                    TransactionId= _transactionRequest.TransactionId,
+                    TransactionId = _transactionRequest.TransactionId,
                     Amount = decimal.Parse(textBox1.Text.Trim()),
-                    Description = textBox3.Text.Trim()
+                    Description = textBox3.Text.Trim(),
+                    Date = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd"))
                 });
                 _mainform.PopulationAll();
                 _mainform.Recalculate();
