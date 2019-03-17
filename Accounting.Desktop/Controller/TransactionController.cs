@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Accounting.Desktop.Controller
 {
@@ -24,8 +25,14 @@ namespace Accounting.Desktop.Controller
             dataGridView.DataSource = _transactionService.GetTransactions().Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList(); ;
         }
 
-        public void GetTransactionAnalysis(DataGridView dataGridView)
+        public void GetTransactionAnalysis(DataGridView dataGridView, Chart chart)
         {
+            var accountDetails = _transactionService.GetTransactions();
+            var personalExpense=accountDetails.Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 3 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+            var generalExpense = accountDetails.Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+            var income =  accountDetails.Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+
+            chart.Series[0].Points.DataBindXY(new[] { "Personal Expense", "General Expense", "Income" }, new[] { personalExpense, generalExpense, income});
             dataGridView.DataSource = _transactionService.GetTransactionAnalysis();
         }
 
@@ -93,7 +100,7 @@ namespace Accounting.Desktop.Controller
                     TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()),
                     Description = selectedRow.Cells[1].Value.ToString(),
                     Amount = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
-                    Date=DateTime.Parse(selectedRow.Cells[3].Value.ToString())
+                    Date = DateTime.Parse(selectedRow.Cells[3].Value.ToString())
                 };
             }
             return null;
