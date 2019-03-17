@@ -93,6 +93,7 @@ namespace Accounting.Desktop.Controller
                     TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()),
                     Description = selectedRow.Cells[1].Value.ToString(),
                     Amount = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
+                    Date=DateTime.Parse(selectedRow.Cells[3].Value.ToString())
                 };
             }
             return null;

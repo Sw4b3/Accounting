@@ -4,5 +4,5 @@ CREATE PROCEDURE [dbo].[spSaveTransaction]
 AS
 BEGIN
 		insert into Transactions(Description,Amount, AccountTypeId,ExpenseId, TransactionTypeId,TransactionTimestamp)
-		values (@description,@amount, @accountTypeId ,@expenseId,@transactionTypeId, CURRENT_TIMESTAMP)
+		values (@description,@amount, @accountTypeId ,@expenseId,@transactionTypeId, CONVERT (date, CURRENT_TIMESTAMP))
 END

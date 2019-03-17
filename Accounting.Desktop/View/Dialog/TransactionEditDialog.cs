@@ -32,7 +32,7 @@ namespace Accounting.Desktop.View
         public void setTransaction() {
             textBox3.Text = _transactionRequest.Description;
             textBox1.Text = _transactionRequest.Amount.ToString();
-
+            dateTimePicker1.Value = _transactionRequest.Date;
         }
 
         public void SaveTransaction() {
