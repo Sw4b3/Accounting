@@ -39,6 +39,7 @@ namespace Accounting.Domain.Services.Service
             {
                 uow.CreateUnitOfWork();
                 uow.AccountRepository.SaveAccountRequest(account);
+                uow.Commit();
             }
             catch (Exception e)
             {
