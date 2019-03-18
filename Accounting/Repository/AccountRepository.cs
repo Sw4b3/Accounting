@@ -27,7 +27,7 @@ namespace Accounting.Repository.Interface
             return GetAccounts(DatabaseConnection.connection, _connection, _transaction);
         }
 
-        public void SaveAccountRequest(AccountRequest request)
+        public void SaveAccountRequest(GetAccountRequest request)
         {
             SaveAccount(DatabaseConnection.connection, request, _connection, _transaction);
         }

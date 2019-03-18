@@ -49,7 +49,7 @@ namespace Accounting.Models.Service
             }
         }
 
-        public IList<Transaction> GetTransactionsByDate(TransactionByDateRequest transaction)
+        public IList<Transaction> GetTransactionsByDate(GetTransactionByDateRequest transaction)
         {
             try
             {
@@ -64,7 +64,22 @@ namespace Accounting.Models.Service
             }
         }
 
-        public void SaveTransaction(TransactionRequest transaction)
+        public IList<Transaction> SearchTransactionsByDate(SearchTransactionByDateRequest transaction)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.TransactionRepository.SearchTransactionsByDateRequest(transaction);
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public void SaveTransaction(GetTransactionRequest transaction)
         {
             try
             {
@@ -78,7 +93,7 @@ namespace Accounting.Models.Service
             }
         }
 
-        public void UpdateTransaction(TransactionUpdateRequest transaction)
+        public void UpdateTransaction(UpdateTransactionRequest transaction)
         {
             try
             {
@@ -92,13 +107,13 @@ namespace Accounting.Models.Service
             }
         }
 
-        public TransactionByDateRequest GetCurrentMonth()
+        public GetTransactionByDateRequest GetCurrentMonth()
         {
             DateTime now = DateTime.Now;
             var startDate = new DateTime(now.Year, now.Month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
 
-            return new TransactionByDateRequest()
+            return new GetTransactionByDateRequest()
             {
                 StartDate = startDate,
                 EndDate = endDate

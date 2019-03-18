@@ -2,7 +2,7 @@
 CREATE PROCEDURE [dbo].[spGetTransactions]
 AS
 BEGIN
-		select *,AccountTypes.AccountType,TransactionTypes.TransactionType  
+		select *
 		from Transactions with (nolock)
 			INNER JOIN AccountTypes with (nolock) 
 			ON Transactions.AccountTypeId=AccountTypes.AccountId	

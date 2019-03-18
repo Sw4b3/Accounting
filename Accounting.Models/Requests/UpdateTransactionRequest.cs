@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Requests
 {
-    public class TransactionUpdateRequest
+    public class UpdateTransactionRequest
     {
         public Guid TransactionId { get; set; }
 

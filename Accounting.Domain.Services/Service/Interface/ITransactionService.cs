@@ -10,12 +10,12 @@ namespace Accounting.Domain.Services.Service.Interface
 {
     public interface ITransactionService
     {
-        IList<Transaction> GetTransactionsByDate(TransactionByDateRequest transaction);
+        IList<Transaction> GetTransactionsByDate(GetTransactionByDateRequest transaction);
 
         IList<TransactionAnalysis> GetTransactionAnalysis();
 
-        void SaveTransaction(TransactionRequest transaction);
+        void SaveTransaction(GetTransactionRequest transaction);
 
-        void UpdateTransaction(TransactionUpdateRequest transaction);
+        void UpdateTransaction(UpdateTransactionRequest transaction);
     }
 }

@@ -57,8 +57,9 @@ namespace Accounting.Desktop
 
         public void PopulationTransactionTableByDate()
         {
-            _transactionController.GetTransactionsByDate(dataViewTransaction, new TransactionByDateRequest()
+            _transactionController.SearchTransactionsByDate(dataViewTransaction, new SearchTransactionByDateRequest()
             {
+                AccountTypeId = int.Parse((_accountController.GetAccountId(comboBoxAccount).ToString().Trim())),
                 StartDate = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd")),
                 EndDate = DateTime.Parse(dateTimePicker2.Value.ToString("yyyy-MM-dd")),
             });

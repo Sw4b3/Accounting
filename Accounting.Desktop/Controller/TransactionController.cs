@@ -41,9 +41,9 @@ namespace Accounting.Desktop.Controller
             dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == i).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList();
         }
 
-        public void GetTransactionsByDate(DataGridView dataGridView, TransactionByDateRequest transaction)
+        public void SearchTransactionsByDate(DataGridView dataGridView, SearchTransactionByDateRequest transaction)
         {
-            dataGridView.DataSource = _transactionService.GetTransactionsByDate(transaction).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList();
+            dataGridView.DataSource = _transactionService.SearchTransactionsByDate(transaction).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList();
         }
 
         public void GetTransactionsGeneralExpenses(DataGridView dataGridView)
@@ -88,13 +88,13 @@ namespace Accounting.Desktop.Controller
             _excelService.ExportToExcel(res.ToList());
         }
 
-        public TransactionUpdateRequest GetTransactionDetailsFromDataGridView(DataGridView dataGridView)
+        public UpdateTransactionRequest GetTransactionDetailsFromDataGridView(DataGridView dataGridView)
         {
             if (!dataGridView.SelectedRows.Count.Equals(0))
             {
                 int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
-                return new TransactionUpdateRequest
+                return new UpdateTransactionRequest
                 {
 
                     TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()),
@@ -106,12 +106,12 @@ namespace Accounting.Desktop.Controller
             return null;
         }
 
-        public void SaveTransaction(TransactionRequest transaction)
+        public void SaveTransaction(GetTransactionRequest transaction)
         {
             _transactionService.SaveTransaction(transaction);
         }
 
-        public void UpdateTransaction(TransactionUpdateRequest transaction)
+        public void UpdateTransaction(UpdateTransactionRequest transaction)
         {
             _transactionService.UpdateTransaction(transaction);
         }

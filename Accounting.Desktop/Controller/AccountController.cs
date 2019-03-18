@@ -31,7 +31,7 @@ namespace Accounting.Desktop.Controller
             return ((AccountItem)comboBox.SelectedItem).AccountId;
         }
 
-        public void SaveAccount(AccountRequest account)
+        public void SaveAccount(GetAccountRequest account)
         {
             _accountService.SaveAccount(account);
         }

@@ -27,17 +27,22 @@ namespace Accounting.Repository
             return GetTransactions(DatabaseConnection.connection, _connection,_transaction);
         }
 
-        public IList<Transaction> GetTransactionsByDateRequest(TransactionByDateRequest request)
+        public IList<Transaction> GetTransactionsByDateRequest(GetTransactionByDateRequest request)
         {
             return GetTransactionsByDate(DatabaseConnection.connection, request, _connection, _transaction);
         }
 
-        public void SaveTransactionsRequest(TransactionRequest request)
+        public IList<Transaction> SearchTransactionsByDateRequest(SearchTransactionByDateRequest request)
+        {
+            return SearchTransactionsByDate(DatabaseConnection.connection, request, _connection, _transaction);
+        }
+
+        public void SaveTransactionsRequest(GetTransactionRequest request)
         {
             SaveTransactions(DatabaseConnection.connection, request, _connection, _transaction);
         }
 
-        public void UpdateTransactionsRequest(TransactionUpdateRequest request)
+        public void UpdateTransactionsRequest(UpdateTransactionRequest request)
         {
             UpdateTransactions(DatabaseConnection.connection, request, _connection, _transaction);
         }

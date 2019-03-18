@@ -46,10 +46,11 @@
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TransactionAnalysis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requests\AccountRequest.cs" />
-    <Compile Include="Requests\TransactionByDateRequest.cs" />
-    <Compile Include="Requests\TransactionUpdateRequest.cs" />
-    <Compile Include="Requests\TransactionRequest.cs" />
+    <Compile Include="Requests\GetAccountRequest.cs" />
+    <Compile Include="Requests\SearchTransactionByDateRequest.cs" />
+    <Compile Include="Requests\GetTransactionByDateRequest.cs" />
+    <Compile Include="Requests\UpdateTransactionRequest.cs" />
+    <Compile Include="Requests\GetTransactionRequest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

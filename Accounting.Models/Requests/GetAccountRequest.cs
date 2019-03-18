@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Requests
 {
-   public class TransactionByDateRequest
+    public class GetAccountRequest
     {
-        public DateTime StartDate { get; set; }
-
-        public DateTime EndDate { get; set; }
+        public string AccountType { get; set; }
     }
 }

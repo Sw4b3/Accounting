@@ -17,10 +17,10 @@ namespace Accounting.Desktop.View
     {
         private TransactionController _transactionController;
         private MainApplication _mainform;
-        private TransactionUpdateRequest _transactionRequest;
+        private UpdateTransactionRequest _transactionRequest;
 
 
-        public TransactionEditDialog(TransactionUpdateRequest transactionRequest, MainApplication mainApplication)
+        public TransactionEditDialog(UpdateTransactionRequest transactionRequest, MainApplication mainApplication)
         {
             InitializeComponent();
             _transactionController = new TransactionController();
@@ -38,7 +38,7 @@ namespace Accounting.Desktop.View
         public void SaveTransaction() {
             if (Validator.IsNumber(textBox1.Text) && Validator.IsString(textBox3.Text))
             {
-                _transactionController.UpdateTransaction(new TransactionUpdateRequest
+                _transactionController.UpdateTransaction(new UpdateTransactionRequest
                 {
                     TransactionId = _transactionRequest.TransactionId,
                     Amount = decimal.Parse(textBox1.Text.Trim()),

@@ -33,7 +33,7 @@ namespace Accounting.Domain.Services.Service
             }
         }
   
-        public void SaveAccount(AccountRequest account)
+        public void SaveAccount(GetAccountRequest account)
         {
             try
             {

@@ -8,6 +8,6 @@ namespace Accounting
 {
     class DatabaseConnection
     {
-        public const string connection = "Server=localhost; database=Dev.AccountDB; Trusted_Connection=True;";
+        public const string connection = "Server=localhost; database=Stg.AccountDB; Trusted_Connection=True;";
     }
 }

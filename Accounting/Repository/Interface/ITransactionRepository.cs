@@ -13,12 +13,14 @@ namespace Accounting.Repository.Interface
     {
         IList<Transaction> GetTransactionsRequest();
 
-        IList<Transaction> GetTransactionsByDateRequest(TransactionByDateRequest request);
+        IList<Transaction> GetTransactionsByDateRequest(GetTransactionByDateRequest request);
+
+        IList<Transaction> SearchTransactionsByDateRequest(SearchTransactionByDateRequest request);
 
         IList<TransactionAnalysis> GetTransactionAnalysisRequest();
 
-        void SaveTransactionsRequest(TransactionRequest request);
+        void SaveTransactionsRequest(GetTransactionRequest request);
 
-        void UpdateTransactionsRequest(TransactionUpdateRequest request);
+        void UpdateTransactionsRequest(UpdateTransactionRequest request);
     }
 }
