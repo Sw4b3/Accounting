@@ -22,11 +22,6 @@ namespace Accounting.Repository
             _transaction = transaction;
         }
 
-        public IList<Transaction> GetTransactionsRequest()
-        {
-            return GetTransactions(DatabaseConnection.connection, _connection,_transaction);
-        }
-
         public IList<Transaction> GetTransactionsByDateRequest(GetTransactionByDateRequest request)
         {
             return GetTransactionsByDate(DatabaseConnection.connection, request, _connection, _transaction);

@@ -4,8 +4,8 @@ AS
 BEGIN
 		select *
 		from Transactions with (nolock)
-			INNER JOIN AccountTypes with (nolock) 
-			ON Transactions.AccountTypeId=AccountTypes.AccountId	
+			INNER JOIN Accounts with (nolock) 
+			ON Transactions.AccountTypeId=Accounts.AccountId	
 			INNER JOIN TransactionTypes with (nolock) 
 			ON Transactions.TransactionTypeId=TransactionTypes.TransactionTypeId
 		order by TransactionTimestamp;

@@ -1,8 +1,8 @@
 ﻿
-create PROCEDURE [dbo].[spSaveAccount]
+CREATE PROCEDURE [dbo].[spSaveAccount]
 @accountType varchar(45)
 AS
 BEGIN
-		insert into AccountTypes(AccountType)
+		insert into Accounts(AccountType)
 		values (@accountType)
 END

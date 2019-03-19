@@ -61,11 +61,6 @@ namespace Accounting.Desktop.Controller
             dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
         }
 
-        public decimal GetTransactionBalance(int accountId)
-        {
-            return _transactionService.GetTransactionBalanceByAccount(accountId);
-        }
-
         public decimal GetGeneralExpenseSubtotal()
         {
             return _transactionService.GetTransactions().Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();

@@ -7,10 +7,12 @@
     [ExpenseId]            INT              NOT NULL,
     [TransactionId]        UNIQUEIDENTIFIER CONSTRAINT [DF_Transactions_TransactionId] DEFAULT (newsequentialid()) NOT NULL,
     CONSTRAINT [PK_Transactions] PRIMARY KEY CLUSTERED ([TransactionId] ASC),
-    CONSTRAINT [FK_Transactions_AccountTypes] FOREIGN KEY ([AccountTypeId]) REFERENCES [dbo].[AccountTypes] ([AccountId]),
+    CONSTRAINT [FK_Transactions_AccountTypes] FOREIGN KEY ([AccountTypeId]) REFERENCES [dbo].[Accounts] ([AccountId]),
     CONSTRAINT [FK_Transactions_ExpenseTypes] FOREIGN KEY ([ExpenseId]) REFERENCES [dbo].[ExpenseTypes] ([ExpenseId]),
     CONSTRAINT [FK_Transactions_TransactionTypes] FOREIGN KEY ([TransactionTypeId]) REFERENCES [dbo].[TransactionTypes] ([TransactionTypeId])
 );
+
+
 
 
 

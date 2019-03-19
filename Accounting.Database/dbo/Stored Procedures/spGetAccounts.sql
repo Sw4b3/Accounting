@@ -1,6 +1,6 @@
 ﻿
-create PROCEDURE [dbo].[spGetAccounts]
+CREATE PROCEDURE [dbo].[spGetAccounts]
 AS
 BEGIN
-		select *  from AccountTypes with (nolock);
+		select *  from Accounts with (nolock);
 END

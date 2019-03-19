@@ -11,8 +11,6 @@ namespace Accounting.Repository.Interface
 {
     public interface ITransactionRepository
     {
-        IList<Transaction> GetTransactionsRequest();
-
         IList<Transaction> GetTransactionsByDateRequest(GetTransactionByDateRequest request);
 
         IList<Transaction> SearchTransactionsByDateRequest(SearchTransactionByDateRequest request);

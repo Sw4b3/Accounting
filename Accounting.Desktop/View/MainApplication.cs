@@ -99,7 +99,7 @@ namespace Accounting.Desktop
         public void FilterByAccount()
         {
             var accountId = _accountController.GetAccountId(comboBoxAccount);
-            var balance = _transactionController.GetTransactionBalance(accountId).ToString();
+            var balance = _accountController.GetAccountBalance(accountId);
             _transactionController.GetTransactions(dataViewTransaction, accountId);
             labelBalanceTransaction.Text = "Balance: " + balance;
         }
@@ -121,7 +121,7 @@ namespace Accounting.Desktop
         public void CalculateBalance()
         {
             var accountId = _accountController.GetAccountId(comboBoxAccount);
-            var balance = _transactionController.GetTransactionBalance(1).ToString("0.##");
+            var balance = _accountController.GetAccountBalance(accountId);
             labelBalanceOverview.Text = "Balance: " + balance;
             labelBalanceTransaction.Text = "Balance: " + balance;
         }

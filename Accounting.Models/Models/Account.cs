@@ -11,5 +11,9 @@ namespace Accounting.Models.Models
         public int AccountId { get; set; }
 
         public string AccountType { get; set; }
+
+        public decimal Balance { get; set; }
+
+        public string Status { get; set; }
     }
 }

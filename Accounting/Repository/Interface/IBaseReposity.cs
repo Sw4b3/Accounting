@@ -11,8 +11,6 @@ namespace Accounting.Repository.Interface
 {
     public interface IBaseRepository
     {
-        IList<Transaction> GetTransactions(string connectionString, IDbConnection connection, IDbTransaction transaction);
-
         IList<Transaction> GetTransactionsByDate(string connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction);
 
         IList<TransactionAnalysis> GetTransactionAnalysis(string _connectionString, IDbConnection connection, IDbTransaction transaction);

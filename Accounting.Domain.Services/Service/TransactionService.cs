@@ -120,24 +120,5 @@ namespace Accounting.Models.Service
             };
         }
 
-        public decimal GetTransactionBalanceByAccount(int accountId)
-        {
-            try
-            {
-                uow.CreateUnitOfWork();
-                var transactions = uow.TransactionRepository.GetTransactionsRequest();
-                uow.Commit();
-
-                var deposits = transactions.Where(x => x.AccountTypeId == accountId && x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
-                var withdaws = transactions.Where(x => x.AccountTypeId == accountId && x.TransactionTypeId == 2).Select(x => x.Amount).Sum();
-                var total = deposits - withdaws;
-
-                return Math.Round(total, 2);
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
     }
 }

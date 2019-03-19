@@ -12,12 +12,6 @@ namespace Accounting.Repository.Common
     public class BaseRepository : IBaseRepository
     {
 
-        public IList<Transaction> GetTransactions(string _connectionString, IDbConnection connection, IDbTransaction transaction)
-        {
-            var res = DapperRepository.ExecuteAsStoredProc<Transaction>(_connectionString, SQLStoredProcedures.getGetTransaction, connection, transaction);
-            return res;
-        }
-
         public IList<Transaction> GetTransactionsByDate(string _connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction)
         {
             var res = DapperRepository.ExecuteStoredProc<Transaction>(_connectionString, SQLStoredProcedures.getGetTransactionByDate, request, connection, transaction);

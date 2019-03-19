@@ -16,8 +16,14 @@ namespace Accounting.Desktop.Controller
             _accountService = new AccountService();
         }
 
-        public void GetAccount(DataGridView dataGrid) {
-            dataGrid.DataSource= _accountService.GetAccount().Select(x => new {   x.AccountId,  x.AccountType }).ToList();
+        public string GetAccountBalance(int accountId)
+        {
+            return _accountService.GetAccount().FirstOrDefault(x =>  x.AccountId== accountId).Balance.ToString();
+        }
+
+        public void GetAccount(DataGridView dataGrid)
+        {
+            dataGrid.DataSource = _accountService.GetAccount().Select(x => new { x.AccountId, x.AccountType, x.Status }).ToList();
         }
 
         public void GetAccountComboBox(ComboBox comboBox)

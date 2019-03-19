@@ -64,7 +64,6 @@
   <ItemGroup>
     <Build Include="dbo\Tables\TransactionTypes.sql" />
     <Build Include="dbo\Tables\Transactions.sql" />
-    <Build Include="dbo\Tables\AccountTypes.sql" />
     <Build Include="dbo\Stored Procedures\spSaveTransaction.sql" />
     <Build Include="dbo\Stored Procedures\spGetTransactions.sql" />
     <Build Include="dbo\Tables\ExpenseTypes.sql" />
@@ -75,5 +74,6 @@
     <Build Include="dbo\Stored Procedures\spUpdateTransaction.sql" />
     <Build Include="dbo\Stored Procedures\spGetTransactionsAnalysis.sql" />
     <Build Include="dbo\Stored Procedures\spSearchTransactionsByDate.sql" />
+    <Build Include="dbo\Tables\Accounts.sql" />
   </ItemGroup>
 </Project>

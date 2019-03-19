@@ -24,6 +24,7 @@ namespace Accounting.Domain.Services.Service
             {
                 uow.CreateUnitOfWork();
                 var res = uow.ExpenseRepository.GetExpenseRequest();
+                uow.Commit();
                 return res;
             }
             catch (Exception e)
