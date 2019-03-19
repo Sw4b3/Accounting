@@ -17,6 +17,8 @@ namespace Accounting.Repository.Interface
 
         IList<TransactionAnalysis> GetTransactionAnalysisRequest();
 
+        IList<TransactionAnalysisByDay> GetTransactionAnalysisByDayRequest();
+
         void SaveTransactionsRequest(GetTransactionRequest request);
 
         void UpdateTransactionsRequest(UpdateTransactionRequest request);

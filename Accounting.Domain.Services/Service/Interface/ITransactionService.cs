@@ -14,6 +14,8 @@ namespace Accounting.Domain.Services.Service.Interface
 
         IList<TransactionAnalysis> GetTransactionAnalysis();
 
+        IList<TransactionAnalysisByDay> GetTransactionAnalysisByDay();
+
         void SaveTransaction(GetTransactionRequest transaction);
 
         void UpdateTransaction(UpdateTransactionRequest transaction);

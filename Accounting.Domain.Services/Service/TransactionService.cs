@@ -49,6 +49,21 @@ namespace Accounting.Models.Service
             }
         }
 
+        public IList<TransactionAnalysisByDay> GetTransactionAnalysisByDay()
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.TransactionRepository.GetTransactionAnalysisByDayRequest();
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public IList<Transaction> GetTransactionsByDate(GetTransactionByDateRequest transaction)
         {
             try
