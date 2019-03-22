@@ -18,12 +18,14 @@ namespace Accounting.Desktop
     {
         private TransactionController _transactionController;
         private AccountController _accountController;
+        private AnalyticsController _analyticsController;
 
         public MainApplication()
         {
             InitializeComponent();
             _transactionController = new TransactionController();
             _accountController = new AccountController();
+            _analyticsController = new AnalyticsController();
             PopulationAll();
             Recalculate();
         }
@@ -52,7 +54,7 @@ namespace Accounting.Desktop
 
         public void PopulationTransferAnalysisTable()
         {
-            _transactionController.GetTransactionAnalysis(dataGridViewAnalysis, chart1, chart2);
+            _analyticsController.GetAnalyticsOverview(dataGridViewAnalysis, chart1, chart2);
         }
 
         public void PopulationTransactionTableByDate()

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Common\Validator.cs" />
     <Compile Include="Controller\AccountController.cs" />
+    <Compile Include="Controller\AnalyticsController.cs" />
     <Compile Include="Controller\ExpenseController.cs" />
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Model\AccountItem.cs" />

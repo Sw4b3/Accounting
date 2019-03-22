@@ -34,12 +34,12 @@ namespace Accounting.Models.Service
             }
         }
 
-        public IList<TransactionAnalysis> GetTransactionAnalysis()
+        public IList<TransactionAnalyticsOverview> GetTransactionAnalysis()
         {
             try
             {
                 uow.CreateUnitOfWork();
-                var res = uow.TransactionRepository.GetTransactionAnalysisRequest();
+                var res = uow.TransactionRepository.GetAnalyticOverviewRequest(GetCurrentMonth());
                 uow.Commit();
                 return res;
             }
@@ -49,12 +49,12 @@ namespace Accounting.Models.Service
             }
         }
 
-        public IList<TransactionAnalysisByDay> GetTransactionAnalysisByDay()
+        public IList<TransactionAnalyticsByDay> GetAnalyticsByDay()
         {
             try
             {
                 uow.CreateUnitOfWork();
-                var res = uow.TransactionRepository.GetTransactionAnalysisByDayRequest();
+                var res = uow.TransactionRepository.GetAnalyticsByDayRequest(GetCurrentMonth());
                 uow.Commit();
                 return res;
             }

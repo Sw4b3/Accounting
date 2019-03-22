@@ -42,15 +42,15 @@ namespace Accounting.Repository
             UpdateTransactions(DatabaseConnection.connection, request, _connection, _transaction);
         }
 
-        public IList<TransactionAnalysis> GetTransactionAnalysisRequest()
+        public IList<TransactionAnalyticsOverview> GetAnalyticOverviewRequest(GetTransactionByDateRequest request)
         {
-            return GetTransactionAnalysis(DatabaseConnection.connection, _connection, _transaction);
+            return GetAnalyticsOverview(DatabaseConnection.connection, request, _connection, _transaction);
         }
 
 
-        public IList<TransactionAnalysisByDay> GetTransactionAnalysisByDayRequest()
+        public IList<TransactionAnalyticsByDay> GetAnalyticsByDayRequest(GetTransactionByDateRequest request)
         {
-            return GetTransactionAnalysisByDay(DatabaseConnection.connection, _connection, _transaction);
+            return GetAnalyticsByDay(DatabaseConnection.connection, request, _connection, _transaction);
         }
     }
 }

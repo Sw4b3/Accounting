@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Models
 {
-    public class TransactionAnalysis
+    public class TransactionAnalyticsOverview
     {
         public String Description { get; set; }
 

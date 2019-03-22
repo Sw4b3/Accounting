@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Models
 {
-    public class TransactionAnalysisByDay
+    public class TransactionAnalyticsByDay
     {
         public DateTime TransactionTimestamp { get; set; }
 

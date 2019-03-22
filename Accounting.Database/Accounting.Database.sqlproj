@@ -72,9 +72,9 @@
     <Build Include="dbo\Stored Procedures\spGetAccounts.sql" />
     <Build Include="dbo\Stored Procedures\spSaveAccount.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateTransaction.sql" />
-    <Build Include="dbo\Stored Procedures\spGetTransactionsAnalysis.sql" />
     <Build Include="dbo\Stored Procedures\spSearchTransactionsByDate.sql" />
     <Build Include="dbo\Tables\Accounts.sql" />
-    <Build Include="dbo\Stored Procedures\spGetTransactionsAnalysisByDay.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAnalyticsOverview.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAnalyticsByDay.sql" />
   </ItemGroup>
 </Project>

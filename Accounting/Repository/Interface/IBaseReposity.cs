@@ -13,7 +13,9 @@ namespace Accounting.Repository.Interface
     {
         IList<Transaction> GetTransactionsByDate(string connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction);
 
-        IList<TransactionAnalysis> GetTransactionAnalysis(string _connectionString, IDbConnection connection, IDbTransaction transaction);
+        IList<TransactionAnalyticsOverview> GetAnalyticsOverview(string _connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction);
+
+        IList<TransactionAnalyticsByDay> GetAnalyticsByDay(string _connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction);
 
         void SaveTransactions(string connectionString, GetTransactionRequest transactions, IDbConnection connection, IDbTransaction transaction);
 

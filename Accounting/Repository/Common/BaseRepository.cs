@@ -34,15 +34,15 @@ namespace Accounting.Repository.Common
             DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.updateTransaction, request, connection, transaction);
         }
 
-        public IList<TransactionAnalysis> GetTransactionAnalysis(string _connectionString, IDbConnection connection, IDbTransaction transaction)
+        public IList<TransactionAnalyticsOverview> GetAnalyticsOverview(string _connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction)
         {
-            var res = DapperRepository.ExecuteAsStoredProc<TransactionAnalysis>(_connectionString, SQLStoredProcedures.getTransactionAnalysis, connection, transaction);
+            var res = DapperRepository.ExecuteStoredProc<TransactionAnalyticsOverview>(_connectionString, SQLStoredProcedures.spGetAnalyticsOverview, request,connection, transaction);
             return res;
         }
 
-        public IList<TransactionAnalysisByDay> GetTransactionAnalysisByDay(string _connectionString, IDbConnection connection, IDbTransaction transaction)
+        public IList<TransactionAnalyticsByDay> GetAnalyticsByDay(string _connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction)
         {
-            var res = DapperRepository.ExecuteAsStoredProc<TransactionAnalysisByDay>(_connectionString, SQLStoredProcedures.getTransactionAnalysisByDay, connection, transaction);
+            var res = DapperRepository.ExecuteStoredProc<TransactionAnalyticsByDay>(_connectionString, SQLStoredProcedures.spGetAnalyticsByDay, request,connection, transaction);
             return res;
         }
 
