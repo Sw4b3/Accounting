@@ -22,6 +22,19 @@ namespace Accounting.Repository
             _transaction = transaction;
         }
 
+        public IList<Transaction> GetTransactionsByDate(string _connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction)
+        {
+            var res = DapperRepository.ExecuteStoredProc<Transaction>(_connectionString, SQLStoredProcedures.getGetTransactionByDate, request, connection, transaction);
+            return res;
+        }
+
+        public IList<Transaction> SearchTransactionsByDate(string _connectionString, SearchTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction)
+        {
+            var res = DapperRepository.ExecuteStoredProc<Transaction>(_connectionString, SQLStoredProcedures.searchTransactionByDate, request, connection, transaction);
+            return res;
+        }
+
+
         public IList<Transaction> GetTransactionsByDateRequest(GetTransactionByDateRequest request)
         {
             return GetTransactionsByDate(DatabaseConnection.connection, request, _connection, _transaction);
@@ -56,6 +69,24 @@ namespace Accounting.Repository
         public IList<TransactionAnalyticsByMonth> GetAnalyticsByMonthRequest()
         {
             return GetAnalyticsByMonth(DatabaseConnection.connection, _connection, _transaction);
+        }
+
+        public IList<TransactionAnalyticsOverview> GetAnalyticsOverview(string _connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction)
+        {
+            var res = DapperRepository.ExecuteStoredProc<TransactionAnalyticsOverview>(_connectionString, SQLStoredProcedures.spGetAnalyticsOverview, request, connection, transaction);
+            return res;
+        }
+
+        public IList<TransactionAnalyticsByDay> GetAnalyticsByDay(string _connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction)
+        {
+            var res = DapperRepository.ExecuteStoredProc<TransactionAnalyticsByDay>(_connectionString, SQLStoredProcedures.spGetAnalyticsByDay, request, connection, transaction);
+            return res;
+        }
+
+        public IList<TransactionAnalyticsByMonth> GetAnalyticsByMonth(string _connectionString, IDbConnection connection, IDbTransaction transaction)
+        {
+            var res = DapperRepository.ExecuteAsStoredProc<TransactionAnalyticsByMonth>(_connectionString, SQLStoredProcedures.spGetAnalyticsByMonth, connection, transaction);
+            return res;
         }
     }
 }

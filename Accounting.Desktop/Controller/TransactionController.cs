@@ -80,7 +80,6 @@ namespace Accounting.Desktop.Controller
                 DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
                 return new UpdateTransactionRequest
                 {
-
                     TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()),
                     Description = selectedRow.Cells[1].Value.ToString(),
                     Amount = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
