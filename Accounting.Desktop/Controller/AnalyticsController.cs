@@ -18,7 +18,7 @@ namespace Accounting.Desktop.Controller
             _transactionService = new TransactionService();
         }
 
-        public void GetAnalyticsOverview(DataGridView dataGridView, Chart chart, Chart chartBar, Chart chartColumn)
+        public void GetAnalyticsOverview(DataGridView dataGridView, Chart chartPie, Chart chartBar, Chart chartColumn)
         {
             var accountDetails = _transactionService.GetTransactions();
             var personalExpense = accountDetails.Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 3 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
@@ -38,7 +38,7 @@ namespace Accounting.Desktop.Controller
             chartColumn.Series[2].Points.DataBindXY(month, balance);
 
             chartBar.Series[0].Points.DataBindXY(dayAnalyticsHeader, dayAnalytics);
-            chart.Series[0].Points.DataBindXY(new[] { "Personal Expense", "General Expense", "Income" }, new[] { personalExpense, generalExpense, income });
+            chartPie.Series[0].Points.DataBindXY(new[] { "Personal Expense", "General Expense", "Income" }, new[] { personalExpense, generalExpense, income });
             dataGridView.DataSource = _transactionService.GetTransactionAnalysis();
         }
     }
