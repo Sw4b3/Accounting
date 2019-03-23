@@ -44,6 +44,7 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Expense.cs" />
     <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransactionAnalysis ByYear.cs" />
     <Compile Include="Models\TransactionAnalysis ByDay.cs" />
     <Compile Include="Models\TransactionAnalysis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

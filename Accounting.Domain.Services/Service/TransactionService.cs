@@ -64,6 +64,21 @@ namespace Accounting.Models.Service
             }
         }
 
+        public IList<TransactionAnalyticsByMonth> GetAnalyticsByMonth()
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.TransactionRepository.GetAnalyticsByMonthRequest();
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public IList<Transaction> GetTransactionsByDate(GetTransactionByDateRequest transaction)
         {
             try

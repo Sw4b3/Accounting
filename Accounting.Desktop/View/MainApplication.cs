@@ -54,7 +54,7 @@ namespace Accounting.Desktop
 
         public void PopulationTransferAnalysisTable()
         {
-            _analyticsController.GetAnalyticsOverview(dataGridViewAnalysis, chart1, chart2);
+            _analyticsController.GetAnalyticsOverview(dataGridViewAnalysis, chart1, chart2, chart3);
         }
 
         public void PopulationTransactionTableByDate()

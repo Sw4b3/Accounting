@@ -46,6 +46,12 @@ namespace Accounting.Repository.Common
             return res;
         }
 
+        public IList<TransactionAnalyticsByMonth> GetAnalyticsByMonth(string _connectionString, IDbConnection connection, IDbTransaction transaction)
+        {
+            var res = DapperRepository.ExecuteAsStoredProc<TransactionAnalyticsByMonth>(_connectionString, SQLStoredProcedures.spGetAnalyticsByMonth, connection, transaction);
+            return res;
+        }
+
         public IList<Expense> GetExpenses(string connectionString, IDbConnection connection, IDbTransaction transaction)
         {
             var res = DapperRepository.ExecuteAsStoredProc<Expense>(connectionString, SQLStoredProcedures.getGetExpenses, connection, transaction);

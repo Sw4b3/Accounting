@@ -52,5 +52,10 @@ namespace Accounting.Repository
         {
             return GetAnalyticsByDay(DatabaseConnection.connection, request, _connection, _transaction);
         }
+
+        public IList<TransactionAnalyticsByMonth> GetAnalyticsByMonthRequest()
+        {
+            return GetAnalyticsByMonth(DatabaseConnection.connection, _connection, _transaction);
+        }
     }
 }

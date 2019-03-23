@@ -40,6 +40,10 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApplication));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
@@ -86,6 +90,8 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
+            this.Monthly = new System.Windows.Forms.TabPage();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -107,6 +113,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnalysis)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).BeginInit();
+            this.Monthly.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -558,6 +566,7 @@
             // 
             this.tabControl3.Controls.Add(this.tabPage7);
             this.tabControl3.Controls.Add(this.tabPage8);
+            this.tabControl3.Controls.Add(this.Monthly);
             this.tabControl3.Location = new System.Drawing.Point(441, 58);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
@@ -590,9 +599,9 @@
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(122)))), ((int)(((byte)(255))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(215)))), ((int)(((byte)(99))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(57)))), ((int)(((byte)(58)))))};
+        System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(146)))), ((int)(((byte)(200)))))};
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -623,24 +632,25 @@
             chartArea2.AxisX.LabelStyle.Angle = 90;
             chartArea2.AxisX.LabelStyle.Interval = 0D;
             chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisX2.LabelAutoFitMaxFontSize = 7;
             chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea2.AxisY.IsLabelAutoFit = false;
             chartArea2.AxisY.LabelAutoFitMaxFontSize = 8;
-            chartArea2.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
+            chartArea2.AxisY.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)(((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+            | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
             chartArea2.AxisY.LabelStyle.Interval = 0D;
             chartArea2.AxisY.LabelStyle.IntervalOffset = 0D;
-            chartArea2.AxisY.LabelStyle.IsEndLabelVisible = false;
             chartArea2.AxisY.LabelStyle.TruncatedLabels = true;
             chartArea2.AxisY.MajorGrid.Enabled = false;
             chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
             chartArea2.AxisY.MajorGrid.LineWidth = 0;
+            chartArea2.AxisY2.LabelAutoFitMaxFontSize = 7;
             chartArea2.Name = "ChartArea1";
             this.chart2.ChartAreas.Add(chartArea2);
             this.chart2.Location = new System.Drawing.Point(15, 20);
             this.chart2.Name = "chart2";
             this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart2.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.SystemColors.Highlight};
+        System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(146)))), ((int)(((byte)(200)))))};
             series2.ChartArea = "ChartArea1";
             series2.IsValueShownAsLabel = true;
             series2.Name = "Series1";
@@ -711,6 +721,55 @@
             this.dataGridAccount.Size = new System.Drawing.Size(465, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
+            // Monthly
+            // 
+            this.Monthly.Controls.Add(this.chart3);
+            this.Monthly.Location = new System.Drawing.Point(4, 22);
+            this.Monthly.Name = "Monthly";
+            this.Monthly.Padding = new System.Windows.Forms.Padding(3);
+            this.Monthly.Size = new System.Drawing.Size(524, 414);
+            this.Monthly.TabIndex = 2;
+            this.Monthly.Text = "Monlthy Breakdown";
+            this.Monthly.UseVisualStyleBackColor = true;
+            // 
+            // chart3
+            // 
+            chartArea3.AxisX.IsLabelAutoFit = false;
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisX2.MajorGrid.Enabled = false;
+            chartArea3.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea3.AxisY.LabelAutoFitMaxFontSize = 7;
+            chartArea3.AxisY.MajorGrid.Enabled = false;
+            chartArea3.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea3);
+            this.chart3.Location = new System.Drawing.Point(15, 20);
+            this.chart3.Name = "chart3";
+            this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chart3.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137))))),
+        System.Drawing.Color.Black};
+            series3.ChartArea = "ChartArea1";
+            series3.IsValueShownAsLabel = true;
+            series3.IsVisibleInLegend = false;
+            series3.LabelBackColor = System.Drawing.Color.Transparent;
+            series3.Name = "Series1";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series4.IsValueShownAsLabel = true;
+            series4.IsVisibleInLegend = false;
+            series4.Name = "Series2";
+            series5.BorderWidth = 2;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Name = "Series3";
+            this.chart3.Series.Add(series3);
+            this.chart3.Series.Add(series4);
+            this.chart3.Series.Add(series5);
+            this.chart3.Size = new System.Drawing.Size(490, 377);
+            this.chart3.TabIndex = 0;
+            this.chart3.Text = "chart3";
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -748,6 +807,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnalysis)).EndInit();
             this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).EndInit();
+            this.Monthly.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -798,6 +859,8 @@
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.TabPage Monthly;
     }
 }
 
