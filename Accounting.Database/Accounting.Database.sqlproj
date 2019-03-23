@@ -76,5 +76,6 @@
     <Build Include="dbo\Tables\Accounts.sql" />
     <Build Include="dbo\Stored Procedures\spGetAnalyticsOverview.sql" />
     <Build Include="dbo\Stored Procedures\spGetAnalyticsByDay.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAnalyticsByMonth.sql" />
   </ItemGroup>
 </Project>

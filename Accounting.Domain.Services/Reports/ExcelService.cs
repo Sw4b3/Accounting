@@ -180,7 +180,10 @@ namespace Accounting.Domain.Services.Reports
                     worksheet.Cell(row, 5).Style.Font.Bold = true;
                     worksheet.Cell(row, 5).Style.Font.FontSize = 12;
 
-                    worksheet.Cell(row, 6).Value = savings.Select(x => x.Amount).Sum();
+                    var credit = transactions.Where(x => x.AccountTypeId == 2 && x.TransactionTypeId==1).Select(x=> x.Amount).Sum(); 
+                    var debit = transactions.Where(x => x.AccountTypeId == 2 && x.TransactionTypeId == 2).Select(x => x.Amount).Sum();
+
+                    worksheet.Cell(row, 6).Value = credit - debit;
                     worksheet.Cell(row, 6).Style.NumberFormat.Format = "0.00";
 
                     workbook.SaveAs("C:\\Users\\Andrew\\Downloads\\" + docName);

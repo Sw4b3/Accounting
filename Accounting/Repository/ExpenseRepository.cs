@@ -23,7 +23,7 @@ namespace Accounting.Repository
 
         public IList<Expense> GetExpenseRequest()
         {
-            return GetExpenses(DatabaseConnection.connection, _connection, _transaction);
+            return Get<Expense>(DatabaseConnection.connection, SQLStoredProcedures.getGetExpenses, _connection, _transaction);
         }
     }
 }

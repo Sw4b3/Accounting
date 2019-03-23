@@ -24,12 +24,12 @@ namespace Accounting.Repository.Interface
 
         public IList<Account> GetAccountRequest()
         {
-            return GetAccounts(DatabaseConnection.connection, _connection, _transaction);
+            return Get<Account>(DatabaseConnection.connection, SQLStoredProcedures.getGetAccounts, _connection, _transaction);
         }
 
         public void SaveAccountRequest(GetAccountRequest request)
         {
-            SaveAccount(DatabaseConnection.connection, request, _connection, _transaction);
+            Save(DatabaseConnection.connection, SQLStoredProcedures.saveAccount, request, _connection, _transaction);
         }
     }
 }

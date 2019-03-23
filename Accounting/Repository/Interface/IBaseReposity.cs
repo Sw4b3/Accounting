@@ -11,16 +11,12 @@ namespace Accounting.Repository.Interface
 {
     public interface IBaseRepository
     {
-        IList<Transaction> GetTransactionsByDate(string connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction);
+        IList<T> Get<T>(string connectionString, string request, IDbConnection connection, IDbTransaction transaction);
 
-        IList<TransactionAnalyticsOverview> GetAnalyticsOverview(string _connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction);
+        void Save<T>(string connectionString,string storedProcedure, T transactions, IDbConnection connection, IDbTransaction transaction);
 
-        IList<TransactionAnalyticsByDay> GetAnalyticsByDay(string _connectionString, GetTransactionByDateRequest request, IDbConnection connection, IDbTransaction transaction);
+        void Update<T>(string _connectionString, T request, IDbConnection connection, IDbTransaction transaction);
 
-        void SaveTransactions(string connectionString, GetTransactionRequest transactions, IDbConnection connection, IDbTransaction transaction);
-
-        void UpdateTransactions(string _connectionString, UpdateTransactionRequest request, IDbConnection connection, IDbTransaction transaction);
-
-        IList<Expense> GetExpenses(string connectionString, IDbConnection connection, IDbTransaction transaction);
+        void Delete<T>(string _connectionString, T request, IDbConnection connection, IDbTransaction transaction);
     }
 }
