@@ -168,11 +168,6 @@ namespace Accounting.Desktop
             FilterByAccount();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Transfer_Click(object sender, EventArgs e)
         {
             var transfer1 = _accountController.GetAccountId(comboBoxTransfer1);
@@ -183,6 +178,18 @@ namespace Accounting.Desktop
         private void dataViewTransaction_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             new TransactionEditDialog(_transactionController.GetTransactionDetailsFromDataGridView(dataViewTransaction), this).Show();
+        }
+
+        private void dataViewTransaction_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataViewTransaction[4, e.RowIndex].Value.ToString() == "Withdraw")
+            {
+                dataViewTransaction[5, e.RowIndex].Style.ForeColor = Color.FromArgb(245, 115, 101);
+            }
+            else
+            {
+                dataViewTransaction[5, e.RowIndex].Style.ForeColor = Color.FromArgb(103, 190, 86);
+            }
         }
 
         private void Export_Click(object sender, EventArgs e)

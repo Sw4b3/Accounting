@@ -5,7 +5,7 @@ AS
 BEGIN
 		select TransactionTimestamp, sum(Amount) as Amount
 		from Transactions 
-		where ExpenseId=3 and TransactionTimestamp between @startDate and @endDate and AccountTypeId=1
+		where TransactionTypeId=2 and TransactionTimestamp between @startDate and @endDate and AccountTypeId=1
 		group by TransactionTimestamp  
 
 END

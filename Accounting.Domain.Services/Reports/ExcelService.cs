@@ -177,32 +177,45 @@ namespace Accounting.Domain.Services.Reports
         public IList<GetTransactionRequest> ImportFromExcel(string filename)
         {
             IList<GetTransactionRequest> lines = new List<GetTransactionRequest>();
-            using (var reader = new StreamReader(filename))
+            try
             {
-              
-                int rowCount = 0;
-                while (!reader.EndOfStream)
+                using (var reader = new StreamReader(filename))
                 {
-                    var line = reader.ReadLine();
-                    var values = line.Split(',');
-                    if (7 <= rowCount)
-                    {
-                        lines.Add(new GetTransactionRequest
-                        {
-                            TransactionTimestamp = DateTime.Parse(values[0]),
-                            Amount = decimal.Parse(values[1].Replace("-","")),
-                            Balance = decimal.Parse(values[2]),
-                            Description = values[3].Trim(),
-                            AccountTypeId = 1,
-                            TransactionTypeId = values[1].ToString().Contains("-") ? 2 : 1
-                        });
-                    }
-                    rowCount++;
-                }
 
+                    int rowCount = 0;
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        var values = line.Split(',');
+                        if (7 <= rowCount)
+                        {
+                            lines.Add(new GetTransactionRequest
+                            {
+                                TransactionTimestamp = DateTime.Parse(values[0]),
+                                Amount = decimal.Parse(values[1].Replace("-", "")),
+                                Balance = decimal.Parse(values[2]),
+                                Description = values[3].Trim(),
+                                AccountTypeId = 1,
+                                TransactionTypeId = values[1].ToString().Contains("-") ? 2 : 1
+                            });
+                        }
+                        rowCount++;
+                    }
+
+                }
+                MessageBox.Show("Data Imported", "Import", MessageBoxButtons.OK);
             }
-            MessageBox.Show("Data Imported", "Imported", MessageBoxButtons.OK);
-            return lines;
+            catch (IOException)
+            {
+                MessageBox.Show("File is currently open", "Import", MessageBoxButtons.OK);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Failed to Import", "Import", MessageBoxButtons.OK);
+            }
+           var reverseLines= lines.Reverse();
+           
+            return reverseLines.ToList();
         }
     }
 }
