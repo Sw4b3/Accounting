@@ -12,7 +12,7 @@ namespace Accounting.Models.Models
 
         public string AccountType { get; set; }
 
-        public decimal Balance { get; set; }
+        public decimal CurrentBalance { get; set; }
 
         public string Status { get; set; }
     }

@@ -18,7 +18,7 @@ namespace Accounting.Desktop.Controller
 
         public string GetAccountBalance(int accountId)
         {
-            return _accountService.GetAccount().FirstOrDefault(x =>  x.AccountId== accountId).Balance.ToString();
+            return _accountService.GetAccount().FirstOrDefault(x =>  x.AccountId== accountId).CurrentBalance.ToString();
         }
 
         public void GetAccount(DataGridView dataGrid)

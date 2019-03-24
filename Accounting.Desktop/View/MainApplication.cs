@@ -19,6 +19,7 @@ namespace Accounting.Desktop
         private TransactionController _transactionController;
         private AccountController _accountController;
         private AnalyticsController _analyticsController;
+        private ExcelController _excelController;
 
         public MainApplication()
         {
@@ -26,6 +27,7 @@ namespace Accounting.Desktop
             _transactionController = new TransactionController();
             _accountController = new AccountController();
             _analyticsController = new AnalyticsController();
+            _excelController = new ExcelController();
             PopulationAll();
             Recalculate();
         }
@@ -35,7 +37,6 @@ namespace Accounting.Desktop
             PopulationTransactionTable();
             PopulationTransferTable();
             PopulationTransferAnalysisTable();
-            PopulationTransactionTableGeneralExpenses();
             PopulationTransactionTablPersonalExpenses();
             PopulationTransactionTableWithdraw();
             populateAccountComboBox();
@@ -65,11 +66,6 @@ namespace Accounting.Desktop
                 StartDate = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd")),
                 EndDate = DateTime.Parse(dateTimePicker2.Value.ToString("yyyy-MM-dd")),
             });
-        }
-
-        public void PopulationTransactionTableGeneralExpenses()
-        {
-            _transactionController.GetTransactionsGeneralExpenses(dataViewTransactionGE);
         }
 
         public void PopulationTransactionTablPersonalExpenses()
@@ -114,7 +110,6 @@ namespace Accounting.Desktop
 
         public void CalculateSubtotal()
         {
-            labelGeneralExpense.Text = "Subtotal: " + _transactionController.GetGeneralExpenseSubtotal().ToString();
             labelPersonalExpense.Text = "Subtotal: " + _transactionController.GetPersonalExpenseSubtotal().ToString();
             labelIncome.Text = "Subtotal: " + _transactionController.GetIncomeSubtotal().ToString();
         }
@@ -192,7 +187,13 @@ namespace Accounting.Desktop
 
         private void Export_Click(object sender, EventArgs e)
         {
-            _transactionController.ExportToTransactions();
+            _excelController.ExportToTransactions();
+        }
+
+        private void Import_Click(object sender, EventArgs e)
+        {
+            _excelController.ImportFromExcel();
+            PopulationAll();
         }
     }
 }

@@ -16,16 +16,7 @@ namespace Accounting.Repository
         private IDbTransaction _transaction;
         private ITransactionRepository _transactionRepository;
         private IAccountRepository _accountRepository;
-        private IExpenseRepository _expenseRepository;
-
-        public UnitOfWork()
-        {
-            //_connection = new SqlConnection(DatabaseConnection.connection);
-            //_connection.Open();
-            //_transaction = _connection.BeginTransaction();
-         
-        }
-
+   
         public void CreateUnitOfWork() {
             _connection = new SqlConnection(DatabaseConnection.connection);
             _connection.Open();
@@ -48,16 +39,6 @@ namespace Accounting.Repository
                 return _accountRepository ?? (_accountRepository = new AccountRepository(_connection, _transaction));
             }
         }
-
-
-        public IExpenseRepository ExpenseRepository
-        {
-            get
-            {
-                return _expenseRepository ?? (_expenseRepository = new ExpenseRepository(_connection, _transaction));
-            }
-        }
-
 
         public void Commit()
         {
@@ -98,7 +79,6 @@ namespace Accounting.Repository
         {
             _transactionRepository = null;
             _accountRepository = null;
-            _expenseRepository = null;
         }
     }
 }

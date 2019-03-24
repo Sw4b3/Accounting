@@ -21,8 +21,7 @@ namespace Accounting.Desktop.Controller
         public void GetAnalyticsOverview(DataGridView dataGridView, Chart chartPie, Chart chartBar, Chart chartColumn)
         {
             var accountDetails = _transactionService.GetTransactions();
-            var personalExpense = accountDetails.Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 3 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
-            var generalExpense = accountDetails.Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+            var expense = accountDetails.Where(x => x.TransactionTypeId == 2  && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
             var income = accountDetails.Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
 
             var dayAnalytics = _transactionService.GetAnalyticsByDay().Select(x => x.Amount).ToList();
@@ -38,7 +37,7 @@ namespace Accounting.Desktop.Controller
             chartColumn.Series[2].Points.DataBindXY(month, balance);
 
             chartBar.Series[0].Points.DataBindXY(dayAnalyticsHeader, dayAnalytics);
-            chartPie.Series[0].Points.DataBindXY(new[] { "Personal Expense", "General Expense", "Income" }, new[] { personalExpense, generalExpense, income });
+            chartPie.Series[0].Points.DataBindXY(new[] { "Expense",  "Income" }, new[] { expense, income });
             dataGridView.DataSource = _transactionService.GetTransactionAnalysis();
         }
     }

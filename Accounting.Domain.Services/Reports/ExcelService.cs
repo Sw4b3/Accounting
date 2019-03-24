@@ -1,4 +1,5 @@
 ﻿using Accounting.Models.Models;
+using Accounting.Models.Requests;
 using ClosedXML.Excel;
 using System;
 using System.Collections.Generic;
@@ -106,9 +107,9 @@ namespace Accounting.Domain.Services.Reports
                     worksheet.Cell(row, 1).Style.Font.FontSize = 12;
 
 
-                    var generalExpense = transactions.Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 2 && x.AccountTypeId == 1);
+                    var expense = transactions.Where(x => x.TransactionTypeId == 2 && x.AccountTypeId == 1);
 
-                    foreach (var transaction in generalExpense)
+                    foreach (var transaction in expense)
                     {
                         worksheet.Cell(++row, 1).Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Right);
                         worksheet.Cell(row, 1).Value = transaction.Description;
@@ -122,42 +123,15 @@ namespace Accounting.Domain.Services.Reports
                     worksheet.Cell(row, 1).Style.Font.FontSize = 12;
                     worksheet.Cell(row, 1).Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
 
-                    worksheet.Cell(row, 2).Value = generalExpense.Select(x => x.Amount).Sum();
-                    worksheet.Cell(row, 2).Style.NumberFormat.Format = "0.00";
-
-                    worksheet.Cell(++row, 1).Value = "Personal Expense";
-                    worksheet.Cell(row, 1).Style.Font.Bold = true;
-                    worksheet.Cell(row, 1).Style.Font.FontSize = 12;
-
-
-                    var personalExpense = transactions.Where(x => x.TransactionTypeId == 2 && x.ExpenseId == 3 && x.AccountTypeId == 1);
-
-                    foreach (var transaction in personalExpense)
-                    {
-                        worksheet.Cell(++row, 1).Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Right);
-                        worksheet.Cell(row, 1).Value = transaction.Description;
-                        worksheet.Cell(row, 2).Value = transaction.Amount;
-                        worksheet.Cell(row, 2).Style.NumberFormat.Format = "0.00";
-                        worksheet.Cell(row, 3).Value = transaction.TransactionTimestamp;
-                    }
-
-                    worksheet.Cell(++row, 1).Value = "Subtotal";
-                    worksheet.Cell(row, 1).Style.Font.Bold = true;
-                    worksheet.Cell(row, 1).Style.Font.FontSize = 12;
-                    worksheet.Cell(row, 1).Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
-
-                    worksheet.Cell(row, 2).Value = personalExpense.Select(x => x.Amount).Sum();
+                    worksheet.Cell(row, 2).Value = expense.Select(x => x.Amount).Sum();
                     worksheet.Cell(row, 2).Style.NumberFormat.Format = "0.00";
 
                     worksheet.Cell(++row, 1).Value = "Total";
                     worksheet.Cell(row, 1).Style.Font.Bold = true;
                     worksheet.Cell(row, 1).Style.Font.FontSize = 12;
 
-                    worksheet.Cell(row, 2).Value = income.Select(x => x.Amount).Sum() - generalExpense.Select(x => x.Amount).Sum() - personalExpense.Select(x => x.Amount).Sum();
+                    worksheet.Cell(row, 2).Value = income.Select(x => x.Amount).Sum() - expense.Select(x => x.Amount).Sum();
                     worksheet.Cell(row, 2).Style.NumberFormat.Format = "0.00";
-
-                 
-
 
                     for (int i = 3; i < row; i++)
                     {
@@ -180,7 +154,7 @@ namespace Accounting.Domain.Services.Reports
                     worksheet.Cell(row, 5).Style.Font.Bold = true;
                     worksheet.Cell(row, 5).Style.Font.FontSize = 12;
 
-                    var credit = transactions.Where(x => x.AccountTypeId == 2 && x.TransactionTypeId==1).Select(x=> x.Amount).Sum(); 
+                    var credit = transactions.Where(x => x.AccountTypeId == 2 && x.TransactionTypeId == 1).Select(x => x.Amount).Sum();
                     var debit = transactions.Where(x => x.AccountTypeId == 2 && x.TransactionTypeId == 2).Select(x => x.Amount).Sum();
 
                     worksheet.Cell(row, 6).Value = credit - debit;
@@ -198,6 +172,37 @@ namespace Accounting.Domain.Services.Reports
             {
                 MessageBox.Show("Failed to create book", "Export", MessageBoxButtons.OK);
             }
+        }
+
+        public IList<GetTransactionRequest> ImportFromExcel(string filename)
+        {
+            IList<GetTransactionRequest> lines = new List<GetTransactionRequest>();
+            using (var reader = new StreamReader(filename))
+            {
+              
+                int rowCount = 0;
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+                    if (7 <= rowCount)
+                    {
+                        lines.Add(new GetTransactionRequest
+                        {
+                            TransactionTimestamp = DateTime.Parse(values[0]),
+                            Amount = decimal.Parse(values[1].Replace("-","")),
+                            Balance = decimal.Parse(values[2]),
+                            Description = values[3].Trim(),
+                            AccountTypeId = 1,
+                            TransactionTypeId = values[1].ToString().Contains("-") ? 2 : 1
+                        });
+                    }
+                    rowCount++;
+                }
+
+            }
+            MessageBox.Show("Data Imported", "Imported", MessageBoxButtons.OK);
+            return lines;
         }
     }
 }

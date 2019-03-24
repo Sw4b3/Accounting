@@ -16,7 +16,7 @@ namespace Accounting.Desktop.View
     public partial class TransactionAddDialog : Form
     {
         private TransactionController _transactionController;
-        private ExpenseController _ExpenseController;
+
         private AccountController _AccountController;
         private MainApplication _mainform;
         private int _transactionType;
@@ -25,18 +25,13 @@ namespace Accounting.Desktop.View
         {
             InitializeComponent();
             _transactionController = transactionController;
-            _ExpenseController = new ExpenseController();
+
             _AccountController = new AccountController();
             _mainform = mainform;
             _transactionType = transactionType;
-            populateExpenseComboBox();
             populateAccountComboBox();
         }
 
-        public void populateExpenseComboBox()
-        {
-            _ExpenseController.GetExpenses(comboBox1);
-        }
 
         public void populateAccountComboBox()
         {
@@ -51,9 +46,9 @@ namespace Accounting.Desktop.View
                     Amount = decimal.Parse(textBox1.Text.Trim()),
                     AccountTypeId = int.Parse((_AccountController.GetAccountId(comboBox2).ToString().Trim())),
                     TransactionTypeId = _transactionType,
-                    ExpenseId = int.Parse(_ExpenseController.GetExpenseId(comboBox1).ToString().Trim()),
-                    Description = textBox3.Text.Trim()
-                });
+                    Description = textBox3.Text.Trim(),
+                    TransactionTimestamp= DateTime.Today
+            });
                 _mainform.PopulationAll();
                 _mainform.Recalculate();
                 this.Dispose();

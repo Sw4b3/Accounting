@@ -10,12 +10,14 @@ namespace Accounting.Models.Requests
     {
         public decimal Amount { get; set; }
 
+        public DateTime TransactionTimestamp { get; set; }
+
         public int TransactionTypeId { get; set; }
 
         public int AccountTypeId { get; set; }
 
         public string Description { get; set; }
 
-        public int ExpenseId { get; set; }
+        public decimal Balance { get; set; }
     }
 }

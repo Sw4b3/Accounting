@@ -38,7 +38,6 @@ namespace Accounting.Desktop.View.Dialog
                 Amount = decimal.Parse(textBox3.Text),
                 AccountTypeId = _transfer1,
                 TransactionTypeId = 2,
-                ExpenseId = 2,
                 Description = "Transfer_withdraw"
             });
         }
@@ -50,7 +49,6 @@ namespace Accounting.Desktop.View.Dialog
                 Amount = decimal.Parse(textBox3.Text),
                 AccountTypeId = _transfer2,
                 TransactionTypeId = 1,
-                ExpenseId = 1,
                 Description = "Transfer_deposit"
             });
         }
