@@ -231,7 +231,7 @@ namespace Accounting.Domain.Services.Reports
             }
 
             processedValue = Regex.Replace(processedValue, @"\d", "");
-            processedValue = Regex.Replace(processedValue, " *[~#%&*{}()/:<>?|\"-]+ *", "");
+            processedValue = Regex.Replace(processedValue, " *[~%&*{}()/:<>?|\"-]+ *", "");
             processedValue = Regex.Replace(processedValue, "[ ]{2,}", " ");
 
             return processedValue;

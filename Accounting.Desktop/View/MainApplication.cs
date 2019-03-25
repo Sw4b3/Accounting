@@ -110,7 +110,7 @@ namespace Accounting.Desktop
 
         public void CalculateSubtotal()
         {
-            labelPersonalExpense.Text = "Subtotal: " + _transactionController.GetPersonalExpenseSubtotal().ToString();
+            labelPersonalExpense.Text = "Subtotal: " + _transactionController.GetExpenseSubtotal().ToString();
             labelIncome.Text = "Subtotal: " + _transactionController.GetIncomeSubtotal().ToString();
         }
 
