@@ -27,7 +27,7 @@ namespace Accounting.Desktop.Controller
             _excelService.ExportToExcel(res.ToList());
         }
 
-        public void ImportFromExcel()
+        public void ImportFromExcel(int accountType)
         {
             string filename=null;
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -52,7 +52,7 @@ namespace Accounting.Desktop.Controller
                filename = openFileDialog.FileName;
             }
 
-            var transactions = _excelService.ImportFromExcel(filename);
+            var transactions = _excelService.ImportFromExcel(filename, accountType);
             foreach (var transaction in transactions)
             {
                 _transactionService.SaveTransaction(transaction);

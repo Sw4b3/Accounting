@@ -177,7 +177,7 @@ namespace Accounting.Domain.Services.Reports
             }
         }
 
-        public IList<GetTransactionRequest> ImportFromExcel(string filename)
+        public IList<GetTransactionRequest> ImportFromExcel(string filename, int accountTypeId)
         {
             IList<GetTransactionRequest> lines = new List<GetTransactionRequest>();
             try
@@ -198,7 +198,7 @@ namespace Accounting.Domain.Services.Reports
                                 Amount = decimal.Parse(values[1].Replace("-", "")),
                                 Balance = decimal.Parse(values[2]),
                                 Description = ReplaceAll(values[3]).Trim(),
-                                AccountTypeId = 1,
+                                AccountTypeId = accountTypeId,
                                 TransactionTypeId = values[1].ToString().Contains("-") ? 2 : 1
                             });
                         }

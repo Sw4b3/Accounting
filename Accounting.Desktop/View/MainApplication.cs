@@ -199,8 +199,7 @@ namespace Accounting.Desktop
 
         private void Import_Click(object sender, EventArgs e)
         {
-            _excelController.ImportFromExcel();
-            PopulationAll();
+            new ImportDialog(_transactionController,this).Show();
         }
     }
 }
