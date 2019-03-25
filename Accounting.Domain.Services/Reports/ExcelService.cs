@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,6 +14,8 @@ namespace Accounting.Domain.Services.Reports
 {
     public class ExcelService
     {
+        string[] months = { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
+
         public void ExportToExcel(List<Transaction> transactions)
         {
             try
@@ -194,7 +197,7 @@ namespace Accounting.Domain.Services.Reports
                                 TransactionTimestamp = DateTime.Parse(values[0]),
                                 Amount = decimal.Parse(values[1].Replace("-", "")),
                                 Balance = decimal.Parse(values[2]),
-                                Description = values[3].Trim(),
+                                Description = ReplaceAll(values[3]).Trim(),
                                 AccountTypeId = 1,
                                 TransactionTypeId = values[1].ToString().Contains("-") ? 2 : 1
                             });
@@ -213,9 +216,25 @@ namespace Accounting.Domain.Services.Reports
             {
                 MessageBox.Show("Failed to Import", "Import", MessageBoxButtons.OK);
             }
-           var reverseLines= lines.Reverse();
-           
+            var reverseLines = lines.Reverse();
+
             return reverseLines.ToList();
+        }
+
+        public string ReplaceAll(string value)
+        {
+            string processedValue = value.Replace("457896*6952", "");
+
+            for (int i = 0; i < months.Length; i++)
+            {
+                processedValue = processedValue.Replace(months[i], "");
+            }
+
+            processedValue = Regex.Replace(processedValue, @"\d", "");
+            processedValue = Regex.Replace(processedValue, " *[~#%&*{}()/:<>?|\"-]+ *", "");
+            processedValue = Regex.Replace(processedValue, "[ ]{2,}", " ");
+
+            return processedValue;
         }
     }
 }
