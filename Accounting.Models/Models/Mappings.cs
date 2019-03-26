@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Models
 {
-   public class Expense
+   public class Mapping
     {
-        public int ExpenseId { get; set; }
+        public int MappingId { get; set; }
 
-        public string ExpenseType { get; set; }
+        public string ExpectedString { get; set; }
+
+        public string ProcessedString { get; set; }
     }
 }

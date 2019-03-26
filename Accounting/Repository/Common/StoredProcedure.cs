@@ -12,11 +12,11 @@ namespace Accounting.Repository.Common
         public const string searchTransactionByDate = "spSearchTransactionsByDate";
         public const string saveTransaction = "spSaveTransaction";
         public const string updateTransaction = "spUpdateTransaction";
-        public const string getGetExpenses = "spGetExpenses";
         public const string getGetAccounts = "spGetAccounts";
         public const string saveAccount = "spSaveAccount";
         public const string spGetAnalyticsOverview = "spGetAnalyticsOverview";
         public const string spGetAnalyticsByDay = "spGetAnalyticsByDay";
         public const string spGetAnalyticsByMonth = "spGetAnalyticsByMonth";
+        public const string spGetMappings = "spGetMappings";
     }
 }

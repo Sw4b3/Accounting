@@ -1,8 +1,12 @@
-﻿using Accounting.Models.Models;
+﻿using Accounting.Domain.Services.Service;
+using Accounting.Domain.Services.Service.Interface;
+using Accounting.Models.Models;
 using Accounting.Models.Requests;
+using Accounting.Repository;
 using ClosedXML.Excel;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,7 +18,14 @@ namespace Accounting.Domain.Services.Reports
 {
     public class ExcelService
     {
+        private IMappingService _mappingService;
         string[] months = { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
+        private IList<Mapping> _vauleList;
+
+        public ExcelService() {
+            _mappingService = new MappingService();
+             _vauleList = _mappingService.GetMappings();
+        }
 
         public void ExportToExcel(List<Transaction> transactions)
         {
@@ -197,7 +208,7 @@ namespace Accounting.Domain.Services.Reports
                                 TransactionTimestamp = DateTime.Parse(values[0]),
                                 Amount = decimal.Parse(values[1].Replace("-", "")),
                                 Balance = decimal.Parse(values[2]),
-                                Description = ReplaceAll(values[3]).Trim(),
+                                Description = ProcesssString(values[3]).Trim(),
                                 AccountTypeId = accountTypeId,
                                 TransactionTypeId = values[1].ToString().Contains("-") ? 2 : 1
                             });
@@ -221,18 +232,26 @@ namespace Accounting.Domain.Services.Reports
             return reverseLines.ToList();
         }
 
-        public string ReplaceAll(string value)
+        public string ProcesssString(string value)
         {
-            string processedValue = value.Replace("457896*6952", "");
+            //string processedValue = value.Replace("457896*6952", "");
+            string processedValue = value;
+
+            processedValue = Regex.Replace(processedValue, @"\d", "");
+            processedValue = Regex.Replace(processedValue, " *[~%&*{}()/:<>?|\"-]+ *", " ");
+            processedValue = Regex.Replace(processedValue, "[ ]{2,}", " ");
 
             for (int i = 0; i < months.Length; i++)
             {
                 processedValue = processedValue.Replace(months[i], "");
             }
 
-            processedValue = Regex.Replace(processedValue, @"\d", "");
-            processedValue = Regex.Replace(processedValue, " *[~%&*{}()/:<>?|\"-]+ *", "");
-            processedValue = Regex.Replace(processedValue, "[ ]{2,}", " ");
+            for (int j = 0; j < _vauleList.Count; j++)
+            {
+                processedValue = processedValue.Replace(_vauleList[j].ExpectedString, _vauleList[j].ProcessedString);
+            }
+
+            processedValue = processedValue.ToUpper();
 
             return processedValue;
         }

@@ -14,6 +14,7 @@ namespace Accounting.Repository
     {
         private IDbConnection _connection;
         private IDbTransaction _transaction;
+        private IMappingRepository _mappingRepository;
         private ITransactionRepository _transactionRepository;
         private IAccountRepository _accountRepository;
    
@@ -22,6 +23,14 @@ namespace Accounting.Repository
             _connection.Open();
             _transaction = _connection.BeginTransaction();
 
+        }
+
+        public IMappingRepository MappingRepository
+        {
+            get
+            {
+                return _mappingRepository ?? (_mappingRepository = new MappingRepository(_connection, _transaction));
+            }
         }
 
         public ITransactionRepository TransactionRepository
@@ -39,6 +48,7 @@ namespace Accounting.Repository
                 return _accountRepository ?? (_accountRepository = new AccountRepository(_connection, _transaction));
             }
         }
+
 
         public void Commit()
         {

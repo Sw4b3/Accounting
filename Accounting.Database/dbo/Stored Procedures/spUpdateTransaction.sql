@@ -11,13 +11,13 @@ BEGIN
 
 		IF @transactionTypeId = 1
 			begin
-			UPDATE Accounts SET Balance = Balance - @oldAmount WHERE AccountId = 1;
-			UPDATE Accounts SET Balance = Balance + @amount WHERE AccountId = 1;
+			UPDATE Accounts SET CurrentBalance = CurrentBalance - @oldAmount WHERE AccountId = 1;
+			UPDATE Accounts SET CurrentBalance = CurrentBalance + @amount WHERE AccountId = 1;
 			end
 		ELSE
 			begin
-			UPDATE Accounts SET Balance = Balance + @oldAmount WHERE AccountId = 1;
-			UPDATE Accounts SET Balance = Balance - @amount WHERE AccountId = 1;
+			UPDATE Accounts SET CurrentBalance = CurrentBalance + @oldAmount WHERE AccountId = 1;
+			UPDATE Accounts SET CurrentBalance = CurrentBalance - @amount WHERE AccountId = 1;
 			end
 
 		update Transactions set Description=@description, Amount=@amount, TransactionTimestamp=@date

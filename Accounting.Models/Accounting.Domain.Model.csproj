@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Expense.cs" />
+    <Compile Include="Models\Mappings.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TransactionAnalysisByMonth.cs" />
     <Compile Include="Models\TransactionAnalysisByDay.cs" />

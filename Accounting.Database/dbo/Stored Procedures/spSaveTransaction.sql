@@ -5,15 +5,19 @@ AS
 BEGIN
 	declare @currentBalance decimal(10,2)
 	set @currentBalance=(select CurrentBalance from Accounts where AccountId = @accountTypeId )
-		IF @transactionTypeId = 1
-			UPDATE Accounts SET CurrentBalance = @currentBalance + @amount WHERE AccountId = @accountTypeId;
-		ELSE
-			UPDATE Accounts SET CurrentBalance = @currentBalance - @amount WHERE AccountId = @accountTypeId;
+		
 
 		IF @balance = 0.00
+			begin
+			IF @transactionTypeId = 1
+				UPDATE Accounts SET CurrentBalance = @currentBalance + @amount WHERE AccountId = @accountTypeId;
+			ELSE
+				UPDATE Accounts SET CurrentBalance = @currentBalance - @amount WHERE AccountId = @accountTypeId;
 			insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp)
 			values (@description,@amount,@currentBalance-@amount, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp))
+			end
 		ELSE
+			UPDATE Accounts SET CurrentBalance = @balance WHERE AccountId = @accountTypeId;
 			insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp)
 			values (@description,@amount,@balance, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp))
 END
