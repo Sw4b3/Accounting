@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Models
 {
-    public class TransactionAnalyticsByMonth
+    public class AnalysisByMonth
     {
         public DateTime Date { get; set; }
 

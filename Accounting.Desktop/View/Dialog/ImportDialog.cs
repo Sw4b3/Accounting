@@ -36,6 +36,7 @@ namespace Accounting.Desktop.View.Dialog
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var accountTypeId = int.Parse((_accountController.GetAccountId(comboBox2).ToString().Trim()));
             _excelController.ImportFromExcel(accountTypeId);
             _mainform.PopulationAll();

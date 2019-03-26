@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Models
 {
-    public class TransactionAnalyticsByDay
+    public class AnalyticsOverview
     {
-        public DateTime TransactionTimestamp { get; set; }
+        public String Description { get; set; }
 
         public Decimal Amount { get; set; }
     }

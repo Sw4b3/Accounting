@@ -62,7 +62,6 @@
     <Compile Include="Controller\ExcelController.cs" />
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Model\AccountItem.cs" />
-    <Compile Include="Model\ExpenseItem.cs" />
     <Compile Include="View\Dialog\AccountDialog.cs">
       <SubType>Form</SubType>
     </Compile>

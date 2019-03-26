@@ -44,22 +44,22 @@ namespace Accounting.Repository
             Update<UpdateTransactionRequest>(DatabaseConnection.connection, request, _connection, _transaction);
         }
 
-        public IList<TransactionAnalyticsOverview> GetAnalyticOverviewRequest(GetTransactionByDateRequest request)
+        public IList<AnalyticsOverview> GetAnalyticOverviewRequest(GetTransactionByDateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<TransactionAnalyticsOverview>(DatabaseConnection.connection, SQLStoredProcedures.spGetAnalyticsOverview, request, _connection, _transaction);
+            var res = DapperRepository.ExecuteStoredProc<AnalyticsOverview>(DatabaseConnection.connection, SQLStoredProcedures.spGetAnalyticsOverview, request, _connection, _transaction);
             return res;
         }
 
 
-        public IList<TransactionAnalyticsByDay> GetAnalyticsByDayRequest(GetTransactionByDateRequest request)
+        public IList<AnalysisByDay> GetAnalyticsByDayRequest(GetTransactionByDateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<TransactionAnalyticsByDay>(DatabaseConnection.connection, SQLStoredProcedures.spGetAnalyticsByDay, request, _connection, _transaction);
+            var res = DapperRepository.ExecuteStoredProc<AnalysisByDay>(DatabaseConnection.connection, SQLStoredProcedures.spGetAnalyticsByDay, request, _connection, _transaction);
             return res;
         }
 
-        public IList<TransactionAnalyticsByMonth> GetAnalyticsByMonthRequest()
+        public IList<AnalysisByMonth> GetAnalyticsByMonthRequest()
         {
-            var res = DapperRepository.ExecuteAsStoredProc<TransactionAnalyticsByMonth>(DatabaseConnection.connection, SQLStoredProcedures.spGetAnalyticsByMonth, _connection, _transaction);
+            var res = DapperRepository.ExecuteAsStoredProc<AnalysisByMonth>(DatabaseConnection.connection, SQLStoredProcedures.spGetAnalyticsByMonth, _connection, _transaction);
             return res;
         }
     }

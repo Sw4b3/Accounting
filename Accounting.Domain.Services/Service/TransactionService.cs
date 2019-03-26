@@ -34,7 +34,7 @@ namespace Accounting.Models.Service
             }
         }
 
-        public IList<TransactionAnalyticsOverview> GetTransactionAnalysis()
+        public IList<AnalyticsOverview> GetTransactionAnalysis()
         {
             try
             {
@@ -49,7 +49,7 @@ namespace Accounting.Models.Service
             }
         }
 
-        public IList<TransactionAnalyticsByDay> GetAnalyticsByDay()
+        public IList<AnalysisByDay> GetAnalyticsByDay()
         {
             try
             {
@@ -64,7 +64,7 @@ namespace Accounting.Models.Service
             }
         }
 
-        public IList<TransactionAnalyticsByMonth> GetAnalyticsByMonth()
+        public IList<AnalysisByMonth> GetAnalyticsByMonth()
         {
             try
             {

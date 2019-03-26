@@ -15,11 +15,11 @@ namespace Accounting.Repository.Interface
 
         IList<Transaction> SearchTransactionsByDateRequest(SearchTransactionByDateRequest request);
 
-        IList<TransactionAnalyticsOverview> GetAnalyticOverviewRequest(GetTransactionByDateRequest request);
+        IList<AnalyticsOverview> GetAnalyticOverviewRequest(GetTransactionByDateRequest request);
 
-        IList<TransactionAnalyticsByDay> GetAnalyticsByDayRequest(GetTransactionByDateRequest request);
+        IList<AnalysisByDay> GetAnalyticsByDayRequest(GetTransactionByDateRequest request);
 
-        IList<TransactionAnalyticsByMonth> GetAnalyticsByMonthRequest();
+        IList<AnalysisByMonth> GetAnalyticsByMonthRequest();
 
         void SaveTransactionsRequest(GetTransactionRequest request);
 

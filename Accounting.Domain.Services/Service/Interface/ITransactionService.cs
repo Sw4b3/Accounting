@@ -12,9 +12,9 @@ namespace Accounting.Domain.Services.Service.Interface
     {
         IList<Transaction> GetTransactionsByDate(GetTransactionByDateRequest transaction);
 
-        IList<TransactionAnalyticsOverview> GetTransactionAnalysis();
+        IList<AnalyticsOverview> GetTransactionAnalysis();
 
-        IList<TransactionAnalyticsByDay> GetAnalyticsByDay();
+        IList<AnalysisByDay> GetAnalyticsByDay();
 
         void SaveTransaction(GetTransactionRequest transaction);
 
