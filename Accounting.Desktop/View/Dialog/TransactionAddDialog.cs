@@ -46,7 +46,7 @@ namespace Accounting.Desktop.View
                     Amount = decimal.Parse(textBox1.Text.Trim()),
                     AccountTypeId = int.Parse((_AccountController.GetAccountId(comboBox2).ToString().Trim())),
                     TransactionTypeId = _transactionType,
-                    Description = textBox3.Text.Trim(),
+                    Description = textBox3.Text.ToUpper().Trim(),
                     TransactionTimestamp= DateTime.Today
             });
                 _mainform.PopulationAll();

@@ -66,7 +66,6 @@
     <Build Include="dbo\Tables\Transactions.sql" />
     <Build Include="dbo\Stored Procedures\spSaveTransaction.sql" />
     <Build Include="dbo\Stored Procedures\spGetTransactions.sql" />
-    <Build Include="dbo\Stored Procedures\spGetExpenses.sql" />
     <Build Include="dbo\Stored Procedures\spGetTransactionsByDate.sql" />
     <Build Include="dbo\Stored Procedures\spGetAccounts.sql" />
     <Build Include="dbo\Stored Procedures\spSaveAccount.sql" />
@@ -76,5 +75,7 @@
     <Build Include="dbo\Stored Procedures\spGetAnalyticsOverview.sql" />
     <Build Include="dbo\Stored Procedures\spGetAnalyticsByDay.sql" />
     <Build Include="dbo\Stored Procedures\spGetAnalyticsByMonth.sql" />
+    <Build Include="dbo\Tables\DescriptionMappings.sql" />
+    <Build Include="dbo\Stored Procedures\spGetMappings.sql" />
   </ItemGroup>
 </Project>
