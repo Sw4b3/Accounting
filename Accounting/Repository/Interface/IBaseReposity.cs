@@ -15,8 +15,8 @@ namespace Accounting.Repository.Interface
 
         void Save<T>(string connectionString,string storedProcedure, T transactions, IDbConnection connection, IDbTransaction transaction);
 
-        void Update<T>(string _connectionString, T request, IDbConnection connection, IDbTransaction transaction);
+        void Update<T>(string _connectionString, string storedProcedure, T request, IDbConnection connection, IDbTransaction transaction);
 
-        void Delete<T>(string _connectionString, T request, IDbConnection connection, IDbTransaction transaction);
+        void Delete<T>(string _connectionString, string storedProcedure, T request, IDbConnection connection, IDbTransaction transaction);
     }
 }

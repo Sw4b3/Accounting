@@ -41,6 +41,7 @@ namespace Accounting.Desktop
             PopulationTransactionTableWithdraw();
             populateAccountComboBox();
             populateTransferComboBox();
+            Recalculate();
         }
 
         public void PopulationTransactionTable()
@@ -119,8 +120,10 @@ namespace Accounting.Desktop
         {
             var accountId = _accountController.GetAccountId(comboBoxAccount);
             var balance = _accountController.GetAccountBalance(accountId);
+            var availableBalance = _accountController.GetAccountAvaliableBalance(accountId);
             labelBalanceOverview.Text = "Balance: " + balance;
             labelBalanceTransaction.Text = "Balance: " + balance;
+            labelAvailableBalanceTransaction.Text = "Available Balance: " + availableBalance;
         }
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
@@ -200,6 +203,14 @@ namespace Accounting.Desktop
         private void Import_Click(object sender, EventArgs e)
         {
             new ImportDialog(_transactionController,this).Show();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            //int selectedrowindex = dataViewTransaction.SelectedCells[0].RowIndex;
+            //DataGridViewRow selectedRow = dataViewTransaction.Rows[selectedrowindex];
+
+            //_transactionController.DeleteTransaction(new DeleteTransactionRequest { TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()) });
         }
     }
 }

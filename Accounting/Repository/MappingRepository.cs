@@ -24,7 +24,7 @@ namespace Accounting.Repository
 
         public IList<Mapping> GetMappingRequest()
         {
-            return Get<Mapping>(DatabaseConnection.connection, SQLStoredProcedures.spGetMappings , _connection, _transaction);
+            return Get<Mapping>(DatabaseConnection.connection, SQLStoredProcedures.getMappings , _connection, _transaction);
         }
     }
 }

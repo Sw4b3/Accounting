@@ -16,5 +16,6 @@ namespace Accounting.Models.Requests
 
         public DateTime Date { get; set; }
 
+        public string TransactionStatus { get; set; }
     }
 }

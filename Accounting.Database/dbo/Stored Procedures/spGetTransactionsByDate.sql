@@ -12,7 +12,7 @@ BEGIN
 	
 		select top (1) 'Start of the Month' as Description, @previousAmount as Amount, 
 		DATEADD(month, DATEDIFF(month, 0, CURRENT_TIMESTAMP), 0) as TransactionTimestamp, 1 as TransactionTypeId, 1 as AccountTypeId, @previousAmount as Balance,
-		null as TransactionId, null as TransactionStatus, '...', 'None' as TransactionType
+		null as TransactionId, '' as TransactionStatus, '...', 'None' as TransactionType
 		from Transactions
 		where TransactionTimestamp=DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-1, -1) and AccountTypeId=1
 
@@ -26,4 +26,5 @@ BEGIN
 			INNER JOIN TransactionTypes with (nolock) 
 			ON t.TransactionTypeId=TransactionTypes.TransactionTypeId
 		where TransactionTimestamp BETWEEN @startDate AND  @endDate
+		order by TransactionStatus desc
 END

@@ -23,14 +23,14 @@ namespace Accounting.Repository.Common
             DapperRepository.ExecuteStoredProc(connectionString, storedProcedure, request, connection, transaction);
         }
 
-        public void Update<T>(string _connectionString, T request, IDbConnection connection, IDbTransaction transaction)
+        public void Update<T>(string _connectionString, string storedProcedure, T request, IDbConnection connection, IDbTransaction transaction)
         {
-            DapperRepository.ExecuteStoredProc(_connectionString, SQLStoredProcedures.updateTransaction, request, connection, transaction);
+            DapperRepository.ExecuteStoredProc(_connectionString, storedProcedure, request, connection, transaction);
         }
 
-        public void Delete<T>(string _connectionString, T request, IDbConnection connection, IDbTransaction transaction)
+        public void Delete<T>(string _connectionString, string storedProcedure, T request, IDbConnection connection, IDbTransaction transaction)
         {
-
+            DapperRepository.ExecuteStoredProc(_connectionString, storedProcedure, request, connection, transaction);
         }
     }
 }

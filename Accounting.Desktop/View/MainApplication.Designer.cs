@@ -88,6 +88,8 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
+            this.labelAvailableBalanceTransaction = new System.Windows.Forms.Label();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -313,6 +315,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.DeleteButton);
+            this.tabPage2.Controls.Add(this.labelAvailableBalanceTransaction);
             this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.comboBoxAccount);
@@ -413,7 +417,7 @@
             // 
             this.labelBalanceTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelBalanceTransaction.AutoSize = true;
-            this.labelBalanceTransaction.Location = new System.Drawing.Point(199, 527);
+            this.labelBalanceTransaction.Location = new System.Drawing.Point(694, 527);
             this.labelBalanceTransaction.Name = "labelBalanceTransaction";
             this.labelBalanceTransaction.Size = new System.Drawing.Size(52, 13);
             this.labelBalanceTransaction.TabIndex = 34;
@@ -722,6 +726,26 @@
             this.dataGridAccount.Size = new System.Drawing.Size(465, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
+            // labelAvailableBalanceTransaction
+            // 
+            this.labelAvailableBalanceTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelAvailableBalanceTransaction.AutoSize = true;
+            this.labelAvailableBalanceTransaction.Location = new System.Drawing.Point(825, 527);
+            this.labelAvailableBalanceTransaction.Name = "labelAvailableBalanceTransaction";
+            this.labelAvailableBalanceTransaction.Size = new System.Drawing.Size(98, 13);
+            this.labelAvailableBalanceTransaction.TabIndex = 50;
+            this.labelAvailableBalanceTransaction.Text = "Avaliable Balance: ";
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(34, 244);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(148, 23);
+            this.DeleteButton.TabIndex = 51;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -808,6 +832,8 @@
         private System.Windows.Forms.TabPage Monthly;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label labelAvailableBalanceTransaction;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }
 

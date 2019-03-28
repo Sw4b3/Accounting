@@ -14,6 +14,8 @@ namespace Accounting.Models.Models
 
         public decimal CurrentBalance { get; set; }
 
+        public decimal AvailableBalance { get; set; }
+
         public string Status { get; set; }
     }
 }

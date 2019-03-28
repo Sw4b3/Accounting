@@ -137,6 +137,20 @@ namespace Accounting.Models.Service
             }
         }
 
+        public void DeleteTransaction(DeleteTransactionRequest transaction)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.TransactionRepository.DeleteTransactionsRequest(transaction);
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public GetTransactionByDateRequest GetCurrentMonth()
         {
             DateTime now = DateTime.Now;

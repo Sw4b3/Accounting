@@ -21,6 +21,11 @@ namespace Accounting.Desktop.Controller
             return _accountService.GetAccount().FirstOrDefault(x =>  x.AccountId== accountId).CurrentBalance.ToString();
         }
 
+        public string GetAccountAvaliableBalance(int accountId)
+        {
+            return _accountService.GetAccount().FirstOrDefault(x => x.AccountId == accountId).AvailableBalance.ToString();
+        }
+
         public void GetAccount(DataGridView dataGrid)
         {
             dataGrid.DataSource = _accountService.GetAccount().Select(x => new { x.AccountId, x.AccountType, x.Status }).ToList();

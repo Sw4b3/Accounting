@@ -41,7 +41,12 @@ namespace Accounting.Repository
 
         public void UpdateTransactionsRequest(UpdateTransactionRequest request)
         {
-            Update<UpdateTransactionRequest>(DatabaseConnection.connection, request, _connection, _transaction);
+            Update<UpdateTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.updateTransaction, request, _connection, _transaction);
+        }
+
+        public void DeleteTransactionsRequest(DeleteTransactionRequest request)
+        {
+            Delete<DeleteTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.deleteTransaction, request, _connection, _transaction);
         }
 
         public IList<AnalyticsOverview> GetAnalyticOverviewRequest(GetTransactionByDateRequest request)

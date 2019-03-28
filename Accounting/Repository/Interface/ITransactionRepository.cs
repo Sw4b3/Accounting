@@ -24,5 +24,7 @@ namespace Accounting.Repository.Interface
         void SaveTransactionsRequest(GetTransactionRequest request);
 
         void UpdateTransactionsRequest(UpdateTransactionRequest request);
+
+        void DeleteTransactionsRequest(DeleteTransactionRequest request);
     }
 }

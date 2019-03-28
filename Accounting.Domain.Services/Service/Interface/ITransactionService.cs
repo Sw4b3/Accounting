@@ -19,5 +19,7 @@ namespace Accounting.Domain.Services.Service.Interface
         void SaveTransaction(GetTransactionRequest transaction);
 
         void UpdateTransaction(UpdateTransactionRequest transaction);
+
+        void DeleteTransaction(DeleteTransactionRequest transaction);
     }
 }

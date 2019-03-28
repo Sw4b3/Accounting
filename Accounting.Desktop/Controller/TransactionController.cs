@@ -86,5 +86,10 @@ namespace Accounting.Desktop.Controller
         {
             _transactionService.UpdateTransaction(transaction);
         }
+
+        public void DeleteTransaction(DeleteTransactionRequest transaction)
+        {
+            _transactionService.DeleteTransaction(transaction);
+        }
     }
 }
