@@ -18,6 +18,8 @@ namespace Accounting.Models.Models
 
         public DateTime TransactionTimestamp { get; set; }
 
+        public string TransactionStatus { get; set; }
+
         public int TransactionTypeId { get; set; }
 
         public string TransactionType { get; set; }

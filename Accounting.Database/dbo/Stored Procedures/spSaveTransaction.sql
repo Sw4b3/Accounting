@@ -13,14 +13,14 @@ BEGIN
 			ELSE
 				begin
 				UPDATE Accounts SET CurrentBalance = @currentBalance - @amount WHERE AccountId = @accountTypeId;
-			insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp)
-			values (@description,@amount,@currentBalance-@amount, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp))
+			insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp,TransactionStatus)
+			values (@description,@amount,@currentBalance-@amount, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp),'Pending')
 				end
 			end
 		ELSE
 			begin
 			UPDATE Accounts SET CurrentBalance = @balance WHERE AccountId = @accountTypeId;
-			insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp)
-			values (@description,@amount,@balance, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp))
+			insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp,TransactionStatus)
+			values (@description,@amount,@balance, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp),'Complete')
 			end
 END
