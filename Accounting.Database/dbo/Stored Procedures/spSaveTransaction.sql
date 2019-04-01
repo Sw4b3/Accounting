@@ -10,12 +10,16 @@ BEGIN
 		IF @balance = 0.00
 			begin
 			IF @transactionTypeId = 1
+				begin
 				UPDATE Accounts SET AvailableBalance = @availableBalance + @amount WHERE AccountId = @accountTypeId;
+				insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp,TransactionStatus)
+				values (@description,@amount,@availableBalance+@amount, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp),'Pending')
+				end
 			ELSE
 				begin
 				UPDATE Accounts SET AvailableBalance = @availableBalance - @amount WHERE AccountId = @accountTypeId;
-			insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp,TransactionStatus)
-			values (@description,@amount,@availableBalance-@amount, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp),'Pending')
+				insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp,TransactionStatus)
+				values (@description,@amount,@availableBalance-@amount, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp),'Pending')
 				end
 			end
 		ELSE

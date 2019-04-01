@@ -7,14 +7,14 @@ BEGIN
 		declare @previousAmount decimal(15,2)
 		
 		set @previousAmount=(select top(1) Balance from Transactions
-		where TransactionTimestamp=DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-1, -1)  and AccountTypeId=1
+		where TransactionTimestamp between DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-2, -1) and DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-1, -1) and AccountTypeId=1
 		order by TransactionId desc)
 	
 		select top (1) 'Start of the Month' as Description, @previousAmount as Amount, 
 		DATEADD(month, DATEDIFF(month, 0, CURRENT_TIMESTAMP), 0) as TransactionTimestamp, 1 as TransactionTypeId, 1 as AccountTypeId, @previousAmount as Balance,
 		null as TransactionId, '' as TransactionStatus, '...', 'None' as TransactionType
 		from Transactions
-		where TransactionTimestamp=DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-1, -1) and AccountTypeId=1
+		--where TransactionTimestamp=DATEADD(MONTH, DATEDIFF(MONTH, -1, GETDATE())-1, -1) and AccountTypeId=1
 
 		union all 
 
