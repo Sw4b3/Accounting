@@ -87,8 +87,11 @@ namespace Accounting.Desktop.Controller
             _transactionService.UpdateTransaction(transaction);
         }
 
-        public void DeleteTransaction(DeleteTransactionRequest transaction)
+        public void DeleteTransaction(DataGridView dataGridView)
         {
+            int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
+            var transaction = new DeleteTransactionRequest { TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()) };
             _transactionService.DeleteTransaction(transaction);
         }
     }

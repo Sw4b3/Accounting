@@ -207,10 +207,17 @@ namespace Accounting.Desktop
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            //int selectedrowindex = dataViewTransaction.SelectedCells[0].RowIndex;
-            //DataGridViewRow selectedRow = dataViewTransaction.Rows[selectedrowindex];
-
-            //_transactionController.DeleteTransaction(new DeleteTransactionRequest { TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()) });
+         
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record", "Delete", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                _transactionController.DeleteTransaction(dataViewTransaction);
+                PopulationAll();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+            }
+            
         }
     }
 }
