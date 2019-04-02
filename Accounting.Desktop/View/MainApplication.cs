@@ -36,7 +36,6 @@ namespace Accounting.Desktop
         {
             PopulationTransactionTable();
             PopulationTransferTable();
-            PopulationTransferAnalysisTable();
             PopulationTransactionTablPersonalExpenses();
             PopulationTransactionTableWithdraw();
             populateAccountComboBox();
@@ -47,6 +46,7 @@ namespace Accounting.Desktop
         public void PopulationTransactionTable()
         {
             _transactionController.GetTransactions(dataViewTransaction, 1);
+            _analyticsController.GetAnalyticsOverview(chart1);
         }
 
         public void PopulationTransferTable()
@@ -56,7 +56,9 @@ namespace Accounting.Desktop
 
         public void PopulationTransferAnalysisTable()
         {
-            _analyticsController.GetAnalyticsOverview(dataGridViewAnalysis, chart1, chart2, chart3);
+            _analyticsController.GetAnalyticsOverview(dataGridViewAnalysis);
+            _analyticsController.GetAnalyticsByDay(dataGridViewDaily, chart2);
+            _analyticsController.GetAnalyticsByMonth(dataGridViewMonthly,chart3);
         }
 
         public void PopulationTransactionTableByDate()
@@ -136,6 +138,9 @@ namespace Accounting.Desktop
                 case "tabPage6":
                     PopulateAccountTable();
                     break;
+                case "tabPage4":
+                    PopulationTransferAnalysisTable();
+                    break;
                 default:
                     break;
             }
@@ -202,12 +207,12 @@ namespace Accounting.Desktop
 
         private void Import_Click(object sender, EventArgs e)
         {
-            new ImportDialog(_transactionController,this).Show();
+            new ImportDialog(_transactionController, this).Show();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-         
+
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record", "Delete", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -217,7 +222,7 @@ namespace Accounting.Desktop
             else if (dialogResult == DialogResult.No)
             {
             }
-            
+
         }
     }
 }
