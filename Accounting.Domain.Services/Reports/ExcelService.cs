@@ -228,7 +228,7 @@ namespace Accounting.Domain.Services.Reports
             return reverseLines.ToList();
         }
 
-        public string ProcesssString(string value)
+        private string ProcesssString(string value)
         {
             string processedValue = value;
             processedValue = Regex.Replace(processedValue, @"\d", "");

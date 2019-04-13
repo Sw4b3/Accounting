@@ -1,4 +1,5 @@
 ﻿using Accounting.Domain.Services.Reports;
+using Accounting.Models.Models;
 using Accounting.Models.Requests;
 using Accounting.Models.Service;
 using System;
@@ -30,7 +31,7 @@ namespace Accounting.Desktop.Controller
 
         public void ImportFromExcel(int accountType)
         {
-            var list = _transactionService.GetTransactions().Where(x => x.TransactionStatus == "Pending");
+           var pendingTransaction = _transactionService.GetTransactions().Where(x => x.TransactionStatus == "Pending").ToList();
             string filename = null;
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -57,32 +58,34 @@ namespace Accounting.Desktop.Controller
             var transactions = _excelService.ImportFromExcel(filename, accountType);
             foreach (var transaction in transactions)
             {
-                //if (list.Count() != 0)
-                //{
-                //    foreach (var vaules in list)
-                //    {
-                //        if (isMatch(transaction.Description, vaules.Description, transaction.Amount, vaules.Amount, transaction.TransactionTimestamp, vaules.TransactionTimestamp))
-                //        {
-                //            _transactionService.UpdateTransaction(new UpdateTransactionRequest
-                //            {
-                //                TransactionId = vaules.TransactionId,
-                //                Description = transaction.Description,
-                //                Amount = transaction.Amount,
-                //                Date = DateTime.Now,
-                //                TransactionStatus = "Processed"
-                //            });
-                //        }
-                //        else
-                //        {
-                //            _transactionService.SaveTransaction(transaction);
-                //            break;
-                //        }
-                //    }
-                //}
-                //else
-                //{
-                _transactionService.SaveTransaction(transaction);
-                //}
+                if (pendingTransaction.Count() != 0)
+                {
+                    foreach (var vaules in pendingTransaction)
+                    {
+                        if (isMatch(transaction.Description, vaules.Description, transaction.Amount, vaules.Amount, transaction.TransactionTimestamp, vaules.TransactionTimestamp))
+                        {
+                         
+                            _transactionService.UpdateTransaction(new UpdateTransactionRequest
+                            {
+                                TransactionId = vaules.TransactionId,
+                                Description = transaction.Description,
+                                Amount = transaction.Amount,
+                                Date = DateTime.Now,
+                                TransactionStatus = "Processed"
+                            });
+                            pendingTransaction.Remove(vaules);
+                        }
+                        else
+                        {
+                            _transactionService.SaveTransaction(transaction);
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    _transactionService.SaveTransaction(transaction);
+                }
             }
         }
 
