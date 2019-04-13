@@ -31,7 +31,6 @@ namespace Accounting.Desktop.Controller
 
         public void ImportFromExcel(int accountType)
         {
-           var pendingTransaction = _transactionService.GetTransactions().Where(x => x.TransactionStatus == "Pending").ToList();
             string filename = null;
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -55,30 +54,27 @@ namespace Accounting.Desktop.Controller
                 filename = openFileDialog.FileName;
             }
 
-            var transactions = _excelService.ImportFromExcel(filename, accountType);
-            foreach (var transaction in transactions)
+            var importTransactionList = _excelService.ImportFromExcel(filename, accountType).ToList();
+            var pendingTransactionList = _transactionService.GetTransactions().Where(x => x.TransactionStatus == "Pending").ToList();
+
+            foreach (var transaction in importTransactionList.ToList())
             {
-                if (pendingTransaction.Count() != 0)
+                if (pendingTransactionList.Count() != 0)
                 {
-                    foreach (var vaules in pendingTransaction)
+                    foreach (var vaules in pendingTransactionList.ToList())
                     {
                         if (isMatch(transaction.Description, vaules.Description, transaction.Amount, vaules.Amount, transaction.TransactionTimestamp, vaules.TransactionTimestamp))
                         {
-                         
-                            _transactionService.UpdateTransaction(new UpdateTransactionRequest
-                            {
-                                TransactionId = vaules.TransactionId,
-                                Description = transaction.Description,
-                                Amount = transaction.Amount,
-                                Date = DateTime.Now,
-                                TransactionStatus = "Processed"
-                            });
-                            pendingTransaction.Remove(vaules);
+                            _transactionService.DeleteTransaction(new DeleteTransactionRequest { TransactionId = vaules.TransactionId });
+                            _transactionService.SaveTransaction(transaction);
+                            pendingTransactionList.Remove(vaules);
+                            importTransactionList.Remove(transaction);
+                            break;
                         }
                         else
                         {
                             _transactionService.SaveTransaction(transaction);
-                            break;
+                            importTransactionList.Remove(transaction);
                         }
                     }
                 }
