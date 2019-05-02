@@ -1,6 +1,6 @@
 ﻿
 CREATE PROCEDURE [dbo].[spUpdateTransaction]
-@transactionId uniqueidentifier, @amount decimal(10,2), @description varchar(100), @date datetime, @transactionStatus varchar(256)
+@transactionId uniqueidentifier, @amount decimal(10,2), @description varchar(100), @date datetime
 AS
 BEGIN
 		declare @transactionTypeId int,
@@ -20,6 +20,6 @@ BEGIN
 			UPDATE Accounts SET CurrentBalance = CurrentBalance - @amount WHERE AccountId = 1;
 			end
 
-		update Transactions set Description=@description, Amount=@amount, TransactionTimestamp=@date, TransactionStatus=@transactionStatus
-		where TransactionId=@transactionId;
+		update TransactionsStaging set Description=@description, Amount=@amount, TransactionTimestamp=@date
+		where TransactionStagingId=@transactionId;
 END

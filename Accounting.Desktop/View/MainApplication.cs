@@ -190,13 +190,15 @@ namespace Accounting.Desktop
 
         private void dataViewTransaction_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataViewTransaction[4, e.RowIndex].Value.ToString() == "Withdraw")
-            {
-                dataViewTransaction[5, e.RowIndex].Style.ForeColor = Color.FromArgb(245, 115, 101);
-            }
-            else
-            {
-                dataViewTransaction[5, e.RowIndex].Style.ForeColor = Color.FromArgb(103, 190, 86);
+            if (dataViewTransaction[5, e.RowIndex].Value!=null && dataViewTransaction[5, e.RowIndex].Value.ToString() != "Pending") {
+                if (dataViewTransaction[4, e.RowIndex].Value.ToString() == "Withdraw")
+                {
+                    dataViewTransaction[5, e.RowIndex].Style.ForeColor = Color.FromArgb(245, 115, 101);
+                }
+                else
+                {
+                    dataViewTransaction[5, e.RowIndex].Style.ForeColor = Color.FromArgb(103, 190, 86);
+                }
             }
         }
 

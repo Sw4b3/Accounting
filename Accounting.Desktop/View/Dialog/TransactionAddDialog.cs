@@ -41,7 +41,7 @@ namespace Accounting.Desktop.View
         public void SaveTransaction() {
             if (Validator.IsNumber(textBox1.Text) && Validator.IsString(textBox3.Text))
             {
-                _transactionController.SaveTransaction(new GetTransactionRequest
+                _transactionController.SaveTransactionStaging(new GetTransactionRequest
                 {
                     Amount = decimal.Parse(textBox1.Text.Trim()),
                     AccountTypeId = int.Parse((_AccountController.GetAccountId(comboBox2).ToString().Trim())),

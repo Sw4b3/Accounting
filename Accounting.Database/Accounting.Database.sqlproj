@@ -77,6 +77,8 @@
     <Build Include="dbo\Stored Procedures\spGetAnalyticsByMonth.sql" />
     <Build Include="dbo\Tables\DescriptionMappings.sql" />
     <Build Include="dbo\Stored Procedures\spGetMappings.sql" />
-    <Build Include="dbo\Stored Procedures\spDeleteTransaction.sql" />
+    <Build Include="dbo\Tables\TransactionsStaging.sql" />
+    <Build Include="dbo\Stored Procedures\spSaveTransactionStaging.sql" />
+    <Build Include="dbo\Stored Procedures\spDeleteTransactionStaging.sql" />
   </ItemGroup>
 </Project>

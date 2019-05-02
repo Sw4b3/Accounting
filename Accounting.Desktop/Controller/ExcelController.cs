@@ -55,7 +55,7 @@ namespace Accounting.Desktop.Controller
             }
 
             var importTransactionList = _excelService.ImportFromExcel(filename, accountType).ToList();
-            var pendingTransactionList = _transactionService.GetTransactions().Where(x => x.TransactionStatus == "Pending").ToList();
+            var pendingTransactionList = _transactionService.GetTransactions().Where(x => x.Balance == "Pending").ToList();
 
             foreach (var transaction in importTransactionList.ToList())
             {
@@ -66,22 +66,15 @@ namespace Accounting.Desktop.Controller
                         if (isMatch(transaction.Description, vaules.Description, transaction.Amount, vaules.Amount, transaction.TransactionTimestamp, vaules.TransactionTimestamp))
                         {
                             _transactionService.DeleteTransaction(new DeleteTransactionRequest { TransactionId = vaules.TransactionId });
-                            _transactionService.SaveTransaction(transaction);
                             pendingTransactionList.Remove(vaules);
                             importTransactionList.Remove(transaction);
                             break;
                         }
-                        else
-                        {
-                            _transactionService.SaveTransaction(transaction);
-                            importTransactionList.Remove(transaction);
-                        }
                     }
                 }
-                else
-                {
-                    _transactionService.SaveTransaction(transaction);
-                }
+
+                _transactionService.SaveTransaction(transaction);
+
             }
         }
 

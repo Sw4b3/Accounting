@@ -21,10 +21,12 @@ namespace Accounting.Repository.Interface
 
         IList<AnalysisByMonth> GetAnalyticsByMonthRequest();
 
-        void SaveTransactionsRequest(GetTransactionRequest request);
+        void SaveTransactionRequest(GetTransactionRequest request);
 
-        void UpdateTransactionsRequest(UpdateTransactionRequest request);
+        void SaveTransactionStagingRequest(GetTransactionRequest request);
 
-        void DeleteTransactionsRequest(DeleteTransactionRequest request);
+        void UpdateTransactionRequest(UpdateTransactionRequest request);
+
+        void DeleteTransactionRequest(DeleteTransactionRequest request);
     }
 }

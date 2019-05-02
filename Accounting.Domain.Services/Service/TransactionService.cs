@@ -114,7 +114,21 @@ namespace Accounting.Models.Service
             try
             {
                 uow.CreateUnitOfWork();
-                uow.TransactionRepository.SaveTransactionsRequest(transaction);
+                uow.TransactionRepository.SaveTransactionRequest(transaction);
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public void SaveTransactionStaging(GetTransactionRequest transaction)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.TransactionRepository.SaveTransactionStagingRequest(transaction);
                 uow.Commit();
             }
             catch (Exception e)
@@ -128,7 +142,7 @@ namespace Accounting.Models.Service
             try
             {
                 uow.CreateUnitOfWork();
-                uow.TransactionRepository.UpdateTransactionsRequest(transaction);
+                uow.TransactionRepository.UpdateTransactionRequest(transaction);
                 uow.Commit();
             }
             catch (Exception e)
@@ -142,7 +156,7 @@ namespace Accounting.Models.Service
             try
             {
                 uow.CreateUnitOfWork();
-                uow.TransactionRepository.DeleteTransactionsRequest(transaction);
+                uow.TransactionRepository.DeleteTransactionRequest(transaction);
                 uow.Commit();
             }
             catch (Exception e)

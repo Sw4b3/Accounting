@@ -12,13 +12,11 @@ namespace Accounting.Models.Models
 
         public decimal Amount { get; set; }
 
-        public decimal Balance { get; set; }
+        public string Balance { get; set; }
 
         public string Description { get; set; }
 
         public DateTime TransactionTimestamp { get; set; }
-
-        public string TransactionStatus { get; set; }
 
         public int TransactionTypeId { get; set; }
 

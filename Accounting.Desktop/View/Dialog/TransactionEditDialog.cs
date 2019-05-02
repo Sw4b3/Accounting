@@ -42,9 +42,8 @@ namespace Accounting.Desktop.View
                 {
                     TransactionId = _transactionRequest.TransactionId,
                     Amount = decimal.Parse(textBox1.Text.Trim()),
-                    Description = textBox3.Text.Trim(),
-                    Date = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd")),
-                    TransactionStatus = "Pending"
+                    Description = textBox3.Text.ToUpper().Trim(),
+                    Date = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd"))
                 });
                 _mainform.PopulationAll();
                 _mainform.Recalculate();

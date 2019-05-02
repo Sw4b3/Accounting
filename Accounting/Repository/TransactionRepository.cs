@@ -34,17 +34,22 @@ namespace Accounting.Repository
             return res;
         }
 
-        public void SaveTransactionsRequest(GetTransactionRequest request)
+        public void SaveTransactionRequest(GetTransactionRequest request)
         {
             Save<GetTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.saveTransaction, request, _connection, _transaction);
         }
 
-        public void UpdateTransactionsRequest(UpdateTransactionRequest request)
+        public void SaveTransactionStagingRequest(GetTransactionRequest request)
+        {
+            Save<GetTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.saveTransactionStaging, request, _connection, _transaction);
+        }
+
+        public void UpdateTransactionRequest(UpdateTransactionRequest request)
         {
             Update<UpdateTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.updateTransaction, request, _connection, _transaction);
         }
 
-        public void DeleteTransactionsRequest(DeleteTransactionRequest request)
+        public void DeleteTransactionRequest(DeleteTransactionRequest request)
         {
             Delete<DeleteTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.deleteTransaction, request, _connection, _transaction);
         }
