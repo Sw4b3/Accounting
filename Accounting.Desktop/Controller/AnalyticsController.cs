@@ -1,4 +1,5 @@
-﻿using Accounting.Models.Service;
+﻿using Accounting.Domain.Services.Service;
+using Accounting.Models.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,23 @@ namespace Accounting.Desktop.Controller
     class AnalyticsController
     {
         TransactionService _transactionService;
+        AnalyticsService _analyticsService;
 
         public AnalyticsController()
         {
             _transactionService = new TransactionService();
+            _analyticsService = new AnalyticsService();
         }
 
 
         public void GetAnalyticsOverview(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _transactionService.GetTransactionAnalysis();
+            dataGridView.DataSource = _analyticsService.GetAnalysicOverview();
+        }
+
+        public void GetAnalyticStatistics(DataGridView dataGridView)
+        {
+            dataGridView.DataSource = _analyticsService.GetStatistics();
         }
 
         public void GetAnalyticsOverview(Chart chartPie)
@@ -35,7 +43,7 @@ namespace Accounting.Desktop.Controller
 
         public void GetAnalyticsByDay(DataGridView dataGridView, Chart chartBar)
         {
-            var transaction = _transactionService.GetAnalyticsByDay();
+            var transaction = _analyticsService.GetAnalyticsByDay();
             var dayAnalytics = transaction.Select(x => x.Amount).ToList();
             var dayAnalyticsHeader = transaction.Select(x => x.TransactionTimestamp.ToString("dd/MMM")).ToList();
         
@@ -45,7 +53,7 @@ namespace Accounting.Desktop.Controller
 
         public void GetAnalyticsByMonth(DataGridView dataGridView, Chart chartColumn)
         {
-            var transaction = _transactionService.GetAnalyticsByMonth();
+            var transaction = _analyticsService.GetAnalyticsByMonth();
             var credit = transaction.Select(x => x.Credit).ToList();
             var debit = transaction.Select(x => -x.Debit).ToList();
             var balance = transaction.Select(x => x.Balance).ToList();

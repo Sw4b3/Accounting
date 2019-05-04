@@ -17,12 +17,12 @@ namespace Accounting.Repository
         private IMappingRepository _mappingRepository;
         private ITransactionRepository _transactionRepository;
         private IAccountRepository _accountRepository;
-   
+        private IAnalyticsRepository _analyticsRepository;
+
         public void CreateUnitOfWork() {
             _connection = new SqlConnection(DatabaseConnection.connection);
             _connection.Open();
             _transaction = _connection.BeginTransaction();
-
         }
 
         public IMappingRepository MappingRepository
@@ -46,6 +46,14 @@ namespace Accounting.Repository
             get
             {
                 return _accountRepository ?? (_accountRepository = new AccountRepository(_connection, _transaction));
+            }
+        }
+
+        public IAnalyticsRepository AnalyticsRepository
+        {
+            get
+            {
+                return _analyticsRepository ?? (_analyticsRepository = new AnalyticsRepository(_connection, _transaction));
             }
         }
 
@@ -89,6 +97,7 @@ namespace Accounting.Repository
         {
             _transactionRepository = null;
             _accountRepository = null;
+            _analyticsRepository = null;
         }
     }
 }

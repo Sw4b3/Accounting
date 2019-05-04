@@ -11,15 +11,9 @@ namespace Accounting.Repository.Interface
 {
     public interface ITransactionRepository
     {
-        IList<Transaction> GetTransactionsByDateRequest(GetTransactionByDateRequest request);
+        IList<Transaction> GetTransactionsByDateRequest(GetDateRequest request);
 
         IList<Transaction> SearchTransactionsByDateRequest(SearchTransactionByDateRequest request);
-
-        IList<AnalyticsOverview> GetAnalyticOverviewRequest(GetTransactionByDateRequest request);
-
-        IList<AnalysisByDay> GetAnalyticsByDayRequest(GetTransactionByDateRequest request);
-
-        IList<AnalysisByMonth> GetAnalyticsByMonthRequest();
 
         void SaveTransactionRequest(GetTransactionRequest request);
 
@@ -27,6 +21,6 @@ namespace Accounting.Repository.Interface
 
         void UpdateTransactionRequest(UpdateTransactionRequest request);
 
-        void DeleteTransactionRequest(DeleteTransactionRequest request);
+        void DeleteTransactionStagingRequest(DeleteTransactionRequest request);
     }
 }

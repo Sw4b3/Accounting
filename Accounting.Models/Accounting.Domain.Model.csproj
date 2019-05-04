@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Mappings.cs" />
+    <Compile Include="Models\Statistic.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\AnalysisByMonth.cs" />
     <Compile Include="Models\AnalysisByDay.cs" />

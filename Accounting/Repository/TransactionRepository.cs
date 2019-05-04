@@ -22,7 +22,7 @@ namespace Accounting.Repository
             _transaction = transaction;
         }
 
-        public IList<Transaction> GetTransactionsByDateRequest(GetTransactionByDateRequest request)
+        public IList<Transaction> GetTransactionsByDateRequest(GetDateRequest request)
         {
             var res = DapperRepository.ExecuteStoredProc<Transaction>(DatabaseConnection.connection, SQLStoredProcedures.getGetTransactionByDate, request, _connection, _transaction);
             return res;
@@ -49,28 +49,10 @@ namespace Accounting.Repository
             Update<UpdateTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.updateTransaction, request, _connection, _transaction);
         }
 
-        public void DeleteTransactionRequest(DeleteTransactionRequest request)
+        public void DeleteTransactionStagingRequest(DeleteTransactionRequest request)
         {
             Delete<DeleteTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.deleteTransaction, request, _connection, _transaction);
         }
 
-        public IList<AnalyticsOverview> GetAnalyticOverviewRequest(GetTransactionByDateRequest request)
-        {
-            var res = DapperRepository.ExecuteStoredProc<AnalyticsOverview>(DatabaseConnection.connection, SQLStoredProcedures.spGetAnalyticsOverview, request, _connection, _transaction);
-            return res;
-        }
-
-
-        public IList<AnalysisByDay> GetAnalyticsByDayRequest(GetTransactionByDateRequest request)
-        {
-            var res = DapperRepository.ExecuteStoredProc<AnalysisByDay>(DatabaseConnection.connection, SQLStoredProcedures.spGetAnalyticsByDay, request, _connection, _transaction);
-            return res;
-        }
-
-        public IList<AnalysisByMonth> GetAnalyticsByMonthRequest()
-        {
-            var res = DapperRepository.ExecuteAsStoredProc<AnalysisByMonth>(DatabaseConnection.connection, SQLStoredProcedures.spGetAnalyticsByMonth, _connection, _transaction);
-            return res;
-        }
     }
 }

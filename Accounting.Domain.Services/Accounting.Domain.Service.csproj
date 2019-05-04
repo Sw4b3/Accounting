@@ -64,11 +64,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\ExcelService.cs" />
     <Compile Include="Service\AccountService.cs" />
+    <Compile Include="Service\AnalyticsService.cs" />
     <Compile Include="Service\Interface\IAccountService.cs" />
+    <Compile Include="Service\Interface\IAnalyticsService.cs" />
     <Compile Include="Service\Interface\IMappingService.cs" />
     <Compile Include="Service\Interface\ITransactionService.cs" />
     <Compile Include="Service\MappingService.cs" />
     <Compile Include="Service\TransactionService.cs" />
+    <Compile Include="Utillies\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Accounting.Models\Accounting.Domain.Model.csproj">

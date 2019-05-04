@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repository\AnalyticsRepository.cs" />
     <Compile Include="Repository\Adapters\DapperRepository.cs" />
     <Compile Include="Repository\Common\DatabaseConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Repository\Common\StoredProcedure.cs" />
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\Interface\IAccountRepository.cs" />
+    <Compile Include="Repository\Interface\IAnalyticsRepository.cs" />
     <Compile Include="Repository\Interface\IBaseReposity.cs" />
     <Compile Include="Repository\Interface\IMappingRepository.cs" />
     <Compile Include="Repository\Interface\ITransactionRepository.cs" />

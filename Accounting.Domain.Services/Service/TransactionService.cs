@@ -1,6 +1,7 @@
 ﻿using Accounting.Domain.Services.Service.Interface;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
+using Accounting.Domain.Services.Utillies;
 using Accounting.Repository;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Accounting.Models.Service
             try
             {
                 uow.CreateUnitOfWork();
-                var res = uow.TransactionRepository.GetTransactionsByDateRequest(GetCurrentMonth());
+                var res = uow.TransactionRepository.GetTransactionsByDateRequest(Extensions.GetCurrentMonth());
                 uow.Commit();
                 return res;
             }
@@ -34,52 +35,7 @@ namespace Accounting.Models.Service
             }
         }
 
-        public IList<AnalyticsOverview> GetTransactionAnalysis()
-        {
-            try
-            {
-                uow.CreateUnitOfWork();
-                var res = uow.TransactionRepository.GetAnalyticOverviewRequest(GetCurrentMonth());
-                uow.Commit();
-                return res;
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
-
-        public IList<AnalysisByDay> GetAnalyticsByDay()
-        {
-            try
-            {
-                uow.CreateUnitOfWork();
-                var res = uow.TransactionRepository.GetAnalyticsByDayRequest(GetCurrentMonth());
-                uow.Commit();
-                return res;
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
-
-        public IList<AnalysisByMonth> GetAnalyticsByMonth()
-        {
-            try
-            {
-                uow.CreateUnitOfWork();
-                var res = uow.TransactionRepository.GetAnalyticsByMonthRequest();
-                uow.Commit();
-                return res;
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
-
-        public IList<Transaction> GetTransactionsByDate(GetTransactionByDateRequest transaction)
+        public IList<Transaction> GetTransactionsByDate(GetDateRequest transaction)
         {
             try
             {
@@ -156,26 +112,13 @@ namespace Accounting.Models.Service
             try
             {
                 uow.CreateUnitOfWork();
-                uow.TransactionRepository.DeleteTransactionRequest(transaction);
+                uow.TransactionRepository.DeleteTransactionStagingRequest(transaction);
                 uow.Commit();
             }
             catch (Exception e)
             {
                 throw;
             }
-        }
-
-        public GetTransactionByDateRequest GetCurrentMonth()
-        {
-            DateTime now = DateTime.Now;
-            var startDate = new DateTime(now.Year, now.Month, 1);
-            var endDate = startDate.AddMonths(1).AddDays(-1);
-
-            return new GetTransactionByDateRequest()
-            {
-                StartDate = startDate,
-                EndDate = endDate
-            };
         }
 
     }

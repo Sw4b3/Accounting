@@ -10,11 +10,7 @@ namespace Accounting.Domain.Services.Service.Interface
 {
     public interface ITransactionService
     {
-        IList<Transaction> GetTransactionsByDate(GetTransactionByDateRequest transaction);
-
-        IList<AnalyticsOverview> GetTransactionAnalysis();
-
-        IList<AnalysisByDay> GetAnalyticsByDay();
+        IList<Transaction> GetTransactionsByDate(GetDateRequest transaction);
 
         void SaveTransaction(GetTransactionRequest transaction);
 
