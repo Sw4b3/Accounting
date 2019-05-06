@@ -6,18 +6,18 @@ BEGIN
 		declare @transactionTypeId int,
 		@oldAmount decimal(10,2)
 
-		set @transactionTypeId=(select TransactionTypeId from Transactions where TransactionId=@transactionId)
-		set @oldAmount=(select Amount from Transactions where TransactionId=@transactionId)
+		set @transactionTypeId=(select TransactionTypeId from TransactionsStaging where TransactionStagingId=@transactionId)
+		set @oldAmount=(select Amount from TransactionsStaging where TransactionStagingId=@transactionId)
 
 		IF @transactionTypeId = 1
 			begin
-			UPDATE Accounts SET CurrentBalance = CurrentBalance - @oldAmount WHERE AccountId = 1;
-			UPDATE Accounts SET CurrentBalance = CurrentBalance + @amount WHERE AccountId = 1;
+			UPDATE Accounts SET AvailableBalance = AvailableBalance - @oldAmount WHERE AccountId = 1;
+			UPDATE Accounts SET AvailableBalance = AvailableBalance + @amount WHERE AccountId = 1;
 			end
 		ELSE
 			begin
-			UPDATE Accounts SET CurrentBalance = CurrentBalance + @oldAmount WHERE AccountId = 1;
-			UPDATE Accounts SET CurrentBalance = CurrentBalance - @amount WHERE AccountId = 1;
+			UPDATE Accounts SET AvailableBalance = AvailableBalance + @oldAmount WHERE AccountId = 1;
+			UPDATE Accounts SET AvailableBalance = AvailableBalance - @amount WHERE AccountId = 1;
 			end
 
 		update TransactionsStaging set Description=@description, Amount=@amount, TransactionTimestamp=@date
