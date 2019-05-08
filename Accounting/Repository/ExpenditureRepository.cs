@@ -46,9 +46,9 @@ namespace Accounting.Repository
             Save(DatabaseConnection.connection, SQLStoredProcedures.saveExpendituresTypes, request, _connection, _transaction);
         }
 
-        public void Update()
+        public void UpdateExpenditureType(UpdateExpenditureTypeRequest request)
         {
-            throw new NotImplementedException();
+            Update(DatabaseConnection.connection, SQLStoredProcedures.updateExpendituresTypes, request, _connection, _transaction);
         }
 
         public void Delete()

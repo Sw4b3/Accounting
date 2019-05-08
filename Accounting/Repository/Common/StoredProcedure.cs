@@ -26,5 +26,6 @@ namespace Accounting.Repository.Common
         public const string getExpendituresTypes = "spGetExpenditureTypes";
         public const string getExpendituresOverview = "spGetExpenditureOverview";
         public const string saveExpendituresTypes = "spSaveExpenditureTypes";
+        public const string updateExpendituresTypes = "spUpdateExpenditureTypes";
     }
 }

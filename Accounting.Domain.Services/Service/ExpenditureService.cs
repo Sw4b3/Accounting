@@ -80,12 +80,12 @@ namespace Accounting.Domain.Services.Service
         }
 
 
-        public void Update()
+        public void UpdateExpenditureTypes(UpdateExpenditureTypeRequest expenditureRequest)
         {
             try
             {
                 uow.CreateUnitOfWork();
-                uow.ExpenditureRepository.Update();
+                uow.ExpenditureRepository.UpdateExpenditureType(expenditureRequest);
                 uow.Commit();
             }
             catch (Exception e)

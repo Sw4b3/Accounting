@@ -69,6 +69,12 @@
     <Compile Include="Controller\ExpenditureController.cs" />
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Model\AccountItem.cs" />
+    <Compile Include="View\Dialog\ExpenditureTypeEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\ExpenditureTypeEditDialog.Designer.cs">
+      <DependentUpon>ExpenditureTypeEditDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dialog\ExpenditureTypeAddDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Dialog\ExpenditureTypeEditDialog.resx">
+      <DependentUpon>ExpenditureTypeEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Dialog\ExpenditureTypeAddDialog.resx">
       <DependentUpon>ExpenditureTypeAddDialog.cs</DependentUpon>
     </EmbeddedResource>

@@ -246,5 +246,55 @@ namespace Accounting.Desktop
         {
             new ExpenditureTypeAddDialog(this).Show();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            new ExpenditureTypeEditDialog(this,_expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewSetting)).Show();
+        }
+
+        private void labelRule1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelRule2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void circularProgressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelCurrent1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelLimit1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelCurrent2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelLimit2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void circularProgressBar2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelRule3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

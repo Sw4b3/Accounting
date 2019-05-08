@@ -18,7 +18,7 @@ namespace Accounting.Domain.Services.Service.Interface
 
         void SaveExpenditureTypes(SaveExpenditureTypeRequest request);
 
-        void Update();
+        void UpdateExpenditureTypes(UpdateExpenditureTypeRequest expenditureRequest);
 
         void Delete();
         

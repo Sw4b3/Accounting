@@ -81,5 +81,25 @@ namespace Accounting.Desktop.Controller
         {
            _expenditureService.SaveExpenditureTypes(expenditureRequest);
         }
+
+        public void UpdateExpenditureTypes(UpdateExpenditureTypeRequest expenditureRequest) {
+            _expenditureService.UpdateExpenditureTypes(expenditureRequest);
+        }
+
+        public UpdateExpenditureTypeRequest GetExpenditureDetailsFromDataGridView(DataGridView dataGridView)
+        {
+            if (!dataGridView.SelectedRows.Count.Equals(0))
+            {
+                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
+                return new UpdateExpenditureTypeRequest
+                {
+                    ExpenditureTypeId = int.Parse(selectedRow.Cells[0].Value.ToString()),
+                    ExpenditureDesc = selectedRow.Cells[1].Value.ToString(),
+                    ExpenditureLimit = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
+                };
+            }
+            return null;
+        }
     }
 }
