@@ -65,8 +65,10 @@
     <Compile Include="Reports\ExcelService.cs" />
     <Compile Include="Service\AccountService.cs" />
     <Compile Include="Service\AnalyticsService.cs" />
+    <Compile Include="Service\ExpenditureService.cs" />
     <Compile Include="Service\Interface\IAccountService.cs" />
     <Compile Include="Service\Interface\IAnalyticsService.cs" />
+    <Compile Include="Service\Interface\IExpenditureService.cs" />
     <Compile Include="Service\Interface\IMappingService.cs" />
     <Compile Include="Service\Interface\ITransactionService.cs" />
     <Compile Include="Service\MappingService.cs" />

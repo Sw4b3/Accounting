@@ -35,12 +35,12 @@ namespace Accounting.Models.Service
             }
         }
 
-        public IList<Transaction> GetTransactionsByDate(GetDateRequest transaction)
+        public IList<Transaction> GetTransactionsByDate()
         {
             try
             {
                 uow.CreateUnitOfWork();
-                var res = uow.TransactionRepository.GetTransactionsByDateRequest(transaction);
+                var res = uow.TransactionRepository.GetTransactionsByDateRequest(Extensions.GetCurrentMonth());
                 uow.Commit();
                 return res;
             }
@@ -65,7 +65,7 @@ namespace Accounting.Models.Service
             }
         }
 
-        public void SaveTransaction(GetTransactionRequest transaction)
+        public void SaveTransaction(SaveTransactionRequest transaction)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace Accounting.Models.Service
             }
         }
 
-        public void SaveTransactionStaging(GetTransactionRequest transaction)
+        public void SaveTransactionStaging(SaveTransactionRequest transaction)
         {
             try
             {

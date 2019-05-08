@@ -81,5 +81,9 @@
     <Build Include="dbo\Stored Procedures\spSaveTransactionStaging.sql" />
     <Build Include="dbo\Stored Procedures\spDeleteTransactionStaging.sql" />
     <Build Include="dbo\Stored Procedures\spGetAnalyticsStatistics.sql" />
+    <Build Include="dbo\Tables\ExpenditureTypes.sql" />
+    <Build Include="dbo\Tables\Expenditure.sql" />
+    <Build Include="dbo\Stored Procedures\spSaveExpenditure.sql" />
+    <Build Include="dbo\Stored Procedures\spGetExpenditure.sql" />
   </ItemGroup>
 </Project>

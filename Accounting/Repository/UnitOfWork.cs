@@ -18,6 +18,7 @@ namespace Accounting.Repository
         private ITransactionRepository _transactionRepository;
         private IAccountRepository _accountRepository;
         private IAnalyticsRepository _analyticsRepository;
+        private IExpenditureRepository _expenditureRepository;
 
         public void CreateUnitOfWork() {
             _connection = new SqlConnection(DatabaseConnection.connection);
@@ -54,6 +55,15 @@ namespace Accounting.Repository
             get
             {
                 return _analyticsRepository ?? (_analyticsRepository = new AnalyticsRepository(_connection, _transaction));
+            }
+        }
+
+
+        public IExpenditureRepository ExpenditureRepository
+        {
+            get
+            {
+                return _expenditureRepository ?? (_expenditureRepository = new ExpenditureRepository(_connection, _transaction));
             }
         }
 

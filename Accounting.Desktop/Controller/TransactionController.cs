@@ -77,12 +77,12 @@ namespace Accounting.Desktop.Controller
             return null;
         }
 
-        public void SaveTransaction(GetTransactionRequest transaction)
+        public void SaveTransaction(SaveTransactionRequest transaction)
         {
             _transactionService.SaveTransaction(transaction);
         }
 
-        public void SaveTransactionStaging(GetTransactionRequest transaction)
+        public void SaveTransactionStaging(SaveTransactionRequest transaction)
         {
             _transactionService.SaveTransactionStaging(transaction);
         }

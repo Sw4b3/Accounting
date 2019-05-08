@@ -184,9 +184,9 @@ namespace Accounting.Domain.Services.Reports
             }
         }
 
-        public IList<GetTransactionRequest> ImportFromExcel(string filename, int accountTypeId)
+        public IList<SaveTransactionRequest> ImportFromExcel(string filename, int accountTypeId)
         {
-            IList<GetTransactionRequest> lines = new List<GetTransactionRequest>();
+            IList<SaveTransactionRequest> lines = new List<SaveTransactionRequest>();
             try
             {
                 using (var reader = new StreamReader(filename))
@@ -199,7 +199,7 @@ namespace Accounting.Domain.Services.Reports
                         var values = line.Split(',');
                         if (7 <= rowCount)
                         {
-                            lines.Add(new GetTransactionRequest
+                            lines.Add(new SaveTransactionRequest
                             {
                                 TransactionTimestamp = DateTime.Parse(values[0]),
                                 Amount = decimal.Parse(values[1].Replace("-", "")),

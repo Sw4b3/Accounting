@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Requests
 {
-    public class GetTransactionRequest
+    public class SaveTransactionRequest
     {
         public decimal Amount { get; set; }
 

@@ -20,6 +20,7 @@ namespace Accounting.Desktop
         private AccountController _accountController;
         private AnalyticsController _analyticsController;
         private ExcelController _excelController;
+        private ExpenditureController _expenditureController;
 
         public MainApplication()
         {
@@ -28,6 +29,7 @@ namespace Accounting.Desktop
             _accountController = new AccountController();
             _analyticsController = new AnalyticsController();
             _excelController = new ExcelController();
+            _expenditureController = new ExpenditureController();
             PopulationAll();
             Recalculate();
         }
@@ -54,12 +56,17 @@ namespace Accounting.Desktop
             _transactionController.GetTransactions(dataViewTransfer);
         }
 
-        public void PopulationTransferAnalysisTable()
+        public void PopulationAnalyticsTable()
         {
             _analyticsController.GetAnalyticStatistics(dataGridViewStatistics);
             _analyticsController.GetAnalyticsOverview(dataGridViewAnalysis);
             _analyticsController.GetAnalyticsByDay(dataGridViewDaily, chart2);
             _analyticsController.GetAnalyticsByMonth(dataGridViewMonthly,chart3);
+        }
+
+        public void PopulationExpenditureTable()
+        {
+            _expenditureController.GetExpenditure(dataGridViewExpenditure);
         }
 
         public void PopulationTransactionTableByDate()
@@ -140,7 +147,10 @@ namespace Accounting.Desktop
                     PopulateAccountTable();
                     break;
                 case "tabPage4":
-                    PopulationTransferAnalysisTable();
+                    PopulationAnalyticsTable();
+                    break;
+                case "tabPage12":
+                    PopulationExpenditureTable();
                     break;
                 default:
                     break;
