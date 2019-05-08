@@ -108,6 +108,7 @@ namespace Accounting.Repository
             _transactionRepository = null;
             _accountRepository = null;
             _analyticsRepository = null;
+            _expenditureRepository = null;
         }
     }
 }

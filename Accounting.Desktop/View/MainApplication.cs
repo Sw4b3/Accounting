@@ -67,6 +67,10 @@ namespace Accounting.Desktop
         public void PopulationExpenditureTable()
         {
             _expenditureController.GetExpenditure(dataGridViewExpenditure);
+            _expenditureController.GetExpenditureTypes(dataGridViewSetting);
+            _expenditureController.GetExpenditureOverview(circularProgressBar1,labelRule1, labelCurrent1, labelLimit1, 
+                circularProgressBar2, labelRule2, labelCurrent2, labelLimit2,
+                circularProgressBar3,labelRule3, labelCurrent3, labelLimit3);
         }
 
         public void PopulationTransactionTableByDate()
@@ -236,6 +240,11 @@ namespace Accounting.Desktop
             {
             }
 
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            new ExpenditureTypeAddDialog(this).Show();
         }
     }
 }

@@ -23,5 +23,8 @@ namespace Accounting.Repository.Common
         public const string deleteTransaction= "spDeleteTransactionStaging";
         public const string getExpendituresByDate = "spGetExpendituresByDate";
         public const string saveExpenditure = "spSaveExpenditure";
+        public const string getExpendituresTypes = "spGetExpenditureTypes";
+        public const string getExpendituresOverview = "spGetExpenditureOverview";
+        public const string saveExpendituresTypes = "spSaveExpenditureTypes";
     }
 }

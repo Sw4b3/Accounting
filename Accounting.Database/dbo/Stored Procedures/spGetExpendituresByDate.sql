@@ -1,5 +1,5 @@
 ﻿
-CREATE PROCEDURE [dbo].[spGetExpenditure]
+CREATE PROCEDURE [dbo].[spGetExpendituresByDate]
 @startDate datetime, @endDate datetime
 AS
 BEGIN

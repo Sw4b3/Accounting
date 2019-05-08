@@ -28,7 +28,7 @@ namespace Accounting.Desktop.View
         public void saveAccount() {
             if (Validator.IsString(textBox3.Text))
             {
-                _accountController.SaveAccount(new GetAccountRequest
+                _accountController.SaveAccount(new SaveAccountRequest
                 {
                     AccountType = textBox3.Text,
                 });

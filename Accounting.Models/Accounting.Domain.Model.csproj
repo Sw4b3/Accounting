@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\ExpenditureOverview.cs" />
     <Compile Include="Models\Expenditure.cs" />
+    <Compile Include="Models\ExpenditureType.cs" />
     <Compile Include="Models\Mappings.cs" />
     <Compile Include="Models\Statistic.cs" />
     <Compile Include="Models\Transaction.cs" />
@@ -51,11 +53,12 @@
     <Compile Include="Models\AnalysisOverview.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\DeleteTransactionRequest.cs" />
-    <Compile Include="Requests\GetAccountRequest.cs" />
+    <Compile Include="Requests\SaveAccountRequest.cs" />
+    <Compile Include="Requests\SaveExpenditureTypesRequest.cs" />
     <Compile Include="Requests\SearchTransactionByDateRequest.cs" />
     <Compile Include="Requests\GetTransactionByDateRequest.cs" />
     <Compile Include="Requests\UpdateTransactionRequest.cs" />
-    <Compile Include="Requests\GetTransactionRequest.cs" />
+    <Compile Include="Requests\SaveTransactionRequest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

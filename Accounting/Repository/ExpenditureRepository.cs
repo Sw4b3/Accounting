@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Repository
 {
-    public class ExpenditureRepository : IExpenditureRepository
+    public class ExpenditureRepository : BaseRepository, IExpenditureRepository
     {
         private IDbConnection _connection;
         private IDbTransaction _transaction;
@@ -22,16 +22,28 @@ namespace Accounting.Repository
             _transaction = transaction;
         }
 
-  
+
         public IList<Expenditure> GetExpenditureByDateRequest(GetDateRequest request)
         {
             var res = DapperRepository.ExecuteStoredProc<Expenditure>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresByDate, request, _connection, _transaction);
             return res;
         }
 
-        public void Save()
+        public IList<ExpenditureType> GetExpenditureTypes()
         {
-            throw new NotImplementedException();
+            var res = DapperRepository.ExecuteAsStoredProc<ExpenditureType>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresTypes, _connection, _transaction);
+            return res;
+        }
+
+        public IList<ExpenditureOverview> GetExpenditureOverview()
+        {
+            var res = DapperRepository.ExecuteAsStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresOverview, _connection, _transaction);
+            return res;
+        }
+
+        public void SaveExpenditureType(SaveExpenditureTypeRequest request)
+        {
+            Save(DatabaseConnection.connection, SQLStoredProcedures.saveExpendituresTypes, request, _connection, _transaction);
         }
 
         public void Update()

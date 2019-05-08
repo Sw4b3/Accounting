@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Requests
 {
-    public class GetAccountRequest
+    public class SaveExpenditureTypeRequest
     {
-        public string AccountType { get; set; }
+        public String ExpenditureDesc { get; set; }
+
+        public Decimal ExpenditureLimit { get; set; }
     }
 }

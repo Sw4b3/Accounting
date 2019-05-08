@@ -12,10 +12,15 @@ namespace Accounting.Domain.Services.Service.Interface
     {
         IList<Expenditure> GetExpenditureByDateRequest();
 
-        void Save();
+        IList<ExpenditureType> GetExpenditureTypes();
+
+        IList<ExpenditureOverview> GetExpenditureOverview();
+
+        void SaveExpenditureTypes(SaveExpenditureTypeRequest request);
 
         void Update();
 
         void Delete();
+        
     }
 }

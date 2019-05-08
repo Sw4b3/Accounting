@@ -35,12 +35,42 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
-        public void Save()
+        public IList<ExpenditureType> GetExpenditureTypes()
         {
             try
             {
                 uow.CreateUnitOfWork();
-                uow.ExpenditureRepository.Save();
+                var res = uow.ExpenditureRepository.GetExpenditureTypes();
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public IList<ExpenditureOverview> GetExpenditureOverview()
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.ExpenditureRepository.GetExpenditureOverview();
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public void SaveExpenditureTypes(SaveExpenditureTypeRequest expenditureRequest)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.ExpenditureRepository.SaveExpenditureType(expenditureRequest);
                 uow.Commit();
             }
             catch (Exception e)

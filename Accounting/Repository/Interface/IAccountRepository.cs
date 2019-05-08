@@ -12,6 +12,6 @@ namespace Accounting.Repository.Interface
     {
         IList<Account> GetAccountRequest();
 
-        void SaveAccountRequest(GetAccountRequest request);
+        void SaveAccountRequest(SaveAccountRequest request);
     }
 }

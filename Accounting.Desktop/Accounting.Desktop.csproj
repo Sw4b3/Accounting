@@ -36,6 +36,9 @@
     <ApplicationIcon>Resources\histogram_512_omC_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CircularProgressBar, Version=2.7.0.7, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.7.0.7\lib\net40\CircularProgressBar.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -54,6 +57,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Validator.cs" />
@@ -63,6 +69,12 @@
     <Compile Include="Controller\ExpenditureController.cs" />
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Model\AccountItem.cs" />
+    <Compile Include="View\Dialog\ExpenditureTypeAddDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\ExpenditureTypeAddDialog.Designer.cs">
+      <DependentUpon>ExpenditureTypeAddDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dialog\AccountDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +122,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Dialog\ExpenditureTypeAddDialog.resx">
+      <DependentUpon>ExpenditureTypeAddDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Dialog\AccountDialog.resx">
       <DependentUpon>AccountDialog.cs</DependentUpon>
     </EmbeddedResource>
