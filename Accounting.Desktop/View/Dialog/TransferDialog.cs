@@ -33,7 +33,7 @@ namespace Accounting.Desktop.View.Dialog
 
         public void tranferWithdraw()
         {
-            _transactionController.SaveTransactionStaging(new GetTransactionRequest
+            _transactionController.SaveTransactionStaging(new SaveTransactionRequest
             {
                 Amount = decimal.Parse(textBox3.Text),
                 AccountTypeId = _transfer1,
@@ -45,7 +45,7 @@ namespace Accounting.Desktop.View.Dialog
 
         public void tranferDepost()
         {
-            _transactionController.SaveTransactionStaging(new GetTransactionRequest
+            _transactionController.SaveTransactionStaging(new SaveTransactionRequest
             {
                 Amount = decimal.Parse(textBox3.Text),
                 AccountTypeId = _transfer2,
