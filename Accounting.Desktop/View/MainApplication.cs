@@ -64,7 +64,7 @@ namespace Accounting.Desktop
             _analyticsController.GetAnalyticsByMonth(dataGridViewMonthly,chart3);
         }
 
-        public void PopulationExpenditureTable()
+        public void PopulateExpenditureTable()
         {
             _expenditureController.GetExpenditure(dataGridViewExpenditure);
             _expenditureController.GetExpenditureTypes(dataGridViewSetting);
@@ -154,7 +154,7 @@ namespace Accounting.Desktop
                     PopulationAnalyticsTable();
                     break;
                 case "tabPage12":
-                    PopulationExpenditureTable();
+                    PopulateExpenditureTable();
                     break;
                 default:
                     break;
@@ -252,49 +252,10 @@ namespace Accounting.Desktop
             new ExpenditureTypeEditDialog(this,_expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewSetting)).Show();
         }
 
-        private void labelRule1_Click(object sender, EventArgs e)
+        private void ImportExpenditure_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void labelRule2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void circularProgressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelCurrent1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelLimit1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelCurrent2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelLimit2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void circularProgressBar2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelRule3_Click(object sender, EventArgs e)
-        {
-
+            _expenditureController.ImportExpenditure();
+            PopulateExpenditureTable();
         }
     }
 }

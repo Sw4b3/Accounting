@@ -986,7 +986,6 @@
             this.labelLimit2.Size = new System.Drawing.Size(52, 13);
             this.labelLimit2.TabIndex = 40;
             this.labelLimit2.Text = "Balance: ";
-            this.labelLimit2.Click += new System.EventHandler(this.labelLimit2_Click);
             // 
             // labelCurrent2
             // 
@@ -997,7 +996,6 @@
             this.labelCurrent2.Size = new System.Drawing.Size(52, 13);
             this.labelCurrent2.TabIndex = 39;
             this.labelCurrent2.Text = "Balance: ";
-            this.labelCurrent2.Click += new System.EventHandler(this.labelCurrent2_Click);
             // 
             // labelLimit1
             // 
@@ -1008,7 +1006,6 @@
             this.labelLimit1.Size = new System.Drawing.Size(52, 13);
             this.labelLimit1.TabIndex = 38;
             this.labelLimit1.Text = "Balance: ";
-            this.labelLimit1.Click += new System.EventHandler(this.labelLimit1_Click);
             // 
             // labelCurrent1
             // 
@@ -1019,7 +1016,6 @@
             this.labelCurrent1.Size = new System.Drawing.Size(52, 13);
             this.labelCurrent1.TabIndex = 37;
             this.labelCurrent1.Text = "Balance: ";
-            this.labelCurrent1.Click += new System.EventHandler(this.labelCurrent1_Click);
             // 
             // labelRule3
             // 
@@ -1030,7 +1026,6 @@
             this.labelRule3.Size = new System.Drawing.Size(52, 13);
             this.labelRule3.TabIndex = 36;
             this.labelRule3.Text = "Balance: ";
-            this.labelRule3.Click += new System.EventHandler(this.labelRule3_Click);
             // 
             // labelRule2
             // 
@@ -1041,7 +1036,6 @@
             this.labelRule2.Size = new System.Drawing.Size(52, 13);
             this.labelRule2.TabIndex = 35;
             this.labelRule2.Text = "Balance: ";
-            this.labelRule2.Click += new System.EventHandler(this.labelRule2_Click);
             // 
             // labelRule1
             // 
@@ -1052,7 +1046,6 @@
             this.labelRule1.Size = new System.Drawing.Size(52, 13);
             this.labelRule1.TabIndex = 34;
             this.labelRule1.Text = "Balance: ";
-            this.labelRule1.Click += new System.EventHandler(this.labelRule1_Click);
             // 
             // circularProgressBar3
             // 
@@ -1119,7 +1112,6 @@
             this.circularProgressBar2.Text = " ";
             this.circularProgressBar2.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.circularProgressBar2.Value = 68;
-            this.circularProgressBar2.Click += new System.EventHandler(this.circularProgressBar2_Click);
             // 
             // circularProgressBar1
             // 
@@ -1153,7 +1145,6 @@
             this.circularProgressBar1.Text = " ";
             this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.circularProgressBar1.Value = 68;
-            this.circularProgressBar1.Click += new System.EventHandler(this.circularProgressBar1_Click);
             // 
             // tabPage14
             // 
@@ -1175,6 +1166,7 @@
             this.button13.TabIndex = 31;
             this.button13.Text = "Import Transactions";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.ImportExpenditure_Click);
             // 
             // dataGridViewExpenditure
             // 

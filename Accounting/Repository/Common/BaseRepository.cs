@@ -14,7 +14,7 @@ namespace Accounting.Repository.Common
     {
         public IList<T> Get<T>(string connectionString, string request, IDbConnection connection, IDbTransaction transaction)
         {
-            var res = DapperRepository.ExecuteAsStoredProc<T>(connectionString, request, connection, transaction);
+            var res = DapperRepository.ExecuteStoredProc<T>(connectionString, request, connection, transaction);
             return res;
         }
 

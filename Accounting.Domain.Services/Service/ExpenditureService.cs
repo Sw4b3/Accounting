@@ -65,6 +65,20 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
+        public void ImportExpenditure()
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.ExpenditureRepository.ImportExpenditure(Extensions.GetCurrentMonth());
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public void SaveExpenditureTypes(SaveExpenditureTypeRequest expenditureRequest)
         {
             try

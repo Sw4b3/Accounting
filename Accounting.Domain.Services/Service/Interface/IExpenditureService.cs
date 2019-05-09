@@ -16,6 +16,8 @@ namespace Accounting.Domain.Services.Service.Interface
 
         IList<ExpenditureOverview> GetExpenditureOverview();
 
+        void ImportExpenditure();
+
         void SaveExpenditureTypes(SaveExpenditureTypeRequest request);
 
         void UpdateExpenditureTypes(UpdateExpenditureTypeRequest expenditureRequest);

@@ -43,7 +43,7 @@ namespace Accounting
 
         public IList<AnalysisByMonth> GetAnalyticsByMonthRequest()
         {
-            var res = DapperRepository.ExecuteAsStoredProc<AnalysisByMonth>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsByMonth, _connection, _transaction);
+            var res = DapperRepository.ExecuteStoredProc<AnalysisByMonth>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsByMonth, _connection, _transaction);
             return res;
         }
     }

@@ -46,7 +46,7 @@ namespace Accounting.Desktop.View
                         ExpenditureDesc = textBox3.Text,
                         ExpenditureLimit = decimal.Parse(textBox1.Text),
                     });
-                    _mainForm.PopulationExpenditureTable();
+                    _mainForm.PopulateExpenditureTable();
                     this.Dispose();
                 }
                 else
