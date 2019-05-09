@@ -7,5 +7,5 @@ BEGIN
 		from Expenditure e with (nolock)
 			INNER JOIN Transactions with (nolock) 
 			ON Transactions.TransactionId=e.TransactionId	
-		where TransactionTimestamp BETWEEN @startDate AND  @endDate
+		where TransactionTimestamp BETWEEN @startDate AND  @endDate and ExpenditureTypeId is null
 END
