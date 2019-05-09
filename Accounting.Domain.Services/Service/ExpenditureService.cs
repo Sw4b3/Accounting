@@ -93,6 +93,20 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
+        public void UpdateExpenditure(UpdateExpenditureRequest expenditureRequest)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.ExpenditureRepository.UpdateExpenditure(expenditureRequest);
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
 
         public void UpdateExpenditureTypes(UpdateExpenditureTypeRequest expenditureRequest)
         {

@@ -89,5 +89,6 @@
     <Build Include="dbo\Stored Procedures\spGetExpendituresByDate.sql" />
     <Build Include="dbo\Stored Procedures\spGetExpenditureOverview.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateExpenditureTypes.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateExpenditure.sql" />
   </ItemGroup>
 </Project>

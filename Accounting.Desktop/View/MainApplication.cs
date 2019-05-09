@@ -249,13 +249,18 @@ namespace Accounting.Desktop
 
         private void button10_Click(object sender, EventArgs e)
         {
-            new ExpenditureTypeEditDialog(this,_expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewSetting)).Show();
+            new ExpenditureTypeEditDialog(this,_expenditureController.GetExpenditureSettingsDetailsFromDataGridView(dataGridViewSetting)).Show();
         }
 
         private void ImportExpenditure_Click(object sender, EventArgs e)
         {
             _expenditureController.ImportExpenditure();
             PopulateExpenditureTable();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            new ExpenditureEditDialog(this, _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure)).Show();
         }
     }
 }

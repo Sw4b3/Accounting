@@ -21,6 +21,8 @@ namespace Accounting.Repository.Interface
 
         void ImportExpenditure(GetDateRequest request);
 
+        void UpdateExpenditure(UpdateExpenditureRequest request);
+
         void UpdateExpenditureType(UpdateExpenditureTypeRequest request);
 
         void Delete();

@@ -125,6 +125,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridViewSetting = new System.Windows.Forms.DataGridView();
+            this.button11 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -1148,6 +1149,7 @@
             // 
             // tabPage14
             // 
+            this.tabPage14.Controls.Add(this.button11);
             this.tabPage14.Controls.Add(this.button13);
             this.tabPage14.Controls.Add(this.dataGridViewExpenditure);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
@@ -1240,6 +1242,16 @@
             this.dataGridViewSetting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSetting.Size = new System.Drawing.Size(775, 521);
             this.dataGridViewSetting.TabIndex = 32;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(34, 49);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(148, 23);
+            this.button11.TabIndex = 32;
+            this.button11.Text = "Assign Transactions";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // MainApplication
             // 
@@ -1375,6 +1387,7 @@
         private System.Windows.Forms.Label labelRule2;
         private System.Windows.Forms.Label labelRule1;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }
 

@@ -51,6 +51,11 @@ namespace Accounting.Repository
             Save(DatabaseConnection.connection, SQLStoredProcedures.saveExpendituresTypes, request, _connection, _transaction);
         }
 
+        public void UpdateExpenditure(UpdateExpenditureRequest request)
+        {
+            Update(DatabaseConnection.connection, SQLStoredProcedures.updateExpenditure, request, _connection, _transaction);
+        }
+
         public void UpdateExpenditureType(UpdateExpenditureTypeRequest request)
         {
             Update(DatabaseConnection.connection, SQLStoredProcedures.updateExpendituresTypes, request, _connection, _transaction);
