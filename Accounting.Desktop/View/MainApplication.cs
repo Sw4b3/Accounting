@@ -36,22 +36,22 @@ namespace Accounting.Desktop
 
         public void PopulationAll()
         {
-            PopulationTransactionTable();
-            PopulationTransferTable();
-            PopulationTransactionTablPersonalExpenses();
-            PopulationTransactionTableWithdraw();
-            populateAccountComboBox();
-            populateTransferComboBox();
+            PopulateTransactionTables();
+            PopulateTransferTable();
+            PopulateTransactionTablPersonalExpenses();
+            PopulateTransactionTableWithdraw();
+            PopulateAccountComboBox();
+            PopulateTransferComboBox();
             Recalculate();
         }
 
-        public void PopulationTransactionTable()
+        public void PopulateTransactionTables()
         {
             _transactionController.GetTransactions(dataViewTransaction, 1);
             _analyticsController.GetAnalyticsOverview(chart1);
         }
 
-        public void PopulationTransferTable()
+        public void PopulateTransferTable()
         {
             _transactionController.GetTransactions(dataViewTransfer);
         }
@@ -83,12 +83,12 @@ namespace Accounting.Desktop
             });
         }
 
-        public void PopulationTransactionTablPersonalExpenses()
+        public void PopulateTransactionTablPersonalExpenses()
         {
             _transactionController.GetTransactionsPersonalExpenses(dataViewTransactionPE);
         }
 
-        public void PopulationTransactionTableWithdraw()
+        public void PopulateTransactionTableWithdraw()
         {
             _transactionController.GetTransactionsWithdraw(dataViewTransactionInc);
         }
@@ -98,12 +98,12 @@ namespace Accounting.Desktop
             _accountController.GetAccount(dataGridAccount);
         }
 
-        public void populateAccountComboBox()
+        public void PopulateAccountComboBox()
         {
             _accountController.GetAccountComboBox(comboBoxAccount);
         }
 
-        public void populateTransferComboBox()
+        public void PopulateTransferComboBox()
         {
             _accountController.GetAccountComboBox(comboBoxTransfer1);
             _accountController.GetAccountComboBox(comboBoxTransfer2);
@@ -242,12 +242,12 @@ namespace Accounting.Desktop
 
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void AddRule_Click(object sender, EventArgs e)
         {
             new ExpenditureTypeAddDialog(this).Show();
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void EditRule_Click(object sender, EventArgs e)
         {
             new ExpenditureTypeEditDialog(this,_expenditureController.GetExpenditureSettingsDetailsFromDataGridView(dataGridViewSetting)).Show();
         }
@@ -258,9 +258,10 @@ namespace Accounting.Desktop
             PopulateExpenditureTable();
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void UpdateExtenditure_Click(object sender, EventArgs e)
         {
-            new ExpenditureEditDialog(this, _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure)).Show();
+            _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
+            PopulateExpenditureTable();
         }
     }
 }

@@ -31,6 +31,7 @@ namespace Accounting.Desktop.View
 
         public void setExpenditure()
         {
+            this.Text = _updateExpenditureTypeRequest.ExpenditureDesc+" Rule";
             textBox3.Text = _updateExpenditureTypeRequest.ExpenditureDesc;
             textBox1.Text = _updateExpenditureTypeRequest.ExpenditureLimit.ToString();
         }

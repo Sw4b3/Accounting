@@ -1,4 +1,6 @@
-﻿using Accounting.Domain.Services.Service;
+﻿using Accounting.Desktop.Common;
+using Accounting.Desktop.Model;
+using Accounting.Domain.Services.Service;
 using Accounting.Domain.Services.Service.Interface;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
@@ -16,15 +18,34 @@ namespace Accounting.Desktop.Controller
     public class ExpenditureController
     {
         IExpenditureService _expenditureService;
+        DataGridViewComboBoxColumn expenditureType;
+        bool initialized = false;
 
         public ExpenditureController()
         {
             _expenditureService = new ExpenditureService();
+            expenditureType = new DataGridViewComboBoxColumn();
         }
 
         public void GetExpenditure(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _expenditureService.GetExpenditureByDateRequest().Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.ExpenditureTypeId }).ToList(); ;
+            var res = _expenditureService.GetExpenditureByDateRequest().Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+
+            IList<ExpenditureTypeItem> list = _expenditureService.GetExpenditureTypes().Select(x => new ExpenditureTypeItem { ExpenditureDesc = x.ExpenditureDesc, ExpenditureTypeId = x.ExpenditureTypeId }).ToList();
+            expenditureType.DataSource = list;
+            expenditureType.HeaderText = "ExpenditureTypeId";
+            expenditureType.DisplayMember = "ExpenditureDesc";
+            expenditureType.ValueMember = "ExpenditureTypeId";
+
+
+            //expenditureType.FlatStyle = FlatStyle.Flat;
+
+            dataGridView.DataSource = res;
+            if (!initialized)
+            {
+                dataGridView.Columns.Add(expenditureType);
+                initialized = true;
+            }
         }
 
         public void GetExpenditureTypes(DataGridView dataGridView)
@@ -127,18 +148,24 @@ namespace Accounting.Desktop.Controller
             return null;
         }
 
-        public UpdateExpenditureRequest GetExpenditureDetailsFromDataGridView(DataGridView dataGridView)
+        public void GetExpenditureDetailsFromDataGridView(DataGridView dataGridView)
         {
             if (!dataGridView.SelectedRows.Count.Equals(0))
             {
-                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
-                return new UpdateExpenditureRequest
+                foreach (DataGridViewRow rows in dataGridView.Rows)
                 {
-                    ExpenditureId = Guid.Parse(selectedRow.Cells[0].Value.ToString()),
-                };
+                    if (rows.Cells[0].Value != null)
+                    {
+                        UpdateExpenditure(new UpdateExpenditureRequest
+                        {
+                            ExpenditureId = Guid.Parse(rows.Cells[1].Value.ToString()),
+                            ExpenditureTypeId = int.Parse(rows.Cells[0].Value.ToString())
+                        });
+                    }
+
+                }
             }
-            return null;
+
         }
     }
 }

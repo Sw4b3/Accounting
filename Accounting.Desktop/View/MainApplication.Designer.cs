@@ -119,13 +119,13 @@
             this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
             this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
             this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.dataGridViewExpenditure = new System.Windows.Forms.DataGridView();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridViewSetting = new System.Windows.Forms.DataGridView();
-            this.button11 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -1160,6 +1160,16 @@
             this.tabPage14.Text = "Expenditure";
             this.tabPage14.UseVisualStyleBackColor = true;
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(34, 49);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(148, 23);
+            this.button11.TabIndex = 32;
+            this.button11.Text = "Update Transactions";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.UpdateExtenditure_Click);
+            // 
             // button13
             // 
             this.button13.Location = new System.Drawing.Point(34, 20);
@@ -1184,7 +1194,6 @@
             this.dataGridViewExpenditure.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewExpenditure.Location = new System.Drawing.Point(202, 20);
             this.dataGridViewExpenditure.Name = "dataGridViewExpenditure";
-            this.dataGridViewExpenditure.ReadOnly = true;
             this.dataGridViewExpenditure.RowHeadersVisible = false;
             this.dataGridViewExpenditure.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewExpenditure.Size = new System.Drawing.Size(775, 521);
@@ -1211,7 +1220,7 @@
             this.button10.TabIndex = 34;
             this.button10.Text = "Edit Rule";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.Click += new System.EventHandler(this.EditRule_Click);
             // 
             // button9
             // 
@@ -1221,7 +1230,7 @@
             this.button9.TabIndex = 33;
             this.button9.Text = "Add Rule";
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.Click += new System.EventHandler(this.AddRule_Click);
             // 
             // dataGridViewSetting
             // 
@@ -1242,16 +1251,6 @@
             this.dataGridViewSetting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSetting.Size = new System.Drawing.Size(775, 521);
             this.dataGridViewSetting.TabIndex = 32;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(34, 49);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(148, 23);
-            this.button11.TabIndex = 32;
-            this.button11.Text = "Assign Transactions";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // MainApplication
             // 
