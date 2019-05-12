@@ -1,4 +1,5 @@
 ﻿using Accounting.Desktop.Common;
+using Accounting.Desktop.Componets;
 using Accounting.Desktop.Model;
 using Accounting.Domain.Services.Service;
 using Accounting.Domain.Services.Service.Interface;
@@ -122,6 +123,31 @@ namespace Accounting.Desktop.Controller
                     bar3.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))));
                 }
             }
+        }
+
+        public void PopluateExpenditurePanel(TableLayoutPanel tableLayoutPanel) {
+            var expenditureOverview = _expenditureService.GetExpenditureOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal }).ToList();
+            tableLayoutPanel.Controls.Clear();
+
+            foreach (var item in expenditureOverview)
+            {
+
+                //tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+                tableLayoutPanel.Controls.Add(new Label()
+                {
+                    Text = item.ExpenditureDesc.ToString()
+                });
+
+                tableLayoutPanel.Controls.Add(new CustomProgressBar()
+                {
+                    Maximum = (int)item.ExpenditureLimit,
+                    Value = (int)item.ExpenditureTotal,
+                    BackColor  = System.Drawing.Color.WhiteSmoke,
+                    ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))))
+            });
+
+            }
+
         }
 
         public void ImportExpenditure()

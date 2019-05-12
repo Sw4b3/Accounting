@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Accounting.Desktop.Componets;
 using Accounting.Desktop.Controller;
 using Accounting.Desktop.View;
 using Accounting.Desktop.View.Dialog;
@@ -66,6 +67,7 @@ namespace Accounting.Desktop
 
         public void PopulateExpenditureTable()
         {
+            _expenditureController.PopluateExpenditurePanel(tableLayoutPanel1);
             _expenditureController.GetExpenditure(dataGridViewExpenditure);
             _expenditureController.GetExpenditureTypes(dataGridViewSetting);
             _expenditureController.GetExpenditureOverview(circularProgressBar1,labelRule1, labelCurrent1, labelLimit1, 

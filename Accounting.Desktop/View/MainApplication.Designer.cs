@@ -126,6 +126,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridViewSetting = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -938,6 +939,7 @@
             // 
             // tabPage15
             // 
+            this.tabPage15.Controls.Add(this.tableLayoutPanel1);
             this.tabPage15.Controls.Add(this.labelLimit3);
             this.tabPage15.Controls.Add(this.labelCurrent3);
             this.tabPage15.Controls.Add(this.labelLimit2);
@@ -962,67 +964,67 @@
             // 
             this.labelLimit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelLimit3.AutoSize = true;
-            this.labelLimit3.Location = new System.Drawing.Point(753, 217);
+            this.labelLimit3.Location = new System.Drawing.Point(729, 143);
             this.labelLimit3.Name = "labelLimit3";
-            this.labelLimit3.Size = new System.Drawing.Size(52, 13);
+            this.labelLimit3.Size = new System.Drawing.Size(34, 13);
             this.labelLimit3.TabIndex = 42;
-            this.labelLimit3.Text = "Balance: ";
+            this.labelLimit3.Text = "Limit: ";
             // 
             // labelCurrent3
             // 
             this.labelCurrent3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelCurrent3.AutoSize = true;
-            this.labelCurrent3.Location = new System.Drawing.Point(753, 184);
+            this.labelCurrent3.Location = new System.Drawing.Point(729, 110);
             this.labelCurrent3.Name = "labelCurrent3";
-            this.labelCurrent3.Size = new System.Drawing.Size(52, 13);
+            this.labelCurrent3.Size = new System.Drawing.Size(47, 13);
             this.labelCurrent3.TabIndex = 41;
-            this.labelCurrent3.Text = "Balance: ";
+            this.labelCurrent3.Text = "Current: ";
             // 
             // labelLimit2
             // 
             this.labelLimit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelLimit2.AutoSize = true;
-            this.labelLimit2.Location = new System.Drawing.Point(450, 218);
+            this.labelLimit2.Location = new System.Drawing.Point(426, 144);
             this.labelLimit2.Name = "labelLimit2";
-            this.labelLimit2.Size = new System.Drawing.Size(52, 13);
+            this.labelLimit2.Size = new System.Drawing.Size(34, 13);
             this.labelLimit2.TabIndex = 40;
-            this.labelLimit2.Text = "Balance: ";
+            this.labelLimit2.Text = "Limit: ";
             // 
             // labelCurrent2
             // 
             this.labelCurrent2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelCurrent2.AutoSize = true;
-            this.labelCurrent2.Location = new System.Drawing.Point(450, 185);
+            this.labelCurrent2.Location = new System.Drawing.Point(426, 111);
             this.labelCurrent2.Name = "labelCurrent2";
-            this.labelCurrent2.Size = new System.Drawing.Size(52, 13);
+            this.labelCurrent2.Size = new System.Drawing.Size(47, 13);
             this.labelCurrent2.TabIndex = 39;
-            this.labelCurrent2.Text = "Balance: ";
+            this.labelCurrent2.Text = "Current: ";
             // 
             // labelLimit1
             // 
             this.labelLimit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelLimit1.AutoSize = true;
-            this.labelLimit1.Location = new System.Drawing.Point(159, 217);
+            this.labelLimit1.Location = new System.Drawing.Point(423, 412);
             this.labelLimit1.Name = "labelLimit1";
-            this.labelLimit1.Size = new System.Drawing.Size(52, 13);
+            this.labelLimit1.Size = new System.Drawing.Size(34, 13);
             this.labelLimit1.TabIndex = 38;
-            this.labelLimit1.Text = "Balance: ";
+            this.labelLimit1.Text = "Limit: ";
             // 
             // labelCurrent1
             // 
             this.labelCurrent1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelCurrent1.AutoSize = true;
-            this.labelCurrent1.Location = new System.Drawing.Point(159, 184);
+            this.labelCurrent1.Location = new System.Drawing.Point(423, 379);
             this.labelCurrent1.Name = "labelCurrent1";
-            this.labelCurrent1.Size = new System.Drawing.Size(52, 13);
+            this.labelCurrent1.Size = new System.Drawing.Size(47, 13);
             this.labelCurrent1.TabIndex = 37;
-            this.labelCurrent1.Text = "Balance: ";
+            this.labelCurrent1.Text = "Current: ";
             // 
             // labelRule3
             // 
             this.labelRule3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelRule3.AutoSize = true;
-            this.labelRule3.Location = new System.Drawing.Point(612, 116);
+            this.labelRule3.Location = new System.Drawing.Point(588, 42);
             this.labelRule3.Name = "labelRule3";
             this.labelRule3.Size = new System.Drawing.Size(52, 13);
             this.labelRule3.TabIndex = 36;
@@ -1032,7 +1034,7 @@
             // 
             this.labelRule2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelRule2.AutoSize = true;
-            this.labelRule2.Location = new System.Drawing.Point(325, 116);
+            this.labelRule2.Location = new System.Drawing.Point(301, 42);
             this.labelRule2.Name = "labelRule2";
             this.labelRule2.Size = new System.Drawing.Size(52, 13);
             this.labelRule2.TabIndex = 35;
@@ -1042,7 +1044,7 @@
             // 
             this.labelRule1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelRule1.AutoSize = true;
-            this.labelRule1.Location = new System.Drawing.Point(37, 116);
+            this.labelRule1.Location = new System.Drawing.Point(301, 311);
             this.labelRule1.Name = "labelRule1";
             this.labelRule1.Size = new System.Drawing.Size(52, 13);
             this.labelRule1.TabIndex = 34;
@@ -1058,7 +1060,7 @@
             this.circularProgressBar3.InnerColor = System.Drawing.Color.White;
             this.circularProgressBar3.InnerMargin = 2;
             this.circularProgressBar3.InnerWidth = -1;
-            this.circularProgressBar3.Location = new System.Drawing.Point(685, 116);
+            this.circularProgressBar3.Location = new System.Drawing.Point(661, 42);
             this.circularProgressBar3.MarqueeAnimationSpeed = 2000;
             this.circularProgressBar3.Name = "circularProgressBar3";
             this.circularProgressBar3.OuterColor = System.Drawing.Color.Gainsboro;
@@ -1068,7 +1070,7 @@
             this.circularProgressBar3.ProgressWidth = 25;
             this.circularProgressBar3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.circularProgressBar3.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar3.Size = new System.Drawing.Size(219, 210);
+            this.circularProgressBar3.Size = new System.Drawing.Size(215, 188);
             this.circularProgressBar3.StartAngle = 270;
             this.circularProgressBar3.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
             this.circularProgressBar3.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
@@ -1091,7 +1093,7 @@
             this.circularProgressBar2.InnerColor = System.Drawing.Color.White;
             this.circularProgressBar2.InnerMargin = 2;
             this.circularProgressBar2.InnerWidth = -1;
-            this.circularProgressBar2.Location = new System.Drawing.Point(389, 116);
+            this.circularProgressBar2.Location = new System.Drawing.Point(365, 42);
             this.circularProgressBar2.MarqueeAnimationSpeed = 2000;
             this.circularProgressBar2.Name = "circularProgressBar2";
             this.circularProgressBar2.OuterColor = System.Drawing.Color.Gainsboro;
@@ -1101,7 +1103,7 @@
             this.circularProgressBar2.ProgressWidth = 25;
             this.circularProgressBar2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.circularProgressBar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar2.Size = new System.Drawing.Size(219, 210);
+            this.circularProgressBar2.Size = new System.Drawing.Size(215, 188);
             this.circularProgressBar2.StartAngle = 270;
             this.circularProgressBar2.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
             this.circularProgressBar2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
@@ -1124,7 +1126,7 @@
             this.circularProgressBar1.InnerColor = System.Drawing.Color.White;
             this.circularProgressBar1.InnerMargin = 2;
             this.circularProgressBar1.InnerWidth = -1;
-            this.circularProgressBar1.Location = new System.Drawing.Point(101, 116);
+            this.circularProgressBar1.Location = new System.Drawing.Point(365, 311);
             this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
             this.circularProgressBar1.Name = "circularProgressBar1";
             this.circularProgressBar1.OuterColor = System.Drawing.Color.Gainsboro;
@@ -1134,7 +1136,7 @@
             this.circularProgressBar1.ProgressWidth = 25;
             this.circularProgressBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar1.Size = new System.Drawing.Size(219, 210);
+            this.circularProgressBar1.Size = new System.Drawing.Size(215, 188);
             this.circularProgressBar1.StartAngle = 270;
             this.circularProgressBar1.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
             this.circularProgressBar1.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
@@ -1249,8 +1251,21 @@
             this.dataGridViewSetting.ReadOnly = true;
             this.dataGridViewSetting.RowHeadersVisible = false;
             this.dataGridViewSetting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSetting.Size = new System.Drawing.Size(775, 521);
+            this.dataGridViewSetting.Size = new System.Drawing.Size(775, 155);
             this.dataGridViewSetting.TabIndex = 32;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 42);
+            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(500, 200);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(249, 200);
+            this.tableLayoutPanel1.TabIndex = 43;
             // 
             // MainApplication
             // 
@@ -1387,6 +1402,7 @@
         private System.Windows.Forms.Label labelRule1;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
 

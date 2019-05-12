@@ -63,6 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Validator.cs" />
+    <Compile Include="Componets\CustomProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\AnalyticsController.cs" />
     <Compile Include="Controller\ExcelController.cs" />
