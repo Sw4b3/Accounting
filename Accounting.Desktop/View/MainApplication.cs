@@ -67,6 +67,7 @@ namespace Accounting.Desktop
 
         public void PopulateExpenditureTable()
         {
+            _transactionController.GetRecentTransactions(dataGridViewRecentTransactions);
             _expenditureController.PopluateExpenditurePanel(tableLayoutPanel1);
             _expenditureController.GetExpenditure(dataGridViewExpenditure);
             _expenditureController.GetExpenditureTypes(dataGridViewSetting);

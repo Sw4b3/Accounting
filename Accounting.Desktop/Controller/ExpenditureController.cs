@@ -18,9 +18,9 @@ namespace Accounting.Desktop.Controller
 {
     public class ExpenditureController
     {
-        IExpenditureService _expenditureService;
+        private IExpenditureService _expenditureService;
+        private bool isInitialized = false;
         DataGridViewComboBoxColumn expenditureType;
-        bool initialized = false;
 
         public ExpenditureController()
         {
@@ -37,15 +37,13 @@ namespace Accounting.Desktop.Controller
             expenditureType.HeaderText = "ExpenditureTypeId";
             expenditureType.DisplayMember = "ExpenditureDesc";
             expenditureType.ValueMember = "ExpenditureTypeId";
-
-
-            //expenditureType.FlatStyle = FlatStyle.Flat;
+            expenditureType.FlatStyle = FlatStyle.Flat;
 
             dataGridView.DataSource = res;
-            if (!initialized)
+            if (!isInitialized)
             {
                 dataGridView.Columns.Add(expenditureType);
-                initialized = true;
+                isInitialized = true;
             }
         }
 

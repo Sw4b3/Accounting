@@ -35,6 +35,11 @@ namespace Accounting.Desktop.Controller
             dataGridView.DataSource = _transactionService.SearchTransactionsByDate(transaction).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType, x.Balance }).ToList();
         }
 
+        public void GetRecentTransactions(DataGridView dataGridView)
+        {
+            dataGridView.DataSource = _transactionService.GetTransactions().Select(x => new {  x.Description, x.Amount, x.TransactionTimestamp }).ToList(); ;
+        }
+
         public void GetTransactionsGeneralExpenses(DataGridView dataGridView)
         {
             dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
