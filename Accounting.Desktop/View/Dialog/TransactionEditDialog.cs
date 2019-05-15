@@ -45,7 +45,7 @@ namespace Accounting.Desktop.View
                     Description = textBox3.Text.ToUpper().Trim(),
                     Date = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd"))
                 });
-                _mainform.PopulationAll();
+                _mainform.FilterTransactionByAccount();
                 _mainform.Recalculate();
                 this.Dispose();
             }

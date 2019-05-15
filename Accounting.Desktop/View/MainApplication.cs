@@ -112,7 +112,7 @@ namespace Accounting.Desktop
             _accountController.GetAccountComboBox(comboBoxTransfer2);
         }
 
-        public void FilterByAccount()
+        public void FilterTransactionByAccount()
         {
             var accountId = _accountController.GetAccountId(comboBoxAccount);
             var balance = _accountController.GetAccountBalance(accountId);
@@ -191,7 +191,7 @@ namespace Accounting.Desktop
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FilterByAccount();
+            FilterTransactionByAccount();
         }
 
         private void Transfer_Click(object sender, EventArgs e)
@@ -237,7 +237,7 @@ namespace Accounting.Desktop
             if (dialogResult == DialogResult.Yes)
             {
                 _transactionController.DeleteTransaction(dataViewTransaction);
-                PopulationAll();
+                FilterTransactionByAccount();
             }
             else if (dialogResult == DialogResult.No)
             {

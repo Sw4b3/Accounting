@@ -49,7 +49,7 @@ namespace Accounting.Desktop.View
                     Description = textBox3.Text.ToUpper().Trim(),
                     TransactionTimestamp= DateTime.Today
             });
-                _mainform.PopulationAll();
+                _mainform.FilterTransactionByAccount();
                 _mainform.Recalculate();
                 this.Dispose();
             }
