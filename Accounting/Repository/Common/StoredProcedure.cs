@@ -15,6 +15,7 @@ namespace Accounting.Repository.Common
         public const string updateTransaction = "spUpdateTransaction";
         public const string getGetAccounts = "spGetAccounts";
         public const string saveAccount = "spSaveAccount";
+        public const string updateAccount = "spUpdateAccount";
         public const string getAnalyticsOverview = "spGetAnalyticsOverview";
         public const string getAnalyticsByDay = "spGetAnalyticsByDay";
         public const string getAnalyticsByMonth = "spGetAnalyticsByMonth";

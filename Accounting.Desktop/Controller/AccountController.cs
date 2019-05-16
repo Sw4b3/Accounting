@@ -1,7 +1,7 @@
 ﻿using Accounting.Desktop.Model;
 using Accounting.Domain.Services.Service;
 using Accounting.Models.Requests;
-
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -45,6 +45,25 @@ namespace Accounting.Desktop.Controller
         public void SaveAccount(SaveAccountRequest account)
         {
             _accountService.SaveAccount(account);
+        }
+
+        public void UpdateAccount(UpdateAccountRequest request)
+        {
+            _accountService.UpdateAccount(request);
+        }
+
+        public UpdateAccountRequest GetAccountDetailsFromDataGridView(DataGridView dataGridView)
+        {
+            if (!dataGridView.SelectedRows.Count.Equals(0))
+            {
+                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
+                return new UpdateAccountRequest
+                {
+                    AccountId = int.Parse(selectedRow.Cells[0].Value.ToString()),
+                };
+            }
+            return null;
         }
     }
 }

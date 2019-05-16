@@ -31,6 +31,11 @@ namespace Accounting.Repository.Interface
         {
             Save(DatabaseConnection.connection, SQLStoredProcedures.saveAccount, request, _connection, _transaction);
         }
+
+        public void UpdateAccountRequest(UpdateAccountRequest request)
+        {
+            Update(DatabaseConnection.connection, SQLStoredProcedures.updateAccount, request, _connection, _transaction);
+        }
     }
 }
 

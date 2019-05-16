@@ -73,6 +73,12 @@
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Model\ExpenditureTypeItem.cs" />
     <Compile Include="Model\AccountItem.cs" />
+    <Compile Include="View\Dialog\AccountEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\AccountEditDialog.Designer.cs">
+      <DependentUpon>AccountEditDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dialog\ExpenditureTypeEditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,11 +91,11 @@
     <Compile Include="View\Dialog\ExpenditureTypeAddDialog.Designer.cs">
       <DependentUpon>ExpenditureTypeAddDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Dialog\AccountDialog.cs">
+    <Compile Include="View\Dialog\AccountAddDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Dialog\AccountDialog.Designer.cs">
-      <DependentUpon>AccountDialog.cs</DependentUpon>
+    <Compile Include="View\Dialog\AccountAddDialog.Designer.cs">
+      <DependentUpon>AccountAddDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Dialog\ImportDialog.cs">
       <SubType>Form</SubType>
@@ -132,14 +138,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Dialog\AccountEditDialog.resx">
+      <DependentUpon>AccountEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Dialog\ExpenditureTypeEditDialog.resx">
       <DependentUpon>ExpenditureTypeEditDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dialog\ExpenditureTypeAddDialog.resx">
       <DependentUpon>ExpenditureTypeAddDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\AccountDialog.resx">
-      <DependentUpon>AccountDialog.cs</DependentUpon>
+    <EmbeddedResource Include="View\Dialog\AccountAddDialog.resx">
+      <DependentUpon>AccountAddDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dialog\ImportDialog.resx">
       <DependentUpon>ImportDialog.cs</DependentUpon>
@@ -168,7 +177,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Accounting.Domain.Services\Accounting.Domain.Service.csproj">

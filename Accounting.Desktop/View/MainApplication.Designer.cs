@@ -46,9 +46,9 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApplication));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
@@ -107,6 +107,8 @@
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dataGridViewRecentTransactions = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelLimit3 = new System.Windows.Forms.Label();
             this.labelCurrent3 = new System.Windows.Forms.Label();
@@ -128,8 +130,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridViewSetting = new System.Windows.Forms.DataGridView();
-            this.dataGridViewRecentTransactions = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -162,11 +163,11 @@
             this.tabPage12.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabPage15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentTransactions)).BeginInit();
             this.tabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).BeginInit();
             this.tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentTransactions)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -876,6 +877,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button12);
             this.tabPage6.Controls.Add(this.button5);
             this.tabPage6.Controls.Add(this.dataGridAccount);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
@@ -965,6 +967,39 @@
             this.tabPage15.TabIndex = 3;
             this.tabPage15.Text = "Overview";
             this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 245);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "Recent Transactions";
+            // 
+            // dataGridViewRecentTransactions
+            // 
+            this.dataGridViewRecentTransactions.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewRecentTransactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewRecentTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewRecentTransactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewRecentTransactions.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewRecentTransactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewRecentTransactions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewRecentTransactions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewRecentTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRecentTransactions.ColumnHeadersVisible = false;
+            this.dataGridViewRecentTransactions.Location = new System.Drawing.Point(27, 275);
+            this.dataGridViewRecentTransactions.Name = "dataGridViewRecentTransactions";
+            this.dataGridViewRecentTransactions.ReadOnly = true;
+            this.dataGridViewRecentTransactions.RowHeadersVisible = false;
+            this.dataGridViewRecentTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewRecentTransactions.Size = new System.Drawing.Size(249, 269);
+            this.dataGridViewRecentTransactions.TabIndex = 44;
             // 
             // tableLayoutPanel1
             // 
@@ -1273,38 +1308,15 @@
             this.dataGridViewSetting.Size = new System.Drawing.Size(775, 155);
             this.dataGridViewSetting.TabIndex = 32;
             // 
-            // dataGridViewRecentTransactions
+            // button12
             // 
-            this.dataGridViewRecentTransactions.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewRecentTransactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewRecentTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewRecentTransactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewRecentTransactions.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewRecentTransactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewRecentTransactions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewRecentTransactions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewRecentTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRecentTransactions.ColumnHeadersVisible = false;
-            this.dataGridViewRecentTransactions.Location = new System.Drawing.Point(27, 275);
-            this.dataGridViewRecentTransactions.Name = "dataGridViewRecentTransactions";
-            this.dataGridViewRecentTransactions.ReadOnly = true;
-            this.dataGridViewRecentTransactions.RowHeadersVisible = false;
-            this.dataGridViewRecentTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRecentTransactions.Size = new System.Drawing.Size(249, 269);
-            this.dataGridViewRecentTransactions.TabIndex = 44;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 245);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 13);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "Recent Transactions";
+            this.button12.Location = new System.Drawing.Point(30, 67);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(148, 23);
+            this.button12.TabIndex = 31;
+            this.button12.Text = "Edit Current Balance";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // MainApplication
             // 
@@ -1355,11 +1367,11 @@
             this.tabControl5.ResumeLayout(false);
             this.tabPage15.ResumeLayout(false);
             this.tabPage15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentTransactions)).EndInit();
             this.tabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).EndInit();
             this.tabPage13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentTransactions)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1445,6 +1457,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dataGridViewRecentTransactions;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button12;
     }
 }
 

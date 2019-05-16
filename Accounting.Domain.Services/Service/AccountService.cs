@@ -47,5 +47,19 @@ namespace Accounting.Domain.Services.Service
                 throw;
             }
         }
+
+        public void UpdateAccount(UpdateAccountRequest request)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.AccountRepository.UpdateAccountRequest(request);
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 }

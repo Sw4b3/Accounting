@@ -266,5 +266,10 @@ namespace Accounting.Desktop
             _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
             PopulateExpenditureTable();
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            new AccountEditDialog(_accountController.GetAccountDetailsFromDataGridView(dataGridAccount), this).Show();
+        }
     }
 }

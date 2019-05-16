@@ -15,7 +15,7 @@ namespace Accounting.Domain.Services.Reports
     public class ExcelService
     {
         private IMappingService _mappingService;
-        string[] months = { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
+        string[] months = { "JAN ", "FEB ", "MAR ", "APR ", "MAY ", "JUN ", "JUL ", "AUG ", "SEP ", "OCT ", "NOV ", "DEC " };
         private IList<Mapping> _vauleList;
 
         public ExcelService() {

@@ -10,8 +10,10 @@ namespace Accounting.Domain.Services.Service.Interface
 {
     public interface IAccountService
     {
-         IList<Account> GetAccount();
+        IList<Account> GetAccount();
 
-         void SaveAccount(SaveAccountRequest account);
+        void SaveAccount(SaveAccountRequest account);
+
+        void UpdateAccount(UpdateAccountRequest request);
     }
 }
