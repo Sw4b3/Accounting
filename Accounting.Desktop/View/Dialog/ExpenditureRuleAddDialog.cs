@@ -30,10 +30,11 @@ namespace Accounting.Desktop.View
             {
                 if (Validator.IsNumber(textBox1.Text))
                 {
-                    _expenditureController.SaveExpenditureTypes(new SaveExpenditureTypeRequest
+                    _expenditureController.SaveExpenditureRules(new SaveExpenditureTypeRequest
                     {
                         ExpenditureDesc = textBox3.Text,
                         ExpenditureLimit = decimal.Parse(textBox1.Text),
+                        ExpenditureTypeId= int.Parse(textBox2.Text)
                     });
                     _mainForm.PopulateExpenditureTable();
                     this.Dispose();

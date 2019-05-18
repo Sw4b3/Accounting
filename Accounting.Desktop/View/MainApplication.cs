@@ -70,7 +70,7 @@ namespace Accounting.Desktop
             _transactionController.GetRecentTransactions(dataGridViewRecentTransactions);
             _expenditureController.PopluateExpenditurePanel(tableLayoutPanel1);
             _expenditureController.GetExpenditure(dataGridViewExpenditure);
-            _expenditureController.GetExpenditureTypes(dataGridViewSetting);
+            _expenditureController.GetExpenditureRules(dataGridViewSetting);
             _expenditureController.GetExpenditureOverview(circularProgressBar1,labelRule1, labelCurrent1, labelLimit1, 
                 circularProgressBar2, labelRule2, labelCurrent2, labelLimit2,
                 circularProgressBar3,labelRule3, labelCurrent3, labelLimit3);

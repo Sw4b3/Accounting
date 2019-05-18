@@ -8,8 +8,10 @@ namespace Accounting.Models.Requests
 {
     public class SaveExpenditureTypeRequest
     {
-        public String ExpenditureDesc { get; set; }
+        public string ExpenditureDesc { get; set; }
 
-        public Decimal ExpenditureLimit { get; set; }
+        public decimal ExpenditureLimit { get; set; }
+
+        public int ExpenditureTypeId { get; set; }
     }
 }

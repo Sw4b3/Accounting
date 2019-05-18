@@ -35,12 +35,12 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
-        public IList<ExpenditureType> GetExpenditureTypes()
+        public IList<ExpenditureType> GetExpenditureRules()
         {
             try
             {
                 uow.CreateUnitOfWork();
-                var res = uow.ExpenditureRepository.GetExpenditureTypes();
+                var res = uow.ExpenditureRepository.GetExpenditureRules();
                 uow.Commit();
                 return res;
             }
@@ -79,12 +79,12 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
-        public void SaveExpenditureTypes(SaveExpenditureTypeRequest expenditureRequest)
+        public void SaveExpenditureRule(SaveExpenditureTypeRequest expenditureRequest)
         {
             try
             {
                 uow.CreateUnitOfWork();
-                uow.ExpenditureRepository.SaveExpenditureType(expenditureRequest);
+                uow.ExpenditureRepository.SaveExpenditureRule(expenditureRequest);
                 uow.Commit();
             }
             catch (Exception e)
