@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Models
 {
-    public class UpdateExpenditureRuleRequest
+    public class ExpenditureRule
     {
         public int ExpenditureRuleId { get; set; }
 

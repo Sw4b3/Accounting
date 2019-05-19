@@ -18,9 +18,9 @@ namespace Accounting.Desktop.View
     {
         private ExpenditureController _expenditureController;
         private MainApplication _mainForm;
-        private UpdateExpenditureTypeRequest _updateExpenditureTypeRequest;
+        private UpdateExpenditureRuleRequest _updateExpenditureTypeRequest;
 
-        public ExpenditureTypeEditDialog(MainApplication mainForm, UpdateExpenditureTypeRequest updateExpenditureTypeRequest)
+        public ExpenditureTypeEditDialog(MainApplication mainForm, UpdateExpenditureRuleRequest updateExpenditureTypeRequest)
         {
             InitializeComponent();
             _expenditureController = new ExpenditureController();
@@ -41,9 +41,9 @@ namespace Accounting.Desktop.View
             {
                 if (Validator.IsNumber(textBox1.Text))
                 {
-                    _expenditureController.UpdateExpenditureTypes(new UpdateExpenditureTypeRequest
+                    _expenditureController.UpdateExpenditureRule(new UpdateExpenditureRuleRequest
                     {
-                        ExpenditureTypeId = _updateExpenditureTypeRequest.ExpenditureTypeId,
+                        ExpenditureRuleId = _updateExpenditureTypeRequest.ExpenditureRuleId,
                         ExpenditureDesc = textBox3.Text,
                         ExpenditureLimit = decimal.Parse(textBox1.Text),
                     });

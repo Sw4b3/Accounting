@@ -4,14 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Accounting.Models.Models
+namespace Accounting.Desktop.Model
 {
-    public class UpdateExpenditureRuleRequest
+    class ExpenditureRuleItem
     {
         public int ExpenditureRuleId { get; set; }
 
         public String ExpenditureDesc { get; set; }
 
-        public Decimal ExpenditureLimit { get; set; }
+        public override string ToString()
+        {
+            return ExpenditureDesc;
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Accounting.Repository.Common
         public const string getExpendituresOverview = "spGetExpenditureOverview";
         public const string getExpenditureRuleOverview = "spGetExpenditureRuleOverview";
         public const string saveExpendituresRule = "spSaveExpenditureRule";
-        public const string updateExpendituresTypes = "spUpdateExpenditureTypes";
+        public const string updateExpendituresRules = "spUpdateExpenditureRules";
         public const string updateExpenditure = "spUpdateExpenditure";
     }
 }

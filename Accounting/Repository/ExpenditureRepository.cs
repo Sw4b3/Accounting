@@ -35,9 +35,9 @@ namespace Accounting.Repository
             return res;
         }
 
-        public IList<ExpenditureType> GetExpenditureRules()
+        public IList<ExpenditureRule> GetExpenditureRules()
         {
-            var res = DapperRepository.ExecuteStoredProc<ExpenditureType>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRules, _connection, _transaction);
+            var res = DapperRepository.ExecuteStoredProc<ExpenditureRule>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRules, _connection, _transaction);
             return res;
         }
 
@@ -68,9 +68,9 @@ namespace Accounting.Repository
             Update(DatabaseConnection.connection, SQLStoredProcedures.updateExpenditure, request, _connection, _transaction);
         }
 
-        public void UpdateExpenditureType(UpdateExpenditureTypeRequest request)
+        public void UpdateExpenditureRule(UpdateExpenditureRuleRequest request)
         {
-            Update(DatabaseConnection.connection, SQLStoredProcedures.updateExpendituresTypes, request, _connection, _transaction);
+            Update(DatabaseConnection.connection, SQLStoredProcedures.updateExpendituresRules, request, _connection, _transaction);
         }
 
         public void Delete()

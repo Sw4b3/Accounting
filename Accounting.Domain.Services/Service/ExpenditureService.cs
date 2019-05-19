@@ -50,7 +50,7 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
-        public IList<ExpenditureType> GetExpenditureRules()
+        public IList<ExpenditureRule> GetExpenditureRules()
         {
             try
             {
@@ -138,12 +138,12 @@ namespace Accounting.Domain.Services.Service
         }
 
 
-        public void UpdateExpenditureTypes(UpdateExpenditureTypeRequest expenditureRequest)
+        public void UpdateExpenditureRule(UpdateExpenditureRuleRequest expenditureRequest)
         {
             try
             {
                 uow.CreateUnitOfWork();
-                uow.ExpenditureRepository.UpdateExpenditureType(expenditureRequest);
+                uow.ExpenditureRepository.UpdateExpenditureRule(expenditureRequest);
                 uow.Commit();
             }
             catch (Exception e)

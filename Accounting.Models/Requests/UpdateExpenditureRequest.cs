@@ -10,7 +10,7 @@ namespace Accounting.Models.Models
     {
         public Guid ExpenditureId { get; set; }
 
-        public int ExpenditureTypeId { get; set; }
+        public int ExpenditureRuleId { get; set; }
 
     }
 }

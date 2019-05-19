@@ -15,7 +15,7 @@ namespace Accounting.Repository.Interface
 
         IList<ExpenditureType> GetExpenditureTypes();
 
-        IList<ExpenditureType> GetExpenditureRules();
+        IList<ExpenditureRule> GetExpenditureRules();
 
         IList<ExpenditureOverview> GetExpenditureOverview();
 
@@ -27,7 +27,7 @@ namespace Accounting.Repository.Interface
 
         void UpdateExpenditure(UpdateExpenditureRequest request);
 
-        void UpdateExpenditureType(UpdateExpenditureTypeRequest request);
+        void UpdateExpenditureRule(UpdateExpenditureRuleRequest request);
 
         void Delete();
         

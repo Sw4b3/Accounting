@@ -14,7 +14,7 @@ namespace Accounting.Domain.Services.Service.Interface
 
         IList<ExpenditureType> GetExpenditureTypes();
 
-        IList<ExpenditureType> GetExpenditureRules();
+        IList<ExpenditureRule> GetExpenditureRules();
 
         IList<ExpenditureOverview> GetExpenditureOverview();
 
@@ -26,7 +26,7 @@ namespace Accounting.Domain.Services.Service.Interface
 
         void UpdateExpenditure(UpdateExpenditureRequest expenditureRequest);
 
-        void UpdateExpenditureTypes(UpdateExpenditureTypeRequest expenditureRequest);
+        void UpdateExpenditureRule(UpdateExpenditureRuleRequest expenditureRequest);
 
         void Delete();
         

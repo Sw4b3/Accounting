@@ -20,29 +20,29 @@ namespace Accounting.Desktop.Controller
     {
         private IExpenditureService _expenditureService;
         private bool isInitialized = false;
-        DataGridViewComboBoxColumn expenditureType;
+        DataGridViewComboBoxColumn expenditureRule;
 
         public ExpenditureController()
         {
             _expenditureService = new ExpenditureService();
-            expenditureType = new DataGridViewComboBoxColumn();
+            expenditureRule = new DataGridViewComboBoxColumn();
         }
 
         public void GetExpenditure(DataGridView dataGridView)
         {
             var res = _expenditureService.GetExpenditureByDateRequest().Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
 
-            IList<ExpenditureTypeItem> list = _expenditureService.GetExpenditureRules().Select(x => new ExpenditureTypeItem { ExpenditureDesc = x.ExpenditureDesc, ExpenditureTypeId = x.ExpenditureTypeId }).ToList();
-            expenditureType.DataSource = list;
-            expenditureType.HeaderText = "ExpenditureTypeId";
-            expenditureType.DisplayMember = "ExpenditureDesc";
-            expenditureType.ValueMember = "ExpenditureTypeId";
-            expenditureType.FlatStyle = FlatStyle.Flat;
+            IList<ExpenditureRuleItem> list = _expenditureService.GetExpenditureRules().Select(x => new ExpenditureRuleItem { ExpenditureDesc = x.ExpenditureDesc, ExpenditureRuleId = x.ExpenditureRuleId }).ToList();
+            expenditureRule.DataSource = list;
+            expenditureRule.HeaderText = "ExpenditureRuleId";
+            expenditureRule.DisplayMember = "ExpenditureDesc";
+            expenditureRule.ValueMember = "ExpenditureRuleId";
+            expenditureRule.FlatStyle = FlatStyle.Flat;
 
             dataGridView.DataSource = res;
             if (!isInitialized)
             {
-                dataGridView.Columns.Add(expenditureType);
+                dataGridView.Columns.Add(expenditureRule);
                 isInitialized = true;
             }
         }
@@ -60,7 +60,7 @@ namespace Accounting.Desktop.Controller
 
         public void GetExpenditureRules(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _expenditureService.GetExpenditureRules().Select(x => new { x.ExpenditureTypeId, x.ExpenditureDesc, x.ExpenditureLimit }).ToList();
+            dataGridView.DataSource = _expenditureService.GetExpenditureRules().Select(x => new { x.ExpenditureRuleId, x.ExpenditureDesc, x.ExpenditureLimit }).ToList();
         }
 
         public void GetExpenditureOverview(CircularProgressBar.CircularProgressBar bar1, Label rule1, Label current1, Label limit1,
@@ -190,20 +190,20 @@ namespace Accounting.Desktop.Controller
             _expenditureService.UpdateExpenditure(expenditureRequest);
         }
 
-        public void UpdateExpenditureTypes(UpdateExpenditureTypeRequest expenditureRequest)
+        public void UpdateExpenditureRule(UpdateExpenditureRuleRequest expenditureRequest)
         {
-            _expenditureService.UpdateExpenditureTypes(expenditureRequest);
+            _expenditureService.UpdateExpenditureRule(expenditureRequest);
         }
 
-        public UpdateExpenditureTypeRequest GetExpenditureSettingsDetailsFromDataGridView(DataGridView dataGridView)
+        public UpdateExpenditureRuleRequest GetExpenditureSettingsDetailsFromDataGridView(DataGridView dataGridView)
         {
             if (!dataGridView.SelectedRows.Count.Equals(0))
             {
                 int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
-                return new UpdateExpenditureTypeRequest
+                return new UpdateExpenditureRuleRequest
                 {
-                    ExpenditureTypeId = int.Parse(selectedRow.Cells[0].Value.ToString()),
+                    ExpenditureRuleId = int.Parse(selectedRow.Cells[0].Value.ToString()),
                     ExpenditureDesc = selectedRow.Cells[1].Value.ToString(),
                     ExpenditureLimit = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
                 };
@@ -222,7 +222,7 @@ namespace Accounting.Desktop.Controller
                         UpdateExpenditure(new UpdateExpenditureRequest
                         {
                             ExpenditureId = Guid.Parse(rows.Cells[1].Value.ToString()),
-                            ExpenditureTypeId = int.Parse(rows.Cells[0].Value.ToString())
+                            ExpenditureRuleId = int.Parse(rows.Cells[0].Value.ToString())
                         });
                     }
 

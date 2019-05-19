@@ -44,6 +44,7 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\ExpenditureOverview.cs" />
     <Compile Include="Models\Expenditure.cs" />
+    <Compile Include="Models\ExpenditureRule.cs" />
     <Compile Include="Models\ExpenditureType.cs" />
     <Compile Include="Models\Mappings.cs" />
     <Compile Include="Models\Statistic.cs" />

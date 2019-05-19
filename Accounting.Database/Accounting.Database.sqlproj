@@ -87,7 +87,6 @@
     <Build Include="dbo\Stored Procedures\spGetExpenditureTypes.sql" />
     <Build Include="dbo\Stored Procedures\spGetExpendituresByDate.sql" />
     <Build Include="dbo\Stored Procedures\spGetExpenditureOverview.sql" />
-    <Build Include="dbo\Stored Procedures\spUpdateExpenditureTypes.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateExpenditure.sql" />
     <Build Include="dbo\Tables\ExpenditureRules.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateAccount.sql" />
@@ -95,5 +94,6 @@
     <Build Include="dbo\Stored Procedures\spGetExpenditureRules.sql" />
     <Build Include="dbo\Stored Procedures\spSaveExpenditureRule.sql" />
     <Build Include="dbo\Stored Procedures\spGetExpenditureRuleOverview.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateExpenditureRules.sql" />
   </ItemGroup>
 </Project>
