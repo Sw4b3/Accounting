@@ -12,9 +12,13 @@ namespace Accounting.Domain.Services.Service.Interface
     {
         IList<Expenditure> GetExpenditureByDateRequest();
 
+        IList<ExpenditureType> GetExpenditureTypes();
+
         IList<ExpenditureType> GetExpenditureRules();
 
         IList<ExpenditureOverview> GetExpenditureOverview();
+
+        IList<ExpenditureOverview> GetExpenditureRuleOverview();
 
         void ImportExpenditure();
 

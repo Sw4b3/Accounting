@@ -29,15 +29,27 @@ namespace Accounting.Repository
             return res;
         }
 
+        public IList<ExpenditureType> GetExpenditureTypes()
+        {
+            var res = DapperRepository.ExecuteStoredProc<ExpenditureType>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureTypes, _connection, _transaction);
+            return res;
+        }
+
         public IList<ExpenditureType> GetExpenditureRules()
         {
-            var res = DapperRepository.ExecuteStoredProc<ExpenditureType>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresRules, _connection, _transaction);
+            var res = DapperRepository.ExecuteStoredProc<ExpenditureType>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRules, _connection, _transaction);
             return res;
         }
 
         public IList<ExpenditureOverview> GetExpenditureOverview()
         {
             var res = DapperRepository.ExecuteStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresOverview, _connection, _transaction);
+            return res;
+        }
+
+        public IList<ExpenditureOverview> GetExpenditureRuleOverview()
+        {
+            var res = DapperRepository.ExecuteStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRuleOverview, _connection, _transaction);
             return res;
         }
 

@@ -35,6 +35,21 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
+        public IList<ExpenditureType> GetExpenditureTypes()
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.ExpenditureRepository.GetExpenditureTypes();
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public IList<ExpenditureType> GetExpenditureRules()
         {
             try
@@ -56,6 +71,21 @@ namespace Accounting.Domain.Services.Service
             {
                 uow.CreateUnitOfWork();
                 var res = uow.ExpenditureRepository.GetExpenditureOverview();
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public IList<ExpenditureOverview> GetExpenditureRuleOverview()
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.ExpenditureRepository.GetExpenditureRuleOverview();
                 uow.Commit();
                 return res;
             }

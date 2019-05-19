@@ -79,11 +79,11 @@
     <Compile Include="View\Dialog\AccountEditDialog.Designer.cs">
       <DependentUpon>AccountEditDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Dialog\ExpenditureTypeEditDialog.cs">
+    <Compile Include="View\Dialog\ExpenditureRuleEditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Dialog\ExpenditureTypeEditDialog.Designer.cs">
-      <DependentUpon>ExpenditureTypeEditDialog.cs</DependentUpon>
+    <Compile Include="View\Dialog\ExpenditureRuleEditDialog.Designer.cs">
+      <DependentUpon>ExpenditureRuleEditDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Dialog\ExpenditureRuleAddDialog.cs">
       <SubType>Form</SubType>
@@ -141,8 +141,8 @@
     <EmbeddedResource Include="View\Dialog\AccountEditDialog.resx">
       <DependentUpon>AccountEditDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Dialog\ExpenditureTypeEditDialog.resx">
-      <DependentUpon>ExpenditureTypeEditDialog.cs</DependentUpon>
+    <EmbeddedResource Include="View\Dialog\ExpenditureRuleEditDialog.resx">
+      <DependentUpon>ExpenditureRuleEditDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dialog\ExpenditureRuleAddDialog.resx">
       <DependentUpon>ExpenditureRuleAddDialog.cs</DependentUpon>

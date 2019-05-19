@@ -47,6 +47,17 @@ namespace Accounting.Desktop.Controller
             }
         }
 
+        public void GetExpenditureTypes(ComboBox comboBox)
+        {
+            var expenditureTypes = _expenditureService.GetExpenditureTypes().Select(x => new ExpenditureTypeItem { ExpenditureTypeId= x.ExpenditureTypeId,ExpenditureDesc= x.ExpenditureDesc}).ToList();
+            comboBox.DataSource = expenditureTypes.ToList();
+        }
+
+        public int GetExpenditureTypeId(ComboBox comboBox)
+        {
+            return ((ExpenditureTypeItem)comboBox.SelectedItem).ExpenditureTypeId;
+        }
+
         public void GetExpenditureRules(DataGridView dataGridView)
         {
             dataGridView.DataSource = _expenditureService.GetExpenditureRules().Select(x => new { x.ExpenditureTypeId, x.ExpenditureDesc, x.ExpenditureLimit }).ToList();
@@ -62,17 +73,17 @@ namespace Accounting.Desktop.Controller
             if (expenditureTypes.Count >= 1)
             {
                 bar1.Maximum = (int)expenditureOverview[0].ExpenditureLimit;
-                rule1.Text = expenditureTypes[0].ExpenditureDesc;
+                rule1.Text = expenditureOverview[0].ExpenditureDesc;
             }
             if (expenditureTypes.Count >= 2)
             {
                 bar2.Maximum = (int)expenditureOverview[1].ExpenditureLimit;
-                rule2.Text = expenditureTypes[1].ExpenditureDesc;
+                rule2.Text = expenditureOverview[1].ExpenditureDesc;
             }
             if (expenditureTypes.Count >= 3)
             {
                 bar3.Maximum = (int)expenditureOverview[2].ExpenditureLimit;
-                rule3.Text = expenditureTypes[2].ExpenditureDesc;
+                rule3.Text = expenditureOverview[2].ExpenditureDesc;
             }
 
             if (expenditureOverview.Count >= 1)
@@ -123,8 +134,9 @@ namespace Accounting.Desktop.Controller
             }
         }
 
-        public void PopluateExpenditurePanel(TableLayoutPanel tableLayoutPanel) {
-            var expenditureOverview = _expenditureService.GetExpenditureOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal }).ToList();
+        public void PopluateExpenditurePanel(TableLayoutPanel tableLayoutPanel)
+        {
+            var expenditureOverview = _expenditureService.GetExpenditureRuleOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal }).ToList();
             tableLayoutPanel.Controls.Clear();
 
             foreach (var item in expenditureOverview)
@@ -143,7 +155,8 @@ namespace Accounting.Desktop.Controller
                         Maximum = (int)item.ExpenditureLimit,
                         Value = (int)item.ExpenditureTotal,
                         BackColor = System.Drawing.Color.WhiteSmoke,
-                        ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))))
+                        ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145))))),
+                        Width = 200
                     });
                 }
                 else
@@ -153,7 +166,8 @@ namespace Accounting.Desktop.Controller
                         Maximum = (int)item.ExpenditureLimit,
                         Value = (int)item.ExpenditureLimit,
                         BackColor = System.Drawing.Color.WhiteSmoke,
-                        ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))))
+                        ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137))))),
+                        Width = 200
                     });
                 }
             }

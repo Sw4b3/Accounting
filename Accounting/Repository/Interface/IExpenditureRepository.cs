@@ -13,9 +13,13 @@ namespace Accounting.Repository.Interface
     {
         IList<Expenditure> GetExpenditureByDateRequest(GetDateRequest request);
 
+        IList<ExpenditureType> GetExpenditureTypes();
+
         IList<ExpenditureType> GetExpenditureRules();
 
         IList<ExpenditureOverview> GetExpenditureOverview();
+
+        IList<ExpenditureOverview> GetExpenditureRuleOverview();
 
         void SaveExpenditureRule(SaveExpenditureTypeRequest request);
 

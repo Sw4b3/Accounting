@@ -102,6 +102,7 @@
             this.Monthly = new System.Windows.Forms.TabPage();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
             this.tabPage12 = new System.Windows.Forms.TabPage();
@@ -130,7 +131,6 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridViewSetting = new System.Windows.Forms.DataGridView();
-            this.button12 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -888,6 +888,16 @@
             this.tabPage6.Text = "Accounts";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(30, 67);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(148, 23);
+            this.button12.TabIndex = 31;
+            this.button12.Text = "Edit Current Balance";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(30, 38);
@@ -1004,11 +1014,13 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 42);
             this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(500, 200);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(249, 200);
@@ -1307,16 +1319,6 @@
             this.dataGridViewSetting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSetting.Size = new System.Drawing.Size(775, 155);
             this.dataGridViewSetting.TabIndex = 32;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(30, 67);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(148, 23);
-            this.button12.TabIndex = 31;
-            this.button12.Text = "Edit Current Balance";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // MainApplication
             // 

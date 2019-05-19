@@ -36,7 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label3
@@ -94,18 +94,19 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 95);
+            this.label2.Location = new System.Drawing.Point(32, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = "Expenditure Type";
             // 
-            // textBox2
+            // comboBox1
             // 
-            this.textBox2.Location = new System.Drawing.Point(136, 95);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(134, 20);
-            this.textBox2.TabIndex = 17;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(136, 98);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(134, 21);
+            this.comboBox1.TabIndex = 19;
             // 
             // ExpenditureTypeAddDialog
             // 
@@ -114,8 +115,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(302, 199);
             this.ControlBox = false;
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
@@ -141,6 +142,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

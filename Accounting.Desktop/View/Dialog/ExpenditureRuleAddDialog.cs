@@ -23,9 +23,17 @@ namespace Accounting.Desktop.View
             InitializeComponent();
             _expenditureController = new ExpenditureController();
             _mainForm = mainForm;
+            PopulateExpenditureTypeComboBox();
         }
 
-        public void saveExpenditureTypes() {
+
+        private void PopulateExpenditureTypeComboBox()
+        {
+            _expenditureController.GetExpenditureTypes(comboBox1);
+        }
+
+        public void saveExpenditureTypes()
+        {
             if (Validator.IsString(textBox3.Text))
             {
                 if (Validator.IsNumber(textBox1.Text))
@@ -34,7 +42,7 @@ namespace Accounting.Desktop.View
                     {
                         ExpenditureDesc = textBox3.Text,
                         ExpenditureLimit = decimal.Parse(textBox1.Text),
-                        ExpenditureTypeId= int.Parse(textBox2.Text)
+                        ExpenditureTypeId = int.Parse(_expenditureController.GetExpenditureTypeId(comboBox1).ToString().Trim())
                     });
                     _mainForm.PopulateExpenditureTable();
                     this.Dispose();
