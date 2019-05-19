@@ -68,19 +68,18 @@ namespace Accounting.Desktop.Controller
             CircularProgressBar.CircularProgressBar bar3, Label rule3, Label current3, Label limit3)
         {
             var expenditureOverview = _expenditureService.GetExpenditureOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal }).ToList();
-            var expenditureTypes = _expenditureService.GetExpenditureRules().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit }).ToList();
 
-            if (expenditureTypes.Count >= 1)
+            if (expenditureOverview.Count >= 1)
             {
                 bar1.Maximum = (int)expenditureOverview[0].ExpenditureLimit;
                 rule1.Text = expenditureOverview[0].ExpenditureDesc;
             }
-            if (expenditureTypes.Count >= 2)
+            if (expenditureOverview.Count >= 2)
             {
                 bar2.Maximum = (int)expenditureOverview[1].ExpenditureLimit;
                 rule2.Text = expenditureOverview[1].ExpenditureDesc;
             }
-            if (expenditureTypes.Count >= 3)
+            if (expenditureOverview.Count >= 3)
             {
                 bar3.Maximum = (int)expenditureOverview[2].ExpenditureLimit;
                 rule3.Text = expenditureOverview[2].ExpenditureDesc;
