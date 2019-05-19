@@ -30,7 +30,7 @@ namespace Accounting.Desktop.Controller
 
         public void GetExpenditure(DataGridView dataGridView)
         {
-            var res = _expenditureService.GetExpenditureByDateRequest().Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            var res = _expenditureService.GetExpenditureByDateRequest().Where(x => x.ExpenditureRuleId == 0).Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
 
             IList<ExpenditureRuleItem> list = _expenditureService.GetExpenditureRules().Select(x => new ExpenditureRuleItem { ExpenditureDesc = x.ExpenditureDesc, ExpenditureRuleId = x.ExpenditureRuleId }).ToList();
             expenditureRule.DataSource = list;
@@ -46,6 +46,23 @@ namespace Accounting.Desktop.Controller
                 isInitialized = true;
             }
         }
+
+        public void FilterExpenditure(DataGridView dataGridView, ComboBox comboBox) {
+
+            if (comboBox.SelectedItem.ToString() == "Unmapped")
+            {
+                var res = _expenditureService.GetExpenditureByDateRequest().Where(x => x.ExpenditureRuleId == 0)
+              .Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+                dataGridView.DataSource = res;
+            }
+            else
+            {
+               var res = _expenditureService.GetExpenditureByDateRequest().Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+                dataGridView.DataSource = res;
+
+            }
+           
+        } 
 
         public void GetExpenditureTypes(ComboBox comboBox)
         {

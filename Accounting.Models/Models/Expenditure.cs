@@ -12,7 +12,7 @@ namespace Accounting.Models.Models
 
         public Guid TransactionId { get; set; }
 
-        public int ExpenditureTypeId { get; set; }
+        public int ExpenditureRuleId { get; set; }
 
         public decimal Amount { get; set; }
 

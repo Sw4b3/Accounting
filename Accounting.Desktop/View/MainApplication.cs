@@ -67,6 +67,7 @@ namespace Accounting.Desktop
 
         public void PopulateExpenditureTable()
         {
+            comboBoxMappings.SelectedItem = "Unmapped";
             _transactionController.GetRecentTransactions(dataGridViewRecentTransactions);
             _expenditureController.PopluateExpenditurePanel(tableLayoutPanel1);
             _expenditureController.GetExpenditure(dataGridViewExpenditure);
@@ -270,6 +271,11 @@ namespace Accounting.Desktop
         private void button12_Click(object sender, EventArgs e)
         {
             new AccountEditDialog(_accountController.GetAccountDetailsFromDataGridView(dataGridAccount), this).Show();
+        }
+
+        private void comboBoxMappings_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings);
         }
     }
 }

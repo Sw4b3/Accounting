@@ -48,7 +48,6 @@
             // 
             // textBox3
             // 
-            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(136, 39);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(134, 20);
