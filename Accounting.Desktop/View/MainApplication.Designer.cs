@@ -47,8 +47,9 @@
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApplication));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
@@ -124,6 +125,7 @@
             this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
             this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
             this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.comboBoxMappings = new System.Windows.Forms.ComboBox();
             this.button11 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.dataGridViewExpenditure = new System.Windows.Forms.DataGridView();
@@ -131,7 +133,8 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridViewSetting = new System.Windows.Forms.DataGridView();
-            this.comboBoxMappings = new System.Windows.Forms.ComboBox();
+            this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.dataGridExpenditureBreakdown = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -169,6 +172,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).BeginInit();
             this.tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).BeginInit();
+            this.tabPage16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -946,6 +951,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl5.Controls.Add(this.tabPage15);
+            this.tabControl5.Controls.Add(this.tabPage16);
             this.tabControl5.Controls.Add(this.tabPage14);
             this.tabControl5.Controls.Add(this.tabPage13);
             this.tabControl5.Location = new System.Drawing.Point(-4, 3);
@@ -1230,6 +1236,19 @@
             this.tabPage14.Text = "Expenditure";
             this.tabPage14.UseVisualStyleBackColor = true;
             // 
+            // comboBoxMappings
+            // 
+            this.comboBoxMappings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMappings.FormattingEnabled = true;
+            this.comboBoxMappings.Items.AddRange(new object[] {
+            "Unmapped",
+            "Mapped"});
+            this.comboBoxMappings.Location = new System.Drawing.Point(34, 22);
+            this.comboBoxMappings.Name = "comboBoxMappings";
+            this.comboBoxMappings.Size = new System.Drawing.Size(148, 21);
+            this.comboBoxMappings.TabIndex = 48;
+            this.comboBoxMappings.SelectedIndexChanged += new System.EventHandler(this.comboBoxMappings_SelectedIndexChanged);
+            // 
             // button11
             // 
             this.button11.Location = new System.Drawing.Point(34, 77);
@@ -1253,8 +1272,8 @@
             // dataGridViewExpenditure
             // 
             this.dataGridViewExpenditure.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewExpenditure.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewExpenditure.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewExpenditure.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1305,8 +1324,8 @@
             // dataGridViewSetting
             // 
             this.dataGridViewSetting.AllowUserToResizeRows = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewSetting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewSetting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1322,18 +1341,36 @@
             this.dataGridViewSetting.Size = new System.Drawing.Size(775, 219);
             this.dataGridViewSetting.TabIndex = 32;
             // 
-            // comboBoxMappings
+            // tabPage16
             // 
-            this.comboBoxMappings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMappings.FormattingEnabled = true;
-            this.comboBoxMappings.Items.AddRange(new object[] {
-            "Unmapped",
-            "Mapped"});
-            this.comboBoxMappings.Location = new System.Drawing.Point(34, 22);
-            this.comboBoxMappings.Name = "comboBoxMappings";
-            this.comboBoxMappings.Size = new System.Drawing.Size(148, 21);
-            this.comboBoxMappings.TabIndex = 48;
-            this.comboBoxMappings.SelectedIndexChanged += new System.EventHandler(this.comboBoxMappings_SelectedIndexChanged);
+            this.tabPage16.Controls.Add(this.dataGridExpenditureBreakdown);
+            this.tabPage16.Location = new System.Drawing.Point(4, 22);
+            this.tabPage16.Name = "tabPage16";
+            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage16.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage16.TabIndex = 4;
+            this.tabPage16.Text = "Breakdown";
+            this.tabPage16.UseVisualStyleBackColor = true;
+            // 
+            // dataGridExpenditureBreakdown
+            // 
+            this.dataGridExpenditureBreakdown.AllowUserToResizeRows = false;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridExpenditureBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridExpenditureBreakdown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridExpenditureBreakdown.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridExpenditureBreakdown.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridExpenditureBreakdown.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridExpenditureBreakdown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridExpenditureBreakdown.Location = new System.Drawing.Point(6, 6);
+            this.dataGridExpenditureBreakdown.Name = "dataGridExpenditureBreakdown";
+            this.dataGridExpenditureBreakdown.ReadOnly = true;
+            this.dataGridExpenditureBreakdown.RowHeadersVisible = false;
+            this.dataGridExpenditureBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridExpenditureBreakdown.Size = new System.Drawing.Size(987, 548);
+            this.dataGridExpenditureBreakdown.TabIndex = 29;
             // 
             // MainApplication
             // 
@@ -1389,6 +1426,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).EndInit();
             this.tabPage13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).EndInit();
+            this.tabPage16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1476,6 +1515,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.ComboBox comboBoxMappings;
+        private System.Windows.Forms.TabPage tabPage16;
+        private System.Windows.Forms.DataGridView dataGridExpenditureBreakdown;
     }
 }
 
