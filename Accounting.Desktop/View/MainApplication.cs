@@ -32,7 +32,7 @@ namespace Accounting.Desktop
             _excelController = new ExcelController();
             _expenditureController = new ExpenditureController();
             PopulationAll();
-            Recalculate();
+            RefreshBalance();
         }
 
         public void PopulationAll()
@@ -43,7 +43,7 @@ namespace Accounting.Desktop
             PopulateTransactionTableWithdraw();
             PopulateAccountComboBox();
             PopulateTransferComboBox();
-            Recalculate();
+            RefreshBalance();
         }
 
         public void PopulateTransactionTables()
@@ -121,7 +121,7 @@ namespace Accounting.Desktop
             labelBalanceTransaction.Text = "Balance: " + balance;
         }
 
-        public void Recalculate()
+        public void RefreshBalance()
         {
             CalculateBalance();
             CalculateSubtotal();
@@ -239,6 +239,7 @@ namespace Accounting.Desktop
             {
                 _transactionController.DeleteTransaction(dataViewTransaction);
                 FilterTransactionByAccount();
+                RefreshBalance();
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -265,7 +266,7 @@ namespace Accounting.Desktop
         private void UpdateExtenditure_Click(object sender, EventArgs e)
         {
             _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
-            PopulateExpenditureTable();
+            _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings);
         }
 
         private void button12_Click(object sender, EventArgs e)

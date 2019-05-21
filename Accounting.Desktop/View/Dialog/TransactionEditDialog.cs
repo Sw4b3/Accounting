@@ -46,7 +46,7 @@ namespace Accounting.Desktop.View
                     Date = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd"))
                 });
                 _mainform.FilterTransactionByAccount();
-                _mainform.Recalculate();
+                _mainform.RefreshBalance();
                 this.Dispose();
             }
             else
