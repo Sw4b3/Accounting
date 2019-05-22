@@ -20,9 +20,10 @@ namespace Accounting.Desktop.Controller
             _transactionService = new TransactionService();
         }
 
-        public void GetTransactions(DataGridView dataGridView)
+        public void GetTransfers(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _transactionService.GetTransactions().Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList(); ;
+            dataGridView.DataSource = _transactionService.GetTransactions().Where(x=>x.Description.ToLower().Contains("transfer")|| x.Description.ToLower().Contains("trf"))
+                .Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList(); ;
         }
 
         public void GetTransactions(DataGridView dataGridView, int i)

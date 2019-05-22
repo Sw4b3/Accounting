@@ -47,14 +47,14 @@
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApplication));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.transactionsTab = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -87,7 +87,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxTransfer2 = new System.Windows.Forms.ComboBox();
             this.comboBoxTransfer1 = new System.Windows.Forms.ComboBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.analyticsTab = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.dataGridViewAnalysis = new System.Windows.Forms.DataGridView();
@@ -102,11 +102,11 @@
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Monthly = new System.Windows.Forms.TabPage();
             this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.accountTab = new System.Windows.Forms.TabPage();
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.expenditureTab = new System.Windows.Forms.TabPage();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
@@ -124,6 +124,8 @@
             this.circularProgressBar3 = new CircularProgressBar.CircularProgressBar();
             this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
             this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
+            this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.dataGridExpenditureBreakdown = new System.Windows.Forms.DataGridView();
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.comboBoxMappings = new System.Windows.Forms.ComboBox();
             this.button11 = new System.Windows.Forms.Button();
@@ -133,11 +135,9 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridViewSetting = new System.Windows.Forms.DataGridView();
-            this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.dataGridExpenditureBreakdown = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
-            this.tabPage5.SuspendLayout();
+            this.transactionsTab.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -147,7 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransfer)).BeginInit();
-            this.tabPage4.SuspendLayout();
+            this.analyticsTab.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnalysis)).BeginInit();
@@ -162,18 +162,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.Monthly.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
-            this.tabPage6.SuspendLayout();
+            this.accountTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).BeginInit();
-            this.tabPage12.SuspendLayout();
+            this.expenditureTab.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabPage15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentTransactions)).BeginInit();
+            this.tabPage16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).BeginInit();
             this.tabPage14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).BeginInit();
             this.tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).BeginInit();
-            this.tabPage16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -206,10 +206,10 @@
             this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Controls.Add(this.tabPage12);
+            this.tabControl2.Controls.Add(this.transactionsTab);
+            this.tabControl2.Controls.Add(this.analyticsTab);
+            this.tabControl2.Controls.Add(this.accountTab);
+            this.tabControl2.Controls.Add(this.expenditureTab);
             this.tabControl2.Location = new System.Drawing.Point(166, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -217,16 +217,16 @@
             this.tabControl2.TabIndex = 27;
             this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
             // 
-            // tabPage5
+            // transactionsTab
             // 
-            this.tabPage5.Controls.Add(this.tabControl1);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1003, 593);
-            this.tabPage5.TabIndex = 0;
-            this.tabPage5.Text = "Transactions";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.transactionsTab.Controls.Add(this.tabControl1);
+            this.transactionsTab.Location = new System.Drawing.Point(4, 22);
+            this.transactionsTab.Name = "transactionsTab";
+            this.transactionsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.transactionsTab.Size = new System.Drawing.Size(1003, 593);
+            this.transactionsTab.TabIndex = 0;
+            this.transactionsTab.Text = "Transactions";
+            this.transactionsTab.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -631,17 +631,17 @@
             this.comboBoxTransfer1.Size = new System.Drawing.Size(148, 21);
             this.comboBoxTransfer1.TabIndex = 48;
             // 
-            // tabPage4
+            // analyticsTab
             // 
-            this.tabPage4.Controls.Add(this.tabControl4);
-            this.tabPage4.Controls.Add(this.tabControl3);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1003, 593);
-            this.tabPage4.TabIndex = 4;
-            this.tabPage4.Text = "Analytics";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.analyticsTab.Controls.Add(this.tabControl4);
+            this.analyticsTab.Controls.Add(this.tabControl3);
+            this.analyticsTab.Location = new System.Drawing.Point(4, 22);
+            this.analyticsTab.Name = "analyticsTab";
+            this.analyticsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.analyticsTab.Size = new System.Drawing.Size(1003, 593);
+            this.analyticsTab.TabIndex = 4;
+            this.analyticsTab.Text = "Analytics";
+            this.analyticsTab.UseVisualStyleBackColor = true;
             // 
             // tabControl4
             // 
@@ -881,18 +881,18 @@
             this.chart3.TabIndex = 0;
             this.chart3.Text = "chart3";
             // 
-            // tabPage6
+            // accountTab
             // 
-            this.tabPage6.Controls.Add(this.button12);
-            this.tabPage6.Controls.Add(this.button5);
-            this.tabPage6.Controls.Add(this.dataGridAccount);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1003, 593);
-            this.tabPage6.TabIndex = 1;
-            this.tabPage6.Text = "Accounts";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.accountTab.Controls.Add(this.button12);
+            this.accountTab.Controls.Add(this.button5);
+            this.accountTab.Controls.Add(this.dataGridAccount);
+            this.accountTab.Location = new System.Drawing.Point(4, 22);
+            this.accountTab.Name = "accountTab";
+            this.accountTab.Padding = new System.Windows.Forms.Padding(3);
+            this.accountTab.Size = new System.Drawing.Size(1003, 593);
+            this.accountTab.TabIndex = 1;
+            this.accountTab.Text = "Accounts";
+            this.accountTab.UseVisualStyleBackColor = true;
             // 
             // button12
             // 
@@ -902,7 +902,7 @@
             this.button12.TabIndex = 31;
             this.button12.Text = "Edit Current Balance";
             this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button12.Click += new System.EventHandler(this.EditAccount_Click);
             // 
             // button5
             // 
@@ -934,16 +934,16 @@
             this.dataGridAccount.Size = new System.Drawing.Size(465, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
-            // tabPage12
+            // expenditureTab
             // 
-            this.tabPage12.Controls.Add(this.tabControl5);
-            this.tabPage12.Location = new System.Drawing.Point(4, 22);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(1003, 593);
-            this.tabPage12.TabIndex = 5;
-            this.tabPage12.Text = "Expenditure";
-            this.tabPage12.UseVisualStyleBackColor = true;
+            this.expenditureTab.Controls.Add(this.tabControl5);
+            this.expenditureTab.Location = new System.Drawing.Point(4, 22);
+            this.expenditureTab.Name = "expenditureTab";
+            this.expenditureTab.Padding = new System.Windows.Forms.Padding(3);
+            this.expenditureTab.Size = new System.Drawing.Size(1003, 593);
+            this.expenditureTab.TabIndex = 5;
+            this.expenditureTab.Text = "Expenditure";
+            this.expenditureTab.UseVisualStyleBackColor = true;
             // 
             // tabControl5
             // 
@@ -1222,6 +1222,40 @@
             this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
             this.circularProgressBar1.Value = 68;
             // 
+            // tabPage16
+            // 
+            this.tabPage16.Controls.Add(this.dataGridExpenditureBreakdown);
+            this.tabPage16.Location = new System.Drawing.Point(4, 22);
+            this.tabPage16.Name = "tabPage16";
+            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage16.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage16.TabIndex = 4;
+            this.tabPage16.Text = "Breakdown";
+            this.tabPage16.UseVisualStyleBackColor = true;
+            // 
+            // dataGridExpenditureBreakdown
+            // 
+            this.dataGridExpenditureBreakdown.AllowUserToResizeRows = false;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridExpenditureBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridExpenditureBreakdown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridExpenditureBreakdown.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridExpenditureBreakdown.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridExpenditureBreakdown.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridExpenditureBreakdown.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridExpenditureBreakdown.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridExpenditureBreakdown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridExpenditureBreakdown.Location = new System.Drawing.Point(24, 23);
+            this.dataGridExpenditureBreakdown.Name = "dataGridExpenditureBreakdown";
+            this.dataGridExpenditureBreakdown.ReadOnly = true;
+            this.dataGridExpenditureBreakdown.RowHeadersVisible = false;
+            this.dataGridExpenditureBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridExpenditureBreakdown.Size = new System.Drawing.Size(952, 517);
+            this.dataGridExpenditureBreakdown.TabIndex = 29;
+            this.dataGridExpenditureBreakdown.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridExpenditureBreakdown_CellFormatting);
+            // 
             // tabPage14
             // 
             this.tabPage14.Controls.Add(this.comboBoxMappings);
@@ -1279,7 +1313,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewExpenditure.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewExpenditure.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewExpenditure.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewExpenditure.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewExpenditure.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewExpenditure.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewExpenditure.Location = new System.Drawing.Point(202, 20);
             this.dataGridViewExpenditure.Name = "dataGridViewExpenditure";
@@ -1331,46 +1367,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewSetting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSetting.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewSetting.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewSetting.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewSetting.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewSetting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSetting.Location = new System.Drawing.Point(198, 20);
             this.dataGridViewSetting.Name = "dataGridViewSetting";
             this.dataGridViewSetting.ReadOnly = true;
             this.dataGridViewSetting.RowHeadersVisible = false;
             this.dataGridViewSetting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSetting.Size = new System.Drawing.Size(775, 219);
+            this.dataGridViewSetting.Size = new System.Drawing.Size(775, 521);
             this.dataGridViewSetting.TabIndex = 32;
-            // 
-            // tabPage16
-            // 
-            this.tabPage16.Controls.Add(this.dataGridExpenditureBreakdown);
-            this.tabPage16.Location = new System.Drawing.Point(4, 22);
-            this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(1003, 560);
-            this.tabPage16.TabIndex = 4;
-            this.tabPage16.Text = "Breakdown";
-            this.tabPage16.UseVisualStyleBackColor = true;
-            // 
-            // dataGridExpenditureBreakdown
-            // 
-            this.dataGridExpenditureBreakdown.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridExpenditureBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridExpenditureBreakdown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridExpenditureBreakdown.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridExpenditureBreakdown.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridExpenditureBreakdown.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridExpenditureBreakdown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridExpenditureBreakdown.Location = new System.Drawing.Point(6, 6);
-            this.dataGridExpenditureBreakdown.Name = "dataGridExpenditureBreakdown";
-            this.dataGridExpenditureBreakdown.ReadOnly = true;
-            this.dataGridExpenditureBreakdown.RowHeadersVisible = false;
-            this.dataGridExpenditureBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridExpenditureBreakdown.Size = new System.Drawing.Size(987, 548);
-            this.dataGridExpenditureBreakdown.TabIndex = 29;
             // 
             // MainApplication
             // 
@@ -1387,7 +1394,7 @@
             this.Text = "Accounting";
             this.panel1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
+            this.transactionsTab.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1400,7 +1407,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransfer)).EndInit();
-            this.tabPage4.ResumeLayout(false);
+            this.analyticsTab.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAnalysis)).EndInit();
@@ -1415,19 +1422,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.Monthly.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
-            this.tabPage6.ResumeLayout(false);
+            this.accountTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).EndInit();
-            this.tabPage12.ResumeLayout(false);
+            this.expenditureTab.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.tabPage15.ResumeLayout(false);
             this.tabPage15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentTransactions)).EndInit();
+            this.tabPage16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).EndInit();
             this.tabPage14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).EndInit();
             this.tabPage13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).EndInit();
-            this.tabPage16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1436,8 +1443,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage transactionsTab;
+        private System.Windows.Forms.TabPage accountTab;
         private System.Windows.Forms.DataGridView dataGridAccount;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1472,7 +1479,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label labelAvailableBalanceTransaction;
         private System.Windows.Forms.Button DeleteButton;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage analyticsTab;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
@@ -1487,7 +1494,7 @@
         private System.Windows.Forms.DataGridView dataGridViewMonthly;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.DataGridView dataGridViewStatistics;
-        private System.Windows.Forms.TabPage tabPage12;
+        private System.Windows.Forms.TabPage expenditureTab;
         private System.Windows.Forms.TabControl tabControl5;
         private System.Windows.Forms.TabPage tabPage14;
         private System.Windows.Forms.Button button13;

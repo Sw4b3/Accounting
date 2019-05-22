@@ -50,7 +50,7 @@ namespace Accounting.Desktop.View
                     TransactionTimestamp= DateTime.Today
             });
                 _mainform.FilterTransactionByAccount();
-                _mainform.RefreshBalance();
+                _mainform.PopulateTransactionLabels();
                 this.Dispose();
             }
             else {

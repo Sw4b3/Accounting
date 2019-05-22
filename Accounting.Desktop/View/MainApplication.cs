@@ -32,29 +32,27 @@ namespace Accounting.Desktop
             _excelController = new ExcelController();
             _expenditureController = new ExpenditureController();
             PopulationAll();
-            RefreshBalance();
         }
 
         public void PopulationAll()
         {
             PopulateTransactionTables();
-            PopulateTransferTable();
-            PopulateTransactionTablPersonalExpenses();
-            PopulateTransactionTableWithdraw();
-            PopulateAccountComboBox();
-            PopulateTransferComboBox();
-            RefreshBalance();
+            PopulateTransactionComboBoxs();
+            PopulateTransactionLabels();
         }
 
         public void PopulateTransactionTables()
         {
             _transactionController.GetTransactions(dataViewTransaction, 1);
             _analyticsController.GetAnalyticsOverview(chart1);
+            _transactionController.GetTransfers(dataViewTransfer);
+            _transactionController.GetTransactionsPersonalExpenses(dataViewTransactionPE);
+            _transactionController.GetTransactionsWithdraw(dataViewTransactionInc);
         }
 
-        public void PopulateTransferTable()
+        public void PopulateAccountTable()
         {
-            _transactionController.GetTransactions(dataViewTransfer);
+            _accountController.GetAccount(dataGridAccount);
         }
 
         public void PopulationAnalyticsTable()
@@ -62,7 +60,7 @@ namespace Accounting.Desktop
             _analyticsController.GetAnalyticStatistics(dataGridViewStatistics);
             _analyticsController.GetAnalyticsOverview(dataGridViewAnalysis);
             _analyticsController.GetAnalyticsByDay(dataGridViewDaily, chart2);
-            _analyticsController.GetAnalyticsByMonth(dataGridViewMonthly,chart3);
+            _analyticsController.GetAnalyticsByMonth(dataGridViewMonthly, chart3);
         }
 
         public void PopulateExpenditureTable()
@@ -73,9 +71,9 @@ namespace Accounting.Desktop
             _expenditureController.GetExpenditure(dataGridViewExpenditure);
             _expenditureController.GetExpenditureRules(dataGridViewSetting);
             _expenditureController.GetExpenditureBreakdown(dataGridExpenditureBreakdown);
-            _expenditureController.GetExpenditureOverview(circularProgressBar1,labelRule1, labelCurrent1, labelLimit1, 
+            _expenditureController.GetExpenditureOverview(circularProgressBar1, labelRule1, labelCurrent1, labelLimit1,
                 circularProgressBar2, labelRule2, labelCurrent2, labelLimit2,
-                circularProgressBar3,labelRule3, labelCurrent3, labelLimit3);
+                circularProgressBar3, labelRule3, labelCurrent3, labelLimit3);
         }
 
         public void PopulationTransactionTableByDate()
@@ -88,28 +86,9 @@ namespace Accounting.Desktop
             });
         }
 
-        public void PopulateTransactionTablPersonalExpenses()
-        {
-            _transactionController.GetTransactionsPersonalExpenses(dataViewTransactionPE);
-        }
-
-        public void PopulateTransactionTableWithdraw()
-        {
-            _transactionController.GetTransactionsWithdraw(dataViewTransactionInc);
-        }
-
-        public void PopulateAccountTable()
-        {
-            _accountController.GetAccount(dataGridAccount);
-        }
-
-        public void PopulateAccountComboBox()
+        public void PopulateTransactionComboBoxs()
         {
             _accountController.GetAccountComboBox(comboBoxAccount);
-        }
-
-        public void PopulateTransferComboBox()
-        {
             _accountController.GetAccountComboBox(comboBoxTransfer1);
             _accountController.GetAccountComboBox(comboBoxTransfer2);
         }
@@ -122,20 +101,20 @@ namespace Accounting.Desktop
             labelBalanceTransaction.Text = "Balance: " + balance;
         }
 
-        public void RefreshBalance()
+        public void PopulateTransactionLabels()
         {
-            CalculateBalance();
-            CalculateSubtotal();
+            PopulateBalanceLabel();
+            PopulateSubtotalLabel();
         }
 
-        public void CalculateSubtotal()
+        public void PopulateSubtotalLabel()
         {
             labelPersonalExpense.Text = "Subtotal: " + _transactionController.GetExpenseSubtotal().ToString();
             labelIncome.Text = "Subtotal: " + _transactionController.GetIncomeSubtotal().ToString();
         }
 
 
-        public void CalculateBalance()
+        public void PopulateBalanceLabel()
         {
             var accountId = _accountController.GetAccountId(comboBoxAccount);
             var balance = _accountController.GetAccountBalance(accountId);
@@ -149,16 +128,16 @@ namespace Accounting.Desktop
         {
             switch (tabControl2.SelectedTab.Name)
             {
-                case "tabPage5":
+                case "transactionsTab":
                     PopulationAll();
                     break;
-                case "tabPage6":
-                    PopulateAccountTable();
-                    break;
-                case "tabPage4":
+                case "analyticsTab":
                     PopulationAnalyticsTable();
                     break;
-                case "tabPage12":
+                case "accountTab":
+                    PopulateAccountTable();
+                    break;
+                case "expenditureTab":
                     PopulateExpenditureTable();
                     break;
                 default:
@@ -210,7 +189,8 @@ namespace Accounting.Desktop
 
         private void dataViewTransaction_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataViewTransaction[5, e.RowIndex].Value!=null && dataViewTransaction[5, e.RowIndex].Value.ToString() != "Pending") {
+            if (dataViewTransaction[5, e.RowIndex].Value != null && dataViewTransaction[5, e.RowIndex].Value.ToString() != "Pending")
+            {
                 if (dataViewTransaction[4, e.RowIndex].Value.ToString() == "Withdraw")
                 {
                     dataViewTransaction[5, e.RowIndex].Style.ForeColor = Color.FromArgb(245, 115, 101);
@@ -218,6 +198,21 @@ namespace Accounting.Desktop
                 else
                 {
                     dataViewTransaction[5, e.RowIndex].Style.ForeColor = Color.FromArgb(103, 190, 86);
+                }
+            }
+        }
+
+        private void dataGridExpenditureBreakdown_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridExpenditureBreakdown[3, e.RowIndex].Value != null)
+            {
+                if (dataGridExpenditureBreakdown[3, e.RowIndex].Value.ToString().Contains("-"))
+                {
+                    dataGridExpenditureBreakdown[3, e.RowIndex].Style.ForeColor = Color.FromArgb(245, 115, 101);
+                }
+                else
+                {
+                    dataGridExpenditureBreakdown[3, e.RowIndex].Style.ForeColor = Color.FromArgb(103, 190, 86);
                 }
             }
         }
@@ -240,7 +235,7 @@ namespace Accounting.Desktop
             {
                 _transactionController.DeleteTransaction(dataViewTransaction);
                 FilterTransactionByAccount();
-                RefreshBalance();
+                PopulateTransactionLabels();
             }
             else if (dialogResult == DialogResult.No)
             {
@@ -255,7 +250,7 @@ namespace Accounting.Desktop
 
         private void EditRule_Click(object sender, EventArgs e)
         {
-            new ExpenditureTypeEditDialog(this,_expenditureController.GetExpenditureSettingsDetailsFromDataGridView(dataGridViewSetting)).Show();
+            new ExpenditureTypeEditDialog(this, _expenditureController.GetExpenditureSettingsDetailsFromDataGridView(dataGridViewSetting)).Show();
         }
 
         private void ImportExpenditure_Click(object sender, EventArgs e)
@@ -270,7 +265,7 @@ namespace Accounting.Desktop
             _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings);
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void EditAccount_Click(object sender, EventArgs e)
         {
             new AccountEditDialog(_accountController.GetAccountDetailsFromDataGridView(dataGridAccount), this).Show();
         }
@@ -281,3 +276,4 @@ namespace Accounting.Desktop
         }
     }
 }
+

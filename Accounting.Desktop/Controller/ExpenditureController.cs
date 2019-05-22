@@ -192,7 +192,7 @@ namespace Accounting.Desktop.Controller
 
         public void GetExpenditureBreakdown(DataGridView dataGridView)
         {
-            var res = _expenditureService.GetExpenditureRuleOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal }).ToList();
+            var res = _expenditureService.GetExpenditureRuleOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal, Difference= x.ExpenditureLimit- x.ExpenditureTotal }).ToList();
             dataGridView.DataSource = res;
         }
 
