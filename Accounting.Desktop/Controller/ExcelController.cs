@@ -25,7 +25,7 @@ namespace Accounting.Desktop.Controller
         public void ExportToTransactions()
         {
 
-            var res = _transactionService.GetTransactions();
+            var res = _transactionService.GetTransactionsByDate();
             _excelService.ExportToExcel(res.ToList());
         }
 
@@ -55,7 +55,7 @@ namespace Accounting.Desktop.Controller
             }
 
             var importTransactionList = _excelService.ImportFromExcel(filename, accountType).ToList();
-            var pendingTransactionList = _transactionService.GetTransactions().Where(x => x.Balance == "Pending").ToList();
+            var pendingTransactionList = _transactionService.GetTransactionsByDate().Where(x => x.Balance == "Pending").ToList();
 
             foreach (var transaction in importTransactionList.ToList())
             {

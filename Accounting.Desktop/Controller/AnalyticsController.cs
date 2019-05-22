@@ -34,7 +34,7 @@ namespace Accounting.Desktop.Controller
 
         public void GetAnalyticsOverview(Chart chartPie)
         {
-            var accountDetails = _transactionService.GetTransactions();
+            var accountDetails = _transactionService.GetTransactionsByDate();
             var expense = accountDetails.Where(x => x.TransactionTypeId == 2  && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
             var income = accountDetails.Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
 

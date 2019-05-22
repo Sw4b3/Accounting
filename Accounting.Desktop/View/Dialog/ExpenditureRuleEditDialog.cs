@@ -26,17 +26,17 @@ namespace Accounting.Desktop.View
             _expenditureController = new ExpenditureController();
             _mainForm = mainForm;
             _updateExpenditureTypeRequest = updateExpenditureTypeRequest;
-            setExpenditure();
+            SetExpenditure();
         }
 
-        public void setExpenditure()
+        public void SetExpenditure()
         {
             this.Text = _updateExpenditureTypeRequest.ExpenditureDesc+" Rule";
             textBox3.Text = _updateExpenditureTypeRequest.ExpenditureDesc;
             textBox1.Text = _updateExpenditureTypeRequest.ExpenditureLimit.ToString();
         }
 
-        public void saveExpenditureTypes() {
+        public void SaveExpenditureTypes() {
             if (Validator.IsString(textBox3.Text))
             {
                 if (Validator.IsNumber(textBox1.Text))
@@ -68,7 +68,7 @@ namespace Accounting.Desktop.View
 
         private void Save_Click(object sender, EventArgs e)
         {
-            saveExpenditureTypes();
+            SaveExpenditureTypes();
         }
     }
 }

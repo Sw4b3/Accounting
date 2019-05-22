@@ -26,10 +26,10 @@ namespace Accounting.Desktop.View
             _transactionController = new TransactionController();
             _transactionRequest = transactionRequest;
             _mainform = mainApplication;
-            setTransaction();
+            SetTransaction();
         }
 
-        public void setTransaction() {
+        public void SetTransaction() {
             textBox3.Text = _transactionRequest.Description;
             textBox1.Text = _transactionRequest.Amount.ToString();
             dateTimePicker1.Value = _transactionRequest.Date;

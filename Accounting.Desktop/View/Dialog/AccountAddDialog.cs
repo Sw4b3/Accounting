@@ -25,7 +25,7 @@ namespace Accounting.Desktop.View
             _mainForm = mainForm;
         }
 
-        public void saveAccount() {
+        public void SaveAccount() {
             if (Validator.IsString(textBox3.Text))
             {
                 _accountController.SaveAccount(new SaveAccountRequest
@@ -48,7 +48,7 @@ namespace Accounting.Desktop.View
 
         private void Save_Click(object sender, EventArgs e)
         {
-            saveAccount();
+            SaveAccount();
         }
     }
 }

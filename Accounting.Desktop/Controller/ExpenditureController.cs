@@ -20,12 +20,12 @@ namespace Accounting.Desktop.Controller
     {
         private IExpenditureService _expenditureService;
         private bool isInitialized = false;
-        DataGridViewComboBoxColumn expenditureRule;
+        private DataGridViewComboBoxColumn _expenditureRule;
 
         public ExpenditureController()
         {
             _expenditureService = new ExpenditureService();
-            expenditureRule = new DataGridViewComboBoxColumn();
+            _expenditureRule = new DataGridViewComboBoxColumn();
         }
 
         public void GetExpenditure(DataGridView dataGridView)
@@ -33,21 +33,22 @@ namespace Accounting.Desktop.Controller
             var res = _expenditureService.GetExpenditureByDateRequest().Where(x => x.ExpenditureRuleId == 0).Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
 
             IList<ExpenditureRuleItem> list = _expenditureService.GetExpenditureRules().Select(x => new ExpenditureRuleItem { ExpenditureDesc = x.ExpenditureDesc, ExpenditureRuleId = x.ExpenditureRuleId }).ToList();
-            expenditureRule.DataSource = list;
-            expenditureRule.HeaderText = "ExpenditureRuleId";
-            expenditureRule.DisplayMember = "ExpenditureDesc";
-            expenditureRule.ValueMember = "ExpenditureRuleId";
-            expenditureRule.FlatStyle = FlatStyle.Flat;
+            _expenditureRule.DataSource = list;
+            _expenditureRule.HeaderText = "ExpenditureRuleId";
+            _expenditureRule.DisplayMember = "ExpenditureDesc";
+            _expenditureRule.ValueMember = "ExpenditureRuleId";
+            _expenditureRule.FlatStyle = FlatStyle.Flat;
 
             dataGridView.DataSource = res;
             if (!isInitialized)
             {
-                dataGridView.Columns.Add(expenditureRule);
+                dataGridView.Columns.Add(_expenditureRule);
                 isInitialized = true;
             }
         }
 
-        public void FilterExpenditure(DataGridView dataGridView, ComboBox comboBox) {
+        public void FilterExpenditure(DataGridView dataGridView, ComboBox comboBox)
+        {
 
             if (comboBox.SelectedItem.ToString() == "Unmapped")
             {
@@ -57,16 +58,16 @@ namespace Accounting.Desktop.Controller
             }
             else
             {
-               var res = _expenditureService.GetExpenditureByDateRequest().Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+                var res = _expenditureService.GetExpenditureByDateRequest().Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
                 dataGridView.DataSource = res;
 
             }
-           
-        } 
+
+        }
 
         public void GetExpenditureTypes(ComboBox comboBox)
         {
-            var expenditureTypes = _expenditureService.GetExpenditureTypes().Select(x => new ExpenditureTypeItem { ExpenditureTypeId= x.ExpenditureTypeId,ExpenditureDesc= x.ExpenditureDesc}).ToList();
+            var expenditureTypes = _expenditureService.GetExpenditureTypes().Select(x => new ExpenditureTypeItem { ExpenditureTypeId = x.ExpenditureTypeId, ExpenditureDesc = x.ExpenditureDesc }).ToList();
             comboBox.DataSource = expenditureTypes.ToList();
         }
 
@@ -192,7 +193,7 @@ namespace Accounting.Desktop.Controller
 
         public void GetExpenditureBreakdown(DataGridView dataGridView)
         {
-            var res = _expenditureService.GetExpenditureRuleOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal, Difference= x.ExpenditureLimit- x.ExpenditureTotal }).ToList();
+            var res = _expenditureService.GetExpenditureRuleOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal, Difference = x.ExpenditureLimit - x.ExpenditureTotal }).ToList();
             dataGridView.DataSource = res;
         }
 

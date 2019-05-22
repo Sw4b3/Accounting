@@ -43,11 +43,12 @@ namespace Accounting.Desktop
 
         public void PopulateTransactionTables()
         {
+            _transactionController.GetTransactions();
             _transactionController.GetTransactions(dataViewTransaction, 1);
             _analyticsController.GetAnalyticsOverview(chart1);
             _transactionController.GetTransfers(dataViewTransfer);
-            _transactionController.GetTransactionsPersonalExpenses(dataViewTransactionPE);
-            _transactionController.GetTransactionsWithdraw(dataViewTransactionInc);
+            _transactionController.GetTransactionsDebit(dataViewTransactionDebit);
+            _transactionController.GetTransactionsCredit(dataViewTransactionCredit);
         }
 
         public void PopulateAccountTable()
@@ -97,6 +98,7 @@ namespace Accounting.Desktop
         {
             var accountId = _accountController.GetAccountId(comboBoxAccount);
             var balance = _accountController.GetAccountBalance(accountId);
+            _transactionController.GetTransactions();
             _transactionController.GetTransactions(dataViewTransaction, accountId);
             labelBalanceTransaction.Text = "Balance: " + balance;
         }
@@ -234,6 +236,7 @@ namespace Accounting.Desktop
             if (dialogResult == DialogResult.Yes)
             {
                 _transactionController.DeleteTransaction(dataViewTransaction);
+                _transactionController.GetTransfers(dataViewTransfer);
                 FilterTransactionByAccount();
                 PopulateTransactionLabels();
             }

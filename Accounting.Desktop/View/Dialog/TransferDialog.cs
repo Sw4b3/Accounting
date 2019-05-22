@@ -31,7 +31,7 @@ namespace Accounting.Desktop.View.Dialog
             _transfer2 = transfer2;
         }
 
-        public void tranferWithdraw()
+        public void TranferWithdraw()
         {
             _transactionController.SaveTransactionStaging(new SaveTransactionRequest
             {
@@ -43,7 +43,7 @@ namespace Accounting.Desktop.View.Dialog
             });
         }
 
-        public void tranferDepost()
+        public void TranferDepost()
         {
             _transactionController.SaveTransactionStaging(new SaveTransactionRequest
             {
@@ -55,11 +55,11 @@ namespace Accounting.Desktop.View.Dialog
             });
         }
 
-        public void saveTransfer() {
+        public void SaveTransfer() {
             if (Validator.IsNumber(textBox3.Text))
             {
-                tranferWithdraw();
-                tranferDepost();
+                TranferWithdraw();
+                TranferDepost();
                 _mainform.PopulationAll();
                 _mainform.PopulateTransactionLabels();
                 this.Dispose();
@@ -72,7 +72,7 @@ namespace Accounting.Desktop.View.Dialog
 
         private void Save_Click(object sender, EventArgs e)
         {
-            saveTransfer();
+            SaveTransfer();
         }
 
         private void Cancel_Click(object sender, EventArgs e)

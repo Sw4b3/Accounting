@@ -32,7 +32,7 @@ namespace Accounting.Desktop.View
             _expenditureController.GetExpenditureTypes(comboBox1);
         }
 
-        public void saveExpenditureTypes()
+        public void SaveExpenditureTypes()
         {
             if (Validator.IsString(textBox3.Text))
             {
@@ -65,7 +65,7 @@ namespace Accounting.Desktop.View
 
         private void Save_Click(object sender, EventArgs e)
         {
-            saveExpenditureTypes();
+            SaveExpenditureTypes();
         }
     }
 }

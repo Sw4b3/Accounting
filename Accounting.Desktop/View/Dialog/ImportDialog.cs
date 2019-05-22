@@ -25,11 +25,11 @@ namespace Accounting.Desktop.View.Dialog
             _accountController = new AccountController();
             _excelController = new ExcelController();
             _mainform = mainform;
-            populateAccountComboBox();
+            PopulateAccountComboBox();
         }
 
 
-        public void populateAccountComboBox()
+        public void PopulateAccountComboBox()
         {
             _accountController.GetAccountComboBox(comboBox2);
         }

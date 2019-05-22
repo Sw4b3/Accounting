@@ -63,8 +63,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.labelPersonalExpense = new System.Windows.Forms.Label();
             this.labelBalanceOverview = new System.Windows.Forms.Label();
-            this.dataViewTransactionInc = new System.Windows.Forms.DataGridView();
-            this.dataViewTransactionPE = new System.Windows.Forms.DataGridView();
+            this.dataViewTransactionCredit = new System.Windows.Forms.DataGridView();
+            this.dataViewTransactionDebit = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.labelAvailableBalanceTransaction = new System.Windows.Forms.Label();
@@ -141,8 +141,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionInc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionPE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionCredit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionDebit)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -250,8 +250,8 @@
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.labelPersonalExpense);
             this.tabPage1.Controls.Add(this.labelBalanceOverview);
-            this.tabPage1.Controls.Add(this.dataViewTransactionInc);
-            this.tabPage1.Controls.Add(this.dataViewTransactionPE);
+            this.tabPage1.Controls.Add(this.dataViewTransactionCredit);
+            this.tabPage1.Controls.Add(this.dataViewTransactionDebit);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -340,42 +340,42 @@
             // 
             // dataViewTransactionInc
             // 
-            this.dataViewTransactionInc.AllowUserToResizeRows = false;
+            this.dataViewTransactionCredit.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransactionInc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataViewTransactionInc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataViewTransactionCredit.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataViewTransactionCredit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataViewTransactionInc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewTransactionInc.BackgroundColor = System.Drawing.Color.White;
-            this.dataViewTransactionInc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataViewTransactionInc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewTransactionInc.Location = new System.Drawing.Point(24, 29);
-            this.dataViewTransactionInc.Name = "dataViewTransactionInc";
-            this.dataViewTransactionInc.ReadOnly = true;
-            this.dataViewTransactionInc.RowHeadersVisible = false;
-            this.dataViewTransactionInc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransactionInc.Size = new System.Drawing.Size(465, 214);
-            this.dataViewTransactionInc.TabIndex = 31;
+            this.dataViewTransactionCredit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewTransactionCredit.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransactionCredit.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransactionCredit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTransactionCredit.Location = new System.Drawing.Point(24, 29);
+            this.dataViewTransactionCredit.Name = "dataViewTransactionInc";
+            this.dataViewTransactionCredit.ReadOnly = true;
+            this.dataViewTransactionCredit.RowHeadersVisible = false;
+            this.dataViewTransactionCredit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewTransactionCredit.Size = new System.Drawing.Size(465, 214);
+            this.dataViewTransactionCredit.TabIndex = 31;
             // 
             // dataViewTransactionPE
             // 
-            this.dataViewTransactionPE.AllowUserToResizeRows = false;
+            this.dataViewTransactionDebit.AllowUserToResizeRows = false;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransactionPE.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataViewTransactionPE.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataViewTransactionDebit.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataViewTransactionDebit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataViewTransactionPE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewTransactionPE.BackgroundColor = System.Drawing.Color.White;
-            this.dataViewTransactionPE.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataViewTransactionPE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewTransactionPE.Location = new System.Drawing.Point(518, 29);
-            this.dataViewTransactionPE.Name = "dataViewTransactionPE";
-            this.dataViewTransactionPE.ReadOnly = true;
-            this.dataViewTransactionPE.RowHeadersVisible = false;
-            this.dataViewTransactionPE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransactionPE.Size = new System.Drawing.Size(465, 464);
-            this.dataViewTransactionPE.TabIndex = 34;
+            this.dataViewTransactionDebit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewTransactionDebit.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransactionDebit.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransactionDebit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTransactionDebit.Location = new System.Drawing.Point(518, 29);
+            this.dataViewTransactionDebit.Name = "dataViewTransactionPE";
+            this.dataViewTransactionDebit.ReadOnly = true;
+            this.dataViewTransactionDebit.RowHeadersVisible = false;
+            this.dataViewTransactionDebit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewTransactionDebit.Size = new System.Drawing.Size(465, 464);
+            this.dataViewTransactionDebit.TabIndex = 34;
             // 
             // tabPage2
             // 
@@ -1399,8 +1399,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionInc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionPE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionCredit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionDebit)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).EndInit();
@@ -1453,9 +1453,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelPersonalExpense;
-        private System.Windows.Forms.DataGridView dataViewTransactionPE;
+        private System.Windows.Forms.DataGridView dataViewTransactionDebit;
         private System.Windows.Forms.Label labelBalanceOverview;
-        private System.Windows.Forms.DataGridView dataViewTransactionInc;
+        private System.Windows.Forms.DataGridView dataViewTransactionCredit;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ComboBox comboBoxAccount;
         private System.Windows.Forms.Button button4;

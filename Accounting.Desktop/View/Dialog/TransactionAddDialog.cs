@@ -29,11 +29,11 @@ namespace Accounting.Desktop.View
             _AccountController = new AccountController();
             _mainform = mainform;
             _transactionType = transactionType;
-            populateAccountComboBox();
+            PopulateAccountComboBox();
         }
 
 
-        public void populateAccountComboBox()
+        public void PopulateAccountComboBox()
         {
             _AccountController.GetAccountComboBox(comboBox2);
         }

@@ -8,27 +8,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using Accounting.Models.Models;
 
 namespace Accounting.Desktop.Controller
 {
     public class TransactionController
     {
-        TransactionService _transactionService;
+        private TransactionService _transactionService;
+        private IList<Transaction> _transactions;
 
         public TransactionController()
         {
             _transactionService = new TransactionService();
         }
 
+        public void GetTransactions()
+        {
+            _transactions = _transactionService.GetTransactionsByDate();
+        }
+
         public void GetTransfers(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _transactionService.GetTransactions().Where(x=>x.Description.ToLower().Contains("transfer")|| x.Description.ToLower().Contains("trf"))
-                .Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList(); ;
+            dataGridView.DataSource = _transactions.Where(x=>x.Description.ToLower().Contains("transfer")|| x.Description.ToLower().Contains("trf"))
+                .Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList(); 
         }
 
         public void GetTransactions(DataGridView dataGridView, int i)
         {
-            dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == i).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType, x.Balance}).ToList();
+            dataGridView.DataSource = _transactions.Where(x => x.AccountTypeId == i).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType, x.Balance}).ToList();
         }
 
         public void SearchTransactionsByDate(DataGridView dataGridView, SearchTransactionByDateRequest transaction)
@@ -38,32 +45,27 @@ namespace Accounting.Desktop.Controller
 
         public void GetRecentTransactions(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _transactionService.GetTransactions().Select(x => new {  x.Description, x.Amount, x.TransactionTimestamp }).ToList(); ;
+            dataGridView.DataSource = _transactions.Select(x => new {  x.Description, x.Amount, x.TransactionTimestamp }).ToList(); ;
         }
 
-        public void GetTransactionsGeneralExpenses(DataGridView dataGridView)
+        public void GetTransactionsDebit(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            dataGridView.DataSource = _transactions.Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
         }
 
-        public void GetTransactionsPersonalExpenses(DataGridView dataGridView)
+        public void GetTransactionsCredit(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
-        }
-
-        public void GetTransactionsWithdraw(DataGridView dataGridView)
-        {
-            dataGridView.DataSource = _transactionService.GetTransactions().Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            dataGridView.DataSource = _transactions.Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
         }
 
         public decimal GetExpenseSubtotal()
         {
-            return _transactionService.GetTransactions().Where(x => x.TransactionTypeId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+            return _transactions.Where(x => x.TransactionTypeId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
         }
 
         public decimal GetIncomeSubtotal()
         {
-            return _transactionService.GetTransactions().Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+            return _transactions.Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
         }
 
         public UpdateTransactionRequest GetTransactionDetailsFromDataGridView(DataGridView dataGridView)
