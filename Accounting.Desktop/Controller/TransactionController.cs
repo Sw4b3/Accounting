@@ -30,7 +30,7 @@ namespace Accounting.Desktop.Controller
         public void GetTransfers(DataGridView dataGridView)
         {
             dataGridView.DataSource = _transactions.Where(x=>x.Description.ToLower().Contains("transfer")|| x.Description.ToLower().Contains("trf"))
-                .Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType }).ToList(); 
+                .Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType,x.AccountType }).ToList(); 
         }
 
         public void GetTransactions(DataGridView dataGridView, int i)
