@@ -51,6 +51,7 @@ namespace Accounting.Desktop
             _transactionController.GetTransactionsCredit(dataViewTransactionCredit);
         }
 
+
         public void PopulateAccountTable()
         {
             _accountController.GetAccount(dataGridAccount);
@@ -236,7 +237,10 @@ namespace Accounting.Desktop
             if (dialogResult == DialogResult.Yes)
             {
                 _transactionController.DeleteTransaction(dataViewTransaction);
+                _transactionController.GetTransactions();
                 _transactionController.GetTransfers(dataViewTransfer);
+                _transactionController.GetTransactionsDebit(dataViewTransactionDebit);
+                _transactionController.GetTransactionsCredit(dataViewTransactionCredit);
                 FilterTransactionByAccount();
                 PopulateTransactionLabels();
             }
