@@ -338,7 +338,7 @@
             this.labelBalanceOverview.TabIndex = 33;
             this.labelBalanceOverview.Text = "Balance: ";
             // 
-            // dataViewTransactionInc
+            // dataViewTransactionCredit
             // 
             this.dataViewTransactionCredit.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -347,17 +347,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataViewTransactionCredit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewTransactionCredit.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransactionCredit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataViewTransactionCredit.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransactionCredit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataViewTransactionCredit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewTransactionCredit.Location = new System.Drawing.Point(24, 29);
-            this.dataViewTransactionCredit.Name = "dataViewTransactionInc";
+            this.dataViewTransactionCredit.Name = "dataViewTransactionCredit";
             this.dataViewTransactionCredit.ReadOnly = true;
             this.dataViewTransactionCredit.RowHeadersVisible = false;
             this.dataViewTransactionCredit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataViewTransactionCredit.Size = new System.Drawing.Size(465, 214);
             this.dataViewTransactionCredit.TabIndex = 31;
             // 
-            // dataViewTransactionPE
+            // dataViewTransactionDebit
             // 
             this.dataViewTransactionDebit.AllowUserToResizeRows = false;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -367,10 +369,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataViewTransactionDebit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewTransactionDebit.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransactionDebit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataViewTransactionDebit.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransactionDebit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataViewTransactionDebit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewTransactionDebit.Location = new System.Drawing.Point(518, 29);
-            this.dataViewTransactionDebit.Name = "dataViewTransactionPE";
+            this.dataViewTransactionDebit.Name = "dataViewTransactionDebit";
             this.dataViewTransactionDebit.ReadOnly = true;
             this.dataViewTransactionDebit.RowHeadersVisible = false;
             this.dataViewTransactionDebit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -537,7 +541,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataViewTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewTransaction.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransaction.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataViewTransaction.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransaction.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataViewTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewTransaction.Location = new System.Drawing.Point(202, 78);
             this.dataViewTransaction.Name = "dataViewTransaction";
@@ -575,7 +581,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataViewTransfer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataViewTransfer.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransfer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataViewTransfer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransfer.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataViewTransfer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataViewTransfer.Location = new System.Drawing.Point(202, 78);
             this.dataViewTransfer.Name = "dataViewTransfer";
@@ -924,7 +932,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridAccount.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridAccount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridAccount.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridAccount.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridAccount.Location = new System.Drawing.Point(269, 38);
             this.dataGridAccount.Name = "dataGridAccount";
