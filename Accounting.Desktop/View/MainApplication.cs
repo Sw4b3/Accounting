@@ -101,7 +101,7 @@ namespace Accounting.Desktop
             var balance = _accountController.GetAccountBalance(accountId);
             _transactionController.GetTransactions();
             _transactionController.GetTransactions(dataViewTransaction, accountId);
-            labelBalanceTransaction.Text = "Balance: " + balance;
+            PopulateBalanceLabel();
         }
 
         public void PopulateTransactionLabels()
