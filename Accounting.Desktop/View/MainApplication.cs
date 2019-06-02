@@ -281,6 +281,12 @@ namespace Accounting.Desktop
         {
             _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings);
         }
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime date = dateTimePicker3.Value;
+            _expenditureController.FilterExpenditureByDate(dataGridExpenditureBreakdown, date);
+        }
     }
 }
 

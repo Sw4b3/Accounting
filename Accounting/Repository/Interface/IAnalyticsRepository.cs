@@ -10,11 +10,11 @@ namespace Accounting.Repository.Interface
 {
     public interface IAnalyticsRepository
     {
-        IList<Statistic> GetAnalyticsStatistics(GetDateRequest request);
+        IList<Statistic> GetAnalyticsStatistics(DateRequest request);
 
-        IList<AnalyticsOverview> GetAnalyticOverviewRequest(GetDateRequest request);
+        IList<AnalyticsOverview> GetAnalyticOverviewRequest(DateRequest request);
 
-        IList<AnalysisByDay> GetAnalyticsByDayRequest(GetDateRequest request);
+        IList<AnalysisByDay> GetAnalyticsByDayRequest(DateRequest request);
 
         IList<AnalysisByMonth> GetAnalyticsByMonthRequest();
 

@@ -95,6 +95,21 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
+        public IList<ExpenditureOverview> GetExpenditureRuleOverview(DateRequest dateRequest)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.ExpenditureRepository.GetExpenditureRuleOverview(dateRequest);
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public void ImportExpenditure()
         {
             try

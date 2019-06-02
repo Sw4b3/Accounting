@@ -11,19 +11,19 @@ namespace Accounting.Repository.Interface
 {
     public interface IExpenditureRepository 
     {
-        IList<Expenditure> GetExpenditureByDateRequest(GetDateRequest request);
+        IList<Expenditure> GetExpenditureByDateRequest(DateRequest request);
 
         IList<ExpenditureType> GetExpenditureTypes();
 
         IList<ExpenditureRule> GetExpenditureRules();
 
-        IList<ExpenditureOverview> GetExpenditureOverview(GetDateRequest request);
+        IList<ExpenditureOverview> GetExpenditureOverview(DateRequest request);
 
-        IList<ExpenditureOverview> GetExpenditureRuleOverview(GetDateRequest request);
+        IList<ExpenditureOverview> GetExpenditureRuleOverview(DateRequest request);
 
         void SaveExpenditureRule(SaveExpenditureTypeRequest request);
 
-        void ImportExpenditure(GetDateRequest request);
+        void ImportExpenditure(DateRequest request);
 
         void UpdateExpenditure(UpdateExpenditureRequest request);
 

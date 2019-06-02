@@ -20,6 +20,8 @@ namespace Accounting.Domain.Services.Service.Interface
 
         IList<ExpenditureOverview> GetExpenditureRuleOverview();
 
+        IList<ExpenditureOverview> GetExpenditureRuleOverview(DateRequest dateRequest);
+
         void ImportExpenditure();
 
         void SaveExpenditureRule(SaveExpenditureTypeRequest request);

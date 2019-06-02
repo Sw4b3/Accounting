@@ -22,20 +22,20 @@ namespace Accounting
             _transaction = transaction;
         }
 
-        public IList<Statistic> GetAnalyticsStatistics(GetDateRequest request)
+        public IList<Statistic> GetAnalyticsStatistics(DateRequest request)
         {
             var res = DapperRepository.ExecuteStoredProc<Statistic>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsStatistics, request, _connection, _transaction);
             return res;
         }
 
-        public IList<AnalyticsOverview> GetAnalyticOverviewRequest(GetDateRequest request)
+        public IList<AnalyticsOverview> GetAnalyticOverviewRequest(DateRequest request)
         {
             var res = DapperRepository.ExecuteStoredProc<AnalyticsOverview>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsOverview, request, _connection, _transaction);
             return res;
         }
 
 
-        public IList<AnalysisByDay> GetAnalyticsByDayRequest(GetDateRequest request)
+        public IList<AnalysisByDay> GetAnalyticsByDayRequest(DateRequest request)
         {
             var res = DapperRepository.ExecuteStoredProc<AnalysisByDay>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsByDay, request, _connection, _transaction);
             return res;

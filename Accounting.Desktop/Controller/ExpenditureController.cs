@@ -47,6 +47,20 @@ namespace Accounting.Desktop.Controller
             }
         }
 
+
+        public void FilterExpenditureByDate(DataGridView dataGridView, DateTime date)
+        {
+            var startDate = new DateTime(date.Year, date.Month, 1);
+            var endDate = startDate.AddMonths(1).AddDays(-1);
+
+            var res = _expenditureService.GetExpenditureRuleOverview(new DateRequest()
+            {
+                StartDate = startDate,
+                EndDate = endDate
+            }).Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal, Difference = x.ExpenditureLimit - x.ExpenditureTotal }).ToList();
+            dataGridView.DataSource = res;
+        }
+
         public void FilterExpenditure(DataGridView dataGridView, ComboBox comboBox)
         {
 
@@ -158,7 +172,7 @@ namespace Accounting.Desktop.Controller
 
             foreach (var item in expenditureOverview)
             {
-                if (item.ShouldDisplay && item.ExpenditureLimit!=0 )
+                if (item.ShouldDisplay && item.ExpenditureLimit != 0)
                 {
                     //tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
                     tableLayoutPanel.Controls.Add(new Label()

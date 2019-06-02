@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Requests
 {
-   public class GetDateRequest
+   public class DateRequest
     {     
         public DateTime StartDate { get; set; }
 

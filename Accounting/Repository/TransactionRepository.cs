@@ -22,7 +22,7 @@ namespace Accounting.Repository
             _transaction = transaction;
         }
 
-        public IList<Transaction> GetTransactionsByDateRequest(GetDateRequest request)
+        public IList<Transaction> GetTransactionsByDateRequest(DateRequest request)
         {
             var res = DapperRepository.ExecuteStoredProc<Transaction>(DatabaseConnection.connection, SQLStoredProcedures.getGetTransactionByDate, request, _connection, _transaction);
             return res;

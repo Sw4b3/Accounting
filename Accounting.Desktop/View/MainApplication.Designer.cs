@@ -35,6 +35,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,10 +50,6 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApplication));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
@@ -87,25 +87,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxTransfer2 = new System.Windows.Forms.ComboBox();
             this.comboBoxTransfer1 = new System.Windows.Forms.ComboBox();
-            this.analyticsTab = new System.Windows.Forms.TabPage();
-            this.tabControl4 = new System.Windows.Forms.TabControl();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.dataGridViewAnalysis = new System.Windows.Forms.DataGridView();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.dataGridViewDaily = new System.Windows.Forms.DataGridView();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.dataGridViewMonthly = new System.Windows.Forms.DataGridView();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.dataGridViewStatistics = new System.Windows.Forms.DataGridView();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Monthly = new System.Windows.Forms.TabPage();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.accountTab = new System.Windows.Forms.TabPage();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.dataGridAccount = new System.Windows.Forms.DataGridView();
             this.expenditureTab = new System.Windows.Forms.TabPage();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage15 = new System.Windows.Forms.TabPage();
@@ -135,6 +116,26 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridViewSetting = new System.Windows.Forms.DataGridView();
+            this.analyticsTab = new System.Windows.Forms.TabPage();
+            this.tabControl4 = new System.Windows.Forms.TabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.dataGridViewAnalysis = new System.Windows.Forms.DataGridView();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.dataGridViewDaily = new System.Windows.Forms.DataGridView();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.dataGridViewMonthly = new System.Windows.Forms.DataGridView();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.dataGridViewStatistics = new System.Windows.Forms.DataGridView();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Monthly = new System.Windows.Forms.TabPage();
+            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.accountTab = new System.Windows.Forms.TabPage();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dataGridAccount = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -147,6 +148,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransfer)).BeginInit();
+            this.expenditureTab.SuspendLayout();
+            this.tabControl5.SuspendLayout();
+            this.tabPage15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentTransactions)).BeginInit();
+            this.tabPage16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).BeginInit();
+            this.tabPage14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).BeginInit();
+            this.tabPage13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).BeginInit();
             this.analyticsTab.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -164,16 +175,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.accountTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).BeginInit();
-            this.expenditureTab.SuspendLayout();
-            this.tabControl5.SuspendLayout();
-            this.tabPage15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentTransactions)).BeginInit();
-            this.tabPage16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).BeginInit();
-            this.tabPage14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).BeginInit();
-            this.tabPage13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -639,6 +640,452 @@
             this.comboBoxTransfer1.Size = new System.Drawing.Size(148, 21);
             this.comboBoxTransfer1.TabIndex = 48;
             // 
+            // expenditureTab
+            // 
+            this.expenditureTab.Controls.Add(this.tabControl5);
+            this.expenditureTab.Location = new System.Drawing.Point(4, 22);
+            this.expenditureTab.Name = "expenditureTab";
+            this.expenditureTab.Padding = new System.Windows.Forms.Padding(3);
+            this.expenditureTab.Size = new System.Drawing.Size(1003, 593);
+            this.expenditureTab.TabIndex = 5;
+            this.expenditureTab.Text = "Expenditure";
+            this.expenditureTab.UseVisualStyleBackColor = true;
+            // 
+            // tabControl5
+            // 
+            this.tabControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl5.Controls.Add(this.tabPage15);
+            this.tabControl5.Controls.Add(this.tabPage16);
+            this.tabControl5.Controls.Add(this.tabPage14);
+            this.tabControl5.Controls.Add(this.tabPage13);
+            this.tabControl5.Location = new System.Drawing.Point(-4, 3);
+            this.tabControl5.Name = "tabControl5";
+            this.tabControl5.SelectedIndex = 0;
+            this.tabControl5.Size = new System.Drawing.Size(1011, 586);
+            this.tabControl5.TabIndex = 28;
+            // 
+            // tabPage15
+            // 
+            this.tabPage15.Controls.Add(this.label3);
+            this.tabPage15.Controls.Add(this.dataGridViewRecentTransactions);
+            this.tabPage15.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage15.Controls.Add(this.labelLimit3);
+            this.tabPage15.Controls.Add(this.labelCurrent3);
+            this.tabPage15.Controls.Add(this.labelLimit2);
+            this.tabPage15.Controls.Add(this.labelCurrent2);
+            this.tabPage15.Controls.Add(this.labelLimit1);
+            this.tabPage15.Controls.Add(this.labelCurrent1);
+            this.tabPage15.Controls.Add(this.labelRule3);
+            this.tabPage15.Controls.Add(this.labelRule2);
+            this.tabPage15.Controls.Add(this.labelRule1);
+            this.tabPage15.Controls.Add(this.circularProgressBar3);
+            this.tabPage15.Controls.Add(this.circularProgressBar2);
+            this.tabPage15.Controls.Add(this.circularProgressBar1);
+            this.tabPage15.Location = new System.Drawing.Point(4, 22);
+            this.tabPage15.Name = "tabPage15";
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage15.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage15.TabIndex = 3;
+            this.tabPage15.Text = "Overview";
+            this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 245);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "Recent Transactions";
+            // 
+            // dataGridViewRecentTransactions
+            // 
+            this.dataGridViewRecentTransactions.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewRecentTransactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewRecentTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewRecentTransactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewRecentTransactions.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewRecentTransactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewRecentTransactions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewRecentTransactions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewRecentTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRecentTransactions.ColumnHeadersVisible = false;
+            this.dataGridViewRecentTransactions.Location = new System.Drawing.Point(27, 275);
+            this.dataGridViewRecentTransactions.Name = "dataGridViewRecentTransactions";
+            this.dataGridViewRecentTransactions.ReadOnly = true;
+            this.dataGridViewRecentTransactions.RowHeadersVisible = false;
+            this.dataGridViewRecentTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewRecentTransactions.Size = new System.Drawing.Size(249, 269);
+            this.dataGridViewRecentTransactions.TabIndex = 44;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 42);
+            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(500, 200);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(249, 200);
+            this.tableLayoutPanel1.TabIndex = 43;
+            // 
+            // labelLimit3
+            // 
+            this.labelLimit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelLimit3.AutoSize = true;
+            this.labelLimit3.Location = new System.Drawing.Point(729, 143);
+            this.labelLimit3.Name = "labelLimit3";
+            this.labelLimit3.Size = new System.Drawing.Size(34, 13);
+            this.labelLimit3.TabIndex = 42;
+            this.labelLimit3.Text = "Limit: ";
+            // 
+            // labelCurrent3
+            // 
+            this.labelCurrent3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelCurrent3.AutoSize = true;
+            this.labelCurrent3.Location = new System.Drawing.Point(729, 110);
+            this.labelCurrent3.Name = "labelCurrent3";
+            this.labelCurrent3.Size = new System.Drawing.Size(47, 13);
+            this.labelCurrent3.TabIndex = 41;
+            this.labelCurrent3.Text = "Current: ";
+            // 
+            // labelLimit2
+            // 
+            this.labelLimit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelLimit2.AutoSize = true;
+            this.labelLimit2.Location = new System.Drawing.Point(426, 144);
+            this.labelLimit2.Name = "labelLimit2";
+            this.labelLimit2.Size = new System.Drawing.Size(34, 13);
+            this.labelLimit2.TabIndex = 40;
+            this.labelLimit2.Text = "Limit: ";
+            // 
+            // labelCurrent2
+            // 
+            this.labelCurrent2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelCurrent2.AutoSize = true;
+            this.labelCurrent2.Location = new System.Drawing.Point(426, 111);
+            this.labelCurrent2.Name = "labelCurrent2";
+            this.labelCurrent2.Size = new System.Drawing.Size(47, 13);
+            this.labelCurrent2.TabIndex = 39;
+            this.labelCurrent2.Text = "Current: ";
+            // 
+            // labelLimit1
+            // 
+            this.labelLimit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelLimit1.AutoSize = true;
+            this.labelLimit1.Location = new System.Drawing.Point(423, 412);
+            this.labelLimit1.Name = "labelLimit1";
+            this.labelLimit1.Size = new System.Drawing.Size(34, 13);
+            this.labelLimit1.TabIndex = 38;
+            this.labelLimit1.Text = "Limit: ";
+            // 
+            // labelCurrent1
+            // 
+            this.labelCurrent1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelCurrent1.AutoSize = true;
+            this.labelCurrent1.Location = new System.Drawing.Point(423, 379);
+            this.labelCurrent1.Name = "labelCurrent1";
+            this.labelCurrent1.Size = new System.Drawing.Size(47, 13);
+            this.labelCurrent1.TabIndex = 37;
+            this.labelCurrent1.Text = "Current: ";
+            // 
+            // labelRule3
+            // 
+            this.labelRule3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelRule3.AutoSize = true;
+            this.labelRule3.Location = new System.Drawing.Point(588, 42);
+            this.labelRule3.Name = "labelRule3";
+            this.labelRule3.Size = new System.Drawing.Size(52, 13);
+            this.labelRule3.TabIndex = 36;
+            this.labelRule3.Text = "Balance: ";
+            // 
+            // labelRule2
+            // 
+            this.labelRule2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelRule2.AutoSize = true;
+            this.labelRule2.Location = new System.Drawing.Point(301, 42);
+            this.labelRule2.Name = "labelRule2";
+            this.labelRule2.Size = new System.Drawing.Size(52, 13);
+            this.labelRule2.TabIndex = 35;
+            this.labelRule2.Text = "Balance: ";
+            // 
+            // labelRule1
+            // 
+            this.labelRule1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelRule1.AutoSize = true;
+            this.labelRule1.Location = new System.Drawing.Point(301, 311);
+            this.labelRule1.Name = "labelRule1";
+            this.labelRule1.Size = new System.Drawing.Size(52, 13);
+            this.labelRule1.TabIndex = 34;
+            this.labelRule1.Text = "Balance: ";
+            // 
+            // circularProgressBar3
+            // 
+            this.circularProgressBar3.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBar3.AnimationSpeed = 0;
+            this.circularProgressBar3.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.circularProgressBar3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.circularProgressBar3.InnerColor = System.Drawing.Color.White;
+            this.circularProgressBar3.InnerMargin = 2;
+            this.circularProgressBar3.InnerWidth = -1;
+            this.circularProgressBar3.Location = new System.Drawing.Point(661, 42);
+            this.circularProgressBar3.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar3.Name = "circularProgressBar3";
+            this.circularProgressBar3.OuterColor = System.Drawing.Color.Gainsboro;
+            this.circularProgressBar3.OuterMargin = -25;
+            this.circularProgressBar3.OuterWidth = 26;
+            this.circularProgressBar3.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
+            this.circularProgressBar3.ProgressWidth = 25;
+            this.circularProgressBar3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.circularProgressBar3.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBar3.Size = new System.Drawing.Size(215, 215);
+            this.circularProgressBar3.StartAngle = 270;
+            this.circularProgressBar3.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar3.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar3.SubscriptText = "";
+            this.circularProgressBar3.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar3.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.circularProgressBar3.SuperscriptText = "";
+            this.circularProgressBar3.TabIndex = 2;
+            this.circularProgressBar3.Text = " ";
+            this.circularProgressBar3.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.circularProgressBar3.Value = 68;
+            // 
+            // circularProgressBar2
+            // 
+            this.circularProgressBar2.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBar2.AnimationSpeed = 0;
+            this.circularProgressBar2.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.circularProgressBar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.circularProgressBar2.InnerColor = System.Drawing.Color.White;
+            this.circularProgressBar2.InnerMargin = 2;
+            this.circularProgressBar2.InnerWidth = -1;
+            this.circularProgressBar2.Location = new System.Drawing.Point(365, 42);
+            this.circularProgressBar2.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar2.Name = "circularProgressBar2";
+            this.circularProgressBar2.OuterColor = System.Drawing.Color.Gainsboro;
+            this.circularProgressBar2.OuterMargin = -25;
+            this.circularProgressBar2.OuterWidth = 26;
+            this.circularProgressBar2.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
+            this.circularProgressBar2.ProgressWidth = 25;
+            this.circularProgressBar2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.circularProgressBar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBar2.Size = new System.Drawing.Size(215, 215);
+            this.circularProgressBar2.StartAngle = 270;
+            this.circularProgressBar2.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar2.SubscriptText = "";
+            this.circularProgressBar2.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar2.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.circularProgressBar2.SuperscriptText = "";
+            this.circularProgressBar2.TabIndex = 1;
+            this.circularProgressBar2.Text = " ";
+            this.circularProgressBar2.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.circularProgressBar2.Value = 68;
+            // 
+            // circularProgressBar1
+            // 
+            this.circularProgressBar1.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBar1.AnimationSpeed = 0;
+            this.circularProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.circularProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.circularProgressBar1.InnerColor = System.Drawing.Color.White;
+            this.circularProgressBar1.InnerMargin = 2;
+            this.circularProgressBar1.InnerWidth = -1;
+            this.circularProgressBar1.Location = new System.Drawing.Point(365, 311);
+            this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar1.Name = "circularProgressBar1";
+            this.circularProgressBar1.OuterColor = System.Drawing.Color.Gainsboro;
+            this.circularProgressBar1.OuterMargin = -25;
+            this.circularProgressBar1.OuterWidth = 26;
+            this.circularProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
+            this.circularProgressBar1.ProgressWidth = 25;
+            this.circularProgressBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBar1.Size = new System.Drawing.Size(215, 215);
+            this.circularProgressBar1.StartAngle = 270;
+            this.circularProgressBar1.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar1.SubscriptText = "";
+            this.circularProgressBar1.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.circularProgressBar1.SuperscriptText = "";
+            this.circularProgressBar1.TabIndex = 0;
+            this.circularProgressBar1.Text = " ";
+            this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.circularProgressBar1.Value = 68;
+            // 
+            // tabPage16
+            // 
+            this.tabPage16.Controls.Add(this.dateTimePicker3);
+            this.tabPage16.Controls.Add(this.dataGridExpenditureBreakdown);
+            this.tabPage16.Location = new System.Drawing.Point(4, 22);
+            this.tabPage16.Name = "tabPage16";
+            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage16.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage16.TabIndex = 4;
+            this.tabPage16.Text = "Breakdown";
+            this.tabPage16.UseVisualStyleBackColor = true;
+            // 
+            // dataGridExpenditureBreakdown
+            // 
+            this.dataGridExpenditureBreakdown.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridExpenditureBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridExpenditureBreakdown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridExpenditureBreakdown.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridExpenditureBreakdown.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridExpenditureBreakdown.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridExpenditureBreakdown.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridExpenditureBreakdown.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridExpenditureBreakdown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridExpenditureBreakdown.Location = new System.Drawing.Point(24, 59);
+            this.dataGridExpenditureBreakdown.Name = "dataGridExpenditureBreakdown";
+            this.dataGridExpenditureBreakdown.ReadOnly = true;
+            this.dataGridExpenditureBreakdown.RowHeadersVisible = false;
+            this.dataGridExpenditureBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridExpenditureBreakdown.Size = new System.Drawing.Size(952, 481);
+            this.dataGridExpenditureBreakdown.TabIndex = 29;
+            this.dataGridExpenditureBreakdown.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridExpenditureBreakdown_CellFormatting);
+            // 
+            // tabPage14
+            // 
+            this.tabPage14.Controls.Add(this.comboBoxMappings);
+            this.tabPage14.Controls.Add(this.button11);
+            this.tabPage14.Controls.Add(this.button13);
+            this.tabPage14.Controls.Add(this.dataGridViewExpenditure);
+            this.tabPage14.Location = new System.Drawing.Point(4, 22);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage14.TabIndex = 1;
+            this.tabPage14.Text = "Expenditure";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxMappings
+            // 
+            this.comboBoxMappings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMappings.FormattingEnabled = true;
+            this.comboBoxMappings.Items.AddRange(new object[] {
+            "Unmapped",
+            "Mapped"});
+            this.comboBoxMappings.Location = new System.Drawing.Point(34, 22);
+            this.comboBoxMappings.Name = "comboBoxMappings";
+            this.comboBoxMappings.Size = new System.Drawing.Size(148, 21);
+            this.comboBoxMappings.TabIndex = 48;
+            this.comboBoxMappings.SelectedIndexChanged += new System.EventHandler(this.comboBoxMappings_SelectedIndexChanged);
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(34, 77);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(148, 23);
+            this.button11.TabIndex = 32;
+            this.button11.Text = "Update Transactions";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.UpdateExtenditure_Click);
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(34, 49);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(148, 23);
+            this.button13.TabIndex = 31;
+            this.button13.Text = "Import Transactions";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.ImportExpenditure_Click);
+            // 
+            // dataGridViewExpenditure
+            // 
+            this.dataGridViewExpenditure.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewExpenditure.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewExpenditure.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewExpenditure.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewExpenditure.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewExpenditure.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewExpenditure.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewExpenditure.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewExpenditure.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewExpenditure.Location = new System.Drawing.Point(202, 20);
+            this.dataGridViewExpenditure.Name = "dataGridViewExpenditure";
+            this.dataGridViewExpenditure.RowHeadersVisible = false;
+            this.dataGridViewExpenditure.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewExpenditure.Size = new System.Drawing.Size(775, 521);
+            this.dataGridViewExpenditure.TabIndex = 28;
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.Controls.Add(this.button10);
+            this.tabPage13.Controls.Add(this.button9);
+            this.tabPage13.Controls.Add(this.dataGridViewSetting);
+            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage13.TabIndex = 2;
+            this.tabPage13.Text = "Settings";
+            this.tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(30, 49);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(148, 23);
+            this.button10.TabIndex = 34;
+            this.button10.Text = "Edit Rule";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.EditRule_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(30, 20);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(148, 23);
+            this.button9.TabIndex = 33;
+            this.button9.Text = "Add Rule";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.AddRule_Click);
+            // 
+            // dataGridViewSetting
+            // 
+            this.dataGridViewSetting.AllowUserToResizeRows = false;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewSetting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewSetting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSetting.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewSetting.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewSetting.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewSetting.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewSetting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSetting.Location = new System.Drawing.Point(198, 20);
+            this.dataGridViewSetting.Name = "dataGridViewSetting";
+            this.dataGridViewSetting.ReadOnly = true;
+            this.dataGridViewSetting.RowHeadersVisible = false;
+            this.dataGridViewSetting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewSetting.Size = new System.Drawing.Size(775, 521);
+            this.dataGridViewSetting.TabIndex = 32;
+            // 
             // analyticsTab
             // 
             this.analyticsTab.Controls.Add(this.tabControl4);
@@ -944,450 +1391,15 @@
             this.dataGridAccount.Size = new System.Drawing.Size(465, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
-            // expenditureTab
+            // dateTimePicker3
             // 
-            this.expenditureTab.Controls.Add(this.tabControl5);
-            this.expenditureTab.Location = new System.Drawing.Point(4, 22);
-            this.expenditureTab.Name = "expenditureTab";
-            this.expenditureTab.Padding = new System.Windows.Forms.Padding(3);
-            this.expenditureTab.Size = new System.Drawing.Size(1003, 593);
-            this.expenditureTab.TabIndex = 5;
-            this.expenditureTab.Text = "Expenditure";
-            this.expenditureTab.UseVisualStyleBackColor = true;
-            // 
-            // tabControl5
-            // 
-            this.tabControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl5.Controls.Add(this.tabPage15);
-            this.tabControl5.Controls.Add(this.tabPage16);
-            this.tabControl5.Controls.Add(this.tabPage14);
-            this.tabControl5.Controls.Add(this.tabPage13);
-            this.tabControl5.Location = new System.Drawing.Point(-4, 3);
-            this.tabControl5.Name = "tabControl5";
-            this.tabControl5.SelectedIndex = 0;
-            this.tabControl5.Size = new System.Drawing.Size(1011, 586);
-            this.tabControl5.TabIndex = 28;
-            // 
-            // tabPage15
-            // 
-            this.tabPage15.Controls.Add(this.label3);
-            this.tabPage15.Controls.Add(this.dataGridViewRecentTransactions);
-            this.tabPage15.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage15.Controls.Add(this.labelLimit3);
-            this.tabPage15.Controls.Add(this.labelCurrent3);
-            this.tabPage15.Controls.Add(this.labelLimit2);
-            this.tabPage15.Controls.Add(this.labelCurrent2);
-            this.tabPage15.Controls.Add(this.labelLimit1);
-            this.tabPage15.Controls.Add(this.labelCurrent1);
-            this.tabPage15.Controls.Add(this.labelRule3);
-            this.tabPage15.Controls.Add(this.labelRule2);
-            this.tabPage15.Controls.Add(this.labelRule1);
-            this.tabPage15.Controls.Add(this.circularProgressBar3);
-            this.tabPage15.Controls.Add(this.circularProgressBar2);
-            this.tabPage15.Controls.Add(this.circularProgressBar1);
-            this.tabPage15.Location = new System.Drawing.Point(4, 22);
-            this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(1003, 560);
-            this.tabPage15.TabIndex = 3;
-            this.tabPage15.Text = "Overview";
-            this.tabPage15.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 245);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 13);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "Recent Transactions";
-            // 
-            // dataGridViewRecentTransactions
-            // 
-            this.dataGridViewRecentTransactions.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewRecentTransactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewRecentTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewRecentTransactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewRecentTransactions.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewRecentTransactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewRecentTransactions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewRecentTransactions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewRecentTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRecentTransactions.ColumnHeadersVisible = false;
-            this.dataGridViewRecentTransactions.Location = new System.Drawing.Point(27, 275);
-            this.dataGridViewRecentTransactions.Name = "dataGridViewRecentTransactions";
-            this.dataGridViewRecentTransactions.ReadOnly = true;
-            this.dataGridViewRecentTransactions.RowHeadersVisible = false;
-            this.dataGridViewRecentTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewRecentTransactions.Size = new System.Drawing.Size(249, 269);
-            this.dataGridViewRecentTransactions.TabIndex = 44;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.AutoScroll = true;
-            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 42);
-            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(500, 200);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(249, 200);
-            this.tableLayoutPanel1.TabIndex = 43;
-            // 
-            // labelLimit3
-            // 
-            this.labelLimit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelLimit3.AutoSize = true;
-            this.labelLimit3.Location = new System.Drawing.Point(729, 143);
-            this.labelLimit3.Name = "labelLimit3";
-            this.labelLimit3.Size = new System.Drawing.Size(34, 13);
-            this.labelLimit3.TabIndex = 42;
-            this.labelLimit3.Text = "Limit: ";
-            // 
-            // labelCurrent3
-            // 
-            this.labelCurrent3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelCurrent3.AutoSize = true;
-            this.labelCurrent3.Location = new System.Drawing.Point(729, 110);
-            this.labelCurrent3.Name = "labelCurrent3";
-            this.labelCurrent3.Size = new System.Drawing.Size(47, 13);
-            this.labelCurrent3.TabIndex = 41;
-            this.labelCurrent3.Text = "Current: ";
-            // 
-            // labelLimit2
-            // 
-            this.labelLimit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelLimit2.AutoSize = true;
-            this.labelLimit2.Location = new System.Drawing.Point(426, 144);
-            this.labelLimit2.Name = "labelLimit2";
-            this.labelLimit2.Size = new System.Drawing.Size(34, 13);
-            this.labelLimit2.TabIndex = 40;
-            this.labelLimit2.Text = "Limit: ";
-            // 
-            // labelCurrent2
-            // 
-            this.labelCurrent2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelCurrent2.AutoSize = true;
-            this.labelCurrent2.Location = new System.Drawing.Point(426, 111);
-            this.labelCurrent2.Name = "labelCurrent2";
-            this.labelCurrent2.Size = new System.Drawing.Size(47, 13);
-            this.labelCurrent2.TabIndex = 39;
-            this.labelCurrent2.Text = "Current: ";
-            // 
-            // labelLimit1
-            // 
-            this.labelLimit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelLimit1.AutoSize = true;
-            this.labelLimit1.Location = new System.Drawing.Point(423, 412);
-            this.labelLimit1.Name = "labelLimit1";
-            this.labelLimit1.Size = new System.Drawing.Size(34, 13);
-            this.labelLimit1.TabIndex = 38;
-            this.labelLimit1.Text = "Limit: ";
-            // 
-            // labelCurrent1
-            // 
-            this.labelCurrent1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelCurrent1.AutoSize = true;
-            this.labelCurrent1.Location = new System.Drawing.Point(423, 379);
-            this.labelCurrent1.Name = "labelCurrent1";
-            this.labelCurrent1.Size = new System.Drawing.Size(47, 13);
-            this.labelCurrent1.TabIndex = 37;
-            this.labelCurrent1.Text = "Current: ";
-            // 
-            // labelRule3
-            // 
-            this.labelRule3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelRule3.AutoSize = true;
-            this.labelRule3.Location = new System.Drawing.Point(588, 42);
-            this.labelRule3.Name = "labelRule3";
-            this.labelRule3.Size = new System.Drawing.Size(52, 13);
-            this.labelRule3.TabIndex = 36;
-            this.labelRule3.Text = "Balance: ";
-            // 
-            // labelRule2
-            // 
-            this.labelRule2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelRule2.AutoSize = true;
-            this.labelRule2.Location = new System.Drawing.Point(301, 42);
-            this.labelRule2.Name = "labelRule2";
-            this.labelRule2.Size = new System.Drawing.Size(52, 13);
-            this.labelRule2.TabIndex = 35;
-            this.labelRule2.Text = "Balance: ";
-            // 
-            // labelRule1
-            // 
-            this.labelRule1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelRule1.AutoSize = true;
-            this.labelRule1.Location = new System.Drawing.Point(301, 311);
-            this.labelRule1.Name = "labelRule1";
-            this.labelRule1.Size = new System.Drawing.Size(52, 13);
-            this.labelRule1.TabIndex = 34;
-            this.labelRule1.Text = "Balance: ";
-            // 
-            // circularProgressBar3
-            // 
-            this.circularProgressBar3.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.circularProgressBar3.AnimationSpeed = 0;
-            this.circularProgressBar3.BackColor = System.Drawing.Color.Transparent;
-            this.circularProgressBar3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.circularProgressBar3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.circularProgressBar3.InnerColor = System.Drawing.Color.White;
-            this.circularProgressBar3.InnerMargin = 2;
-            this.circularProgressBar3.InnerWidth = -1;
-            this.circularProgressBar3.Location = new System.Drawing.Point(661, 42);
-            this.circularProgressBar3.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBar3.Name = "circularProgressBar3";
-            this.circularProgressBar3.OuterColor = System.Drawing.Color.Gainsboro;
-            this.circularProgressBar3.OuterMargin = -25;
-            this.circularProgressBar3.OuterWidth = 26;
-            this.circularProgressBar3.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
-            this.circularProgressBar3.ProgressWidth = 25;
-            this.circularProgressBar3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.circularProgressBar3.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar3.Size = new System.Drawing.Size(215, 215);
-            this.circularProgressBar3.StartAngle = 270;
-            this.circularProgressBar3.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar3.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.circularProgressBar3.SubscriptText = "";
-            this.circularProgressBar3.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar3.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
-            this.circularProgressBar3.SuperscriptText = "";
-            this.circularProgressBar3.TabIndex = 2;
-            this.circularProgressBar3.Text = " ";
-            this.circularProgressBar3.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.circularProgressBar3.Value = 68;
-            // 
-            // circularProgressBar2
-            // 
-            this.circularProgressBar2.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.circularProgressBar2.AnimationSpeed = 0;
-            this.circularProgressBar2.BackColor = System.Drawing.Color.Transparent;
-            this.circularProgressBar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.circularProgressBar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.circularProgressBar2.InnerColor = System.Drawing.Color.White;
-            this.circularProgressBar2.InnerMargin = 2;
-            this.circularProgressBar2.InnerWidth = -1;
-            this.circularProgressBar2.Location = new System.Drawing.Point(365, 42);
-            this.circularProgressBar2.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBar2.Name = "circularProgressBar2";
-            this.circularProgressBar2.OuterColor = System.Drawing.Color.Gainsboro;
-            this.circularProgressBar2.OuterMargin = -25;
-            this.circularProgressBar2.OuterWidth = 26;
-            this.circularProgressBar2.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
-            this.circularProgressBar2.ProgressWidth = 25;
-            this.circularProgressBar2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.circularProgressBar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar2.Size = new System.Drawing.Size(215, 215);
-            this.circularProgressBar2.StartAngle = 270;
-            this.circularProgressBar2.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.circularProgressBar2.SubscriptText = "";
-            this.circularProgressBar2.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar2.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
-            this.circularProgressBar2.SuperscriptText = "";
-            this.circularProgressBar2.TabIndex = 1;
-            this.circularProgressBar2.Text = " ";
-            this.circularProgressBar2.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.circularProgressBar2.Value = 68;
-            // 
-            // circularProgressBar1
-            // 
-            this.circularProgressBar1.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.circularProgressBar1.AnimationSpeed = 0;
-            this.circularProgressBar1.BackColor = System.Drawing.Color.Transparent;
-            this.circularProgressBar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.circularProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.circularProgressBar1.InnerColor = System.Drawing.Color.White;
-            this.circularProgressBar1.InnerMargin = 2;
-            this.circularProgressBar1.InnerWidth = -1;
-            this.circularProgressBar1.Location = new System.Drawing.Point(365, 311);
-            this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBar1.Name = "circularProgressBar1";
-            this.circularProgressBar1.OuterColor = System.Drawing.Color.Gainsboro;
-            this.circularProgressBar1.OuterMargin = -25;
-            this.circularProgressBar1.OuterWidth = 26;
-            this.circularProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
-            this.circularProgressBar1.ProgressWidth = 25;
-            this.circularProgressBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar1.Size = new System.Drawing.Size(215, 215);
-            this.circularProgressBar1.StartAngle = 270;
-            this.circularProgressBar1.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar1.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.circularProgressBar1.SubscriptText = "";
-            this.circularProgressBar1.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar1.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
-            this.circularProgressBar1.SuperscriptText = "";
-            this.circularProgressBar1.TabIndex = 0;
-            this.circularProgressBar1.Text = " ";
-            this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.circularProgressBar1.Value = 68;
-            // 
-            // tabPage16
-            // 
-            this.tabPage16.Controls.Add(this.dataGridExpenditureBreakdown);
-            this.tabPage16.Location = new System.Drawing.Point(4, 22);
-            this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(1003, 560);
-            this.tabPage16.TabIndex = 4;
-            this.tabPage16.Text = "Breakdown";
-            this.tabPage16.UseVisualStyleBackColor = true;
-            // 
-            // dataGridExpenditureBreakdown
-            // 
-            this.dataGridExpenditureBreakdown.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridExpenditureBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridExpenditureBreakdown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridExpenditureBreakdown.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridExpenditureBreakdown.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridExpenditureBreakdown.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridExpenditureBreakdown.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridExpenditureBreakdown.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridExpenditureBreakdown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridExpenditureBreakdown.Location = new System.Drawing.Point(24, 23);
-            this.dataGridExpenditureBreakdown.Name = "dataGridExpenditureBreakdown";
-            this.dataGridExpenditureBreakdown.ReadOnly = true;
-            this.dataGridExpenditureBreakdown.RowHeadersVisible = false;
-            this.dataGridExpenditureBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridExpenditureBreakdown.Size = new System.Drawing.Size(952, 517);
-            this.dataGridExpenditureBreakdown.TabIndex = 29;
-            this.dataGridExpenditureBreakdown.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridExpenditureBreakdown_CellFormatting);
-            // 
-            // tabPage14
-            // 
-            this.tabPage14.Controls.Add(this.comboBoxMappings);
-            this.tabPage14.Controls.Add(this.button11);
-            this.tabPage14.Controls.Add(this.button13);
-            this.tabPage14.Controls.Add(this.dataGridViewExpenditure);
-            this.tabPage14.Location = new System.Drawing.Point(4, 22);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(1003, 560);
-            this.tabPage14.TabIndex = 1;
-            this.tabPage14.Text = "Expenditure";
-            this.tabPage14.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxMappings
-            // 
-            this.comboBoxMappings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMappings.FormattingEnabled = true;
-            this.comboBoxMappings.Items.AddRange(new object[] {
-            "Unmapped",
-            "Mapped"});
-            this.comboBoxMappings.Location = new System.Drawing.Point(34, 22);
-            this.comboBoxMappings.Name = "comboBoxMappings";
-            this.comboBoxMappings.Size = new System.Drawing.Size(148, 21);
-            this.comboBoxMappings.TabIndex = 48;
-            this.comboBoxMappings.SelectedIndexChanged += new System.EventHandler(this.comboBoxMappings_SelectedIndexChanged);
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(34, 77);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(148, 23);
-            this.button11.TabIndex = 32;
-            this.button11.Text = "Update Transactions";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.UpdateExtenditure_Click);
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(34, 49);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(148, 23);
-            this.button13.TabIndex = 31;
-            this.button13.Text = "Import Transactions";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.ImportExpenditure_Click);
-            // 
-            // dataGridViewExpenditure
-            // 
-            this.dataGridViewExpenditure.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewExpenditure.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewExpenditure.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewExpenditure.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewExpenditure.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewExpenditure.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewExpenditure.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewExpenditure.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewExpenditure.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewExpenditure.Location = new System.Drawing.Point(202, 20);
-            this.dataGridViewExpenditure.Name = "dataGridViewExpenditure";
-            this.dataGridViewExpenditure.RowHeadersVisible = false;
-            this.dataGridViewExpenditure.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewExpenditure.Size = new System.Drawing.Size(775, 521);
-            this.dataGridViewExpenditure.TabIndex = 28;
-            // 
-            // tabPage13
-            // 
-            this.tabPage13.Controls.Add(this.button10);
-            this.tabPage13.Controls.Add(this.button9);
-            this.tabPage13.Controls.Add(this.dataGridViewSetting);
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(1003, 560);
-            this.tabPage13.TabIndex = 2;
-            this.tabPage13.Text = "Settings";
-            this.tabPage13.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(30, 49);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(148, 23);
-            this.button10.TabIndex = 34;
-            this.button10.Text = "Edit Rule";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.EditRule_Click);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(30, 20);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(148, 23);
-            this.button9.TabIndex = 33;
-            this.button9.Text = "Add Rule";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.AddRule_Click);
-            // 
-            // dataGridViewSetting
-            // 
-            this.dataGridViewSetting.AllowUserToResizeRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewSetting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewSetting.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewSetting.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewSetting.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewSetting.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewSetting.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewSetting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSetting.Location = new System.Drawing.Point(198, 20);
-            this.dataGridViewSetting.Name = "dataGridViewSetting";
-            this.dataGridViewSetting.ReadOnly = true;
-            this.dataGridViewSetting.RowHeadersVisible = false;
-            this.dataGridViewSetting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSetting.Size = new System.Drawing.Size(775, 521);
-            this.dataGridViewSetting.TabIndex = 32;
+            this.dateTimePicker3.CustomFormat = "MMMM";
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker3.Location = new System.Drawing.Point(24, 19);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(129, 20);
+            this.dateTimePicker3.TabIndex = 43;
+            this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
             // 
             // MainApplication
             // 
@@ -1417,6 +1429,17 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransfer)).EndInit();
+            this.expenditureTab.ResumeLayout(false);
+            this.tabControl5.ResumeLayout(false);
+            this.tabPage15.ResumeLayout(false);
+            this.tabPage15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentTransactions)).EndInit();
+            this.tabPage16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).EndInit();
+            this.tabPage14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).EndInit();
+            this.tabPage13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).EndInit();
             this.analyticsTab.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
@@ -1434,17 +1457,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.accountTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).EndInit();
-            this.expenditureTab.ResumeLayout(false);
-            this.tabControl5.ResumeLayout(false);
-            this.tabPage15.ResumeLayout(false);
-            this.tabPage15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecentTransactions)).EndInit();
-            this.tabPage16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).EndInit();
-            this.tabPage14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).EndInit();
-            this.tabPage13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1534,6 +1546,7 @@
         private System.Windows.Forms.ComboBox comboBoxMappings;
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.DataGridView dataGridExpenditureBreakdown;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
     }
 }
 

@@ -23,7 +23,7 @@ namespace Accounting.Repository
         }
 
 
-        public IList<Expenditure> GetExpenditureByDateRequest(GetDateRequest request)
+        public IList<Expenditure> GetExpenditureByDateRequest(DateRequest request)
         {
             var res = DapperRepository.ExecuteStoredProc<Expenditure>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresByDate, request, _connection, _transaction);
             return res;
@@ -41,19 +41,19 @@ namespace Accounting.Repository
             return res;
         }
 
-        public IList<ExpenditureOverview> GetExpenditureOverview(GetDateRequest request)
+        public IList<ExpenditureOverview> GetExpenditureOverview(DateRequest request)
         {
             var res = DapperRepository.ExecuteStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresOverview, request,  _connection, _transaction);
             return res;
         }
 
-        public IList<ExpenditureOverview> GetExpenditureRuleOverview(GetDateRequest request)
+        public IList<ExpenditureOverview> GetExpenditureRuleOverview(DateRequest request)
         {
             var res = DapperRepository.ExecuteStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRuleOverview, request, _connection, _transaction);
             return res;
         }
 
-        public void ImportExpenditure(GetDateRequest request)
+        public void ImportExpenditure(DateRequest request)
         {
             DapperRepository.ExecuteStoredProc(DatabaseConnection.connection, SQLStoredProcedures.saveExpenditure, request, _connection, _transaction);
         }
