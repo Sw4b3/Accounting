@@ -34,6 +34,7 @@ namespace Accounting.Desktop.View
             this.Text = _updateExpenditureTypeRequest.ExpenditureDesc+" Rule";
             textBox3.Text = _updateExpenditureTypeRequest.ExpenditureDesc;
             textBox1.Text = _updateExpenditureTypeRequest.ExpenditureLimit.ToString();
+            checkBox1.Checked= _updateExpenditureTypeRequest.ShouldDisplay;
         }
 
         public void SaveExpenditureTypes() {
@@ -46,6 +47,7 @@ namespace Accounting.Desktop.View
                         ExpenditureRuleId = _updateExpenditureTypeRequest.ExpenditureRuleId,
                         ExpenditureDesc = textBox3.Text,
                         ExpenditureLimit = decimal.Parse(textBox1.Text),
+                        ShouldDisplay = checkBox1.Checked
                     });
                     _mainForm.PopulateExpenditureTable();
                     this.Dispose();

@@ -78,7 +78,7 @@ namespace Accounting.Desktop.Controller
 
         public void GetExpenditureRules(DataGridView dataGridView)
         {
-            dataGridView.DataSource = _expenditureService.GetExpenditureRules().Select(x => new { x.ExpenditureRuleId, x.ExpenditureDesc, x.ExpenditureLimit }).ToList();
+            dataGridView.DataSource = _expenditureService.GetExpenditureRules().Select(x => new { x.ExpenditureRuleId, x.ExpenditureDesc, x.ExpenditureLimit, x.ShouldDisplay }).ToList();
         }
 
         public void GetExpenditureOverview(CircularProgressBar.CircularProgressBar bar1, Label rule1, Label current1, Label limit1,
@@ -153,39 +153,41 @@ namespace Accounting.Desktop.Controller
 
         public void PopluateExpenditurePanel(TableLayoutPanel tableLayoutPanel)
         {
-            var expenditureOverview = _expenditureService.GetExpenditureRuleOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal }).ToList();
+            var expenditureOverview = _expenditureService.GetExpenditureRuleOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal, x.ShouldDisplay }).ToList();
             tableLayoutPanel.Controls.Clear();
 
             foreach (var item in expenditureOverview)
             {
-
-                //tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-                tableLayoutPanel.Controls.Add(new Label()
+                if (item.ShouldDisplay)
                 {
-                    Text = item.ExpenditureDesc.ToString()
-                });
-
-                if (item.ExpenditureTotal <= item.ExpenditureLimit)
-                {
-                    tableLayoutPanel.Controls.Add(new CustomProgressBar()
+                    //tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+                    tableLayoutPanel.Controls.Add(new Label()
                     {
-                        Maximum = (int)item.ExpenditureLimit,
-                        Value = (int)item.ExpenditureTotal,
-                        BackColor = System.Drawing.Color.WhiteSmoke,
-                        ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145))))),
-                        Width = 200
+                        Text = item.ExpenditureDesc.ToString()
                     });
-                }
-                else
-                {
-                    tableLayoutPanel.Controls.Add(new CustomProgressBar()
+
+                    if (item.ExpenditureTotal <= item.ExpenditureLimit)
                     {
-                        Maximum = (int)item.ExpenditureLimit,
-                        Value = (int)item.ExpenditureLimit,
-                        BackColor = System.Drawing.Color.WhiteSmoke,
-                        ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137))))),
-                        Width = 200
-                    });
+                        tableLayoutPanel.Controls.Add(new CustomProgressBar()
+                        {
+                            Maximum = (int)item.ExpenditureLimit,
+                            Value = (int)item.ExpenditureTotal,
+                            BackColor = System.Drawing.Color.WhiteSmoke,
+                            ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145))))),
+                            Width = 200
+                        });
+                    }
+                    else
+                    {
+                        tableLayoutPanel.Controls.Add(new CustomProgressBar()
+                        {
+                            Maximum = (int)item.ExpenditureLimit,
+                            Value = (int)item.ExpenditureLimit,
+                            BackColor = System.Drawing.Color.WhiteSmoke,
+                            ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137))))),
+                            Width = 200
+                        });
+                    }
                 }
             }
 
@@ -229,6 +231,7 @@ namespace Accounting.Desktop.Controller
                     ExpenditureRuleId = int.Parse(selectedRow.Cells[0].Value.ToString()),
                     ExpenditureDesc = selectedRow.Cells[1].Value.ToString(),
                     ExpenditureLimit = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
+                    ShouldDisplay = bool.Parse(selectedRow.Cells[3].Value.ToString()),
                 };
             }
             return null;

@@ -10,7 +10,7 @@ namespace Accounting.Desktop.Model
     {
         public int ExpenditureRuleId { get; set; }
 
-        public String ExpenditureDesc { get; set; }
+        public string ExpenditureDesc { get; set; }
 
         public override string ToString()
         {

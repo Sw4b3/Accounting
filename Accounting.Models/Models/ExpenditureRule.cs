@@ -10,8 +10,10 @@ namespace Accounting.Models.Models
     {
         public int ExpenditureRuleId { get; set; }
 
-        public String ExpenditureDesc { get; set; }
+        public string ExpenditureDesc { get; set; }
 
-        public Decimal ExpenditureLimit { get; set; }
+        public decimal ExpenditureLimit { get; set; }
+
+        public bool ShouldDisplay { get; set; }
     }
 }
