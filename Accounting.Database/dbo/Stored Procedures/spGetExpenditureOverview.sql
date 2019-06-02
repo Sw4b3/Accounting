@@ -1,5 +1,6 @@
 ﻿
 CREATE PROCEDURE [dbo].[spGetExpenditureOverview]
+@startDate datetime, @endDate datetime
 AS
 BEGIN
 		
@@ -19,7 +20,8 @@ BEGIN
 					on e.ExpenditureRuleId=er.ExpenditureRuleId
 					inner join ExpenditureTypes et
 					on et.ExpenditureTypeId=er.ExpenditureTypeId
-					group by  e.ExpenditureRuleId,et.ExpenditureDesc, et.ExpenditureTypeId) as Table2
+				where TransactionTimestamp BETWEEN @startDate AND  @endDate
+				group by  e.ExpenditureRuleId,et.ExpenditureDesc, et.ExpenditureTypeId) as Table2
 
 					on Table1.ExpenditureTypeId=Table2.ExpenditureTypeId
 	

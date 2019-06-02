@@ -41,15 +41,15 @@ namespace Accounting.Repository
             return res;
         }
 
-        public IList<ExpenditureOverview> GetExpenditureOverview()
+        public IList<ExpenditureOverview> GetExpenditureOverview(GetDateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresOverview, _connection, _transaction);
+            var res = DapperRepository.ExecuteStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresOverview, request,  _connection, _transaction);
             return res;
         }
 
-        public IList<ExpenditureOverview> GetExpenditureRuleOverview()
+        public IList<ExpenditureOverview> GetExpenditureRuleOverview(GetDateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRuleOverview, _connection, _transaction);
+            var res = DapperRepository.ExecuteStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRuleOverview, request, _connection, _transaction);
             return res;
         }
 

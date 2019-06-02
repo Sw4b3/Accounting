@@ -70,7 +70,7 @@ namespace Accounting.Domain.Services.Service
             try
             {
                 uow.CreateUnitOfWork();
-                var res = uow.ExpenditureRepository.GetExpenditureOverview();
+                var res = uow.ExpenditureRepository.GetExpenditureOverview(Extensions.GetCurrentMonth());
                 uow.Commit();
                 return res;
             }
@@ -85,7 +85,7 @@ namespace Accounting.Domain.Services.Service
             try
             {
                 uow.CreateUnitOfWork();
-                var res = uow.ExpenditureRepository.GetExpenditureRuleOverview();
+                var res = uow.ExpenditureRepository.GetExpenditureRuleOverview(Extensions.GetCurrentMonth());
                 uow.Commit();
                 return res;
             }

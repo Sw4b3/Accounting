@@ -1,5 +1,6 @@
 ﻿
 CREATE PROCEDURE [dbo].[spGetExpenditureRuleOverview]
+@startDate datetime, @endDate datetime
 AS
 BEGIN		
 		select sum(t.Amount) ExpenditureTotal, er.ExpenditureDesc,er.ExpenditureLimit , er.ShouldDisplay
@@ -11,7 +12,9 @@ BEGIN
 			on e.ExpenditureRuleId=er.ExpenditureRuleId
 			inner join ExpenditureTypes et
 			on et.ExpenditureTypeId=er.ExpenditureTypeId
-			group by  e.ExpenditureRuleId,er.ExpenditureDesc, et.ExpenditureTypeId,er.ExpenditureLimit, er.ShouldDisplay
+		where TransactionTimestamp BETWEEN @startDate AND  @endDate
+		group by  e.ExpenditureRuleId,er.ExpenditureDesc, et.ExpenditureTypeId,er.ExpenditureLimit, er.ShouldDisplay
+	
 
 		select  ExpenditureTotal, ExpenditureDesc, ExpenditureLimit, ShouldDisplay 
 		from #TempTable
