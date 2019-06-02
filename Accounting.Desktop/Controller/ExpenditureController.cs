@@ -158,7 +158,7 @@ namespace Accounting.Desktop.Controller
 
             foreach (var item in expenditureOverview)
             {
-                if (item.ShouldDisplay)
+                if (item.ShouldDisplay && item.ExpenditureLimit!=0 )
                 {
                     //tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
                     tableLayoutPanel.Controls.Add(new Label()
