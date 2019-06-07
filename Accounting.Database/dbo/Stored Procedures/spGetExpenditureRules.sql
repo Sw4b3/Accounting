@@ -1,6 +1,7 @@
 ﻿
-create PROCEDURE [dbo].[spGetExpenditureRules]
+CREATE PROCEDURE [dbo].[spGetExpenditureRules]
 AS
 BEGIN
-		select *  from ExpenditureRules with (nolock);
+		select *  from ExpenditureRules with (nolock)
+		order by ExpenditureTypeId
 END

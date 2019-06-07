@@ -3,7 +3,13 @@ CREATE PROCEDURE [dbo].[spGetAnalyticsStatistics]
 @startDate datetime, @endDate datetime
 AS
 BEGIN
-		select 'Average Per Day (Overall)' as StatisticName, avg(Amount) as Stat
+		declare  @startOfYear datetime, @monthCount int,  @yearCount int
+
+		set @startOfYear=(SELECT   DATEADD(yy, DATEDIFF(yy, 0, GETDATE()), 0))
+		set @monthCount = (select( DATEDIFF(DAY, @startDate, CURRENT_TIMESTAMP)))
+		set @yearCount = (select( DATEDIFF(DAY,  @startOfYear, CURRENT_TIMESTAMP)))
+
+		select 'Average Per Day (Overall)' as StatisticName, sum(Amount)/@yearCount as Stat
 			from (select sum(Amount) as Amount
 			from Transactions 
 			where TransactionTypeId=2
@@ -11,7 +17,7 @@ BEGIN
 
 		union all 
 
-		select 'Average Per Day (Current Month)' as StatisticName, avg(Amount) as Stat
+		select 'Average Per Day (Current Month)' as StatisticName, sum(Amount)/@monthCount as Stat
 			from (select sum(Amount) as Amount
 			from Transactions 
 			where TransactionTypeId=2
