@@ -107,5 +107,10 @@ namespace Accounting.Desktop.Controller
             var transaction = new DeleteTransactionRequest { TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()) };
             _transactionService.DeleteTransaction(transaction);
         }
+
+        public void RevertImport()
+        {
+            _transactionService.RevertImport();
+        }
     }
 }

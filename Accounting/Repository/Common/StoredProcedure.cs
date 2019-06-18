@@ -31,5 +31,6 @@ namespace Accounting.Repository.Common
         public const string saveExpendituresRule = "spSaveExpenditureRule";
         public const string updateExpendituresRules = "spUpdateExpenditureRules";
         public const string updateExpenditure = "spUpdateExpenditure";
+        public const string revertImport = "spRevertImport";
     }
 }

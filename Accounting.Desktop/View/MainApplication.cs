@@ -286,6 +286,12 @@ namespace Accounting.Desktop
             DateTime date = dateTimePicker3.Value;
             _expenditureController.FilterExpenditureByDate(dataGridExpenditureBreakdown, date);
         }
+
+        private void Button14_Click(object sender, EventArgs e)
+        {
+            _transactionController.RevertImport();
+            FilterTransactionByAccount();
+        }
     }
 }
 

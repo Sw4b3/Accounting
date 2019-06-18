@@ -136,6 +136,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
+            this.button14 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -384,6 +385,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button14);
             this.tabPage2.Controls.Add(this.DeleteButton);
             this.tabPage2.Controls.Add(this.labelAvailableBalanceTransaction);
             this.tabPage2.Controls.Add(this.button8);
@@ -408,7 +410,7 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(34, 244);
+            this.DeleteButton.Location = new System.Drawing.Point(34, 270);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(148, 23);
             this.DeleteButton.TabIndex = 51;
@@ -438,7 +440,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(34, 194);
+            this.button7.Location = new System.Drawing.Point(34, 223);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(148, 23);
             this.button7.TabIndex = 48;
@@ -1402,6 +1404,16 @@
             this.dataGridAccount.Size = new System.Drawing.Size(465, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(34, 194);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(148, 23);
+            this.button14.TabIndex = 52;
+            this.button14.Text = "Revert Import";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1548,6 +1560,7 @@
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.DataGridView dataGridExpenditureBreakdown;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Button button14;
     }
 }
 

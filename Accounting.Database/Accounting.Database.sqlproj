@@ -94,5 +94,6 @@
     <Build Include="dbo\Stored Procedures\spSaveExpenditureRule.sql" />
     <Build Include="dbo\Stored Procedures\spGetExpenditureRuleOverview.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateExpenditureRules.sql" />
+    <Build Include="dbo\Stored Procedures\spRevertImport.sql" />
   </ItemGroup>
 </Project>

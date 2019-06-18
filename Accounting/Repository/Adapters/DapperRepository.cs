@@ -33,5 +33,10 @@ namespace Accounting.Repository.Common
 
             var res = connection.Query(storedProcedureName, queryParameters, commandType: CommandType.StoredProcedure, transaction: transaction).ToList();
         }
+
+        public static void ExecuteStoredProc(string connectionString, string storedProcedureName, IDbConnection connection = null, IDbTransaction transaction = null)
+        {
+            var res = connection.Query(storedProcedureName, commandType: CommandType.StoredProcedure, transaction: transaction).ToList();
+        }
     }
 }

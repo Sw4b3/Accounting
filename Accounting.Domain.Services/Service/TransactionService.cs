@@ -106,5 +106,18 @@ namespace Accounting.Models.Service
             }
         }
 
+        public void RevertImport()
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.TransactionRepository.RevertImportRequest();
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 }
