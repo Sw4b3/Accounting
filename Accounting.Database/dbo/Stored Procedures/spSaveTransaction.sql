@@ -19,7 +19,7 @@ BEGIN
 			UPDATE Accounts SET AvailableBalance = @balance WHERE AccountId = @accountTypeId;
 			end
 
-		insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp)
-		values (@description,@amount,@balance, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp))
+		insert into Transactions(Description,Amount,Balance, AccountTypeId, TransactionTypeId,TransactionTimestamp, ImportDate)
+		values (@description,@amount,@balance, @accountTypeId ,@transactionTypeId, CONVERT (date, @transactionTimestamp), CONVERT (date, CURRENT_TIMESTAMP))
 		
 END

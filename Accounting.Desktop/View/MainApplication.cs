@@ -51,7 +51,6 @@ namespace Accounting.Desktop
             _transactionController.GetTransactionsCredit(dataViewTransactionCredit);
         }
 
-
         public void PopulateAccountTable()
         {
             _accountController.GetAccount(dataGridAccount);

@@ -10,19 +10,16 @@ BEGIN
 		set @yearCount = (select( DATEDIFF(DAY,  @startOfYear, CURRENT_TIMESTAMP)))
 
 		select 'Average Per Day (Overall)' as StatisticName, sum(Amount)/@yearCount as Stat
-			from (select sum(Amount) as Amount
 			from Transactions 
 			where TransactionTypeId=2
-			group by TransactionTimestamp) as Ag
 
 		union all 
 
 		select 'Average Per Day (Current Month)' as StatisticName, sum(Amount)/@monthCount as Stat
-			from (select sum(Amount) as Amount
 			from Transactions 
 			where TransactionTypeId=2
 			and TransactionTimestamp between @startDate and @endDate and AccountTypeId=1
-			group by TransactionTimestamp) as Ag
+			
 
 		union all 
 
