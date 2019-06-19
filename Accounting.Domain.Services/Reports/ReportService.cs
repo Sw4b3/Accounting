@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Accounting.Domain.Services.Reports
 {
-    public class ExcelService
+    public class ReportService
     {
         private IMappingService _mappingService;
-        string[] months = { "JAN ", "FEB ", "MAR ", "APR ", "MAY ", "JUN ", "JUL ", "AUG ", "SEP ", "OCT ", "NOV ", "DEC " };
+        //string[] months = { "JAN ", "FEB ", "MAR ", "APR ", "MAY ", "JUN ", "JUL ", "AUG ", "SEP ", "OCT ", "NOV ", "DEC " };
         private IList<Mapping> _vauleList;
 
-        public ExcelService() {
+        public ReportService() {
             _mappingService = new MappingService();
              _vauleList = _mappingService.GetMappings();
         }
@@ -197,7 +197,7 @@ namespace Accounting.Domain.Services.Reports
                     {
                         var line = reader.ReadLine();
                         var values = line.Split(',');
-                        if (7 <= rowCount)
+                        if (7 <= rowCount && !values.Contains(""))
                         {
                             lines.Add(new SaveTransactionRequest
                             {
@@ -235,10 +235,10 @@ namespace Accounting.Domain.Services.Reports
             processedValue = Regex.Replace(processedValue, " *[~%*{}()/:<>?|\"-]+ *", " ");
             processedValue = Regex.Replace(processedValue, "[ ]{2,}", " ");
 
-            for (int i = 0; i < months.Length; i++)
-            {
-                processedValue = processedValue.Replace(months[i], "");
-            }
+            //for (int i = 0; i < months.Length; i++)
+            //{
+            //    processedValue = processedValue.Replace(months[i], "");
+            //}
 
             for (int j = 0; j < _vauleList.Count; j++)
             {

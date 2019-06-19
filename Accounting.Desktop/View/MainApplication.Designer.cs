@@ -66,6 +66,7 @@
             this.dataViewTransactionCredit = new System.Windows.Forms.DataGridView();
             this.dataViewTransactionDebit = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button14 = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.labelAvailableBalanceTransaction = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
@@ -136,7 +137,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
-            this.button14 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -408,9 +408,19 @@
             this.tabPage2.Text = "Transaction History";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(34, 256);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(148, 23);
+            this.button14.TabIndex = 52;
+            this.button14.Text = "Revert Import";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
+            // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(34, 270);
+            this.DeleteButton.Location = new System.Drawing.Point(34, 285);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(148, 23);
             this.DeleteButton.TabIndex = 51;
@@ -440,7 +450,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(34, 223);
+            this.button7.Location = new System.Drawing.Point(34, 194);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(148, 23);
             this.button7.TabIndex = 48;
@@ -1403,16 +1413,6 @@
             this.dataGridAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAccount.Size = new System.Drawing.Size(465, 515);
             this.dataGridAccount.TabIndex = 29;
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(34, 194);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(148, 23);
-            this.button14.TabIndex = 52;
-            this.button14.Text = "Revert Import";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.Button14_Click);
             // 
             // MainApplication
             // 

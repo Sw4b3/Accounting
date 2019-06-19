@@ -4,6 +4,7 @@ using Accounting.Models.Requests;
 using Accounting.Models.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,22 +12,22 @@ using System.Windows.Forms;
 
 namespace Accounting.Desktop.Controller
 {
-    class ExcelController
+    class ReportController
     {
         TransactionService _transactionService;
-        ExcelService _excelService;
+        ReportService _reportService;
 
-        public ExcelController()
+        public ReportController()
         {
             _transactionService = new TransactionService();
-            _excelService = new ExcelService();
+            _reportService = new ReportService();
         }
 
         public void ExportToTransactions()
         {
 
             var res = _transactionService.GetTransactionsByDate();
-            _excelService.ExportToExcel(res.ToList());
+            _reportService.ExportToExcel(res.ToList());
         }
 
         public void ImportFromExcel(int accountType)
@@ -54,7 +55,7 @@ namespace Accounting.Desktop.Controller
                 filename = openFileDialog.FileName;
             }
 
-            var importTransactionList = _excelService.ImportFromExcel(filename, accountType).ToList();
+            var importTransactionList = _reportService.ImportFromExcel(filename, accountType).ToList();
             var pendingTransactionList = _transactionService.GetTransactionsByDate().Where(x => x.Balance == "Pending").ToList();
 
             foreach (var transaction in importTransactionList.ToList())
@@ -76,6 +77,7 @@ namespace Accounting.Desktop.Controller
                 _transactionService.SaveTransaction(transaction);
 
             }
+            _transactionService.SaveImportFile(new SaveImportFileRequest { Filename = Path.GetFileName(filename), RowCount = importTransactionList.Count });
         }
 
         public bool isMatch(string value1, string value2, decimal value3, decimal value4, DateTime importedDate, DateTime pendingDate)

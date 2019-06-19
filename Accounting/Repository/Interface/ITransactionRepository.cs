@@ -22,6 +22,9 @@ namespace Accounting.Repository.Interface
         void UpdateTransactionRequest(UpdateTransactionRequest request);
 
         void DeleteTransactionStagingRequest(DeleteTransactionRequest request);
-        void RevertImportRequest();
+
+        void SaveImportFileRequest(SaveImportFileRequest request);
+
+        void RevertImportRequest();  
     }
 }

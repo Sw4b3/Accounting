@@ -20,7 +20,7 @@ namespace Accounting.Desktop
         private TransactionController _transactionController;
         private AccountController _accountController;
         private AnalyticsController _analyticsController;
-        private ExcelController _excelController;
+        private ReportController _excelController;
         private ExpenditureController _expenditureController;
 
         public MainApplication()
@@ -29,7 +29,7 @@ namespace Accounting.Desktop
             _transactionController = new TransactionController();
             _accountController = new AccountController();
             _analyticsController = new AnalyticsController();
-            _excelController = new ExcelController();
+            _excelController = new ReportController();
             _expenditureController = new ExpenditureController();
             PopulationAll();
         }

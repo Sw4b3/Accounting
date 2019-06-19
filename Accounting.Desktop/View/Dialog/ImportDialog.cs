@@ -14,7 +14,7 @@ namespace Accounting.Desktop.View.Dialog
     public partial class ImportDialog : Form
     {
         private TransactionController _transactionController;
-        private ExcelController _excelController;
+        private ReportController _excelController;
         private AccountController _accountController;
         private MainApplication _mainform;
 
@@ -23,7 +23,7 @@ namespace Accounting.Desktop.View.Dialog
             InitializeComponent();
             _transactionController = transactionController;
             _accountController = new AccountController();
-            _excelController = new ExcelController();
+            _excelController = new ReportController();
             _mainform = mainform;
             PopulateAccountComboBox();
         }

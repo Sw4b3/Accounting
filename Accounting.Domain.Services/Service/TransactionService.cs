@@ -106,6 +106,20 @@ namespace Accounting.Models.Service
             }
         }
 
+        public void SaveImportFile(SaveImportFileRequest request)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.TransactionRepository.SaveImportFileRequest(request);
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public void RevertImport()
         {
             try

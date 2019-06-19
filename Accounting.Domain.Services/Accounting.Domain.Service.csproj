@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\ExcelService.cs" />
+    <Compile Include="Reports\ReportService.cs" />
     <Compile Include="Service\AccountService.cs" />
     <Compile Include="Service\AnalyticsService.cs" />
     <Compile Include="Service\ExpenditureService.cs" />
