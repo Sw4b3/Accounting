@@ -1,4 +1,5 @@
 ﻿using Accounting.Domain.Services.Reports;
+using Accounting.Domain.Services.Service.Interface;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
 using Accounting.Models.Service;
@@ -14,7 +15,7 @@ namespace Accounting.Desktop.Controller
 {
     class ReportController
     {
-        TransactionService _transactionService;
+        ITransactionService _transactionService;
         ReportService _reportService;
 
         public ReportController()

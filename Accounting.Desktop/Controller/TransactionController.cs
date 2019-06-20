@@ -108,6 +108,11 @@ namespace Accounting.Desktop.Controller
             _transactionService.DeleteTransaction(transaction);
         }
 
+        public void GetImport(DataGridView dataGridView)
+        {
+           dataGridView.DataSource = _transactionService.GetImportFile();
+        }
+
         public void RevertImport()
         {
             _transactionService.RevertImport();

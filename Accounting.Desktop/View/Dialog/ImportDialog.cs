@@ -39,6 +39,7 @@ namespace Accounting.Desktop.View.Dialog
             this.Hide();
             var accountTypeId = int.Parse((_accountController.GetAccountId(comboBox2).ToString().Trim()));
             _excelController.ImportFromExcel(accountTypeId);
+            _mainform.PopulateTransactionTables();
             _mainform.FilterTransactionByAccount();
             this.Dispose();
         }

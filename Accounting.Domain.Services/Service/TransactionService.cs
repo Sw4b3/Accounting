@@ -106,6 +106,22 @@ namespace Accounting.Models.Service
             }
         }
 
+
+        public IList<ProssedImportFiles> GetImportFile()
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.TransactionRepository.GetImportFileRequest();
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public void SaveImportFile(SaveImportFileRequest request)
         {
             try

@@ -43,13 +43,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApplication));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
@@ -66,11 +67,8 @@
             this.dataViewTransactionCredit = new System.Windows.Forms.DataGridView();
             this.dataViewTransactionDebit = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button14 = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.labelAvailableBalanceTransaction = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.comboBoxAccount = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -88,6 +86,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxTransfer2 = new System.Windows.Forms.ComboBox();
             this.comboBoxTransfer1 = new System.Windows.Forms.ComboBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.dataGridViewImportFile = new System.Windows.Forms.DataGridView();
             this.expenditureTab = new System.Windows.Forms.TabPage();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage15 = new System.Windows.Forms.TabPage();
@@ -149,6 +152,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransfer)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewImportFile)).BeginInit();
             this.expenditureTab.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabPage15.SuspendLayout();
@@ -238,6 +243,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(-4, 11);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -385,11 +391,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button14);
             this.tabPage2.Controls.Add(this.DeleteButton);
             this.tabPage2.Controls.Add(this.labelAvailableBalanceTransaction);
-            this.tabPage2.Controls.Add(this.button8);
-            this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.comboBoxAccount);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.label2);
@@ -408,19 +411,9 @@
             this.tabPage2.Text = "Transaction History";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(34, 256);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(148, 23);
-            this.button14.TabIndex = 52;
-            this.button14.Text = "Revert Import";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.Button14_Click);
-            // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(34, 285);
+            this.DeleteButton.Location = new System.Drawing.Point(34, 164);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(148, 23);
             this.DeleteButton.TabIndex = 51;
@@ -437,26 +430,6 @@
             this.labelAvailableBalanceTransaction.Size = new System.Drawing.Size(98, 13);
             this.labelAvailableBalanceTransaction.TabIndex = 50;
             this.labelAvailableBalanceTransaction.Text = "Avaliable Balance: ";
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(34, 165);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(148, 23);
-            this.button8.TabIndex = 49;
-            this.button8.Text = "Import";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.Import_Click);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(34, 194);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(148, 23);
-            this.button7.TabIndex = 48;
-            this.button7.Text = "Export";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.Export_Click);
             // 
             // comboBoxAccount
             // 
@@ -652,6 +625,72 @@
             this.comboBoxTransfer1.Size = new System.Drawing.Size(148, 21);
             this.comboBoxTransfer1.TabIndex = 48;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.button14);
+            this.tabPage4.Controls.Add(this.button8);
+            this.tabPage4.Controls.Add(this.button7);
+            this.tabPage4.Controls.Add(this.dataGridViewImportFile);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Data Imports";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(33, 99);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(148, 23);
+            this.button14.TabIndex = 57;
+            this.button14.Text = "Revert Import";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.Revert_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(33, 20);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(148, 23);
+            this.button8.TabIndex = 56;
+            this.button8.Text = "Import";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.Import_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(33, 49);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(148, 23);
+            this.button7.TabIndex = 55;
+            this.button7.Text = "Export";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.Export_Click);
+            // 
+            // dataGridViewImportFile
+            // 
+            this.dataGridViewImportFile.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewImportFile.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewImportFile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewImportFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewImportFile.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewImportFile.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewImportFile.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewImportFile.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewImportFile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewImportFile.Location = new System.Drawing.Point(202, 20);
+            this.dataGridViewImportFile.Name = "dataGridViewImportFile";
+            this.dataGridViewImportFile.ReadOnly = true;
+            this.dataGridViewImportFile.RowHeadersVisible = false;
+            this.dataGridViewImportFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewImportFile.Size = new System.Drawing.Size(775, 521);
+            this.dataGridViewImportFile.TabIndex = 54;
+            // 
             // expenditureTab
             // 
             this.expenditureTab.Controls.Add(this.tabControl5);
@@ -716,8 +755,8 @@
             // dataGridViewRecentTransactions
             // 
             this.dataGridViewRecentTransactions.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewRecentTransactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewRecentTransactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewRecentTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -966,8 +1005,8 @@
             // dataGridExpenditureBreakdown
             // 
             this.dataGridExpenditureBreakdown.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridExpenditureBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridExpenditureBreakdown.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridExpenditureBreakdown.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1036,8 +1075,8 @@
             // dataGridViewExpenditure
             // 
             this.dataGridViewExpenditure.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewExpenditure.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewExpenditure.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewExpenditure.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1090,8 +1129,8 @@
             // dataGridViewSetting
             // 
             this.dataGridViewSetting.AllowUserToResizeRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewSetting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewSetting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewSetting.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1147,8 +1186,8 @@
             // dataGridViewAnalysis
             // 
             this.dataGridViewAnalysis.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewAnalysis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewAnalysis.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewAnalysis.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridViewAnalysis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1177,8 +1216,8 @@
             // dataGridViewDaily
             // 
             this.dataGridViewDaily.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewDaily.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewDaily.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewDaily.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridViewDaily.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1207,8 +1246,8 @@
             // dataGridViewMonthly
             // 
             this.dataGridViewMonthly.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewMonthly.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewMonthly.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewMonthly.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridViewMonthly.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1237,8 +1276,8 @@
             // dataGridViewStatistics
             // 
             this.dataGridViewStatistics.AllowUserToResizeRows = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewStatistics.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewStatistics.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewStatistics.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridViewStatistics.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1395,8 +1434,8 @@
             // dataGridAccount
             // 
             this.dataGridAccount.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1442,6 +1481,8 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransfer)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewImportFile)).EndInit();
             this.expenditureTab.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.tabPage15.ResumeLayout(false);
@@ -1509,8 +1550,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxTransfer2;
         private System.Windows.Forms.ComboBox comboBoxTransfer1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label labelAvailableBalanceTransaction;
         private System.Windows.Forms.Button DeleteButton;
@@ -1560,7 +1599,11 @@
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.DataGridView dataGridExpenditureBreakdown;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridView dataGridViewImportFile;
     }
 }
 

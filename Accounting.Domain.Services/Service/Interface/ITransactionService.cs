@@ -17,5 +17,11 @@ namespace Accounting.Domain.Services.Service.Interface
         void UpdateTransaction(UpdateTransactionRequest transaction);
 
         void DeleteTransaction(DeleteTransactionRequest transaction);
+
+        IList<ProssedImportFiles> GetImportFile();
+
+        void SaveImportFile(SaveImportFileRequest request);
+
+        void RevertImport();
     }
 }

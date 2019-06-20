@@ -49,6 +49,7 @@ namespace Accounting.Desktop
             _transactionController.GetTransfers(dataViewTransfer);
             _transactionController.GetTransactionsDebit(dataViewTransactionDebit);
             _transactionController.GetTransactionsCredit(dataViewTransactionCredit);
+            _transactionController.GetImport(dataGridViewImportFile);
         }
 
         public void PopulateAccountTable()
@@ -287,10 +288,11 @@ namespace Accounting.Desktop
             _expenditureController.FilterExpenditureByDate(dataGridExpenditureBreakdown, date);
         }
 
-        private void Button14_Click(object sender, EventArgs e)
+        private void Revert_Click(object sender, EventArgs e)
         {
             _transactionController.RevertImport();
             FilterTransactionByAccount();
+            _transactionController.GetImport(dataGridViewImportFile);
         }
     }
 }

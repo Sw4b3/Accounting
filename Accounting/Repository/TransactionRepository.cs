@@ -54,6 +54,12 @@ namespace Accounting.Repository
             Delete<DeleteTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.deleteTransaction, request, _connection, _transaction);
         }
 
+        public IList<ProssedImportFiles> GetImportFileRequest()
+        {
+            var res = Get<ProssedImportFiles>(DatabaseConnection.connection, SQLStoredProcedures.getImportFile, _connection, _transaction);
+            return res;
+        }
+
         public void SaveImportFileRequest(SaveImportFileRequest request)
         {
             Save(DatabaseConnection.connection, SQLStoredProcedures.saveImportFile, request, _connection, _transaction);
@@ -61,7 +67,7 @@ namespace Accounting.Repository
 
         public void RevertImportRequest()
         {
-            DapperRepository.ExecuteStoredProc(DatabaseConnection.connection, SQLStoredProcedures.revertImport, _connection, _transaction);
+            DapperRepository.ExecuteStoredProc(DatabaseConnection.connection, SQLStoredProcedures.revertImportFile, _connection, _transaction);
         }
     }
 }

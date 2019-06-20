@@ -47,6 +47,7 @@
     <Compile Include="Models\ExpenditureRule.cs" />
     <Compile Include="Models\ExpenditureType.cs" />
     <Compile Include="Models\Mappings.cs" />
+    <Compile Include="Models\ProssedImportFile.cs" />
     <Compile Include="Models\Statistic.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\AnalysisByMonth.cs" />
