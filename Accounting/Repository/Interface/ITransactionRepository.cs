@@ -23,10 +23,5 @@ namespace Accounting.Repository.Interface
 
         void DeleteTransactionStagingRequest(DeleteTransactionRequest request);
 
-        IList<ProssedImportFiles> GetImportFileRequest();
-
-        void SaveImportFileRequest(SaveImportFileRequest request);
-
-        void RevertImportRequest();  
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Accounting.Domain.Services.Reports;
+using Accounting.Domain.Services.Service;
 using Accounting.Domain.Services.Service.Interface;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
@@ -15,20 +16,32 @@ namespace Accounting.Desktop.Controller
 {
     class ReportController
     {
-        ITransactionService _transactionService;
-        ReportHandler _reportService;
+        private ITransactionService _transactionService;
+        private IReportService _reportService;
+        private ReportHandler _reportHanlder;
 
         public ReportController()
         {
             _transactionService = new TransactionService();
-            _reportService = new ReportHandler();
+            _reportService = new ReportService();
+            _reportHanlder = new ReportHandler();
+        }
+
+        public void GetImport(DataGridView dataGridView)
+        {
+            dataGridView.DataSource = _reportService.GetImportFile();
+        }
+
+        public void RevertImport()
+        {
+            _reportService.RevertImport();
         }
 
         public void ExportToTransactions()
         {
 
             var res = _transactionService.GetTransactionsByDate();
-            _reportService.ExportToExcel(res.ToList());
+            _reportHanlder.ExportToExcel(res.ToList());
         }
 
         public void ImportFromExcel(int accountType)
@@ -56,10 +69,11 @@ namespace Accounting.Desktop.Controller
                 filename = openFileDialog.FileName;
             }
 
-            var importTransactionList = _reportService.ImportFromExcel(filename, accountType).ToList();
+            var importTransactionList = _reportHanlder.ImportFromExcel(filename, accountType).ToList();
             var pendingTransactionList = _transactionService.GetTransactionsByDate().Where(x => x.Balance == "Pending").ToList();
 
-            if (!importTransactionList.Count().Equals(0)) {
+            if (!importTransactionList.Count().Equals(0))
+            {
                 foreach (var transaction in importTransactionList.ToList())
                 {
                     if (pendingTransactionList.Count() != 0)
@@ -79,7 +93,7 @@ namespace Accounting.Desktop.Controller
                     _transactionService.SaveTransaction(transaction);
 
                 }
-                _transactionService.SaveImportFile(new SaveImportFileRequest { Filename = Path.GetFileName(filename), RowCount = importTransactionList.Count, AccountTypeId = accountType });
+                _reportService.SaveImportFile(new SaveImportFileRequest { Filename = Path.GetFileName(filename), RowCount = importTransactionList.Count, AccountTypeId = accountType });
             }
         }
 

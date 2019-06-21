@@ -68,8 +68,10 @@
     <Compile Include="Repository\Interface\IAnalyticsRepository.cs" />
     <Compile Include="Repository\Interface\IBaseReposity.cs" />
     <Compile Include="Repository\Interface\IMappingRepository.cs" />
+    <Compile Include="Repository\Interface\IReportRepository.cs" />
     <Compile Include="Repository\Interface\ITransactionRepository.cs" />
     <Compile Include="Repository\MappingRepository.cs" />
+    <Compile Include="Repository\ReportRepository.cs" />
     <Compile Include="Repository\TransactionRepository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
   </ItemGroup>

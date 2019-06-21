@@ -20,7 +20,7 @@ namespace Accounting.Desktop
         private TransactionController _transactionController;
         private AccountController _accountController;
         private AnalyticsController _analyticsController;
-        private ReportController _excelController;
+        private ReportController _reportController;
         private ExpenditureController _expenditureController;
 
         public MainApplication()
@@ -29,7 +29,7 @@ namespace Accounting.Desktop
             _transactionController = new TransactionController();
             _accountController = new AccountController();
             _analyticsController = new AnalyticsController();
-            _excelController = new ReportController();
+            _reportController = new ReportController();
             _expenditureController = new ExpenditureController();
             PopulationAll();
         }
@@ -49,7 +49,7 @@ namespace Accounting.Desktop
             _transactionController.GetTransfers(dataViewTransfer);
             _transactionController.GetTransactionsDebit(dataViewTransactionDebit);
             _transactionController.GetTransactionsCredit(dataViewTransactionCredit);
-            _transactionController.GetImport(dataGridViewImportFile);
+            _reportController.GetImport(dataGridViewImportFile);
         }
 
         public void PopulateAccountTable()
@@ -222,7 +222,7 @@ namespace Accounting.Desktop
 
         private void Export_Click(object sender, EventArgs e)
         {
-            _excelController.ExportToTransactions();
+            _reportController.ExportToTransactions();
         }
 
         private void Import_Click(object sender, EventArgs e)
@@ -293,9 +293,9 @@ namespace Accounting.Desktop
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to revert this Import", "Revert Import", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                _transactionController.RevertImport();
+                _reportController.RevertImport();
                 FilterTransactionByAccount();
-                _transactionController.GetImport(dataGridViewImportFile);
+                _reportController.GetImport(dataGridViewImportFile);
             }
         }
     }

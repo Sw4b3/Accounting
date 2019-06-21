@@ -105,49 +105,5 @@ namespace Accounting.Models.Service
                 throw;
             }
         }
-
-
-        public IList<ProssedImportFiles> GetImportFile()
-        {
-            try
-            {
-                uow.CreateUnitOfWork();
-                var res = uow.TransactionRepository.GetImportFileRequest();
-                uow.Commit();
-                return res;
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
-
-        public void SaveImportFile(SaveImportFileRequest request)
-        {
-            try
-            {
-                uow.CreateUnitOfWork();
-                uow.TransactionRepository.SaveImportFileRequest(request);
-                uow.Commit();
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
-
-        public void RevertImport()
-        {
-            try
-            {
-                uow.CreateUnitOfWork();
-                uow.TransactionRepository.RevertImportRequest();
-                uow.Commit();
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
     }
 }

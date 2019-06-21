@@ -70,8 +70,10 @@
     <Compile Include="Service\Interface\IAnalyticsService.cs" />
     <Compile Include="Service\Interface\IExpenditureService.cs" />
     <Compile Include="Service\Interface\IMappingService.cs" />
+    <Compile Include="Service\Interface\IReportService.cs" />
     <Compile Include="Service\Interface\ITransactionService.cs" />
     <Compile Include="Service\MappingService.cs" />
+    <Compile Include="Service\ReportService.cs" />
     <Compile Include="Service\TransactionService.cs" />
     <Compile Include="Utillies\Extensions.cs" />
   </ItemGroup>
