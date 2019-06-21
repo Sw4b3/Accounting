@@ -15,5 +15,8 @@ namespace Accounting.Models.Models
         public int RowCount { get; set; }
 
         public DateTime ImportDate { get; set; }
+
+        public string Status { get; set; }
+
     }
 }

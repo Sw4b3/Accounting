@@ -290,9 +290,13 @@ namespace Accounting.Desktop
 
         private void Revert_Click(object sender, EventArgs e)
         {
-            _transactionController.RevertImport();
-            FilterTransactionByAccount();
-            _transactionController.GetImport(dataGridViewImportFile);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to revert this Import", "Revert Import", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                _transactionController.RevertImport();
+                FilterTransactionByAccount();
+                _transactionController.GetImport(dataGridViewImportFile);
+            }
         }
     }
 }

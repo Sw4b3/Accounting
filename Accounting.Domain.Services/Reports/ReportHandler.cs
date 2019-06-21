@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace Accounting.Domain.Services.Reports
 {
-    public class ReportService
+    public class ReportHandler
     {
         private IMappingService _mappingService;
         //string[] months = { "JAN ", "FEB ", "MAR ", "APR ", "MAY ", "JUN ", "JUL ", "AUG ", "SEP ", "OCT ", "NOV ", "DEC " };
         private IList<Mapping> _vauleList;
 
-        public ReportService() {
+        public ReportHandler() {
             _mappingService = new MappingService();
              _vauleList = _mappingService.GetMappings();
         }

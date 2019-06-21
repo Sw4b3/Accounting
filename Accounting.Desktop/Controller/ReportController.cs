@@ -16,12 +16,12 @@ namespace Accounting.Desktop.Controller
     class ReportController
     {
         ITransactionService _transactionService;
-        ReportService _reportService;
+        ReportHandler _reportService;
 
         public ReportController()
         {
             _transactionService = new TransactionService();
-            _reportService = new ReportService();
+            _reportService = new ReportHandler();
         }
 
         public void ExportToTransactions()
@@ -59,26 +59,28 @@ namespace Accounting.Desktop.Controller
             var importTransactionList = _reportService.ImportFromExcel(filename, accountType).ToList();
             var pendingTransactionList = _transactionService.GetTransactionsByDate().Where(x => x.Balance == "Pending").ToList();
 
-            foreach (var transaction in importTransactionList.ToList())
-            {
-                if (pendingTransactionList.Count() != 0)
+            if (!importTransactionList.Count().Equals(0)) {
+                foreach (var transaction in importTransactionList.ToList())
                 {
-                    foreach (var vaules in pendingTransactionList.ToList())
+                    if (pendingTransactionList.Count() != 0)
                     {
-                        if (isMatch(transaction.Description, vaules.Description, transaction.Amount, vaules.Amount, transaction.TransactionTimestamp, vaules.TransactionTimestamp))
+                        foreach (var vaules in pendingTransactionList.ToList())
                         {
-                            _transactionService.DeleteTransaction(new DeleteTransactionRequest { TransactionId = vaules.TransactionId });
-                            pendingTransactionList.Remove(vaules);
-                            importTransactionList.Remove(transaction);
-                            break;
+                            if (isMatch(transaction.Description, vaules.Description, transaction.Amount, vaules.Amount, transaction.TransactionTimestamp, vaules.TransactionTimestamp))
+                            {
+                                _transactionService.DeleteTransaction(new DeleteTransactionRequest { TransactionId = vaules.TransactionId });
+                                pendingTransactionList.Remove(vaules);
+                                importTransactionList.Remove(transaction);
+                                break;
+                            }
                         }
                     }
+
+                    _transactionService.SaveTransaction(transaction);
+
                 }
-
-                _transactionService.SaveTransaction(transaction);
-
+                _transactionService.SaveImportFile(new SaveImportFileRequest { Filename = Path.GetFileName(filename), RowCount = importTransactionList.Count, AccountTypeId = accountType });
             }
-            _transactionService.SaveImportFile(new SaveImportFileRequest { Filename = Path.GetFileName(filename), RowCount = importTransactionList.Count });
         }
 
         public bool isMatch(string value1, string value2, decimal value3, decimal value4, DateTime importedDate, DateTime pendingDate)
