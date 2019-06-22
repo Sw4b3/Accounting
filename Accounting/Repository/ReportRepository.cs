@@ -32,9 +32,15 @@ namespace Accounting.Repository
             Save(DatabaseConnection.connection, SQLStoredProcedures.saveImportFile, request, _connection, _transaction);
         }
 
-        public void RevertImportRequest()
+        public void CompleteImportFileRequest(object request)
         {
-            DapperRepository.ExecuteStoredProc(DatabaseConnection.connection, SQLStoredProcedures.revertImportFile, _connection, _transaction);
+            DapperRepository.ExecuteStoredProc(DatabaseConnection.connection, SQLStoredProcedures.completeImportFile, request, _connection, _transaction);
         }
+
+        public void RevertImportRequest(RevertImportFileRequest request)
+        {
+            DapperRepository.ExecuteStoredProc(DatabaseConnection.connection, SQLStoredProcedures.revertImportFile, request, _connection, _transaction);
+        }
+  
     }
 }

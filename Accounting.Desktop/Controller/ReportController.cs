@@ -32,9 +32,14 @@ namespace Accounting.Desktop.Controller
             dataGridView.DataSource = _reportService.GetImportFile();
         }
 
-        public void RevertImport()
+        public void RevertImport(Guid fileId)
         {
-            _reportService.RevertImport();
+            _reportService.RevertImport(new RevertImportFileRequest { FileId=fileId });
+        }
+
+        public void CompleteImport(Guid fileId)
+        {
+            _reportService.CompleteImport(new RevertImportFileRequest { FileId = fileId });
         }
 
         public void ExportToTransactions()
@@ -72,6 +77,8 @@ namespace Accounting.Desktop.Controller
             var importTransactionList = _reportHanlder.ImportFromExcel(filename, accountType).ToList();
             var pendingTransactionList = _transactionService.GetTransactionsByDate().Where(x => x.Balance == "Pending").ToList();
 
+            _reportService.SaveImportFile(new SaveImportFileRequest { Filename = Path.GetFileName(filename), RowCount = importTransactionList.Count, AccountTypeId = accountType });
+
             if (!importTransactionList.Count().Equals(0))
             {
                 foreach (var transaction in importTransactionList.ToList())
@@ -93,7 +100,6 @@ namespace Accounting.Desktop.Controller
                     _transactionService.SaveTransaction(transaction);
 
                 }
-                _reportService.SaveImportFile(new SaveImportFileRequest { Filename = Path.GetFileName(filename), RowCount = importTransactionList.Count, AccountTypeId = accountType });
             }
         }
 

@@ -293,7 +293,22 @@ namespace Accounting.Desktop
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to revert this Import", "Revert Import", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                _reportController.RevertImport();
+                int selectedrowindex = dataGridViewImportFile.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridViewImportFile.Rows[selectedrowindex];
+                _reportController.RevertImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
+                FilterTransactionByAccount();
+                _reportController.GetImport(dataGridViewImportFile);
+            }
+        }
+
+        private void Complete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to complete this Import", "Complete Import", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int selectedrowindex = dataGridViewImportFile.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridViewImportFile.Rows[selectedrowindex];
+                _reportController.CompleteImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
                 FilterTransactionByAccount();
                 _reportController.GetImport(dataGridViewImportFile);
             }

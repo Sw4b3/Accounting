@@ -26,6 +26,6 @@ namespace Accounting.Models.Models
 
         public string AccountType { get; set; }
 
-        public DateTime ImportDate { get; set; }
+        public Guid FileId { get; set; }
     }
 }

@@ -3,10 +3,12 @@ CREATE PROCEDURE [dbo].[spSaveImportFile]
 @filename varchar(255), @rowCount int, @accountTypeId int
 AS
 BEGIN
+	declare @status int = (select StatusId from Statues where Status='In Review')
+
 	IF NOT EXISTS (select * from ProcessedImportFiles where Filename = @filename)
 
-		insert into ProcessedImportFiles(Filename, [RowCount], ImportDate, Status, AccountTypeId)
-		values(@filename, @rowCount, CONVERT (date, CURRENT_TIMESTAMP), 'Completed', @accountTypeId) 
+		insert into ProcessedImportFiles(Filename, [RowCount], ImportDate, StatusId, AccountTypeId)
+		values(@filename, @rowCount, CONVERT (date, CURRENT_TIMESTAMP), @status, @accountTypeId) 
 
 	ELSE
 
@@ -14,7 +16,7 @@ BEGIN
 		set Filename = @filename,
 			[RowCount] = @rowCount,  
 			ImportDate = CONVERT (date, CURRENT_TIMESTAMP), 
-			Status  ='Completed'
+			StatusId  = @status
 		where Filename = @filename
 
 		

@@ -87,6 +87,7 @@
             this.comboBoxTransfer2 = new System.Windows.Forms.ComboBox();
             this.comboBoxTransfer1 = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -627,6 +628,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button15);
             this.tabPage4.Controls.Add(this.button14);
             this.tabPage4.Controls.Add(this.button8);
             this.tabPage4.Controls.Add(this.button7);
@@ -639,9 +641,19 @@
             this.tabPage4.Text = "Data Imports";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(33, 105);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(148, 23);
+            this.button15.TabIndex = 58;
+            this.button15.Text = "Complete Import";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.Complete_Click);
+            // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(33, 99);
+            this.button14.Location = new System.Drawing.Point(33, 134);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(148, 23);
             this.button14.TabIndex = 57;
@@ -1604,6 +1616,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridView dataGridViewImportFile;
+        private System.Windows.Forms.Button button15;
     }
 }
 
