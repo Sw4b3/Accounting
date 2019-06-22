@@ -414,12 +414,15 @@
             // 
             // DeleteButton
             // 
+            this.DeleteButton.BackColor = System.Drawing.Color.DarkGray;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DeleteButton.Location = new System.Drawing.Point(34, 164);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(148, 23);
             this.DeleteButton.TabIndex = 51;
             this.DeleteButton.Text = "Delete";
-            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.UseVisualStyleBackColor = false;
             this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // labelAvailableBalanceTransaction
@@ -434,7 +437,9 @@
             // 
             // comboBoxAccount
             // 
+            this.comboBoxAccount.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxAccount.FormattingEnabled = true;
             this.comboBoxAccount.Location = new System.Drawing.Point(34, 30);
             this.comboBoxAccount.Name = "comboBoxAccount";
@@ -444,12 +449,15 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.DarkGray;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button4.Location = new System.Drawing.Point(727, 30);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(148, 23);
             this.button4.TabIndex = 46;
             this.button4.Text = "Search";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.FilterByDate_Click);
             // 
             // label2
@@ -500,22 +508,28 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.DarkGray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Location = new System.Drawing.Point(34, 78);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 23);
             this.button2.TabIndex = 31;
             this.button2.Text = "Withdraw";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Withdraw_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DarkGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(34, 107);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 23);
             this.button1.TabIndex = 30;
             this.button1.Text = "Deposit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Deposit_Click);
             // 
             // dataViewTransaction
@@ -582,12 +596,15 @@
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.DarkGray;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button6.Location = new System.Drawing.Point(33, 28);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(148, 23);
             this.button6.TabIndex = 52;
             this.button6.Text = "Create Transfer";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.Transfer_Click);
             // 
             // label6
@@ -610,7 +627,9 @@
             // 
             // comboBoxTransfer2
             // 
+            this.comboBoxTransfer2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxTransfer2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTransfer2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxTransfer2.FormattingEnabled = true;
             this.comboBoxTransfer2.Location = new System.Drawing.Point(418, 30);
             this.comboBoxTransfer2.Name = "comboBoxTransfer2";
@@ -619,7 +638,9 @@
             // 
             // comboBoxTransfer1
             // 
+            this.comboBoxTransfer1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxTransfer1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTransfer1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxTransfer1.FormattingEnabled = true;
             this.comboBoxTransfer1.Location = new System.Drawing.Point(238, 30);
             this.comboBoxTransfer1.Name = "comboBoxTransfer1";
@@ -643,42 +664,54 @@
             // 
             // button15
             // 
+            this.button15.BackColor = System.Drawing.Color.DarkGray;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button15.Location = new System.Drawing.Point(33, 105);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(148, 23);
             this.button15.TabIndex = 58;
             this.button15.Text = "Complete Import";
-            this.button15.UseVisualStyleBackColor = true;
+            this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.Complete_Click);
             // 
             // button14
             // 
+            this.button14.BackColor = System.Drawing.Color.DarkGray;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button14.Location = new System.Drawing.Point(33, 134);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(148, 23);
             this.button14.TabIndex = 57;
             this.button14.Text = "Revert Import";
-            this.button14.UseVisualStyleBackColor = true;
+            this.button14.UseVisualStyleBackColor = false;
             this.button14.Click += new System.EventHandler(this.Revert_Click);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.Color.DarkGray;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button8.Location = new System.Drawing.Point(33, 20);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(148, 23);
             this.button8.TabIndex = 56;
             this.button8.Text = "Import";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.Import_Click);
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.Color.DarkGray;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button7.Location = new System.Drawing.Point(33, 49);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(148, 23);
             this.button7.TabIndex = 55;
             this.button7.Text = "Export";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.Export_Click);
             // 
             // dataGridViewImportFile
@@ -1005,6 +1038,7 @@
             // 
             // dateTimePicker3
             // 
+            this.dateTimePicker3.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
             this.dateTimePicker3.CustomFormat = "MMMM";
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker3.Location = new System.Drawing.Point(24, 19);
@@ -1053,7 +1087,9 @@
             // 
             // comboBoxMappings
             // 
+            this.comboBoxMappings.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxMappings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMappings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxMappings.FormattingEnabled = true;
             this.comboBoxMappings.Items.AddRange(new object[] {
             "Unmapped",
@@ -1066,22 +1102,28 @@
             // 
             // button11
             // 
+            this.button11.BackColor = System.Drawing.Color.DarkGray;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button11.Location = new System.Drawing.Point(34, 77);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(148, 23);
             this.button11.TabIndex = 32;
             this.button11.Text = "Update Transactions";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.UpdateExtenditure_Click);
             // 
             // button13
             // 
+            this.button13.BackColor = System.Drawing.Color.DarkGray;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button13.Location = new System.Drawing.Point(34, 49);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(148, 23);
             this.button13.TabIndex = 31;
             this.button13.Text = "Import Transactions";
-            this.button13.UseVisualStyleBackColor = true;
+            this.button13.UseVisualStyleBackColor = false;
             this.button13.Click += new System.EventHandler(this.ImportExpenditure_Click);
             // 
             // dataGridViewExpenditure
@@ -1120,22 +1162,28 @@
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.DarkGray;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button10.Location = new System.Drawing.Point(30, 49);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(148, 23);
             this.button10.TabIndex = 34;
             this.button10.Text = "Edit Rule";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.EditRule_Click);
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.DarkGray;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button9.Location = new System.Drawing.Point(30, 20);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(148, 23);
             this.button9.TabIndex = 33;
             this.button9.Text = "Add Rule";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.AddRule_Click);
             // 
             // dataGridViewSetting
@@ -1425,22 +1473,28 @@
             // 
             // button12
             // 
+            this.button12.BackColor = System.Drawing.Color.DarkGray;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button12.Location = new System.Drawing.Point(30, 67);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(148, 23);
             this.button12.TabIndex = 31;
-            this.button12.Text = "Edit Current Balance";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Text = "Edit Avaliable Balance";
+            this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.EditAccount_Click);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.DarkGray;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button5.Location = new System.Drawing.Point(30, 38);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(148, 23);
             this.button5.TabIndex = 30;
             this.button5.Text = "Add Account";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.AddAccount_Click);
             // 
             // dataGridAccount
