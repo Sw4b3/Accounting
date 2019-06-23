@@ -50,6 +50,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBox3.Location = new System.Drawing.Point(136, 39);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(134, 20);
@@ -57,22 +58,28 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Tomato;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Location = new System.Drawing.Point(147, 145);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 12;
             this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(105)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(66, 145);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 11;
             this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Save_Click);
             // 
             // label1
@@ -86,6 +93,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBox1.Location = new System.Drawing.Point(136, 69);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(134, 20);
@@ -102,6 +110,9 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(136, 98);
             this.comboBox1.Name = "comboBox1";

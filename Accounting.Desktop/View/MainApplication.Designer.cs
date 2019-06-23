@@ -1516,7 +1516,7 @@
             this.dataGridAccount.ReadOnly = true;
             this.dataGridAccount.RowHeadersVisible = false;
             this.dataGridAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridAccount.Size = new System.Drawing.Size(465, 515);
+            this.dataGridAccount.Size = new System.Drawing.Size(679, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
             // MainApplication

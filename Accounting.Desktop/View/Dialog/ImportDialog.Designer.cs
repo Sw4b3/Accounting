@@ -37,7 +37,9 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(137, 38);
             this.comboBox2.Name = "comboBox2";
@@ -46,22 +48,28 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Tomato;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Location = new System.Drawing.Point(150, 86);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 10;
             this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(105)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(69, 86);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
             this.button1.Text = "Confirm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
