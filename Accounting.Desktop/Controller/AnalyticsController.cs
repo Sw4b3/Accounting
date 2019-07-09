@@ -1,4 +1,5 @@
 ﻿using Accounting.Domain.Services.Service;
+using Accounting.Domain.Services.Utillies;
 using Accounting.Models.Service;
 using System;
 using System.Collections.Generic;
@@ -34,11 +35,11 @@ namespace Accounting.Desktop.Controller
 
         public void GetAnalyticsOverview(Chart chartPie)
         {
-            var accountDetails = _transactionService.GetTransactionsByDate();
-            var expense = accountDetails.Where(x => x.TransactionTypeId == 2  && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+            var accountDetails = _transactionService.GetTransactionsByDate(Extensions.GetCurrentMonth());
+            var expense = accountDetails.Where(x => x.TransactionTypeId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
             var income = accountDetails.Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
 
-            chartPie.Series[0].Points.DataBindXY(new[] { "Expense",  "Income" }, new[] { expense, income });
+            chartPie.Series[0].Points.DataBindXY(new[] { "Expense", "Income" }, new[] { expense, income });
         }
 
         public void GetAnalyticsByDay(DataGridView dataGridView, Chart chartBar)
@@ -46,7 +47,7 @@ namespace Accounting.Desktop.Controller
             var transaction = _analyticsService.GetAnalyticsByDay();
             var dayAnalytics = transaction.Select(x => x.Amount).ToList();
             var dayAnalyticsHeader = transaction.Select(x => x.TransactionTimestamp.ToString("dd/MMM")).ToList();
-        
+
             chartBar.Series[0].Points.DataBindXY(dayAnalyticsHeader, dayAnalytics);
             dataGridView.DataSource = transaction;
         }

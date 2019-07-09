@@ -20,12 +20,12 @@ namespace Accounting.Models.Service
             uow = new UnitOfWork();
         }
 
-        public IList<Transaction> GetTransactionsByDate()
+        public IList<Transaction> GetTransactionsByDate(DateRequest request)
         {
             try
             {
                 uow.CreateUnitOfWork();
-                var res = uow.TransactionRepository.GetTransactionsByDateRequest(Extensions.GetCurrentMonth());
+                var res = uow.TransactionRepository.GetTransactionsByDateRequest(request);
                 uow.Commit();
                 return res;
             }

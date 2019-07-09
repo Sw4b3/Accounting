@@ -1,6 +1,7 @@
 ﻿using Accounting.Domain.Services.Reports;
 using Accounting.Domain.Services.Service;
 using Accounting.Domain.Services.Service.Interface;
+using Accounting.Domain.Services.Utillies;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
 using Accounting.Models.Service;
@@ -45,8 +46,15 @@ namespace Accounting.Desktop.Controller
         public void ExportToTransactions()
         {
 
-            var res = _transactionService.GetTransactionsByDate();
+            var res = _transactionService.GetTransactionsByDate(Extensions.GetCurrentMonth());
             _reportHanlder.ExportToExcel(res.ToList());
+        }
+
+        public void ExportToAllTransactions()
+        {
+
+            var res = _transactionService.GetTransactionsByDate(Extensions.GetMonths());
+            _reportHanlder.ExportAllToExcel(res.ToList());
         }
 
         public void ImportFromExcel(int accountType)
@@ -75,7 +83,7 @@ namespace Accounting.Desktop.Controller
             }
 
             var importTransactionList = _reportHanlder.ImportFromExcel(filename, accountType).ToList();
-            var pendingTransactionList = _transactionService.GetTransactionsByDate().Where(x => x.Balance == "Pending").ToList();
+            var pendingTransactionList = _transactionService.GetTransactionsByDate(Extensions.GetCurrentMonth()).Where(x => x.Balance == "Pending").ToList();
 
             _reportService.SaveImportFile(new SaveImportFileRequest { Filename = Path.GetFileName(filename), RowCount = importTransactionList.Count, AccountTypeId = accountType });
 

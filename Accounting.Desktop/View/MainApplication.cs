@@ -225,6 +225,12 @@ namespace Accounting.Desktop
             _reportController.ExportToTransactions();
         }
 
+
+        private void ExportAll_Click(object sender, EventArgs e)
+        {
+            _reportController.ExportToAllTransactions();
+        }
+
         private void Import_Click(object sender, EventArgs e)
         {
             new ImportDialog(_transactionController, this).Show();

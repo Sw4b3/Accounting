@@ -1,6 +1,7 @@
 ﻿using Accounting.Models.Requests;
 using Accounting.Models.Service;
 using Accounting.Domain.Services.Reports;
+using Accounting.Domain.Services.Utillies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Accounting.Desktop.Controller
 
         public void GetTransactions()
         {
-            _transactions = _transactionService.GetTransactionsByDate();
+            _transactions = _transactionService.GetTransactionsByDate(Extensions.GetCurrentMonth());
         }
 
         public void GetTransfers(DataGridView dataGridView)
