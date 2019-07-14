@@ -320,6 +320,19 @@ namespace Accounting.Desktop
                 _reportController.GetImport(dataGridViewImportFile);
             }
         }
+
+        private void DeleteImport_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to Delete this Import", "Delete Import", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int selectedrowindex = dataGridViewImportFile.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridViewImportFile.Rows[selectedrowindex];
+                _reportController.DeleteImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
+                FilterTransactionByAccount();
+                _reportController.GetImport(dataGridViewImportFile);
+            }
+        }
     }
 }
 

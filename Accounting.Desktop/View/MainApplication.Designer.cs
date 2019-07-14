@@ -142,6 +142,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
+            this.button17 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -650,6 +651,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button17);
             this.tabPage4.Controls.Add(this.button16);
             this.tabPage4.Controls.Add(this.button15);
             this.tabPage4.Controls.Add(this.button14);
@@ -1534,6 +1536,19 @@
             this.dataGridAccount.Size = new System.Drawing.Size(679, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.DarkGray;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button17.Location = new System.Drawing.Point(33, 188);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(148, 23);
+            this.button17.TabIndex = 60;
+            this.button17.Text = "Delete Import";
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.DeleteImport_Click);
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1687,6 +1702,7 @@
         private System.Windows.Forms.DataGridView dataGridViewImportFile;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button17;
     }
 }
 

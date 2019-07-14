@@ -37,10 +37,15 @@ namespace Accounting.Repository
             DapperRepository.ExecuteStoredProc(DatabaseConnection.connection, SQLStoredProcedures.completeImportFile, request, _connection, _transaction);
         }
 
-        public void RollbackImportRequest(RollbackImportFileRequest request)
+        public void RollbackImportRequest(ImportFileRequest request)
         {
             DapperRepository.ExecuteStoredProc(DatabaseConnection.connection, SQLStoredProcedures.rollbackImportFile, request, _connection, _transaction);
         }
-  
+
+        public void DeleteImportRequest(ImportFileRequest request)
+        {
+            DapperRepository.ExecuteStoredProc(DatabaseConnection.connection, SQLStoredProcedures.deleteImportFile, request, _connection, _transaction);
+        }
+
     }
 }

@@ -35,12 +35,17 @@ namespace Accounting.Desktop.Controller
 
         public void RollbackImport(Guid fileId)
         {
-            _reportService.RollbackImport(new RollbackImportFileRequest { FileId=fileId });
+            _reportService.RollbackImport(new ImportFileRequest { FileId=fileId });
+        }
+
+        public void DeleteImport(Guid fileId)
+        {
+            _reportService.DeleteImport(new ImportFileRequest { FileId = fileId });
         }
 
         public void CompleteImport(Guid fileId)
         {
-            _reportService.CompleteImport(new RollbackImportFileRequest { FileId = fileId });
+            _reportService.CompleteImport(new ImportFileRequest { FileId = fileId });
         }
 
         public void ExportToTransactions()

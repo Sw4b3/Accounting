@@ -6,4 +6,5 @@ BEGIN
 		from ProcessedImportFiles pif with (nolock)
 			inner join Statues s
 			on pif.StatusId=s.StatusId
+		order by pif.ImportDate Desc
 END
