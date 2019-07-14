@@ -84,9 +84,10 @@
             this.button6 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBoxTransfer2 = new System.Windows.Forms.ComboBox();
-            this.comboBoxTransfer1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTransferTo = new System.Windows.Forms.ComboBox();
+            this.comboBoxTransferFrom = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -141,7 +142,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
-            this.button16 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -563,8 +563,8 @@
             this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.Controls.Add(this.comboBoxTransfer2);
-            this.tabPage3.Controls.Add(this.comboBoxTransfer1);
+            this.tabPage3.Controls.Add(this.comboBoxTransferTo);
+            this.tabPage3.Controls.Add(this.comboBoxTransferFrom);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -628,25 +628,25 @@
             // 
             // comboBoxTransfer2
             // 
-            this.comboBoxTransfer2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxTransfer2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTransfer2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxTransfer2.FormattingEnabled = true;
-            this.comboBoxTransfer2.Location = new System.Drawing.Point(418, 30);
-            this.comboBoxTransfer2.Name = "comboBoxTransfer2";
-            this.comboBoxTransfer2.Size = new System.Drawing.Size(148, 21);
-            this.comboBoxTransfer2.TabIndex = 49;
+            this.comboBoxTransferTo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxTransferTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTransferTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxTransferTo.FormattingEnabled = true;
+            this.comboBoxTransferTo.Location = new System.Drawing.Point(418, 30);
+            this.comboBoxTransferTo.Name = "comboBoxTransfer2";
+            this.comboBoxTransferTo.Size = new System.Drawing.Size(148, 21);
+            this.comboBoxTransferTo.TabIndex = 49;
             // 
             // comboBoxTransfer1
             // 
-            this.comboBoxTransfer1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxTransfer1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTransfer1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxTransfer1.FormattingEnabled = true;
-            this.comboBoxTransfer1.Location = new System.Drawing.Point(238, 30);
-            this.comboBoxTransfer1.Name = "comboBoxTransfer1";
-            this.comboBoxTransfer1.Size = new System.Drawing.Size(148, 21);
-            this.comboBoxTransfer1.TabIndex = 48;
+            this.comboBoxTransferFrom.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxTransferFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTransferFrom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxTransferFrom.FormattingEnabled = true;
+            this.comboBoxTransferFrom.Location = new System.Drawing.Point(238, 30);
+            this.comboBoxTransferFrom.Name = "comboBoxTransfer1";
+            this.comboBoxTransferFrom.Size = new System.Drawing.Size(148, 21);
+            this.comboBoxTransferFrom.TabIndex = 48;
             // 
             // tabPage4
             // 
@@ -663,6 +663,19 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Data Imports";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            this.button16.BackColor = System.Drawing.Color.DarkGray;
+            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button16.Location = new System.Drawing.Point(33, 78);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(148, 23);
+            this.button16.TabIndex = 59;
+            this.button16.Text = "Export All";
+            this.button16.UseVisualStyleBackColor = false;
+            this.button16.Click += new System.EventHandler(this.ExportAll_Click);
             // 
             // button15
             // 
@@ -1521,19 +1534,6 @@
             this.dataGridAccount.Size = new System.Drawing.Size(679, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
-            // button16
-            // 
-            this.button16.BackColor = System.Drawing.Color.DarkGray;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button16.Location = new System.Drawing.Point(33, 78);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(148, 23);
-            this.button16.TabIndex = 59;
-            this.button16.Text = "Export All";
-            this.button16.UseVisualStyleBackColor = false;
-            this.button16.Click += new System.EventHandler(this.ExportAll_Click);
-            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1629,8 +1629,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBoxTransfer2;
-        private System.Windows.Forms.ComboBox comboBoxTransfer1;
+        private System.Windows.Forms.ComboBox comboBoxTransferTo;
+        private System.Windows.Forms.ComboBox comboBoxTransferFrom;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label labelAvailableBalanceTransaction;
         private System.Windows.Forms.Button DeleteButton;

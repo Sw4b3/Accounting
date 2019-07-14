@@ -91,8 +91,9 @@ namespace Accounting.Desktop
         public void PopulateTransactionComboBoxs()
         {
             _accountController.GetAccountComboBox(comboBoxAccount);
-            _accountController.GetAccountComboBox(comboBoxTransfer1);
-            _accountController.GetAccountComboBox(comboBoxTransfer2);
+            _accountController.GetAccountComboBox(comboBoxTransferFrom);
+            _accountController.GetAccountComboBox(comboBoxTransferTo);
+            comboBoxTransferFrom.SelectedIndex = 1;
         }
 
         public void FilterTransactionByAccount()
@@ -180,8 +181,8 @@ namespace Accounting.Desktop
 
         private void Transfer_Click(object sender, EventArgs e)
         {
-            var transfer1 = _accountController.GetAccountId(comboBoxTransfer1);
-            var transfer2 = _accountController.GetAccountId(comboBoxTransfer2);
+            var transfer1 = _accountController.GetAccountId(comboBoxTransferFrom);
+            var transfer2 = _accountController.GetAccountId(comboBoxTransferTo);
             new TransferDialog(this, transfer1, transfer2).Show();
         }
 

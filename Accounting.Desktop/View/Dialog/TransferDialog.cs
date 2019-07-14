@@ -38,7 +38,7 @@ namespace Accounting.Desktop.View.Dialog
                 Amount = decimal.Parse(textBox3.Text),
                 AccountTypeId = _transfer1,
                 TransactionTypeId = 2,
-                Description = "Transfer_withdraw",
+                Description = "TRF "+textBox1.Text.ToString().ToUpper(),
                 TransactionTimestamp = DateTime.Today
             });
         }
@@ -50,7 +50,7 @@ namespace Accounting.Desktop.View.Dialog
                 Amount = decimal.Parse(textBox3.Text),
                 AccountTypeId = _transfer2,
                 TransactionTypeId = 1,
-                Description = "Transfer_deposit",
+                Description = "TRF " + textBox1.Text.ToString().ToUpper(),
                 TransactionTimestamp = DateTime.Today
             });
         }
