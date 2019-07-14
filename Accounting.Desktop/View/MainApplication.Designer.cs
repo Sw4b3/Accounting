@@ -626,25 +626,25 @@
             this.label7.TabIndex = 50;
             this.label7.Text = "From";
             // 
-            // comboBoxTransfer2
+            // comboBoxTransferTo
             // 
             this.comboBoxTransferTo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxTransferTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTransferTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxTransferTo.FormattingEnabled = true;
             this.comboBoxTransferTo.Location = new System.Drawing.Point(418, 30);
-            this.comboBoxTransferTo.Name = "comboBoxTransfer2";
+            this.comboBoxTransferTo.Name = "comboBoxTransferTo";
             this.comboBoxTransferTo.Size = new System.Drawing.Size(148, 21);
             this.comboBoxTransferTo.TabIndex = 49;
             // 
-            // comboBoxTransfer1
+            // comboBoxTransferFrom
             // 
             this.comboBoxTransferFrom.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxTransferFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTransferFrom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxTransferFrom.FormattingEnabled = true;
             this.comboBoxTransferFrom.Location = new System.Drawing.Point(238, 30);
-            this.comboBoxTransferFrom.Name = "comboBoxTransfer1";
+            this.comboBoxTransferFrom.Name = "comboBoxTransferFrom";
             this.comboBoxTransferFrom.Size = new System.Drawing.Size(148, 21);
             this.comboBoxTransferFrom.TabIndex = 48;
             // 
@@ -699,9 +699,9 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(148, 23);
             this.button14.TabIndex = 57;
-            this.button14.Text = "Revert Import";
+            this.button14.Text = "Rolback Import";
             this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.Revert_Click);
+            this.button14.Click += new System.EventHandler(this.Rollback_Click);
             // 
             // button8
             // 

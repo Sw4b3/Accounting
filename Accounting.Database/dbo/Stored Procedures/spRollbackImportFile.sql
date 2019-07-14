@@ -1,12 +1,12 @@
 ﻿
-CREATE PROCEDURE [dbo].[spRevertImportFile]
+CREATE PROCEDURE [dbo].[spRollbackImportFile]
 @fileId uniqueIdentifier  
 AS
 BEGIN	
 	declare @currentImportDate datetime = (select top 1 ImportDate from ProcessedImportFiles order by ImportDate desc),
 	@credit decimal(10,2)=(select sum(Amount) from TransactionsStaging where AccountTypeId = 1 and TransactionTypeId=1),
 	@debit decimal(10,2)=(select sum(Amount) from TransactionsStaging where AccountTypeId = 1 and TransactionTypeId=2),
-	@status int = (select StatusId from Statues where Status='Reverted'),
+	@status int = (select StatusId from Statues where Status='Rollback'),
 	@currentStatus varchar(255) = (select s.Status from ProcessedImportFiles pfs inner join Statues s on pfs.StatusId = s.StatusId where FileId=@fileId)
 
 	if @currentStatus != 'Completed'

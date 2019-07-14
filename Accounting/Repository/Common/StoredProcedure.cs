@@ -34,6 +34,6 @@ namespace Accounting.Repository.Common
         public const string getImportFile = "spGetImportFile";
         public const string saveImportFile = "spSaveImportFile";
         public const string completeImportFile = "spCompleteImportFile";
-        public const string revertImportFile = "spRevertImportFile";
+        public const string rollbackImportFile = "spRollackImportFile";
     }
 }

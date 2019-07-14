@@ -33,14 +33,14 @@ namespace Accounting.Desktop.Controller
             dataGridView.DataSource = _reportService.GetImportFile();
         }
 
-        public void RevertImport(Guid fileId)
+        public void RollbackImport(Guid fileId)
         {
-            _reportService.RevertImport(new RevertImportFileRequest { FileId=fileId });
+            _reportService.RollbackImport(new RollbackImportFileRequest { FileId=fileId });
         }
 
         public void CompleteImport(Guid fileId)
         {
-            _reportService.CompleteImport(new RevertImportFileRequest { FileId = fileId });
+            _reportService.CompleteImport(new RollbackImportFileRequest { FileId = fileId });
         }
 
         public void ExportToTransactions()

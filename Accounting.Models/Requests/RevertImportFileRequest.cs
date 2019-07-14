@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Requests
 {
-    public class RevertImportFileRequest
+    public class RollbackImportFileRequest
     {
        public Guid FileId { get; set; }
     }

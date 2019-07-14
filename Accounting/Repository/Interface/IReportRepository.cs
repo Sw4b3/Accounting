@@ -16,7 +16,7 @@ namespace Accounting.Repository.Interface
 
         void CompleteImportFileRequest(object request);
 
-        void RevertImportRequest(RevertImportFileRequest request);
+        void RollbackImportRequest(RollbackImportFileRequest request);
        
     }
 }

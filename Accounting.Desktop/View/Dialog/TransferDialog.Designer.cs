@@ -52,7 +52,7 @@
             this.textBox3.Location = new System.Drawing.Point(132, 60);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(134, 20);
-            this.textBox3.TabIndex = 17;
+            this.textBox3.TabIndex = 2;
             // 
             // button2
             // 
@@ -62,7 +62,7 @@
             this.button2.Location = new System.Drawing.Point(146, 105);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 16;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Cancel_Click);
@@ -75,7 +75,7 @@
             this.button1.Location = new System.Drawing.Point(65, 105);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 15;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Save_Click);
@@ -95,7 +95,7 @@
             this.textBox1.Location = new System.Drawing.Point(132, 36);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(134, 20);
-            this.textBox1.TabIndex = 19;
+            this.textBox1.TabIndex = 1;
             // 
             // TransferDialog
             // 

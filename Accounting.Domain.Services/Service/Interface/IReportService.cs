@@ -14,8 +14,8 @@ namespace Accounting.Domain.Services.Service.Interface
 
         void SaveImportFile(SaveImportFileRequest request);
 
-        void RevertImport(RevertImportFileRequest request);
+        void RollbackImport(RollbackImportFileRequest request);
 
-        void CompleteImport(RevertImportFileRequest revertImportFileRequest);
+        void CompleteImport(RollbackImportFileRequest rollbackImportFileRequest);
     }
 }

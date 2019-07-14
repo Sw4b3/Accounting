@@ -96,9 +96,9 @@
     <Build Include="dbo\Stored Procedures\spUpdateExpenditureRules.sql" />
     <Build Include="dbo\Stored Procedures\spSaveImportFile.sql" />
     <Build Include="dbo\Tables\ProcessedImportFiles.sql" />
-    <Build Include="dbo\Stored Procedures\spRevertImportFile.sql" />
     <Build Include="dbo\Stored Procedures\spGetImportFile.sql" />
     <Build Include="dbo\Tables\Statues.sql" />
     <Build Include="dbo\Stored Procedures\spCompleteImportFile.sql" />
+    <Build Include="dbo\Stored Procedures\spRollbackImportFile.sql" />
   </ItemGroup>
 </Project>

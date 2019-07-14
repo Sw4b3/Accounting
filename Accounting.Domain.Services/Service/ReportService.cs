@@ -48,7 +48,7 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
-        public void CompleteImport(RevertImportFileRequest request)
+        public void CompleteImport(RollbackImportFileRequest request)
         {
             try
             {
@@ -62,12 +62,12 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
-        public void RevertImport(RevertImportFileRequest request)
+        public void RollbackImport(RollbackImportFileRequest request)
         {
             try
             {
                 uow.CreateUnitOfWork();
-                uow.ReportRepository.RevertImportRequest(request);
+                uow.ReportRepository.RollbackImportRequest(request);
                 uow.Commit();
             }
             catch (Exception e)

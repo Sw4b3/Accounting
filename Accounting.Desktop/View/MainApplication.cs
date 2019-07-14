@@ -295,14 +295,14 @@ namespace Accounting.Desktop
             _expenditureController.FilterExpenditureByDate(dataGridExpenditureBreakdown, date);
         }
 
-        private void Revert_Click(object sender, EventArgs e)
+        private void Rollback_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to revert this Import", "Revert Import", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to Rollback this Import", "Rollback Import", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 int selectedrowindex = dataGridViewImportFile.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridViewImportFile.Rows[selectedrowindex];
-                _reportController.RevertImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
+                _reportController.RollbackImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
                 FilterTransactionByAccount();
                 _reportController.GetImport(dataGridViewImportFile);
             }
