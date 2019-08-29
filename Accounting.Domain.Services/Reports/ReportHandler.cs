@@ -107,7 +107,6 @@ namespace Accounting.Domain.Services.Reports
                     }
 
                 }
-                MessageBox.Show("Data Imported", "Import", MessageBoxButtons.OK);
             }
             catch (IOException)
             {

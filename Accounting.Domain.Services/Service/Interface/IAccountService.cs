@@ -12,6 +12,8 @@ namespace Accounting.Domain.Services.Service.Interface
     {
         IList<Account> GetAccount();
 
+        Account GetAccount(GetAccountRequest accountNo);
+
         void SaveAccount(SaveAccountRequest account);
 
         void UpdateAccount(UpdateAccountRequest request);

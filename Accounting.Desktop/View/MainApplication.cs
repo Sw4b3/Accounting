@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace Accounting.Desktop
         private AnalyticsController _analyticsController;
         private ReportController _reportController;
         private ExpenditureController _expenditureController;
-
+ 
         public MainApplication()
         {
             InitializeComponent();
@@ -234,7 +235,7 @@ namespace Accounting.Desktop
 
         private void Import_Click(object sender, EventArgs e)
         {
-            new ImportDialog(_transactionController, this).Show();
+            _reportController.OpenFileDialog(this);
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)

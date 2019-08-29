@@ -33,7 +33,22 @@ namespace Accounting.Domain.Services.Service
                 throw;
             }
         }
-  
+
+        public Account GetAccount(GetAccountRequest AccountNo)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.AccountRepository.GetAccountRequest(AccountNo);
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         public void SaveAccount(SaveAccountRequest account)
         {
             try

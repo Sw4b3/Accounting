@@ -14,16 +14,18 @@ namespace Accounting.Desktop.View.Dialog
     public partial class ImportDialog : Form
     {
         private TransactionController _transactionController;
-        private ReportController _excelController;
+        private ReportController _reportController;
         private AccountController _accountController;
         private MainApplication _mainform;
+        private string _filename;
 
-        public ImportDialog(TransactionController transactionController, MainApplication mainform)
+        public ImportDialog(TransactionController transactionController, MainApplication mainform, string filename)
         {
             InitializeComponent();
             _transactionController = transactionController;
             _accountController = new AccountController();
-            _excelController = new ReportController();
+            _reportController = new ReportController();
+            _filename = filename;
             _mainform = mainform;
             PopulateAccountComboBox();
         }
@@ -38,7 +40,7 @@ namespace Accounting.Desktop.View.Dialog
         {
             this.Hide();
             var accountTypeId = int.Parse((_accountController.GetAccountId(comboBox2).ToString().Trim()));
-            _excelController.ImportFromExcel(accountTypeId);
+            _reportController.ImportFromExcel(_filename, accountTypeId);
             _mainform.PopulateTransactionTables();
             _mainform.FilterTransactionByAccount();
             this.Dispose();

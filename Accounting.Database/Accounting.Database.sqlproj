@@ -101,5 +101,6 @@
     <Build Include="dbo\Stored Procedures\spCompleteImportFile.sql" />
     <Build Include="dbo\Stored Procedures\spRollbackImportFile.sql" />
     <Build Include="dbo\Stored Procedures\spDeleteImportFile.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAccount.sql" />
   </ItemGroup>
 </Project>

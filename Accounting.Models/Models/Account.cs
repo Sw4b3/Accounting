@@ -8,6 +8,7 @@ namespace Accounting.Models.Models
 {
     public class Account
     {
+        public Int64 AccountNo { get; set; }
         public int AccountId { get; set; }
 
         public string AccountType { get; set; }

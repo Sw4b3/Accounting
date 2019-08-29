@@ -1,5 +1,6 @@
 ﻿using Accounting.Desktop.Model;
 using Accounting.Domain.Services.Service;
+using Accounting.Models.Models;
 using Accounting.Models.Requests;
 using System;
 using System.Linq;
@@ -28,7 +29,12 @@ namespace Accounting.Desktop.Controller
 
         public void GetAccount(DataGridView dataGrid)
         {
-            dataGrid.DataSource = _accountService.GetAccount().Select(x => new { x.AccountId, x.AccountType, x.Status, x.AvailableBalance }).ToList();
+            dataGrid.DataSource = _accountService.GetAccount().Select(x => new { x.AccountId, x.AccountNo , x.AccountType, x.Status, x.CurrentBalance, x.AvailableBalance }).ToList();
+        }
+
+        public Account GetAccount(GetAccountRequest getAccountRequest)
+        {
+            return _accountService.GetAccount(getAccountRequest);
         }
 
         public void GetAccountComboBox(ComboBox comboBox)
@@ -65,5 +71,6 @@ namespace Accounting.Desktop.Controller
             }
             return null;
         }
+
     }
 }
