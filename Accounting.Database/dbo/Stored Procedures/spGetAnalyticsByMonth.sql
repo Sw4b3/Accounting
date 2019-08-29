@@ -5,7 +5,7 @@ BEGIN
 		SELECT *
 		INTO #tempCredit
 		FROM
-		(select  DATEADD(MONTH, DATEDIFF(MONTH, 0, TransactionTimestamp), 0) as date,sum(Amount) as Credit
+		(select  DATEADD(MONTH, DATEDIFF(MONTH, 0, TransactionTimestamp), 0) as date,  dbo.CalculateStartOfMonthCredit(DATEADD(MONTH, DATEDIFF(MONTH, 0, TransactionTimestamp), 0) , sum(Amount)) as Credit
 		from Transactions 
 		where TransactionTypeId=1 and AccountTypeId=1
 		and Description not in ('WEEKLY', 'WEEK','FOOD', 'SAVINGS' ) 
