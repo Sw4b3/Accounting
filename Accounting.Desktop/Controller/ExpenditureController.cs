@@ -28,9 +28,16 @@ namespace Accounting.Desktop.Controller
             _expenditureRule = new DataGridViewComboBoxColumn();
         }
 
-        public void GetExpenditure(DataGridView dataGridView)
+        public void GetExpenditure(DataGridView dataGridView, DateTime date)
         {
-            var res = _expenditureService.GetExpenditureByDateRequest().Where(x => x.ExpenditureRuleId == 0).Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            var startDate = new DateTime(date.Year, date.Month, 1);
+            var endDate = startDate.AddMonths(1).AddDays(-1);
+
+            var res = _expenditureService.GetExpenditureByDateRequest(new DateRequest()
+            {
+                StartDate = startDate,
+                EndDate = endDate
+            }).Where(x => x.ExpenditureRuleId == 0).Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
 
             IList<ExpenditureRuleItem> list = _expenditureService.GetExpenditureRules().Select(x => new ExpenditureRuleItem { ExpenditureDesc = x.ExpenditureDesc, ExpenditureRuleId = x.ExpenditureRuleId }).ToList();
             _expenditureRule.DataSource = list;
@@ -61,18 +68,32 @@ namespace Accounting.Desktop.Controller
             dataGridView.DataSource = res;
         }
 
-        public void FilterExpenditure(DataGridView dataGridView, ComboBox comboBox)
+        public void FilterExpenditure(DataGridView dataGridView, ComboBox comboBox, DateTime date)
         {
 
             if (comboBox.SelectedItem.ToString() == "Unmapped")
             {
-                var res = _expenditureService.GetExpenditureByDateRequest().Where(x => x.ExpenditureRuleId == 0)
+                var startDate = new DateTime(date.Year, date.Month, 1);
+                var endDate = startDate.AddMonths(1).AddDays(-1);
+
+                var res = _expenditureService.GetExpenditureByDateRequest(new DateRequest()
+                {
+                    StartDate = startDate,
+                    EndDate = endDate
+                }).Where(x => x.ExpenditureRuleId == 0)
               .Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
                 dataGridView.DataSource = res;
             }
             else
             {
-                var res = _expenditureService.GetExpenditureByDateRequest().Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+                var startDate = new DateTime(date.Year, date.Month, 1);
+                var endDate = startDate.AddMonths(1).AddDays(-1);
+
+                var res = _expenditureService.GetExpenditureByDateRequest(new DateRequest()
+                {
+                    StartDate = startDate,
+                    EndDate = endDate
+                }).Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
                 dataGridView.DataSource = res;
 
             }
@@ -213,9 +234,16 @@ namespace Accounting.Desktop.Controller
             dataGridView.DataSource = res;
         }
 
-        public void ImportExpenditure()
+        public void ImportExpenditure(DateTime date)
         {
-            _expenditureService.ImportExpenditure();
+            var startDate = new DateTime(date.Year, date.Month, 1);
+            var endDate = startDate.AddMonths(1).AddDays(-1);
+
+            _expenditureService.ImportExpenditure(new DateRequest()
+            {
+                StartDate = startDate,
+                EndDate = endDate
+            });
         }
 
 

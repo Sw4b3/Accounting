@@ -87,6 +87,7 @@
             this.comboBoxTransferTo = new System.Windows.Forms.ComboBox();
             this.comboBoxTransferFrom = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -142,7 +143,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
-            this.button17 = new System.Windows.Forms.Button();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -666,6 +667,19 @@
             this.tabPage4.Text = "Data Imports";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.DarkGray;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button17.Location = new System.Drawing.Point(33, 188);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(148, 23);
+            this.button17.TabIndex = 60;
+            this.button17.Text = "Delete Import";
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.DeleteImport_Click);
+            // 
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.DarkGray;
@@ -1090,6 +1104,7 @@
             // 
             // tabPage14
             // 
+            this.tabPage14.Controls.Add(this.dateTimePicker4);
             this.tabPage14.Controls.Add(this.comboBoxMappings);
             this.tabPage14.Controls.Add(this.button11);
             this.tabPage14.Controls.Add(this.button13);
@@ -1111,7 +1126,7 @@
             this.comboBoxMappings.Items.AddRange(new object[] {
             "Unmapped",
             "Mapped"});
-            this.comboBoxMappings.Location = new System.Drawing.Point(34, 22);
+            this.comboBoxMappings.Location = new System.Drawing.Point(37, 46);
             this.comboBoxMappings.Name = "comboBoxMappings";
             this.comboBoxMappings.Size = new System.Drawing.Size(148, 21);
             this.comboBoxMappings.TabIndex = 48;
@@ -1122,7 +1137,7 @@
             this.button11.BackColor = System.Drawing.Color.DarkGray;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button11.Location = new System.Drawing.Point(34, 77);
+            this.button11.Location = new System.Drawing.Point(37, 101);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(148, 23);
             this.button11.TabIndex = 32;
@@ -1135,7 +1150,7 @@
             this.button13.BackColor = System.Drawing.Color.DarkGray;
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button13.Location = new System.Drawing.Point(34, 49);
+            this.button13.Location = new System.Drawing.Point(37, 73);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(148, 23);
             this.button13.TabIndex = 31;
@@ -1536,18 +1551,17 @@
             this.dataGridAccount.Size = new System.Drawing.Size(679, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
-            // button17
+            // dateTimePicker4
             // 
-            this.button17.BackColor = System.Drawing.Color.DarkGray;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button17.Location = new System.Drawing.Point(33, 188);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(148, 23);
-            this.button17.TabIndex = 60;
-            this.button17.Text = "Delete Import";
-            this.button17.UseVisualStyleBackColor = false;
-            this.button17.Click += new System.EventHandler(this.DeleteImport_Click);
+            this.dateTimePicker4.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
+            this.dateTimePicker4.CustomFormat = "MMMM";
+            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker4.Location = new System.Drawing.Point(37, 20);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.ShowUpDown = true;
+            this.dateTimePicker4.Size = new System.Drawing.Size(148, 20);
+            this.dateTimePicker4.TabIndex = 49;
+            this.dateTimePicker4.ValueChanged += new System.EventHandler(this.DateTimePicker4_ValueChanged);
             // 
             // MainApplication
             // 
@@ -1703,6 +1717,7 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
     }
 }
 

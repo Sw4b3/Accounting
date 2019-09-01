@@ -10,7 +10,7 @@ namespace Accounting.Domain.Services.Service.Interface
 {
     public interface IExpenditureService
     {
-        IList<Expenditure> GetExpenditureByDateRequest();
+        IList<Expenditure> GetExpenditureByDateRequest(DateRequest dateRequest);
 
         IList<ExpenditureType> GetExpenditureTypes();
 
@@ -22,7 +22,7 @@ namespace Accounting.Domain.Services.Service.Interface
 
         IList<ExpenditureOverview> GetExpenditureRuleOverview(DateRequest dateRequest);
 
-        void ImportExpenditure();
+        void ImportExpenditure(DateRequest dateRequest);
 
         void SaveExpenditureRule(SaveExpenditureTypeRequest request);
 

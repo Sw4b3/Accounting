@@ -20,12 +20,12 @@ namespace Accounting.Domain.Services.Service
             uow = new UnitOfWork();
         }
 
-        public IList<Expenditure> GetExpenditureByDateRequest()
+        public IList<Expenditure> GetExpenditureByDateRequest(DateRequest dateRequest)
         {
             try
             {
                 uow.CreateUnitOfWork();
-                var res = uow.ExpenditureRepository.GetExpenditureByDateRequest(Extensions.GetCurrentMonth());
+                var res = uow.ExpenditureRepository.GetExpenditureByDateRequest(dateRequest);
                 uow.Commit();
                 return res;
             }
@@ -110,12 +110,12 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
-        public void ImportExpenditure()
+        public void ImportExpenditure(DateRequest dateRequest)
         {
             try
             {
                 uow.CreateUnitOfWork();
-                uow.ExpenditureRepository.ImportExpenditure(Extensions.GetCurrentMonth());
+                uow.ExpenditureRepository.ImportExpenditure(dateRequest);
                 uow.Commit();
             }
             catch (Exception e)

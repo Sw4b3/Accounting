@@ -68,10 +68,11 @@ namespace Accounting.Desktop
 
         public void PopulateExpenditureTable()
         {
+            DateTime date = dateTimePicker4.Value;
             comboBoxMappings.SelectedItem = "Unmapped";
             _transactionController.GetRecentTransactions(dataGridViewRecentTransactions);
             _expenditureController.PopluateExpenditurePanel(tableLayoutPanel1);
-            _expenditureController.GetExpenditure(dataGridViewExpenditure);
+            _expenditureController.GetExpenditure(dataGridViewExpenditure, date);
             _expenditureController.GetExpenditureRules(dataGridViewSetting);
             _expenditureController.GetExpenditureBreakdown(dataGridExpenditureBreakdown);
             _expenditureController.GetExpenditureOverview(circularProgressBar1, labelRule1, labelCurrent1, labelLimit1,
@@ -270,14 +271,17 @@ namespace Accounting.Desktop
 
         private void ImportExpenditure_Click(object sender, EventArgs e)
         {
-            _expenditureController.ImportExpenditure();
+            DateTime date = dateTimePicker4.Value;
+            _expenditureController.ImportExpenditure(date);
             PopulateExpenditureTable();
         }
 
         private void UpdateExtenditure_Click(object sender, EventArgs e)
         {
+            DateTime date = dateTimePicker4.Value;
             _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
-            _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings);
+            _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings, date);
+            _expenditureController.FilterExpenditureByDate(dataGridExpenditureBreakdown, date);
         }
 
         private void EditAccount_Click(object sender, EventArgs e)
@@ -287,7 +291,8 @@ namespace Accounting.Desktop
 
         private void comboBoxMappings_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings);
+            DateTime date = dateTimePicker4.Value;
+            _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings, date);
         }
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
@@ -333,6 +338,12 @@ namespace Accounting.Desktop
                 FilterTransactionByAccount();
                 _reportController.GetImport(dataGridViewImportFile);
             }
+        }
+
+        private void DateTimePicker4_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime date = dateTimePicker4.Value;
+            _expenditureController.GetExpenditure(dataGridViewExpenditure, date);
         }
     }
 }
