@@ -23,6 +23,7 @@ BEGIN
 		select #tempCredit.date, Credit,Debit, Credit-Debit as Balance from #tempDebit
 		inner join #tempCredit
 		on #tempCredit.date=#tempDebit.date
+		order by date
 
 		drop table  #tempCredit 
 		drop table  #tempDebit 
