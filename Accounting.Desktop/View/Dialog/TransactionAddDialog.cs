@@ -32,6 +32,10 @@ namespace Accounting.Desktop.View
             PopulateAccountComboBox();
         }
 
+        public void SetTransaction()
+        {
+            dateTimePicker1.Value = DateTime.Now;
+        }
 
         public void PopulateAccountComboBox()
         {
@@ -47,8 +51,8 @@ namespace Accounting.Desktop.View
                     AccountTypeId = int.Parse((_AccountController.GetAccountId(comboBox2).ToString().Trim())),
                     TransactionTypeId = _transactionType,
                     Description = textBox3.Text.ToUpper().Trim(),
-                    TransactionTimestamp= DateTime.Today
-            });
+                    TransactionTimestamp = dateTimePicker1.Value
+                });
                 _mainform.FilterTransactionByAccount();
                 _mainform.PopulateTransactionLabels();
                 this.Dispose();
