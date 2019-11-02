@@ -122,6 +122,7 @@
             this.button13 = new System.Windows.Forms.Button();
             this.dataGridViewExpenditure = new System.Windows.Forms.DataGridView();
             this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.button18 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridViewSetting = new System.Windows.Forms.DataGridView();
@@ -144,7 +145,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
-            this.button18 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -318,18 +318,18 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(21, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 39;
-            this.label5.Text = "Income";
+            this.label5.Text = "Credit";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(515, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 38;
-            this.label4.Text = "Expenses";
+            this.label4.Text = "Debit";
             // 
             // labelPersonalExpense
             // 
@@ -1206,6 +1206,19 @@
             this.tabPage13.Text = "Settings";
             this.tabPage13.UseVisualStyleBackColor = true;
             // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.DarkGray;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button18.Location = new System.Drawing.Point(30, 78);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(148, 23);
+            this.button18.TabIndex = 35;
+            this.button18.Text = "Delete Rule";
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.DeleteRule_Click);
+            // 
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.DarkGray;
@@ -1565,19 +1578,6 @@
             this.dataGridAccount.Size = new System.Drawing.Size(679, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
-            // button18
-            // 
-            this.button18.BackColor = System.Drawing.Color.DarkGray;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button18.Location = new System.Drawing.Point(30, 78);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(148, 23);
-            this.button18.TabIndex = 35;
-            this.button18.Text = "Delete Rule";
-            this.button18.UseVisualStyleBackColor = false;
-            this.button18.Click += new System.EventHandler(this.DeleteRule_Click);
-            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1588,6 +1588,7 @@
             this.Controls.Add(this.tabControl2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MainApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Accounting";
