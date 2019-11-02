@@ -26,11 +26,12 @@ namespace Accounting.Desktop.View
         }
 
         public void SaveAccount() {
-            if (Validator.IsString(textBox3.Text))
+            if (Validator.IsString(nameTextBox.Text))
             {
                 _accountController.SaveAccount(new SaveAccountRequest
                 {
-                    AccountType = textBox3.Text,
+                    AccountType = nameTextBox.Text,
+                    AccountNo = numberTextBox.Text,
                 });
                 _mainForm.PopulateAccountTable();
                 this.Dispose();
