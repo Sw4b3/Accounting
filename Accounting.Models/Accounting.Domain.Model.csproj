@@ -60,6 +60,7 @@
     <Compile Include="Requests\SaveImportFileRequest.cs" />
     <Compile Include="Requests\UpdateAccountRequest.cs" />
     <Compile Include="Requests\UpdateExpenditureRequest.cs" />
+    <Compile Include="Requests\DeleteExpenditureRuleRequest.cs" />
     <Compile Include="Requests\UpdateExpenditureTypeRequest.cs" />
     <Compile Include="Requests\SaveAccountRequest.cs" />
     <Compile Include="Requests\SaveExpenditureTypesRequest.cs" />

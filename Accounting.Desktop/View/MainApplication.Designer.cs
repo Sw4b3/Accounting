@@ -116,6 +116,7 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dataGridExpenditureBreakdown = new System.Windows.Forms.DataGridView();
             this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.comboBoxMappings = new System.Windows.Forms.ComboBox();
             this.button11 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -143,7 +144,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.button18 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -1117,6 +1118,18 @@
             this.tabPage14.Text = "Expenditure";
             this.tabPage14.UseVisualStyleBackColor = true;
             // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
+            this.dateTimePicker4.CustomFormat = "MMMM";
+            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker4.Location = new System.Drawing.Point(37, 20);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.ShowUpDown = true;
+            this.dateTimePicker4.Size = new System.Drawing.Size(148, 20);
+            this.dateTimePicker4.TabIndex = 49;
+            this.dateTimePicker4.ValueChanged += new System.EventHandler(this.DateTimePicker4_ValueChanged);
+            // 
             // comboBoxMappings
             // 
             this.comboBoxMappings.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -1181,6 +1194,7 @@
             // 
             // tabPage13
             // 
+            this.tabPage13.Controls.Add(this.button18);
             this.tabPage13.Controls.Add(this.button10);
             this.tabPage13.Controls.Add(this.button9);
             this.tabPage13.Controls.Add(this.dataGridViewSetting);
@@ -1551,17 +1565,18 @@
             this.dataGridAccount.Size = new System.Drawing.Size(679, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
-            // dateTimePicker4
+            // button18
             // 
-            this.dateTimePicker4.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
-            this.dateTimePicker4.CustomFormat = "MMMM";
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker4.Location = new System.Drawing.Point(37, 20);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.ShowUpDown = true;
-            this.dateTimePicker4.Size = new System.Drawing.Size(148, 20);
-            this.dateTimePicker4.TabIndex = 49;
-            this.dateTimePicker4.ValueChanged += new System.EventHandler(this.DateTimePicker4_ValueChanged);
+            this.button18.BackColor = System.Drawing.Color.DarkGray;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button18.Location = new System.Drawing.Point(30, 78);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(148, 23);
+            this.button18.TabIndex = 35;
+            this.button18.Text = "Delete Rule";
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.DeleteRule_Click);
             // 
             // MainApplication
             // 
@@ -1718,6 +1733,7 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.Button button18;
     }
 }
 

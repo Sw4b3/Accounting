@@ -21,7 +21,7 @@ BEGIN
 			and TransactionTimestamp BETWEEN @startDate AND @endDate
 			--inner join ExpenditureTypes et
 			--on et.ExpenditureTypeId=er.ExpenditureTypeId
-		where er.ExpenditureDesc != 'None'
+		where er.ExpenditureDesc != 'None' and DateCreated < @endDate and (er.IsArchived != 1 or er.ArchivedDate > @endDate)
 		group by  e.ExpenditureRuleId,er.ExpenditureDesc ,er.ExpenditureLimit, er.ShouldDisplay, er.ExpenditureTypeId
 		order by er.ExpenditureTypeId
 

@@ -30,7 +30,7 @@ namespace Accounting.Domain.Services.Service.Interface
 
         void UpdateExpenditureRule(UpdateExpenditureRuleRequest expenditureRequest);
 
-        void Delete();
+        void DeleteExpenditureRule(DeleteExpenditureRuleRequest expenditureRequest);
         
     }
 }

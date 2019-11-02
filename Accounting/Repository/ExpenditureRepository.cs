@@ -73,9 +73,9 @@ namespace Accounting.Repository
             Update(DatabaseConnection.connection, SQLStoredProcedures.updateExpendituresRules, request, _connection, _transaction);
         }
 
-        public void Delete()
+        public void DeleteExpenditureRule(DeleteExpenditureRuleRequest request)
         {
-            throw new NotImplementedException();
+            Delete(DatabaseConnection.connection, SQLStoredProcedures.deleteExpendituresRules, request, _connection, _transaction);
         }
     }
 }

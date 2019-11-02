@@ -262,6 +262,16 @@ namespace Accounting.Desktop.Controller
             _expenditureService.UpdateExpenditureRule(expenditureRequest);
         }
 
+        public void DeleteExpenditureRule(int expenditureRuleId)
+        {
+            _expenditureService.DeleteExpenditureRule(new DeleteExpenditureRuleRequest
+            {
+                ExpenditureRuleId = expenditureRuleId,
+                IsArchived = true,
+                ArchivedDate = DateTime.Now
+            });
+        }
+
         public UpdateExpenditureRuleRequest GetExpenditureSettingsDetailsFromDataGridView(DataGridView dataGridView)
         {
             if (!dataGridView.SelectedRows.Count.Equals(0))

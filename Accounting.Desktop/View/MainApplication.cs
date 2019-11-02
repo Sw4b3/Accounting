@@ -269,6 +269,23 @@ namespace Accounting.Desktop
             new ExpenditureTypeEditDialog(this, _expenditureController.GetExpenditureSettingsDetailsFromDataGridView(dataGridViewSetting)).Show();
         }
 
+        private void DeleteRule_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to Delete this Rule", "Delete Rule", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int selectedrowindex = dataGridViewSetting.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridViewSetting.Rows[selectedrowindex];
+                _expenditureController.DeleteExpenditureRule(int.Parse(selectedRow.Cells[0].Value.ToString()));
+                dialogResult = MessageBox.Show("Rule Deleted", "Delete Rule", MessageBoxButtons.OK);
+
+                DateTime date = dateTimePicker4.Value;
+                _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
+                _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings, date);
+                _expenditureController.FilterExpenditureByDate(dataGridExpenditureBreakdown, date);
+            }
+        }
+
         private void ImportExpenditure_Click(object sender, EventArgs e)
         {
             DateTime date = dateTimePicker4.Value;

@@ -167,12 +167,12 @@ namespace Accounting.Domain.Services.Service
             }
         }
 
-        public void Delete()
+        public void DeleteExpenditureRule(DeleteExpenditureRuleRequest expenditureRequest)
         {
             try
             {
                 uow.CreateUnitOfWork();
-                uow.ExpenditureRepository.Delete();
+                uow.ExpenditureRepository.DeleteExpenditureRule(expenditureRequest);
                 uow.Commit();
             }
             catch (Exception e)
@@ -180,6 +180,5 @@ namespace Accounting.Domain.Services.Service
                 throw;
             }
         }
-
     }
 }
