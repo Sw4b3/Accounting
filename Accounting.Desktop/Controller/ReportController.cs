@@ -102,7 +102,7 @@ namespace Accounting.Desktop.Controller
                     AccountNo = accountNoString
                 });
 
-                if (!string.IsNullOrEmpty(account.AccountNo))
+                if (account != null)
                 {
 
                     if (account != null)
