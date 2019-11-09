@@ -8,6 +8,6 @@ namespace Accounting.Models.Requests
 {
     public class GetAccountRequest
     {
-        public Int64 AccountNo { get; set; }
+        public string AccountNo { get; set; }
     }
 }
