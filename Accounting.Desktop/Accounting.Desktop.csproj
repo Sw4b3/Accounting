@@ -68,7 +68,7 @@
     </Compile>
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\AnalyticsController.cs" />
-    <Compile Include="Controller\ReportController.cs" />
+    <Compile Include="Controller\DataImportController.cs" />
     <Compile Include="Controller\ExpenditureController.cs" />
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Model\ExpenditureRuleItem.cs" />

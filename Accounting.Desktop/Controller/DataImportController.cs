@@ -16,21 +16,28 @@ using System.Windows.Forms;
 
 namespace Accounting.Desktop.Controller
 {
-    class ReportController
+    class DataImportController
     {
         private TransactionController _transactionController;
         private AccountController _accountController;
         private ITransactionService _transactionService;
         private IReportService _reportService;
         private ReportHandler _reportHanlder;
+        private IMappingService _mappingService;
 
-        public ReportController()
+        public DataImportController()
         {
             _transactionController = new TransactionController();
             _accountController = new AccountController();
             _transactionService = new TransactionService();
             _reportService = new ReportService();
             _reportHanlder = new ReportHandler();
+            _mappingService = new MappingService();
+        }
+
+        public void GetMapping(DataGridView dataGridView)
+        {
+            dataGridView.DataSource = _mappingService.GetMappings().ToList();
         }
 
         public void GetImport(DataGridView dataGridView)

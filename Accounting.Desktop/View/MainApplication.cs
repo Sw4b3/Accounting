@@ -21,17 +21,19 @@ namespace Accounting.Desktop
         private TransactionController _transactionController;
         private AccountController _accountController;
         private AnalyticsController _analyticsController;
-        private ReportController _reportController;
+        private DataImportController _reportController;
         private ExpenditureController _expenditureController;
- 
+        private DataImportController _dataImportController;
+
         public MainApplication()
         {
             InitializeComponent();
             _transactionController = new TransactionController();
             _accountController = new AccountController();
             _analyticsController = new AnalyticsController();
-            _reportController = new ReportController();
+            _reportController = new DataImportController();
             _expenditureController = new ExpenditureController();
+            _dataImportController = new DataImportController();
             PopulationAll();
         }
 
@@ -51,6 +53,7 @@ namespace Accounting.Desktop
             _transactionController.GetTransactionsDebit(dataViewTransactionDebit);
             _transactionController.GetTransactionsCredit(dataViewTransactionCredit);
             _reportController.GetImport(dataGridViewImportFile);
+            _dataImportController.GetMapping(dataViewMapping);
         }
 
         public void PopulateAccountTable()
@@ -78,6 +81,12 @@ namespace Accounting.Desktop
             _expenditureController.GetExpenditureOverview(circularProgressBar1, labelRule1, labelCurrent1, labelLimit1,
                 circularProgressBar2, labelRule2, labelCurrent2, labelLimit2,
                 circularProgressBar3, labelRule3, labelCurrent3, labelLimit3);
+        }
+
+        public void PopulateDataImportTables()
+        {
+            _reportController.GetImport(dataGridViewImportFile);
+            _dataImportController.GetMapping(dataViewMapping);
         }
 
         public void PopulationTransactionTableByDate()
@@ -145,6 +154,9 @@ namespace Accounting.Desktop
                     break;
                 case "expenditureTab":
                     PopulateExpenditureTable();
+                    break;
+                case "dataImportTab":
+                    PopulateDataImportTables();
                     break;
                 default:
                     break;

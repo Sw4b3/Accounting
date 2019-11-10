@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Domain.Services.Service
 {
-    class MappingService: IMappingService
+    public class MappingService: IMappingService
     {
         private readonly UnitOfWork uow;
 

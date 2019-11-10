@@ -1,14 +1,10 @@
 ﻿using Accounting.Models.Requests;
 using Accounting.Models.Service;
-using Accounting.Domain.Services.Reports;
 using Accounting.Domain.Services.Utillies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 using Accounting.Models.Models;
 
 namespace Accounting.Desktop.Controller
