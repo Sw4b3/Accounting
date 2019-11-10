@@ -105,5 +105,6 @@
     <Build Include="dbo\Stored Procedures\spGetAccount.sql" />
     <Build Include="dbo\Functions\CalculateStartOfMonthCredit.sql" />
     <Build Include="dbo\Stored Procedures\spDeleteExpenditureRules.sql" />
+    <Build Include="dbo\Stored Procedures\spSaveMapping.sql" />
   </ItemGroup>
 </Project>

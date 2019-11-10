@@ -40,6 +40,11 @@ namespace Accounting.Desktop.Controller
             dataGridView.DataSource = _mappingService.GetMappings().ToList();
         }
 
+        public void SaveMapping(SaveMappingRequest request)
+        {
+            _mappingService.SaveMapping(request);
+        }
+
         public void GetImport(DataGridView dataGridView)
         {
             dataGridView.DataSource = _reportService.GetImportFile();

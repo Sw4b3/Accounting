@@ -374,6 +374,11 @@ namespace Accounting.Desktop
             DateTime date = dateTimePicker4.Value;
             _expenditureController.GetExpenditure(dataGridViewExpenditure, date);
         }
+
+        private void AddMapping_Click(object sender, EventArgs e)
+        {
+            new MappingAddDialog(this).Show();
+        }
     }
 }
 

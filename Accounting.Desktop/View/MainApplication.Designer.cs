@@ -130,6 +130,7 @@
             this.button29 = new System.Windows.Forms.Button();
             this.dataGridViewImportFile = new System.Windows.Forms.DataGridView();
             this.tabPage19 = new System.Windows.Forms.TabPage();
+            this.addMapping = new System.Windows.Forms.Button();
             this.dataViewMapping = new System.Windows.Forms.DataGridView();
             this.analyticsTab = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
@@ -1077,7 +1078,7 @@
             this.dataGridViewExpenditure.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewExpenditure.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewExpenditure.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewExpenditure.Location = new System.Drawing.Point(202, 20);
+            this.dataGridViewExpenditure.Location = new System.Drawing.Point(200, 20);
             this.dataGridViewExpenditure.Name = "dataGridViewExpenditure";
             this.dataGridViewExpenditure.RowHeadersVisible = false;
             this.dataGridViewExpenditure.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1151,7 +1152,7 @@
             this.dataGridViewSetting.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewSetting.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewSetting.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSetting.Location = new System.Drawing.Point(198, 20);
+            this.dataGridViewSetting.Location = new System.Drawing.Point(200, 20);
             this.dataGridViewSetting.Name = "dataGridViewSetting";
             this.dataGridViewSetting.ReadOnly = true;
             this.dataGridViewSetting.RowHeadersVisible = false;
@@ -1205,7 +1206,7 @@
             this.button24.BackColor = System.Drawing.Color.DarkGray;
             this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button24.Location = new System.Drawing.Point(33, 188);
+            this.button24.Location = new System.Drawing.Point(30, 188);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(148, 23);
             this.button24.TabIndex = 60;
@@ -1217,7 +1218,7 @@
             this.button25.BackColor = System.Drawing.Color.DarkGray;
             this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button25.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button25.Location = new System.Drawing.Point(33, 78);
+            this.button25.Location = new System.Drawing.Point(30, 78);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(148, 23);
             this.button25.TabIndex = 59;
@@ -1229,7 +1230,7 @@
             this.button26.BackColor = System.Drawing.Color.DarkGray;
             this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button26.Location = new System.Drawing.Point(33, 130);
+            this.button26.Location = new System.Drawing.Point(30, 130);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(148, 23);
             this.button26.TabIndex = 58;
@@ -1241,7 +1242,7 @@
             this.button27.BackColor = System.Drawing.Color.DarkGray;
             this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button27.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button27.Location = new System.Drawing.Point(33, 159);
+            this.button27.Location = new System.Drawing.Point(30, 159);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(148, 23);
             this.button27.TabIndex = 57;
@@ -1253,7 +1254,7 @@
             this.button28.BackColor = System.Drawing.Color.DarkGray;
             this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button28.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button28.Location = new System.Drawing.Point(33, 20);
+            this.button28.Location = new System.Drawing.Point(30, 20);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(148, 23);
             this.button28.TabIndex = 56;
@@ -1265,7 +1266,7 @@
             this.button29.BackColor = System.Drawing.Color.DarkGray;
             this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button29.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button29.Location = new System.Drawing.Point(33, 49);
+            this.button29.Location = new System.Drawing.Point(30, 49);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(148, 23);
             this.button29.TabIndex = 55;
@@ -1286,7 +1287,7 @@
             this.dataGridViewImportFile.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewImportFile.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridViewImportFile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewImportFile.Location = new System.Drawing.Point(202, 20);
+            this.dataGridViewImportFile.Location = new System.Drawing.Point(200, 20);
             this.dataGridViewImportFile.Name = "dataGridViewImportFile";
             this.dataGridViewImportFile.ReadOnly = true;
             this.dataGridViewImportFile.RowHeadersVisible = false;
@@ -1296,6 +1297,7 @@
             // 
             // tabPage19
             // 
+            this.tabPage19.Controls.Add(this.addMapping);
             this.tabPage19.Controls.Add(this.dataViewMapping);
             this.tabPage19.Location = new System.Drawing.Point(4, 22);
             this.tabPage19.Name = "tabPage19";
@@ -1304,6 +1306,19 @@
             this.tabPage19.TabIndex = 4;
             this.tabPage19.Text = "Manage Mapping";
             this.tabPage19.UseVisualStyleBackColor = true;
+            // 
+            // addMapping
+            // 
+            this.addMapping.BackColor = System.Drawing.Color.DarkGray;
+            this.addMapping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addMapping.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.addMapping.Location = new System.Drawing.Point(30, 20);
+            this.addMapping.Name = "addMapping";
+            this.addMapping.Size = new System.Drawing.Size(148, 23);
+            this.addMapping.TabIndex = 56;
+            this.addMapping.Text = "Add Mapping";
+            this.addMapping.UseVisualStyleBackColor = false;
+            this.addMapping.Click += new System.EventHandler(this.AddMapping_Click);
             // 
             // dataViewMapping
             // 
@@ -1319,7 +1334,7 @@
             this.dataViewMapping.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataViewMapping.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataViewMapping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewMapping.Location = new System.Drawing.Point(114, 20);
+            this.dataViewMapping.Location = new System.Drawing.Point(200, 20);
             this.dataViewMapping.Name = "dataViewMapping";
             this.dataViewMapping.ReadOnly = true;
             this.dataViewMapping.RowHeadersVisible = false;
@@ -1803,6 +1818,7 @@
         private System.Windows.Forms.DataGridView dataGridViewImportFile;
         private System.Windows.Forms.TabPage tabPage19;
         private System.Windows.Forms.DataGridView dataViewMapping;
+        private System.Windows.Forms.Button addMapping;
     }
 }
 
