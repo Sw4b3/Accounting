@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -43,20 +52,41 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApplication));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.transactionsTab = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.labelIncome = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelPersonalExpense = new System.Windows.Forms.Label();
+            this.labelBalanceOverview = new System.Windows.Forms.Label();
+            this.dataViewTransactionCredit = new System.Windows.Forms.DataGridView();
+            this.dataViewTransactionDebit = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.labelAvailableBalanceTransaction = new System.Windows.Forms.Label();
+            this.comboBoxAccount = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.labelBalanceTransaction = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataViewTransaction = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataViewTransfer = new System.Windows.Forms.DataGridView();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBoxTransferTo = new System.Windows.Forms.ComboBox();
+            this.comboBoxTransferFrom = new System.Windows.Forms.ComboBox();
             this.expenditureTab = new System.Windows.Forms.TabPage();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage15 = new System.Windows.Forms.TabPage();
@@ -89,6 +119,18 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.dataGridViewSetting = new System.Windows.Forms.DataGridView();
+            this.dataImportTab = new System.Windows.Forms.TabPage();
+            this.tabControl6 = new System.Windows.Forms.TabControl();
+            this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
+            this.dataGridViewImportFile = new System.Windows.Forms.DataGridView();
+            this.tabPage19 = new System.Windows.Forms.TabPage();
+            this.dataViewMapping = new System.Windows.Forms.DataGridView();
             this.analyticsTab = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -108,51 +150,18 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.comboBoxTransferFrom = new System.Windows.Forms.ComboBox();
-            this.comboBoxTransferTo = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.dataViewTransfer = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataViewTransaction = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.labelBalanceTransaction = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBoxAccount = new System.Windows.Forms.ComboBox();
-            this.labelAvailableBalanceTransaction = new System.Windows.Forms.Label();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataViewTransactionDebit = new System.Windows.Forms.DataGridView();
-            this.dataViewTransactionCredit = new System.Windows.Forms.DataGridView();
-            this.labelBalanceOverview = new System.Windows.Forms.Label();
-            this.labelPersonalExpense = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.labelIncome = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.dataImportTab = new System.Windows.Forms.TabPage();
-            this.tabPage19 = new System.Windows.Forms.TabPage();
-            this.dataViewMapping = new System.Windows.Forms.DataGridView();
-            this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.dataGridViewImportFile = new System.Windows.Forms.DataGridView();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.tabControl6 = new System.Windows.Forms.TabControl();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionCredit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionDebit)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransfer)).BeginInit();
             this.expenditureTab.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabPage15.SuspendLayout();
@@ -163,6 +172,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).BeginInit();
             this.tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).BeginInit();
+            this.dataImportTab.SuspendLayout();
+            this.tabControl6.SuspendLayout();
+            this.tabPage18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewImportFile)).BeginInit();
+            this.tabPage19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewMapping)).BeginInit();
             this.analyticsTab.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -180,21 +195,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
             this.accountTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransfer)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionDebit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionCredit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.dataImportTab.SuspendLayout();
-            this.tabPage19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewMapping)).BeginInit();
-            this.tabPage18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewImportFile)).BeginInit();
-            this.tabControl6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -249,6 +249,416 @@
             this.transactionsTab.TabIndex = 0;
             this.transactionsTab.Text = "Transactions";
             this.transactionsTab.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(-4, 11);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1011, 586);
+            this.tabControl1.TabIndex = 27;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.chart1);
+            this.tabPage1.Controls.Add(this.labelIncome);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.labelPersonalExpense);
+            this.tabPage1.Controls.Add(this.labelBalanceOverview);
+            this.tabPage1.Controls.Add(this.dataViewTransactionCredit);
+            this.tabPage1.Controls.Add(this.dataViewTransactionDebit);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Overview";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.chart1.BorderlineColor = System.Drawing.Color.Black;
+            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea1.AxisX.MajorGrid.LineWidth = 0;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(77, 262);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(146)))), ((int)(((byte)(200)))))};
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.LabelForeColor = System.Drawing.Color.Transparent;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(412, 231);
+            this.chart1.TabIndex = 56;
+            this.chart1.Text = "chart1";
+            // 
+            // labelIncome
+            // 
+            this.labelIncome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelIncome.AutoSize = true;
+            this.labelIncome.Location = new System.Drawing.Point(384, 246);
+            this.labelIncome.Name = "labelIncome";
+            this.labelIncome.Size = new System.Drawing.Size(49, 13);
+            this.labelIncome.TabIndex = 40;
+            this.labelIncome.Text = "Subtotal:";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(21, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "Credit";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(515, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Debit";
+            // 
+            // labelPersonalExpense
+            // 
+            this.labelPersonalExpense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPersonalExpense.AutoSize = true;
+            this.labelPersonalExpense.Location = new System.Drawing.Point(899, 496);
+            this.labelPersonalExpense.Name = "labelPersonalExpense";
+            this.labelPersonalExpense.Size = new System.Drawing.Size(49, 13);
+            this.labelPersonalExpense.TabIndex = 36;
+            this.labelPersonalExpense.Text = "Subtotal:";
+            // 
+            // labelBalanceOverview
+            // 
+            this.labelBalanceOverview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelBalanceOverview.AutoSize = true;
+            this.labelBalanceOverview.Location = new System.Drawing.Point(21, 527);
+            this.labelBalanceOverview.Name = "labelBalanceOverview";
+            this.labelBalanceOverview.Size = new System.Drawing.Size(52, 13);
+            this.labelBalanceOverview.TabIndex = 33;
+            this.labelBalanceOverview.Text = "Balance: ";
+            // 
+            // dataViewTransactionCredit
+            // 
+            this.dataViewTransactionCredit.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransactionCredit.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataViewTransactionCredit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataViewTransactionCredit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewTransactionCredit.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransactionCredit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataViewTransactionCredit.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransactionCredit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataViewTransactionCredit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTransactionCredit.Location = new System.Drawing.Point(24, 29);
+            this.dataViewTransactionCredit.Name = "dataViewTransactionCredit";
+            this.dataViewTransactionCredit.ReadOnly = true;
+            this.dataViewTransactionCredit.RowHeadersVisible = false;
+            this.dataViewTransactionCredit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewTransactionCredit.Size = new System.Drawing.Size(465, 214);
+            this.dataViewTransactionCredit.TabIndex = 31;
+            // 
+            // dataViewTransactionDebit
+            // 
+            this.dataViewTransactionDebit.AllowUserToResizeRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransactionDebit.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataViewTransactionDebit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataViewTransactionDebit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewTransactionDebit.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransactionDebit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataViewTransactionDebit.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransactionDebit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataViewTransactionDebit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTransactionDebit.Location = new System.Drawing.Point(518, 29);
+            this.dataViewTransactionDebit.Name = "dataViewTransactionDebit";
+            this.dataViewTransactionDebit.ReadOnly = true;
+            this.dataViewTransactionDebit.RowHeadersVisible = false;
+            this.dataViewTransactionDebit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewTransactionDebit.Size = new System.Drawing.Size(465, 464);
+            this.dataViewTransactionDebit.TabIndex = 34;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.DeleteButton);
+            this.tabPage2.Controls.Add(this.labelAvailableBalanceTransaction);
+            this.tabPage2.Controls.Add(this.comboBoxAccount);
+            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.dateTimePicker2);
+            this.tabPage2.Controls.Add(this.dateTimePicker1);
+            this.tabPage2.Controls.Add(this.labelBalanceTransaction);
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.dataViewTransaction);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Transaction History";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.BackColor = System.Drawing.Color.DarkGray;
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DeleteButton.Location = new System.Drawing.Point(34, 164);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(148, 23);
+            this.DeleteButton.TabIndex = 51;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // labelAvailableBalanceTransaction
+            // 
+            this.labelAvailableBalanceTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelAvailableBalanceTransaction.AutoSize = true;
+            this.labelAvailableBalanceTransaction.Location = new System.Drawing.Point(825, 527);
+            this.labelAvailableBalanceTransaction.Name = "labelAvailableBalanceTransaction";
+            this.labelAvailableBalanceTransaction.Size = new System.Drawing.Size(98, 13);
+            this.labelAvailableBalanceTransaction.TabIndex = 50;
+            this.labelAvailableBalanceTransaction.Text = "Avaliable Balance: ";
+            // 
+            // comboBoxAccount
+            // 
+            this.comboBoxAccount.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxAccount.FormattingEnabled = true;
+            this.comboBoxAccount.Location = new System.Drawing.Point(34, 30);
+            this.comboBoxAccount.Name = "comboBoxAccount";
+            this.comboBoxAccount.Size = new System.Drawing.Size(148, 21);
+            this.comboBoxAccount.TabIndex = 47;
+            this.comboBoxAccount.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.DarkGray;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.Location = new System.Drawing.Point(727, 30);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(148, 23);
+            this.button4.TabIndex = 46;
+            this.button4.Text = "Search";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.FilterByDate_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(458, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(20, 13);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "To";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(199, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "From";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "yyyyy-MM-dd";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(501, 33);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 43;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(235, 33);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 42;
+            // 
+            // labelBalanceTransaction
+            // 
+            this.labelBalanceTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelBalanceTransaction.AutoSize = true;
+            this.labelBalanceTransaction.Location = new System.Drawing.Point(694, 527);
+            this.labelBalanceTransaction.Name = "labelBalanceTransaction";
+            this.labelBalanceTransaction.Size = new System.Drawing.Size(52, 13);
+            this.labelBalanceTransaction.TabIndex = 34;
+            this.labelBalanceTransaction.Text = "Balance: ";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DarkGray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(34, 78);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(148, 23);
+            this.button2.TabIndex = 31;
+            this.button2.Text = "Withdraw";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Withdraw_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkGray;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(34, 107);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(148, 23);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Deposit";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Deposit_Click);
+            // 
+            // dataViewTransaction
+            // 
+            this.dataViewTransaction.AllowUserToResizeRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataViewTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataViewTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewTransaction.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransaction.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataViewTransaction.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransaction.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataViewTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTransaction.Location = new System.Drawing.Point(202, 78);
+            this.dataViewTransaction.Name = "dataViewTransaction";
+            this.dataViewTransaction.ReadOnly = true;
+            this.dataViewTransaction.RowHeadersVisible = false;
+            this.dataViewTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewTransaction.Size = new System.Drawing.Size(775, 440);
+            this.dataViewTransaction.TabIndex = 28;
+            this.dataViewTransaction.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewTransaction_CellDoubleClick);
+            this.dataViewTransaction.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataViewTransaction_CellFormatting);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dataViewTransfer);
+            this.tabPage3.Controls.Add(this.button6);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.comboBoxTransferTo);
+            this.tabPage3.Controls.Add(this.comboBoxTransferFrom);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Transfer";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dataViewTransfer
+            // 
+            this.dataViewTransfer.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewTransfer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataViewTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataViewTransfer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewTransfer.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewTransfer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataViewTransfer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewTransfer.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataViewTransfer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTransfer.Location = new System.Drawing.Point(202, 78);
+            this.dataViewTransfer.Name = "dataViewTransfer";
+            this.dataViewTransfer.ReadOnly = true;
+            this.dataViewTransfer.RowHeadersVisible = false;
+            this.dataViewTransfer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewTransfer.Size = new System.Drawing.Size(775, 440);
+            this.dataViewTransfer.TabIndex = 53;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.DarkGray;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button6.Location = new System.Drawing.Point(33, 28);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(148, 23);
+            this.button6.TabIndex = 52;
+            this.button6.Text = "Create Transfer";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.Transfer_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(392, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(20, 13);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "To";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(203, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 50;
+            this.label7.Text = "From";
+            // 
+            // comboBoxTransferTo
+            // 
+            this.comboBoxTransferTo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxTransferTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTransferTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxTransferTo.FormattingEnabled = true;
+            this.comboBoxTransferTo.Location = new System.Drawing.Point(418, 30);
+            this.comboBoxTransferTo.Name = "comboBoxTransferTo";
+            this.comboBoxTransferTo.Size = new System.Drawing.Size(148, 21);
+            this.comboBoxTransferTo.TabIndex = 49;
+            // 
+            // comboBoxTransferFrom
+            // 
+            this.comboBoxTransferFrom.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxTransferFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTransferFrom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxTransferFrom.FormattingEnabled = true;
+            this.comboBoxTransferFrom.Location = new System.Drawing.Point(238, 30);
+            this.comboBoxTransferFrom.Name = "comboBoxTransferFrom";
+            this.comboBoxTransferFrom.Size = new System.Drawing.Size(148, 21);
+            this.comboBoxTransferFrom.TabIndex = 48;
             // 
             // expenditureTab
             // 
@@ -355,9 +765,9 @@
             this.labelLimit3.AutoSize = true;
             this.labelLimit3.Location = new System.Drawing.Point(729, 143);
             this.labelLimit3.Name = "labelLimit3";
-            this.labelLimit3.Size = new System.Drawing.Size(34, 13);
+            this.labelLimit3.Size = new System.Drawing.Size(40, 13);
             this.labelLimit3.TabIndex = 42;
-            this.labelLimit3.Text = "Limit: ";
+            this.labelLimit3.Text = "Limit: 0";
             // 
             // labelCurrent3
             // 
@@ -365,9 +775,9 @@
             this.labelCurrent3.AutoSize = true;
             this.labelCurrent3.Location = new System.Drawing.Point(729, 110);
             this.labelCurrent3.Name = "labelCurrent3";
-            this.labelCurrent3.Size = new System.Drawing.Size(47, 13);
+            this.labelCurrent3.Size = new System.Drawing.Size(53, 13);
             this.labelCurrent3.TabIndex = 41;
-            this.labelCurrent3.Text = "Current: ";
+            this.labelCurrent3.Text = "Current: 0";
             // 
             // labelLimit2
             // 
@@ -375,9 +785,9 @@
             this.labelLimit2.AutoSize = true;
             this.labelLimit2.Location = new System.Drawing.Point(426, 144);
             this.labelLimit2.Name = "labelLimit2";
-            this.labelLimit2.Size = new System.Drawing.Size(34, 13);
+            this.labelLimit2.Size = new System.Drawing.Size(40, 13);
             this.labelLimit2.TabIndex = 40;
-            this.labelLimit2.Text = "Limit: ";
+            this.labelLimit2.Text = "Limit: 0";
             // 
             // labelCurrent2
             // 
@@ -385,9 +795,9 @@
             this.labelCurrent2.AutoSize = true;
             this.labelCurrent2.Location = new System.Drawing.Point(426, 111);
             this.labelCurrent2.Name = "labelCurrent2";
-            this.labelCurrent2.Size = new System.Drawing.Size(47, 13);
+            this.labelCurrent2.Size = new System.Drawing.Size(53, 13);
             this.labelCurrent2.TabIndex = 39;
-            this.labelCurrent2.Text = "Current: ";
+            this.labelCurrent2.Text = "Current: 0";
             // 
             // labelLimit1
             // 
@@ -395,9 +805,9 @@
             this.labelLimit1.AutoSize = true;
             this.labelLimit1.Location = new System.Drawing.Point(423, 412);
             this.labelLimit1.Name = "labelLimit1";
-            this.labelLimit1.Size = new System.Drawing.Size(34, 13);
+            this.labelLimit1.Size = new System.Drawing.Size(40, 13);
             this.labelLimit1.TabIndex = 38;
-            this.labelLimit1.Text = "Limit: ";
+            this.labelLimit1.Text = "Limit: 0";
             // 
             // labelCurrent1
             // 
@@ -405,9 +815,9 @@
             this.labelCurrent1.AutoSize = true;
             this.labelCurrent1.Location = new System.Drawing.Point(423, 379);
             this.labelCurrent1.Name = "labelCurrent1";
-            this.labelCurrent1.Size = new System.Drawing.Size(47, 13);
+            this.labelCurrent1.Size = new System.Drawing.Size(53, 13);
             this.labelCurrent1.TabIndex = 37;
-            this.labelCurrent1.Text = "Current: ";
+            this.labelCurrent1.Text = "Current: 0";
             // 
             // labelRule3
             // 
@@ -470,7 +880,7 @@
             this.circularProgressBar3.TabIndex = 2;
             this.circularProgressBar3.Text = " ";
             this.circularProgressBar3.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.circularProgressBar3.Value = 68;
+            this.circularProgressBar3.Value = 1;
             // 
             // circularProgressBar2
             // 
@@ -503,7 +913,7 @@
             this.circularProgressBar2.TabIndex = 1;
             this.circularProgressBar2.Text = " ";
             this.circularProgressBar2.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.circularProgressBar2.Value = 68;
+            this.circularProgressBar2.Value = 1;
             // 
             // circularProgressBar1
             // 
@@ -536,7 +946,7 @@
             this.circularProgressBar1.TabIndex = 0;
             this.circularProgressBar1.Text = " ";
             this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.circularProgressBar1.Value = 68;
+            this.circularProgressBar1.Value = 1;
             // 
             // tabPage16
             // 
@@ -748,6 +1158,174 @@
             this.dataGridViewSetting.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSetting.Size = new System.Drawing.Size(775, 521);
             this.dataGridViewSetting.TabIndex = 32;
+            // 
+            // dataImportTab
+            // 
+            this.dataImportTab.Controls.Add(this.tabControl6);
+            this.dataImportTab.Location = new System.Drawing.Point(4, 22);
+            this.dataImportTab.Name = "dataImportTab";
+            this.dataImportTab.Padding = new System.Windows.Forms.Padding(3);
+            this.dataImportTab.Size = new System.Drawing.Size(1003, 593);
+            this.dataImportTab.TabIndex = 6;
+            this.dataImportTab.Text = "Data Imports";
+            this.dataImportTab.UseVisualStyleBackColor = true;
+            // 
+            // tabControl6
+            // 
+            this.tabControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl6.Controls.Add(this.tabPage18);
+            this.tabControl6.Controls.Add(this.tabPage19);
+            this.tabControl6.Location = new System.Drawing.Point(-4, 3);
+            this.tabControl6.Name = "tabControl6";
+            this.tabControl6.SelectedIndex = 0;
+            this.tabControl6.Size = new System.Drawing.Size(1011, 586);
+            this.tabControl6.TabIndex = 28;
+            // 
+            // tabPage18
+            // 
+            this.tabPage18.Controls.Add(this.button24);
+            this.tabPage18.Controls.Add(this.button25);
+            this.tabPage18.Controls.Add(this.button26);
+            this.tabPage18.Controls.Add(this.button27);
+            this.tabPage18.Controls.Add(this.button28);
+            this.tabPage18.Controls.Add(this.button29);
+            this.tabPage18.Controls.Add(this.dataGridViewImportFile);
+            this.tabPage18.Location = new System.Drawing.Point(4, 22);
+            this.tabPage18.Name = "tabPage18";
+            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage18.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage18.TabIndex = 3;
+            this.tabPage18.Text = "Imports";
+            this.tabPage18.UseVisualStyleBackColor = true;
+            // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.Color.DarkGray;
+            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button24.Location = new System.Drawing.Point(33, 188);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(148, 23);
+            this.button24.TabIndex = 60;
+            this.button24.Text = "Delete Import";
+            this.button24.UseVisualStyleBackColor = false;
+            // 
+            // button25
+            // 
+            this.button25.BackColor = System.Drawing.Color.DarkGray;
+            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button25.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button25.Location = new System.Drawing.Point(33, 78);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(148, 23);
+            this.button25.TabIndex = 59;
+            this.button25.Text = "Export All";
+            this.button25.UseVisualStyleBackColor = false;
+            // 
+            // button26
+            // 
+            this.button26.BackColor = System.Drawing.Color.DarkGray;
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button26.Location = new System.Drawing.Point(33, 130);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(148, 23);
+            this.button26.TabIndex = 58;
+            this.button26.Text = "Complete Import";
+            this.button26.UseVisualStyleBackColor = false;
+            // 
+            // button27
+            // 
+            this.button27.BackColor = System.Drawing.Color.DarkGray;
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button27.Location = new System.Drawing.Point(33, 159);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(148, 23);
+            this.button27.TabIndex = 57;
+            this.button27.Text = "Rolback Import";
+            this.button27.UseVisualStyleBackColor = false;
+            // 
+            // button28
+            // 
+            this.button28.BackColor = System.Drawing.Color.DarkGray;
+            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button28.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button28.Location = new System.Drawing.Point(33, 20);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(148, 23);
+            this.button28.TabIndex = 56;
+            this.button28.Text = "Import";
+            this.button28.UseVisualStyleBackColor = false;
+            // 
+            // button29
+            // 
+            this.button29.BackColor = System.Drawing.Color.DarkGray;
+            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button29.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button29.Location = new System.Drawing.Point(33, 49);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(148, 23);
+            this.button29.TabIndex = 55;
+            this.button29.Text = "Export";
+            this.button29.UseVisualStyleBackColor = false;
+            // 
+            // dataGridViewImportFile
+            // 
+            this.dataGridViewImportFile.AllowUserToResizeRows = false;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewImportFile.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewImportFile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewImportFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewImportFile.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewImportFile.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewImportFile.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewImportFile.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridViewImportFile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewImportFile.Location = new System.Drawing.Point(202, 20);
+            this.dataGridViewImportFile.Name = "dataGridViewImportFile";
+            this.dataGridViewImportFile.ReadOnly = true;
+            this.dataGridViewImportFile.RowHeadersVisible = false;
+            this.dataGridViewImportFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewImportFile.Size = new System.Drawing.Size(775, 521);
+            this.dataGridViewImportFile.TabIndex = 54;
+            // 
+            // tabPage19
+            // 
+            this.tabPage19.Controls.Add(this.dataViewMapping);
+            this.tabPage19.Location = new System.Drawing.Point(4, 22);
+            this.tabPage19.Name = "tabPage19";
+            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage19.Size = new System.Drawing.Size(1003, 560);
+            this.tabPage19.TabIndex = 4;
+            this.tabPage19.Text = "Manage Mapping";
+            this.tabPage19.UseVisualStyleBackColor = true;
+            // 
+            // dataViewMapping
+            // 
+            this.dataViewMapping.AllowUserToResizeRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.dataViewMapping.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataViewMapping.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataViewMapping.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataViewMapping.BackgroundColor = System.Drawing.Color.White;
+            this.dataViewMapping.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataViewMapping.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataViewMapping.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataViewMapping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewMapping.Location = new System.Drawing.Point(114, 20);
+            this.dataViewMapping.Name = "dataViewMapping";
+            this.dataViewMapping.ReadOnly = true;
+            this.dataViewMapping.RowHeadersVisible = false;
+            this.dataViewMapping.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataViewMapping.Size = new System.Drawing.Size(775, 521);
+            this.dataViewMapping.TabIndex = 55;
             // 
             // analyticsTab
             // 
@@ -1060,584 +1638,6 @@
             this.dataGridAccount.Size = new System.Drawing.Size(679, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dataViewTransfer);
-            this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.Controls.Add(this.comboBoxTransferTo);
-            this.tabPage3.Controls.Add(this.comboBoxTransferFrom);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1003, 560);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Transfer";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxTransferFrom
-            // 
-            this.comboBoxTransferFrom.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxTransferFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTransferFrom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxTransferFrom.FormattingEnabled = true;
-            this.comboBoxTransferFrom.Location = new System.Drawing.Point(238, 30);
-            this.comboBoxTransferFrom.Name = "comboBoxTransferFrom";
-            this.comboBoxTransferFrom.Size = new System.Drawing.Size(148, 21);
-            this.comboBoxTransferFrom.TabIndex = 48;
-            // 
-            // comboBoxTransferTo
-            // 
-            this.comboBoxTransferTo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxTransferTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTransferTo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxTransferTo.FormattingEnabled = true;
-            this.comboBoxTransferTo.Location = new System.Drawing.Point(418, 30);
-            this.comboBoxTransferTo.Name = "comboBoxTransferTo";
-            this.comboBoxTransferTo.Size = new System.Drawing.Size(148, 21);
-            this.comboBoxTransferTo.TabIndex = 49;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(203, 33);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 13);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "From";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(392, 33);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(20, 13);
-            this.label6.TabIndex = 51;
-            this.label6.Text = "To";
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.DarkGray;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(33, 28);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(148, 23);
-            this.button6.TabIndex = 52;
-            this.button6.Text = "Create Transfer";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.Transfer_Click);
-            // 
-            // dataViewTransfer
-            // 
-            this.dataViewTransfer.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransfer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataViewTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataViewTransfer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewTransfer.BackgroundColor = System.Drawing.Color.White;
-            this.dataViewTransfer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataViewTransfer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataViewTransfer.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataViewTransfer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewTransfer.Location = new System.Drawing.Point(202, 78);
-            this.dataViewTransfer.Name = "dataViewTransfer";
-            this.dataViewTransfer.ReadOnly = true;
-            this.dataViewTransfer.RowHeadersVisible = false;
-            this.dataViewTransfer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransfer.Size = new System.Drawing.Size(775, 440);
-            this.dataViewTransfer.TabIndex = 53;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.DeleteButton);
-            this.tabPage2.Controls.Add(this.labelAvailableBalanceTransaction);
-            this.tabPage2.Controls.Add(this.comboBoxAccount);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.dateTimePicker2);
-            this.tabPage2.Controls.Add(this.dateTimePicker1);
-            this.tabPage2.Controls.Add(this.labelBalanceTransaction);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.dataViewTransaction);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1003, 560);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Transaction History";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataViewTransaction
-            // 
-            this.dataViewTransaction.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataViewTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataViewTransaction.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewTransaction.BackgroundColor = System.Drawing.Color.White;
-            this.dataViewTransaction.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataViewTransaction.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataViewTransaction.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataViewTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewTransaction.Location = new System.Drawing.Point(202, 78);
-            this.dataViewTransaction.Name = "dataViewTransaction";
-            this.dataViewTransaction.ReadOnly = true;
-            this.dataViewTransaction.RowHeadersVisible = false;
-            this.dataViewTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransaction.Size = new System.Drawing.Size(775, 440);
-            this.dataViewTransaction.TabIndex = 28;
-            this.dataViewTransaction.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewTransaction_CellDoubleClick);
-            this.dataViewTransaction.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataViewTransaction_CellFormatting);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkGray;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(34, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 23);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Deposit";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Deposit_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.DarkGray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(34, 78);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 23);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "Withdraw";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Withdraw_Click);
-            // 
-            // labelBalanceTransaction
-            // 
-            this.labelBalanceTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelBalanceTransaction.AutoSize = true;
-            this.labelBalanceTransaction.Location = new System.Drawing.Point(694, 527);
-            this.labelBalanceTransaction.Name = "labelBalanceTransaction";
-            this.labelBalanceTransaction.Size = new System.Drawing.Size(52, 13);
-            this.labelBalanceTransaction.TabIndex = 34;
-            this.labelBalanceTransaction.Text = "Balance: ";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(235, 33);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 42;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CustomFormat = "yyyyy-MM-dd";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(501, 33);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 43;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(199, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "From";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(458, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 13);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "To";
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.DarkGray;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(727, 30);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(148, 23);
-            this.button4.TabIndex = 46;
-            this.button4.Text = "Search";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.FilterByDate_Click);
-            // 
-            // comboBoxAccount
-            // 
-            this.comboBoxAccount.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxAccount.FormattingEnabled = true;
-            this.comboBoxAccount.Location = new System.Drawing.Point(34, 30);
-            this.comboBoxAccount.Name = "comboBoxAccount";
-            this.comboBoxAccount.Size = new System.Drawing.Size(148, 21);
-            this.comboBoxAccount.TabIndex = 47;
-            this.comboBoxAccount.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // labelAvailableBalanceTransaction
-            // 
-            this.labelAvailableBalanceTransaction.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelAvailableBalanceTransaction.AutoSize = true;
-            this.labelAvailableBalanceTransaction.Location = new System.Drawing.Point(825, 527);
-            this.labelAvailableBalanceTransaction.Name = "labelAvailableBalanceTransaction";
-            this.labelAvailableBalanceTransaction.Size = new System.Drawing.Size(98, 13);
-            this.labelAvailableBalanceTransaction.TabIndex = 50;
-            this.labelAvailableBalanceTransaction.Text = "Avaliable Balance: ";
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.BackColor = System.Drawing.Color.DarkGray;
-            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DeleteButton.Location = new System.Drawing.Point(34, 164);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(148, 23);
-            this.DeleteButton.TabIndex = 51;
-            this.DeleteButton.Text = "Delete";
-            this.DeleteButton.UseVisualStyleBackColor = false;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.chart1);
-            this.tabPage1.Controls.Add(this.labelIncome);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.labelPersonalExpense);
-            this.tabPage1.Controls.Add(this.labelBalanceOverview);
-            this.tabPage1.Controls.Add(this.dataViewTransactionCredit);
-            this.tabPage1.Controls.Add(this.dataViewTransactionDebit);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1003, 560);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Overview";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // dataViewTransactionDebit
-            // 
-            this.dataViewTransactionDebit.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransactionDebit.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataViewTransactionDebit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataViewTransactionDebit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewTransactionDebit.BackgroundColor = System.Drawing.Color.White;
-            this.dataViewTransactionDebit.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataViewTransactionDebit.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataViewTransactionDebit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataViewTransactionDebit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewTransactionDebit.Location = new System.Drawing.Point(518, 29);
-            this.dataViewTransactionDebit.Name = "dataViewTransactionDebit";
-            this.dataViewTransactionDebit.ReadOnly = true;
-            this.dataViewTransactionDebit.RowHeadersVisible = false;
-            this.dataViewTransactionDebit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransactionDebit.Size = new System.Drawing.Size(465, 464);
-            this.dataViewTransactionDebit.TabIndex = 34;
-            // 
-            // dataViewTransactionCredit
-            // 
-            this.dataViewTransactionCredit.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewTransactionCredit.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataViewTransactionCredit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataViewTransactionCredit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewTransactionCredit.BackgroundColor = System.Drawing.Color.White;
-            this.dataViewTransactionCredit.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataViewTransactionCredit.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataViewTransactionCredit.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataViewTransactionCredit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewTransactionCredit.Location = new System.Drawing.Point(24, 29);
-            this.dataViewTransactionCredit.Name = "dataViewTransactionCredit";
-            this.dataViewTransactionCredit.ReadOnly = true;
-            this.dataViewTransactionCredit.RowHeadersVisible = false;
-            this.dataViewTransactionCredit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewTransactionCredit.Size = new System.Drawing.Size(465, 214);
-            this.dataViewTransactionCredit.TabIndex = 31;
-            // 
-            // labelBalanceOverview
-            // 
-            this.labelBalanceOverview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelBalanceOverview.AutoSize = true;
-            this.labelBalanceOverview.Location = new System.Drawing.Point(21, 527);
-            this.labelBalanceOverview.Name = "labelBalanceOverview";
-            this.labelBalanceOverview.Size = new System.Drawing.Size(52, 13);
-            this.labelBalanceOverview.TabIndex = 33;
-            this.labelBalanceOverview.Text = "Balance: ";
-            // 
-            // labelPersonalExpense
-            // 
-            this.labelPersonalExpense.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPersonalExpense.AutoSize = true;
-            this.labelPersonalExpense.Location = new System.Drawing.Point(899, 496);
-            this.labelPersonalExpense.Name = "labelPersonalExpense";
-            this.labelPersonalExpense.Size = new System.Drawing.Size(49, 13);
-            this.labelPersonalExpense.TabIndex = 36;
-            this.labelPersonalExpense.Text = "Subtotal:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(515, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "Debit";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 13);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "Credit";
-            // 
-            // labelIncome
-            // 
-            this.labelIncome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelIncome.AutoSize = true;
-            this.labelIncome.Location = new System.Drawing.Point(384, 246);
-            this.labelIncome.Name = "labelIncome";
-            this.labelIncome.Size = new System.Drawing.Size(49, 13);
-            this.labelIncome.TabIndex = 40;
-            this.labelIncome.Text = "Subtotal:";
-            // 
-            // chart1
-            // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.chart1.BorderlineColor = System.Drawing.Color.Black;
-            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea1.AxisX.MajorGrid.LineWidth = 0;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(77, 262);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(146)))), ((int)(((byte)(200)))))};
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.LabelForeColor = System.Drawing.Color.Transparent;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(412, 231);
-            this.chart1.TabIndex = 56;
-            this.chart1.Text = "chart1";
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(-4, 11);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1011, 586);
-            this.tabControl1.TabIndex = 27;
-            // 
-            // dataImportTab
-            // 
-            this.dataImportTab.Controls.Add(this.tabControl6);
-            this.dataImportTab.Location = new System.Drawing.Point(4, 22);
-            this.dataImportTab.Name = "dataImportTab";
-            this.dataImportTab.Padding = new System.Windows.Forms.Padding(3);
-            this.dataImportTab.Size = new System.Drawing.Size(1003, 593);
-            this.dataImportTab.TabIndex = 6;
-            this.dataImportTab.Text = "Data Imports";
-            this.dataImportTab.UseVisualStyleBackColor = true;
-            // 
-            // tabPage19
-            // 
-            this.tabPage19.Controls.Add(this.dataViewMapping);
-            this.tabPage19.Location = new System.Drawing.Point(4, 22);
-            this.tabPage19.Name = "tabPage19";
-            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage19.Size = new System.Drawing.Size(1003, 560);
-            this.tabPage19.TabIndex = 4;
-            this.tabPage19.Text = "Manage Mapping";
-            this.tabPage19.UseVisualStyleBackColor = true;
-            // 
-            // dataViewMapping
-            // 
-            this.dataViewMapping.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataViewMapping.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataViewMapping.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataViewMapping.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataViewMapping.BackgroundColor = System.Drawing.Color.White;
-            this.dataViewMapping.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataViewMapping.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataViewMapping.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataViewMapping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewMapping.Location = new System.Drawing.Point(114, 20);
-            this.dataViewMapping.Name = "dataViewMapping";
-            this.dataViewMapping.ReadOnly = true;
-            this.dataViewMapping.RowHeadersVisible = false;
-            this.dataViewMapping.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataViewMapping.Size = new System.Drawing.Size(775, 521);
-            this.dataViewMapping.TabIndex = 55;
-            // 
-            // tabPage18
-            // 
-            this.tabPage18.Controls.Add(this.button24);
-            this.tabPage18.Controls.Add(this.button25);
-            this.tabPage18.Controls.Add(this.button26);
-            this.tabPage18.Controls.Add(this.button27);
-            this.tabPage18.Controls.Add(this.button28);
-            this.tabPage18.Controls.Add(this.button29);
-            this.tabPage18.Controls.Add(this.dataGridViewImportFile);
-            this.tabPage18.Location = new System.Drawing.Point(4, 22);
-            this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(1003, 560);
-            this.tabPage18.TabIndex = 3;
-            this.tabPage18.Text = "Imports";
-            this.tabPage18.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewImportFile
-            // 
-            this.dataGridViewImportFile.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewImportFile.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewImportFile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewImportFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewImportFile.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewImportFile.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewImportFile.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewImportFile.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewImportFile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewImportFile.Location = new System.Drawing.Point(202, 20);
-            this.dataGridViewImportFile.Name = "dataGridViewImportFile";
-            this.dataGridViewImportFile.ReadOnly = true;
-            this.dataGridViewImportFile.RowHeadersVisible = false;
-            this.dataGridViewImportFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewImportFile.Size = new System.Drawing.Size(775, 521);
-            this.dataGridViewImportFile.TabIndex = 54;
-            // 
-            // button29
-            // 
-            this.button29.BackColor = System.Drawing.Color.DarkGray;
-            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button29.Location = new System.Drawing.Point(33, 49);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(148, 23);
-            this.button29.TabIndex = 55;
-            this.button29.Text = "Export";
-            this.button29.UseVisualStyleBackColor = false;
-            // 
-            // button28
-            // 
-            this.button28.BackColor = System.Drawing.Color.DarkGray;
-            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button28.Location = new System.Drawing.Point(33, 20);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(148, 23);
-            this.button28.TabIndex = 56;
-            this.button28.Text = "Import";
-            this.button28.UseVisualStyleBackColor = false;
-            // 
-            // button27
-            // 
-            this.button27.BackColor = System.Drawing.Color.DarkGray;
-            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button27.Location = new System.Drawing.Point(33, 159);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(148, 23);
-            this.button27.TabIndex = 57;
-            this.button27.Text = "Rolback Import";
-            this.button27.UseVisualStyleBackColor = false;
-            // 
-            // button26
-            // 
-            this.button26.BackColor = System.Drawing.Color.DarkGray;
-            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button26.Location = new System.Drawing.Point(33, 130);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(148, 23);
-            this.button26.TabIndex = 58;
-            this.button26.Text = "Complete Import";
-            this.button26.UseVisualStyleBackColor = false;
-            // 
-            // button25
-            // 
-            this.button25.BackColor = System.Drawing.Color.DarkGray;
-            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button25.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button25.Location = new System.Drawing.Point(33, 78);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(148, 23);
-            this.button25.TabIndex = 59;
-            this.button25.Text = "Export All";
-            this.button25.UseVisualStyleBackColor = false;
-            // 
-            // button24
-            // 
-            this.button24.BackColor = System.Drawing.Color.DarkGray;
-            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button24.Location = new System.Drawing.Point(33, 188);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(148, 23);
-            this.button24.TabIndex = 60;
-            this.button24.Text = "Delete Import";
-            this.button24.UseVisualStyleBackColor = false;
-            // 
-            // tabControl6
-            // 
-            this.tabControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl6.Controls.Add(this.tabPage18);
-            this.tabControl6.Controls.Add(this.tabPage19);
-            this.tabControl6.Location = new System.Drawing.Point(-4, 3);
-            this.tabControl6.Name = "tabControl6";
-            this.tabControl6.SelectedIndex = 0;
-            this.tabControl6.Size = new System.Drawing.Size(1011, 586);
-            this.tabControl6.TabIndex = 28;
-            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1655,6 +1655,18 @@
             this.panel1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.transactionsTab.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionCredit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionDebit)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransfer)).EndInit();
             this.expenditureTab.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.tabPage15.ResumeLayout(false);
@@ -1666,6 +1678,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).EndInit();
             this.tabPage13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).EndInit();
+            this.dataImportTab.ResumeLayout(false);
+            this.tabControl6.ResumeLayout(false);
+            this.tabPage18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewImportFile)).EndInit();
+            this.tabPage19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewMapping)).EndInit();
             this.analyticsTab.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
@@ -1683,24 +1701,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
             this.accountTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransfer)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransaction)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionDebit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionCredit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.dataImportTab.ResumeLayout(false);
-            this.tabPage19.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewMapping)).EndInit();
-            this.tabPage18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewImportFile)).EndInit();
-            this.tabControl6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

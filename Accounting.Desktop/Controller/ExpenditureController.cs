@@ -1,17 +1,13 @@
-﻿using Accounting.Desktop.Common;
-using Accounting.Desktop.Componets;
+﻿using Accounting.Desktop.Componets;
 using Accounting.Desktop.Model;
 using Accounting.Domain.Services.Service;
 using Accounting.Domain.Services.Service.Interface;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
-using Accounting.Models.Service;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.Controller
@@ -21,6 +17,9 @@ namespace Accounting.Desktop.Controller
         private IExpenditureService _expenditureService;
         private bool isInitialized = false;
         private DataGridViewComboBoxColumn _expenditureRule;
+
+        private Color SystemGreen = Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
+        private Color SystemRed = Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))));
 
         public ExpenditureController()
         {
@@ -120,68 +119,62 @@ namespace Accounting.Desktop.Controller
             CircularProgressBar.CircularProgressBar bar2, Label rule2, Label current2, Label limit2,
             CircularProgressBar.CircularProgressBar bar3, Label rule3, Label current3, Label limit3)
         {
-            var expenditureOverview = _expenditureService.GetExpenditureOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal }).ToList();
+            var expenditureOverview = _expenditureService.GetExpenditureOverview();
 
-            if (expenditureOverview.Count >= 1)
+            if (expenditureOverview.Count != 0)
             {
-                bar1.Maximum = (int)expenditureOverview[0].ExpenditureLimit;
-                rule1.Text = expenditureOverview[0].ExpenditureDesc;
-            }
-            if (expenditureOverview.Count >= 2)
-            {
-                bar2.Maximum = (int)expenditureOverview[1].ExpenditureLimit;
-                rule2.Text = expenditureOverview[1].ExpenditureDesc;
-            }
-            if (expenditureOverview.Count >= 3)
-            {
-                bar3.Maximum = (int)expenditureOverview[2].ExpenditureLimit;
-                rule3.Text = expenditureOverview[2].ExpenditureDesc;
-            }
+                var debitExpense = expenditureOverview.FirstOrDefault(eo => eo.ExpenditureDesc == "Debit Expense");
 
-            if (expenditureOverview.Count >= 1)
-            {
-                current1.Text = "Current: " + expenditureOverview[0].ExpenditureTotal.ToString();
-                limit1.Text = "Limit: " + expenditureOverview[0].ExpenditureLimit.ToString();
+                bar1.Maximum = (int)debitExpense.ExpenditureLimit;
+                rule1.Text = debitExpense.ExpenditureDesc;
 
-                if (expenditureOverview[0].ExpenditureTotal <= expenditureOverview[0].ExpenditureLimit)
+                current1.Text = "Current: " + debitExpense.ExpenditureTotal.ToString();
+                limit1.Text = "Limit: " + debitExpense.ExpenditureLimit.ToString();
+
+                if (debitExpense.ExpenditureTotal <= debitExpense.ExpenditureLimit)
                 {
-                    bar1.Value = (int)expenditureOverview[0].ExpenditureTotal;
+                    bar1.Value = (int)debitExpense.ExpenditureTotal;
                 }
                 else
                 {
-                    bar1.Value = (int)expenditureOverview[0].ExpenditureLimit;
-                    bar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))));
+                    bar1.Value = (int)debitExpense.ExpenditureLimit;
+                    bar1.ProgressColor = SystemRed;
                 }
-            }
-            if (expenditureOverview.Count >= 2)
-            {
 
-                current2.Text = "Current: " + expenditureOverview[1].ExpenditureTotal.ToString();
-                limit2.Text = "Limit: " + expenditureOverview[1].ExpenditureLimit.ToString();
+                var livingExpense = expenditureOverview.FirstOrDefault(eo => eo.ExpenditureDesc == "Living Expense");
 
-                if (expenditureOverview[1].ExpenditureTotal <= expenditureOverview[1].ExpenditureLimit)
+                bar2.Maximum = (int)livingExpense.ExpenditureLimit;
+                rule2.Text = livingExpense.ExpenditureDesc;
+
+                current2.Text = "Current: " + livingExpense.ExpenditureTotal.ToString();
+                limit2.Text = "Limit: " + livingExpense.ExpenditureLimit.ToString();
+
+                if (livingExpense.ExpenditureTotal <= livingExpense.ExpenditureLimit)
                 {
-                    bar2.Value = (int)expenditureOverview[1].ExpenditureTotal;
+                    bar2.Value = (int)livingExpense.ExpenditureTotal;
                 }
                 else
                 {
-                    bar2.Value = (int)expenditureOverview[1].ExpenditureLimit;
-                    bar2.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))));
+                    bar2.Value = (int)livingExpense.ExpenditureLimit;
+                    bar2.ProgressColor = SystemRed;
                 }
-            }
-            if (expenditureOverview.Count >= 3)
-            {
-                current3.Text = "Current: " + expenditureOverview[2].ExpenditureTotal.ToString();
-                limit3.Text = "Limit: " + expenditureOverview[2].ExpenditureLimit.ToString();
 
-                if (expenditureOverview[2].ExpenditureTotal <= expenditureOverview[2].ExpenditureLimit)
+                var otherExpense = expenditureOverview.FirstOrDefault(eo => eo.ExpenditureDesc == "Other Expense");
+
+                bar3.Maximum = (int)otherExpense.ExpenditureLimit;
+                rule3.Text = otherExpense.ExpenditureDesc;
+
+                current3.Text = "Current: " + otherExpense.ExpenditureTotal.ToString();
+                limit3.Text = "Limit: " + otherExpense.ExpenditureLimit.ToString();
+
+                if (otherExpense.ExpenditureTotal <= otherExpense.ExpenditureLimit)
                 {
-                    bar3.Value = (int)expenditureOverview[2].ExpenditureTotal;
+                    bar3.Value = (int)otherExpense.ExpenditureTotal;
                 }
                 else
                 {
-                    bar3.Value = (int)expenditureOverview[2].ExpenditureLimit;
-                    bar3.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))));
+                    bar3.Value = (int)otherExpense.ExpenditureLimit;
+                    bar3.ProgressColor = SystemRed;
                 }
             }
         }
@@ -207,8 +200,8 @@ namespace Accounting.Desktop.Controller
                         {
                             Maximum = (int)item.ExpenditureLimit,
                             Value = (int)item.ExpenditureTotal,
-                            BackColor = System.Drawing.Color.WhiteSmoke,
-                            ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145))))),
+                            BackColor = Color.WhiteSmoke,
+                            ForeColor = SystemGreen,
                             Width = 200
                         });
                     }
@@ -218,8 +211,8 @@ namespace Accounting.Desktop.Controller
                         {
                             Maximum = (int)item.ExpenditureLimit,
                             Value = (int)item.ExpenditureLimit,
-                            BackColor = System.Drawing.Color.WhiteSmoke,
-                            ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137))))),
+                            BackColor = Color.WhiteSmoke,
+                            ForeColor = SystemRed,
                             Width = 200
                         });
                     }
