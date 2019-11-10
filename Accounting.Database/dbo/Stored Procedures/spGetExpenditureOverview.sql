@@ -4,7 +4,7 @@ CREATE PROCEDURE [dbo].[spGetExpenditureOverview]
 AS
 BEGIN
 		
-		select isNull(sum(Table2.ExpenditureTotal), 0) ExpenditureTotal, Table1.ExpenditureLimit, Table2.ExpenditureTypeId, table1.ExpenditureDesc
+		select isNull(sum(Table2.ExpenditureTotal), 0) ExpenditureTotal, Table1.ExpenditureLimit, Table1.ExpenditureTypeId, table1.ExpenditureDesc
 
 		from		(select sum(ExpenditureLimit) ExpenditureLimit, er.ExpenditureTypeId, et.ExpenditureDesc
 				from ExpenditureRules er
@@ -25,5 +25,5 @@ BEGIN
 
 					on Table1.ExpenditureTypeId=Table2.ExpenditureTypeId
 	
-	group by Table2.ExpenditureTypeId, ExpenditureLimit, table1.ExpenditureDesc
+	group by Table1.ExpenditureTypeId, ExpenditureLimit, table1.ExpenditureDesc
 END
