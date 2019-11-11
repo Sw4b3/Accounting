@@ -8,5 +8,6 @@ namespace Accounting.Domain.Services.Service.Interface
     {
         IList<Mapping> GetMappings();
         void SaveMapping(SaveMappingRequest request);
+        void DeleteMapping(DeleteMappingRequest request);
     }
 }

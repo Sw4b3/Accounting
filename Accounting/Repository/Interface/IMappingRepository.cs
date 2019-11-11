@@ -12,5 +12,6 @@ namespace Accounting.Repository.Interface
     {
         IList<Mapping> GetMappingRequest();
         void SaveMapping(SaveMappingRequest request);
+        void DeleteMapping(DeleteMappingRequest request);
     }
 }

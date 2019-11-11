@@ -151,6 +151,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
+            this.deleteMapping = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -1297,6 +1298,7 @@
             // 
             // tabPage19
             // 
+            this.tabPage19.Controls.Add(this.deleteMapping);
             this.tabPage19.Controls.Add(this.addMapping);
             this.tabPage19.Controls.Add(this.dataViewMapping);
             this.tabPage19.Location = new System.Drawing.Point(4, 22);
@@ -1653,6 +1655,19 @@
             this.dataGridAccount.Size = new System.Drawing.Size(679, 515);
             this.dataGridAccount.TabIndex = 29;
             // 
+            // deleteMapping
+            // 
+            this.deleteMapping.BackColor = System.Drawing.Color.DarkGray;
+            this.deleteMapping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteMapping.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.deleteMapping.Location = new System.Drawing.Point(30, 49);
+            this.deleteMapping.Name = "deleteMapping";
+            this.deleteMapping.Size = new System.Drawing.Size(148, 23);
+            this.deleteMapping.TabIndex = 57;
+            this.deleteMapping.Text = "Delete Mapping";
+            this.deleteMapping.UseVisualStyleBackColor = false;
+            this.deleteMapping.Click += new System.EventHandler(this.deleteMapping_Click);
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1819,6 +1834,7 @@
         private System.Windows.Forms.TabPage tabPage19;
         private System.Windows.Forms.DataGridView dataViewMapping;
         private System.Windows.Forms.Button addMapping;
+        private System.Windows.Forms.Button deleteMapping;
     }
 }
 

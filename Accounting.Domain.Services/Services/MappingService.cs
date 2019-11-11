@@ -47,5 +47,19 @@ namespace Accounting.Domain.Services.Service
                 throw;
             }
         }
+
+        public void DeleteMapping(DeleteMappingRequest request)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.MappingRepository.DeleteMapping(request);
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 }

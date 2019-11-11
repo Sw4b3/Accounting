@@ -63,18 +63,18 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\ReportHandler.cs" />
-    <Compile Include="Service\AccountService.cs" />
-    <Compile Include="Service\AnalyticsService.cs" />
-    <Compile Include="Service\ExpenditureService.cs" />
-    <Compile Include="Service\Interface\IAccountService.cs" />
-    <Compile Include="Service\Interface\IAnalyticsService.cs" />
-    <Compile Include="Service\Interface\IExpenditureService.cs" />
-    <Compile Include="Service\Interface\IMappingService.cs" />
-    <Compile Include="Service\Interface\IReportService.cs" />
-    <Compile Include="Service\Interface\ITransactionService.cs" />
-    <Compile Include="Service\MappingService.cs" />
-    <Compile Include="Service\ReportService.cs" />
-    <Compile Include="Service\TransactionService.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\AnalyticsService.cs" />
+    <Compile Include="Services\ExpenditureService.cs" />
+    <Compile Include="Services\Interface\IAccountService.cs" />
+    <Compile Include="Services\Interface\IAnalyticsService.cs" />
+    <Compile Include="Services\Interface\IExpenditureService.cs" />
+    <Compile Include="Services\Interface\IMappingService.cs" />
+    <Compile Include="Services\Interface\IReportService.cs" />
+    <Compile Include="Services\Interface\ITransactionService.cs" />
+    <Compile Include="Services\MappingService.cs" />
+    <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\TransactionService.cs" />
     <Compile Include="Utillies\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>

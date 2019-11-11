@@ -35,7 +35,7 @@ namespace Accounting.Desktop.Controller
             _mappingService = new MappingService();
         }
 
-        public void GetMapping(DataGridView dataGridView)
+        public void GetMappings(DataGridView dataGridView)
         {
             dataGridView.DataSource = _mappingService.GetMappings().ToList();
         }
@@ -43,6 +43,11 @@ namespace Accounting.Desktop.Controller
         public void SaveMapping(SaveMappingRequest request)
         {
             _mappingService.SaveMapping(request);
+        }
+
+        public void DeleteMapping(int mappingId)
+        {
+            _mappingService.DeleteMapping(new DeleteMappingRequest { MappingId = mappingId });
         }
 
         public void GetImport(DataGridView dataGridView)

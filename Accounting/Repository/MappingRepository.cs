@@ -28,5 +28,10 @@ namespace Accounting.Repository
         {
             Save(DatabaseConnection.connection, SQLStoredProcedures.saveMapping, request, _connection, _transaction);
         }
+
+        public void DeleteMapping(DeleteMappingRequest request)
+        {
+            Delete(DatabaseConnection.connection, SQLStoredProcedures.deleteMapping, request, _connection, _transaction);
+        }
     }
 }

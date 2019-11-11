@@ -53,7 +53,7 @@ namespace Accounting.Desktop
             _transactionController.GetTransactionsDebit(dataViewTransactionDebit);
             _transactionController.GetTransactionsCredit(dataViewTransactionCredit);
             _reportController.GetImport(dataGridViewImportFile);
-            _dataImportController.GetMapping(dataViewMapping);
+            _dataImportController.GetMappings(dataViewMapping);
         }
 
         public void PopulateAccountTable()
@@ -86,7 +86,7 @@ namespace Accounting.Desktop
         public void PopulateDataImportTables()
         {
             _reportController.GetImport(dataGridViewImportFile);
-            _dataImportController.GetMapping(dataViewMapping);
+            _dataImportController.GetMappings(dataViewMapping);
         }
 
         public void PopulationTransactionTableByDate()
@@ -378,6 +378,18 @@ namespace Accounting.Desktop
         private void AddMapping_Click(object sender, EventArgs e)
         {
             new MappingAddDialog(this).Show();
+        }
+
+        private void deleteMapping_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to Delete this Mapping", "Delete Mapping", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int selectedrowindex = dataViewMapping.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataViewMapping.Rows[selectedrowindex];
+                _reportController.DeleteMapping(int.Parse(selectedRow.Cells[0].Value.ToString()));
+                _reportController.GetMappings(dataViewMapping);
+            }
         }
     }
 }
