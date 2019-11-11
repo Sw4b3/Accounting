@@ -47,11 +47,10 @@ namespace Accounting.Desktop
         public void PopulateTransactionTables()
         {
             _transactionController.GetTransactions();
-            _transactionController.GetTransactions(dataViewTransaction, 1);
-            _analyticsController.GetAnalyticsOverview(chart1);
-            _transactionController.GetTransfers(dataViewTransfer);
-            _transactionController.GetTransactionsDebit(dataViewTransactionDebit);
-            _transactionController.GetTransactionsCredit(dataViewTransactionCredit);
+            dataViewTransaction.DataSource = _transactionController.GetTransactions(1);
+            dataViewTransfer.DataSource = _transactionController.GetTransfers();
+            dataViewTransactionDebit.DataSource = _transactionController.GetTransactionsDebit();
+            dataViewTransactionCredit.DataSource = _transactionController.GetTransactionsCredit();
             _reportController.GetImport(dataGridViewImportFile);
             _dataImportController.GetMappings(dataViewMapping);
         }
@@ -73,7 +72,7 @@ namespace Accounting.Desktop
         {
             DateTime date = dateTimePicker4.Value;
             comboBoxMappings.SelectedItem = "Unmapped";
-            _transactionController.GetRecentTransactions(dataGridViewRecentTransactions);
+            dataGridViewRecentTransactions.DataSource = _transactionController.GetRecentTransactions();
             _expenditureController.PopluateExpenditurePanel(tableLayoutPanel1);
             _expenditureController.GetExpenditure(dataGridViewExpenditure, date);
             _expenditureController.GetExpenditureRules(dataGridViewSetting);
@@ -91,7 +90,7 @@ namespace Accounting.Desktop
 
         public void PopulationTransactionTableByDate()
         {
-            _transactionController.SearchTransactionsByDate(dataViewTransaction, new SearchTransactionByDateRequest()
+            dataViewTransaction.DataSource = _transactionController.SearchTransactionsByDate(new SearchTransactionByDateRequest()
             {
                 AccountTypeId = int.Parse((_accountController.GetAccountId(comboBoxAccount).ToString().Trim())),
                 StartDate = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd")),
@@ -112,7 +111,7 @@ namespace Accounting.Desktop
             var accountId = _accountController.GetAccountId(comboBoxAccount);
             var balance = _accountController.GetAccountBalance(accountId);
             _transactionController.GetTransactions();
-            _transactionController.GetTransactions(dataViewTransaction, accountId);
+            dataViewTransaction.DataSource = _transactionController.GetTransactions(1);
             PopulateBalanceLabel();
         }
 
@@ -259,9 +258,9 @@ namespace Accounting.Desktop
             {
                 _transactionController.DeleteTransaction(dataViewTransaction);
                 _transactionController.GetTransactions();
-                _transactionController.GetTransfers(dataViewTransfer);
-                _transactionController.GetTransactionsDebit(dataViewTransactionDebit);
-                _transactionController.GetTransactionsCredit(dataViewTransactionCredit);
+                dataViewTransfer.DataSource = _transactionController.GetTransfers();
+                dataViewTransactionDebit.DataSource = _transactionController.GetTransactionsDebit();
+                dataViewTransactionCredit.DataSource = _transactionController.GetTransactionsCredit();
                 FilterTransactionByAccount();
                 PopulateTransactionLabels();
             }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Accounting.Models.Models;
+using Accounting.Models.ViewModels;
 
 namespace Accounting.Desktop.Controller
 {
@@ -24,35 +25,90 @@ namespace Accounting.Desktop.Controller
             _transactions = _transactionService.GetTransactionsByDate(Extensions.GetCurrentMonth());
         }
 
-        public void GetTransfers(DataGridView dataGridView)
+        public List<TransferViewModel> GetTransfers()
         {
-            dataGridView.DataSource = _transactions.Where(x=>x.Description.ToLower().Contains("transfer")|| x.Description.ToLower().Contains("trf"))
-                .Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType,x.AccountType }).ToList(); 
+            var res = _transactions.Where(x => x.Description.ToLower().Contains("transfer") || x.Description.ToLower().Contains("trf"))
+                  .Select(x => new TransferViewModel
+                  {
+                      TransactionId = x.TransactionId,
+                      Description = x.Description,
+                      Amount = x.Amount,
+                      TransactionTimestamp = x.TransactionTimestamp,
+                      TransactionType = x.TransactionType,
+                      AccountType = x.AccountType
+                  }).ToList();
+
+            return res;
         }
 
-        public void GetTransactions(DataGridView dataGridView, int i)
+        public List<TransactionViewModel> GetTransactions(int i)
         {
-            dataGridView.DataSource = _transactions.Where(x => x.AccountTypeId == i).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType, x.Balance}).ToList();
+            var res = _transactions.Where(x => x.AccountTypeId == i)
+                 .Select(x => new TransactionViewModel
+                 {
+                     TransactionId = x.TransactionId,
+                     Description = x.Description,
+                     Amount = x.Amount,
+                     TransactionTimestamp = x.TransactionTimestamp,
+                     TransactionType = x.TransactionType,
+                     Balance = x.Balance
+                 }).ToList();
+
+            return res;
         }
 
-        public void SearchTransactionsByDate(DataGridView dataGridView, SearchTransactionByDateRequest transaction)
+        public List<TransactionViewModel> SearchTransactionsByDate(SearchTransactionByDateRequest transaction)
         {
-            dataGridView.DataSource = _transactionService.SearchTransactionsByDate(transaction).Select(x => new { x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp, x.TransactionType, x.Balance }).ToList();
+            var res = _transactionService.SearchTransactionsByDate(transaction)
+                 .Select(x => new TransactionViewModel
+                 {
+                     TransactionId = x.TransactionId,
+                     Description = x.Description,
+                     Amount = x.Amount,
+                     TransactionTimestamp = x.TransactionTimestamp,
+                     TransactionType = x.TransactionType,
+                     Balance = x.Balance
+                 }).ToList();
+
+            return res;
         }
 
-        public void GetRecentTransactions(DataGridView dataGridView)
+        public List<TransactionSummaryViewModel> GetRecentTransactions()
         {
-            dataGridView.DataSource = _transactions.Select(x => new {  x.Description, x.Amount, x.TransactionTimestamp }).ToList(); ;
+            var res = _transactions.Select(x => new TransactionSummaryViewModel
+            {
+                Description = x.Description,
+                Amount = x.Amount,
+                TransactionTimestamp = x.TransactionTimestamp,
+            }).ToList();
+
+            return res;
         }
 
-        public void GetTransactionsDebit(DataGridView dataGridView)
+        public List<TransactionSummaryViewModel> GetTransactionsDebit()
         {
-            dataGridView.DataSource = _transactions.Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            var res = _transactions.Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 2)
+                .Select(x => new TransactionSummaryViewModel
+                {
+                    Description = x.Description,
+                    Amount = x.Amount,
+                    TransactionTimestamp = x.TransactionTimestamp,
+                }).ToList();
+
+            return res;
         }
 
-        public void GetTransactionsCredit(DataGridView dataGridView)
+        public List<TransactionSummaryViewModel> GetTransactionsCredit()
         {
-            dataGridView.DataSource = _transactions.Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 1).Select(x => new { x.Description, x.Amount, x.TransactionTimestamp }).ToList();
+            var res = _transactions.Where(x => x.AccountTypeId == 1 && x.TransactionTypeId == 1)
+                 .Select(x => new TransactionSummaryViewModel
+                 {
+                     Description = x.Description,
+                     Amount = x.Amount,
+                     TransactionTimestamp = x.TransactionTimestamp,
+                 }).ToList();
+
+            return res;
         }
 
         public decimal GetExpenseSubtotal()
