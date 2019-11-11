@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Requests
 {
-    public class GetAccountRequest
+   public class DeleteMappingRequest
     {
-        public string AccountNo { get; set; }
+        public int MappingId { get; set; }
     }
 }

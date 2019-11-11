@@ -1,6 +1,6 @@
 ﻿
 CREATE PROCEDURE [dbo].[spGetAccount]
-@AccountNo  bigint
+@AccountNo varchar(255)
 AS
 BEGIN
 		select *  from Accounts with (nolock) where AccountNo=@AccountNo;

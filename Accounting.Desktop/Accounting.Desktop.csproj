@@ -68,12 +68,18 @@
     </Compile>
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\AnalyticsController.cs" />
-    <Compile Include="Controller\ReportController.cs" />
+    <Compile Include="Controller\DataImportController.cs" />
     <Compile Include="Controller\ExpenditureController.cs" />
     <Compile Include="Controller\TransactionController.cs" />
     <Compile Include="Model\ExpenditureRuleItem.cs" />
     <Compile Include="Model\ExpenditureTypeItem.cs" />
     <Compile Include="Model\AccountItem.cs" />
+    <Compile Include="View\Dialog\MappingAddDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\MappingAddDialog.Designer.cs">
+      <DependentUpon>MappingAddDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dialog\AccountEditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Dialog\MappingAddDialog.resx">
+      <DependentUpon>MappingAddDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Dialog\AccountEditDialog.resx">
       <DependentUpon>AccountEditDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +175,12 @@
     <EmbeddedResource Include="View\MainApplication.resx">
       <DependentUpon>MainApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="App.Release.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -196,4 +211,24 @@
     <Content Include="Resources\histogram_512_omC_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="App_config_AfterCompile" AfterTargets="AfterCompile" Condition="Exists('App.$(Configuration).config')">
+    <!--Generate transformed app config in the intermediate directory-->
+    <TransformXml Source="App.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="App.$(Configuration).config" />
+    <!--Force build process to use the transformed configuration file from now on.-->
+    <ItemGroup>
+      <AppConfigWithTargetPath Remove="App.config" />
+      <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
+        <TargetPath>$(TargetFileName).config</TargetPath>
+      </AppConfigWithTargetPath>
+    </ItemGroup>
+  </Target>
+  <!--Override After Publish to support ClickOnce AfterPublish. Target replaces the untransformed config file copied to the deployment directory with the transformed one.-->
+  <Target Name="App_config_AfterPublish" AfterTargets="AfterPublish" Condition="Exists('App.$(Configuration).config')">
+    <PropertyGroup>
+      <DeployedConfig>$(_DeploymentApplicationDir)$(TargetName)$(TargetExt).config$(_DeploymentFileMappingExtension)</DeployedConfig>
+    </PropertyGroup>
+    <!--Publish copies the untransformed App.config to deployment directory so overwrite it-->
+    <Copy Condition="Exists('$(DeployedConfig)')" SourceFiles="$(IntermediateOutputPath)$(TargetFileName).config" DestinationFiles="$(DeployedConfig)" />
+  </Target>
 </Project>

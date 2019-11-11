@@ -1,14 +1,13 @@
 ﻿using Accounting.Models.Models;
-using System;
+using Accounting.Models.Requests;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Domain.Services.Service.Interface
 {
     public interface IMappingService
     {
         IList<Mapping> GetMappings();
+        void SaveMapping(SaveMappingRequest request);
+        void DeleteMapping(DeleteMappingRequest request);
     }
 }

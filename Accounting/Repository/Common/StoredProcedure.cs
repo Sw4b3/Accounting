@@ -22,6 +22,8 @@ namespace Accounting.Repository.Common
         public const string getAnalyticsByMonth = "spGetAnalyticsByMonth";
         public const string getAnalyticsStatistics = "spGetAnalyticsStatistics";
         public const string getMappings = "spGetMappings";
+        public const string saveMapping = "spSaveMapping";
+        public const string deleteMapping = "spDeleteMapping";
         public const string deleteTransaction= "spDeleteTransactionStaging";
         public const string getExpendituresByDate = "spGetExpendituresByDate";
         public const string saveExpenditure = "spSaveExpenditure";

@@ -54,9 +54,11 @@
     <Compile Include="Models\AnalysisByDay.cs" />
     <Compile Include="Models\AnalysisOverview.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\DeleteMappingRequest.cs" />
     <Compile Include="Requests\DeleteTransactionRequest.cs" />
     <Compile Include="Requests\RevertImportFileRequest.cs" />
     <Compile Include="Requests\GetAccountRequest.cs" />
+    <Compile Include="Requests\SaveMappingRequest.cs" />
     <Compile Include="Requests\SaveImportFileRequest.cs" />
     <Compile Include="Requests\UpdateAccountRequest.cs" />
     <Compile Include="Requests\UpdateExpenditureRequest.cs" />

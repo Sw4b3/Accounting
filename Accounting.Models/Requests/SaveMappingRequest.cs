@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Requests
 {
-    public class GetAccountRequest
+    public class SaveMappingRequest
     {
-        public string AccountNo { get; set; }
+        public string ExpectedString { get; set; }
+        public string ProcessedString { get; set; }
     }
 }

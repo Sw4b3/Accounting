@@ -16,21 +16,38 @@ using System.Windows.Forms;
 
 namespace Accounting.Desktop.Controller
 {
-    class ReportController
+    class DataImportController
     {
         private TransactionController _transactionController;
         private AccountController _accountController;
         private ITransactionService _transactionService;
         private IReportService _reportService;
         private ReportHandler _reportHanlder;
+        private IMappingService _mappingService;
 
-        public ReportController()
+        public DataImportController()
         {
             _transactionController = new TransactionController();
             _accountController = new AccountController();
             _transactionService = new TransactionService();
             _reportService = new ReportService();
             _reportHanlder = new ReportHandler();
+            _mappingService = new MappingService();
+        }
+
+        public void GetMappings(DataGridView dataGridView)
+        {
+            dataGridView.DataSource = _mappingService.GetMappings().ToList();
+        }
+
+        public void SaveMapping(SaveMappingRequest request)
+        {
+            _mappingService.SaveMapping(request);
+        }
+
+        public void DeleteMapping(int mappingId)
+        {
+            _mappingService.DeleteMapping(new DeleteMappingRequest { MappingId = mappingId });
         }
 
         public void GetImport(DataGridView dataGridView)
@@ -70,7 +87,6 @@ namespace Accounting.Desktop.Controller
         public void OpenFileDialog(MainApplication mainForm)
         {
             string filename = null;
-            Int64 accountNo;
 
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -95,14 +111,16 @@ namespace Accounting.Desktop.Controller
 
                 var accountNoString = Path.GetFileName(filename).Split(' ')[0];
 
-                var isSuccessful = Int64.TryParse(accountNoString, out accountNo);
+                //var isSuccessful = Int64.TryParse(accountNoString, out accountNo);
 
-                if (isSuccessful)
+
+                var account = _accountController.GetAccount(new GetAccountRequest
                 {
-                    var account = _accountController.GetAccount(new GetAccountRequest
-                    {
-                        AccountNo = accountNo
-                    });
+                    AccountNo = accountNoString
+                });
+
+                if (account != null)
+                {
 
                     if (account != null)
                     {
@@ -138,7 +156,7 @@ namespace Accounting.Desktop.Controller
                     {
                         foreach (var vaules in pendingTransactionList.ToList())
                         {
-                            if (isMatch(transaction.Description, vaules.Description, transaction.Amount, vaules.Amount, transaction.TransactionTimestamp, vaules.TransactionTimestamp))
+                            if (IsMatch(transaction.Description, vaules.Description, transaction.Amount, vaules.Amount, transaction.TransactionTimestamp, vaules.TransactionTimestamp))
                             {
                                 _transactionService.DeleteTransaction(new DeleteTransactionRequest { TransactionId = vaules.TransactionId });
                                 pendingTransactionList.Remove(vaules);
@@ -155,7 +173,7 @@ namespace Accounting.Desktop.Controller
             }
         }
 
-        public bool isMatch(string value1, string value2, decimal value3, decimal value4, DateTime importedDate, DateTime pendingDate)
+        public bool IsMatch(string value1, string value2, decimal value3, decimal value4, DateTime importedDate, DateTime pendingDate)
         {
 
             if (value1.ToLower().Contains(value2.ToLower()) && value3.ToString("0.00").Equals(value4.ToString("0.00")) && (importedDate.AddDays(-4) >= pendingDate || pendingDate <= importedDate.AddDays(4)))
