@@ -15,8 +15,6 @@ namespace Accounting.Desktop.Controller
     public class ExpenditureController
     {
         private IExpenditureService _expenditureService;
-        private bool isInitialized = false;
-        private DataGridViewComboBoxColumn _expenditureRule;
 
         private Color SystemGreen = Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
         private Color SystemRed = Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))));
@@ -24,10 +22,10 @@ namespace Accounting.Desktop.Controller
         public ExpenditureController()
         {
             _expenditureService = new ExpenditureService();
-            _expenditureRule = new DataGridViewComboBoxColumn();
+
         }
 
-        public void GetExpenditure(DataGridView dataGridView, DateTime date)
+        public List<ExpenditureViewModel> GetExpenditure(DateTime date)
         {
             var startDate = new DateTime(date.Year, date.Month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
@@ -36,23 +34,27 @@ namespace Accounting.Desktop.Controller
             {
                 StartDate = startDate,
                 EndDate = endDate
-            }).Where(x => x.ExpenditureRuleId == 0).Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
-
-            IList<ExpenditureRuleItem> list = _expenditureService.GetExpenditureRules().Select(x => new ExpenditureRuleItem { ExpenditureDesc = x.ExpenditureDesc, ExpenditureRuleId = x.ExpenditureRuleId }).ToList();
-            _expenditureRule.DataSource = list;
-            _expenditureRule.HeaderText = "ExpenditureRuleId";
-            _expenditureRule.DisplayMember = "ExpenditureDesc";
-            _expenditureRule.ValueMember = "ExpenditureRuleId";
-            _expenditureRule.FlatStyle = FlatStyle.Flat;
-
-            dataGridView.DataSource = res;
-            if (!isInitialized)
+            })
+            .Where(x => x.ExpenditureRuleId == 0)
+            .Select(x => new ExpenditureViewModel
             {
-                dataGridView.Columns.Add(_expenditureRule);
-                isInitialized = true;
-            }
+                ExpenditureId = x.ExpenditureId,
+                Description = x.Description,
+                Amount = x.Amount,
+                TransactionTimestamp = x.TransactionTimestamp,
+                
+        }).ToList();
+
+            return res;
         }
 
+        public List<ExpenditureRuleItem> GetExpenditureRules()
+        {
+            var res = _expenditureService.GetExpenditureRules()
+                .Select(x => new ExpenditureRuleItem { ExpenditureDesc = x.ExpenditureDesc, ExpenditureRuleId = x.ExpenditureRuleId }).ToList();
+
+            return res;
+        }
 
         public void FilterExpenditureByDate(DataGridView dataGridView, DateTime date)
         {

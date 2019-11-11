@@ -34,5 +34,15 @@ namespace Accounting.Domain.Services.Utillies
                 EndDate = endDate
             };
         }
+
+        public static bool IsMatch(string value1, string value2, decimal value3, decimal value4, DateTime importedDate, DateTime pendingDate)
+        {
+
+            if (value1.ToLower().Contains(value2.ToLower()) && value3.ToString("0.00").Equals(value4.ToString("0.00")) && (importedDate.AddDays(-4) >= pendingDate || pendingDate <= importedDate.AddDays(4)))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

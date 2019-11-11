@@ -14,9 +14,9 @@ namespace Accounting.Models.ViewModels
 
         public decimal Amount { get; set; }
 
-        public string TransactionType { get; set; }
-
         public DateTime TransactionTimestamp { get; set; }
+
+        public string TransactionType { get; set; }
 
         public string Balance { get; set; }
 

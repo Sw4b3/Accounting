@@ -1,5 +1,6 @@
 ﻿using Accounting.Domain.Services.Service;
 using Accounting.Domain.Services.Utillies;
+using Accounting.Models.Models;
 using Accounting.Models.Service;
 using System;
 using System.Collections.Generic;
@@ -23,14 +24,16 @@ namespace Accounting.Desktop.Controller
         }
 
 
-        public void GetAnalyticsOverview(DataGridView dataGridView)
+        public List<AnalyticsOverview> GetAnalyticsOverview()
         {
-            dataGridView.DataSource = _analyticsService.GetAnalysicOverview();
+            var res = _analyticsService.GetAnalysicOverview().ToList();
+            return res;
         }
 
-        public void GetAnalyticStatistics(DataGridView dataGridView)
+        public List<Statistic> GetAnalyticStatistics()
         {
-            dataGridView.DataSource = _analyticsService.GetStatistics();
+            var res = _analyticsService.GetStatistics().ToList();
+            return res;
         }
 
         public void GetAnalyticsOverview(Chart chartPie)
@@ -42,17 +45,28 @@ namespace Accounting.Desktop.Controller
             chartPie.Series[0].Points.DataBindXY(new[] { "Expense", "Income" }, new[] { expense, income });
         }
 
-        public void GetAnalyticsByDay(DataGridView dataGridView, Chart chartBar)
+        public List<AnalysisByDay> GetAnalyticsByDay()
+        {
+            var res = _analyticsService.GetAnalyticsByDay().ToList();
+            return res;
+        }
+
+        public List<AnalysisByMonth> GetAnalyticsByMonth()
+        {
+            var res = _analyticsService.GetAnalyticsByMonth().ToList();
+            return res;
+        }
+
+        public void GetAnalyticsByDay(Chart chartBar)
         {
             var transaction = _analyticsService.GetAnalyticsByDay();
             var dayAnalytics = transaction.Select(x => x.Amount).ToList();
             var dayAnalyticsHeader = transaction.Select(x => x.TransactionTimestamp.ToString("dd/MMM")).ToList();
 
             chartBar.Series[0].Points.DataBindXY(dayAnalyticsHeader, dayAnalytics);
-            dataGridView.DataSource = transaction;
         }
 
-        public void GetAnalyticsByMonth(DataGridView dataGridView, Chart chartColumn)
+        public void GetAnalyticsByMonth(Chart chartColumn)
         {
             var transaction = _analyticsService.GetAnalyticsByMonth();
             var credit = transaction.Select(x => x.Credit).ToList();
@@ -63,8 +77,6 @@ namespace Accounting.Desktop.Controller
             chartColumn.Series[0].Points.DataBindXY(month, credit);
             chartColumn.Series[1].Points.DataBindXY(month, debit);
             chartColumn.Series[2].Points.DataBindXY(month, balance);
-
-            dataGridView.DataSource = transaction;
         }
     }
 }

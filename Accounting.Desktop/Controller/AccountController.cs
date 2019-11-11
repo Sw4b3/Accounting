@@ -3,6 +3,7 @@ using Accounting.Domain.Services.Service;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -19,7 +20,7 @@ namespace Accounting.Desktop.Controller
 
         public string GetAccountBalance(int accountId)
         {
-            return _accountService.GetAccount().FirstOrDefault(x =>  x.AccountId== accountId).CurrentBalance.ToString();
+            return _accountService.GetAccount().FirstOrDefault(x => x.AccountId == accountId).CurrentBalance.ToString();
         }
 
         public string GetAccountAvaliableBalance(int accountId)
@@ -27,9 +28,18 @@ namespace Accounting.Desktop.Controller
             return _accountService.GetAccount().FirstOrDefault(x => x.AccountId == accountId).AvailableBalance.ToString();
         }
 
-        public void GetAccount(DataGridView dataGrid)
+        public List<AccountViewModel> GetAccount()
         {
-            dataGrid.DataSource = _accountService.GetAccount().Select(x => new { x.AccountId, x.AccountNo , x.AccountType, x.Status, x.CurrentBalance, x.AvailableBalance }).ToList();
+            var res = _accountService.GetAccount().Select(x => new AccountViewModel
+            {
+                AccountId = x.AccountId,
+                AccountNo = x.AccountNo,
+                AccountType = x.AccountType,
+                Status = x.Status,
+                CurrentBalance = x.CurrentBalance,
+                AvailableBalance = x.AvailableBalance
+            }).ToList();
+            return res;
         }
 
         public Account GetAccount(GetAccountRequest getAccountRequest)

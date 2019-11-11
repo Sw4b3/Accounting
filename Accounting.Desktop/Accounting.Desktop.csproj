@@ -71,9 +71,6 @@
     <Compile Include="Controller\DataImportController.cs" />
     <Compile Include="Controller\ExpenditureController.cs" />
     <Compile Include="Controller\TransactionController.cs" />
-    <Compile Include="Model\ExpenditureRuleItem.cs" />
-    <Compile Include="Model\ExpenditureTypeItem.cs" />
-    <Compile Include="Model\AccountItem.cs" />
     <Compile Include="View\Dialog\MappingAddDialog.cs">
       <SubType>Form</SubType>
     </Compile>

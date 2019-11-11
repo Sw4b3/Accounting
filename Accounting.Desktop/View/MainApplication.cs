@@ -24,6 +24,7 @@ namespace Accounting.Desktop
         private DataImportController _reportController;
         private ExpenditureController _expenditureController;
         private DataImportController _dataImportController;
+        private bool isInitialized = false;
 
         public MainApplication()
         {
@@ -47,25 +48,28 @@ namespace Accounting.Desktop
         public void PopulateTransactionTables()
         {
             _transactionController.GetTransactions();
+            _analyticsController.GetAnalyticsOverview(chart1);
             dataViewTransaction.DataSource = _transactionController.GetTransactions(1);
             dataViewTransfer.DataSource = _transactionController.GetTransfers();
             dataViewTransactionDebit.DataSource = _transactionController.GetTransactionsDebit();
             dataViewTransactionCredit.DataSource = _transactionController.GetTransactionsCredit();
-            _reportController.GetImport(dataGridViewImportFile);
-            _dataImportController.GetMappings(dataViewMapping);
+            dataGridViewImportFile.DataSource = _reportController.GetImport();
+            dataViewMapping.DataSource = _dataImportController.GetMappings();
         }
 
         public void PopulateAccountTable()
         {
-            _accountController.GetAccount(dataGridAccount);
+            dataGridAccount.DataSource = _accountController.GetAccount();
         }
 
         public void PopulationAnalyticsTable()
         {
-            _analyticsController.GetAnalyticStatistics(dataGridViewStatistics);
-            _analyticsController.GetAnalyticsOverview(dataGridViewAnalysis);
-            _analyticsController.GetAnalyticsByDay(dataGridViewDaily, chart2);
-            _analyticsController.GetAnalyticsByMonth(dataGridViewMonthly, chart3);
+            dataGridViewStatistics.DataSource = _analyticsController.GetAnalyticStatistics();
+            dataGridViewAnalysis.DataSource = _analyticsController.GetAnalyticsOverview();
+            dataGridViewDaily.DataSource = _analyticsController.GetAnalyticsByDay();
+            dataGridViewMonthly.DataSource = _analyticsController.GetAnalyticsByMonth();
+            _analyticsController.GetAnalyticsByDay(chartDayAnalytics);
+            _analyticsController.GetAnalyticsByMonth(chartMonthAnalytics);
         }
 
         public void PopulateExpenditureTable()
@@ -74,7 +78,23 @@ namespace Accounting.Desktop
             comboBoxMappings.SelectedItem = "Unmapped";
             dataGridViewRecentTransactions.DataSource = _transactionController.GetRecentTransactions();
             _expenditureController.PopluateExpenditurePanel(tableLayoutPanel1);
-            _expenditureController.GetExpenditure(dataGridViewExpenditure, date);
+
+            dataGridViewExpenditure.DataSource= _expenditureController.GetExpenditure(date);
+
+            var _expenditureRule = new DataGridViewComboBoxColumn();
+
+            _expenditureRule.DataSource = _expenditureController.GetExpenditureRules();
+            _expenditureRule.HeaderText = "ExpenditureRuleId";
+            _expenditureRule.DisplayMember = "ExpenditureDesc";
+            _expenditureRule.ValueMember = "ExpenditureRuleId";
+            _expenditureRule.FlatStyle = FlatStyle.Flat;
+
+            if (!isInitialized)
+            {
+                dataGridViewExpenditure.Columns.Add(_expenditureRule);
+                isInitialized = true;
+            }
+
             _expenditureController.GetExpenditureRules(dataGridViewSetting);
             _expenditureController.GetExpenditureBreakdown(dataGridExpenditureBreakdown);
             _expenditureController.GetExpenditureOverview(circularProgressBar1, labelRule1, labelCurrent1, labelLimit1,
@@ -84,8 +104,8 @@ namespace Accounting.Desktop
 
         public void PopulateDataImportTables()
         {
-            _reportController.GetImport(dataGridViewImportFile);
-            _dataImportController.GetMappings(dataViewMapping);
+            dataGridViewImportFile.DataSource = _reportController.GetImport();
+            dataViewMapping.DataSource = _dataImportController.GetMappings();
         }
 
         public void PopulationTransactionTableByDate()
@@ -338,7 +358,7 @@ namespace Accounting.Desktop
                 DataGridViewRow selectedRow = dataGridViewImportFile.Rows[selectedrowindex];
                 _reportController.RollbackImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
                 FilterTransactionByAccount();
-                _reportController.GetImport(dataGridViewImportFile);
+                dataGridViewImportFile.DataSource = _reportController.GetImport();
             }
         }
 
@@ -351,7 +371,7 @@ namespace Accounting.Desktop
                 DataGridViewRow selectedRow = dataGridViewImportFile.Rows[selectedrowindex];
                 _reportController.CompleteImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
                 FilterTransactionByAccount();
-                _reportController.GetImport(dataGridViewImportFile);
+                dataGridViewImportFile.DataSource = _reportController.GetImport();
             }
         }
 
@@ -364,22 +384,11 @@ namespace Accounting.Desktop
                 DataGridViewRow selectedRow = dataGridViewImportFile.Rows[selectedrowindex];
                 _reportController.DeleteImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
                 FilterTransactionByAccount();
-                _reportController.GetImport(dataGridViewImportFile);
+                dataGridViewImportFile.DataSource = _reportController.GetImport();
             }
         }
 
-        private void DateTimePicker4_ValueChanged(object sender, EventArgs e)
-        {
-            DateTime date = dateTimePicker4.Value;
-            _expenditureController.GetExpenditure(dataGridViewExpenditure, date);
-        }
-
-        private void AddMapping_Click(object sender, EventArgs e)
-        {
-            new MappingAddDialog(this).Show();
-        }
-
-        private void deleteMapping_Click(object sender, EventArgs e)
+        private void DeleteMapping_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to Delete this Mapping", "Delete Mapping", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -387,8 +396,19 @@ namespace Accounting.Desktop
                 int selectedrowindex = dataViewMapping.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataViewMapping.Rows[selectedrowindex];
                 _reportController.DeleteMapping(int.Parse(selectedRow.Cells[0].Value.ToString()));
-                _reportController.GetMappings(dataViewMapping);
+                dataViewMapping.DataSource = _reportController.GetMappings();
             }
+        }
+
+        private void DateTimePicker4_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime date = dateTimePicker4.Value;
+            dataGridViewExpenditure.DataSource =_expenditureController.GetExpenditure(date);
+        }
+
+        private void AddMapping_Click(object sender, EventArgs e)
+        {
+            new MappingAddDialog(this).Show();
         }
     }
 }

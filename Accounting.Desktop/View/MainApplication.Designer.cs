@@ -145,9 +145,9 @@
             this.dataGridViewStatistics = new System.Windows.Forms.DataGridView();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartDayAnalytics = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Monthly = new System.Windows.Forms.TabPage();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartMonthAnalytics = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.accountTab = new System.Windows.Forms.TabPage();
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -192,9 +192,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStatistics)).BeginInit();
             this.tabControl3.SuspendLayout();
             this.tabPage8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDayAnalytics)).BeginInit();
             this.Monthly.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMonthAnalytics)).BeginInit();
             this.accountTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).BeginInit();
             this.SuspendLayout();
@@ -1326,7 +1326,7 @@
             this.deleteMapping.TabIndex = 57;
             this.deleteMapping.Text = "Delete Mapping";
             this.deleteMapping.UseVisualStyleBackColor = false;
-            this.deleteMapping.Click += new System.EventHandler(this.deleteMapping_Click);
+            this.deleteMapping.Click += new System.EventHandler(this.DeleteMapping_Click);
             // 
             // addMapping
             // 
@@ -1519,7 +1519,7 @@
             // 
             // tabPage8
             // 
-            this.tabPage8.Controls.Add(this.chart2);
+            this.tabPage8.Controls.Add(this.chartDayAnalytics);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
@@ -1549,24 +1549,24 @@
             chartArea2.AxisY.MajorGrid.LineWidth = 0;
             chartArea2.AxisY2.LabelAutoFitMaxFontSize = 7;
             chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            this.chart2.Location = new System.Drawing.Point(15, 20);
-            this.chart2.Name = "chart2";
-            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chart2.PaletteCustomColors = new System.Drawing.Color[] {
+            this.chartDayAnalytics.ChartAreas.Add(chartArea2);
+            this.chartDayAnalytics.Location = new System.Drawing.Point(15, 20);
+            this.chartDayAnalytics.Name = "chart2";
+            this.chartDayAnalytics.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartDayAnalytics.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(146)))), ((int)(((byte)(200)))))};
             series2.ChartArea = "ChartArea1";
             series2.IsValueShownAsLabel = true;
             series2.Name = "Series1";
             series2.YValuesPerPoint = 4;
-            this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(490, 377);
-            this.chart2.TabIndex = 56;
-            this.chart2.Text = "chart2";
+            this.chartDayAnalytics.Series.Add(series2);
+            this.chartDayAnalytics.Size = new System.Drawing.Size(490, 377);
+            this.chartDayAnalytics.TabIndex = 56;
+            this.chartDayAnalytics.Text = "chart2";
             // 
             // Monthly
             // 
-            this.Monthly.Controls.Add(this.chart3);
+            this.Monthly.Controls.Add(this.chartMonthAnalytics);
             this.Monthly.Location = new System.Drawing.Point(4, 22);
             this.Monthly.Name = "Monthly";
             this.Monthly.Padding = new System.Windows.Forms.Padding(3);
@@ -1584,11 +1584,11 @@
             chartArea3.AxisY.LabelAutoFitMaxFontSize = 7;
             chartArea3.AxisY.MajorGrid.Enabled = false;
             chartArea3.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea3);
-            this.chart3.Location = new System.Drawing.Point(15, 20);
-            this.chart3.Name = "chart3";
-            this.chart3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chart3.PaletteCustomColors = new System.Drawing.Color[] {
+            this.chartMonthAnalytics.ChartAreas.Add(chartArea3);
+            this.chartMonthAnalytics.Location = new System.Drawing.Point(15, 20);
+            this.chartMonthAnalytics.Name = "chart3";
+            this.chartMonthAnalytics.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartMonthAnalytics.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137))))),
         System.Drawing.Color.Black};
@@ -1606,12 +1606,12 @@
             series5.ChartArea = "ChartArea1";
             series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series5.Name = "Series3";
-            this.chart3.Series.Add(series3);
-            this.chart3.Series.Add(series4);
-            this.chart3.Series.Add(series5);
-            this.chart3.Size = new System.Drawing.Size(490, 377);
-            this.chart3.TabIndex = 0;
-            this.chart3.Text = "chart3";
+            this.chartMonthAnalytics.Series.Add(series3);
+            this.chartMonthAnalytics.Series.Add(series4);
+            this.chartMonthAnalytics.Series.Add(series5);
+            this.chartMonthAnalytics.Size = new System.Drawing.Size(490, 377);
+            this.chartMonthAnalytics.TabIndex = 0;
+            this.chartMonthAnalytics.Text = "chart3";
             // 
             // accountTab
             // 
@@ -1732,9 +1732,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStatistics)).EndInit();
             this.tabControl3.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDayAnalytics)).EndInit();
             this.Monthly.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMonthAnalytics)).EndInit();
             this.accountTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccount)).EndInit();
             this.ResumeLayout(false);
@@ -1752,9 +1752,9 @@
         private System.Windows.Forms.TabPage analyticsTab;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDayAnalytics;
         private System.Windows.Forms.TabPage Monthly;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartMonthAnalytics;
         private System.Windows.Forms.DataGridView dataGridViewAnalysis;
         private System.Windows.Forms.TabControl tabControl4;
         private System.Windows.Forms.TabPage tabPage7;

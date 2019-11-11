@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items\AccountItem.cs" />
+    <Compile Include="Items\ExpenditureRuleItem.cs" />
+    <Compile Include="Items\ExpenditureTypeItem.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\ExpenditureOverview.cs" />
     <Compile Include="Models\Expenditure.cs" />
@@ -70,6 +74,8 @@
     <Compile Include="Requests\GetTransactionByDateRequest.cs" />
     <Compile Include="Requests\UpdateTransactionRequest.cs" />
     <Compile Include="Requests\SaveTransactionRequest.cs" />
+    <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\ExpenditureViewModel.cs" />
     <Compile Include="ViewModels\TransactionSummaryViewModel.cs" />
     <Compile Include="ViewModels\TransferViewModel.cs" />
     <Compile Include="ViewModels\TransactionViewModel.cs" />
