@@ -24,34 +24,34 @@ namespace Accounting.Repository
 
         public IList<Transaction> GetTransactionsByDateRequest(DateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<Transaction>(DatabaseConnection.connection, SQLStoredProcedures.getGetTransactionByDate, request, _connection, _transaction);
+            var res = GetWithParamater<Transaction>(DatabaseConnection.connection, SQLStoredProcedures.getGetTransactionByDate, request, _connection, _transaction);
             return res;
         }
 
         public IList<Transaction> SearchTransactionsByDateRequest(SearchTransactionByDateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<Transaction>(DatabaseConnection.connection, SQLStoredProcedures.searchTransactionByDate, request, _connection, _transaction);
+            var res = GetWithParamater<Transaction>(DatabaseConnection.connection, SQLStoredProcedures.searchTransactionByDate, request, _connection, _transaction);
             return res;
         }
 
         public void SaveTransactionRequest(SaveTransactionRequest request)
         {
-            Save<SaveTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.saveTransaction, request, _connection, _transaction);
+            Save(DatabaseConnection.connection, SQLStoredProcedures.saveTransaction, request, _connection, _transaction);
         }
 
         public void SaveTransactionStagingRequest(SaveTransactionRequest request)
         {
-            Save<SaveTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.saveTransactionStaging, request, _connection, _transaction);
+            Save(DatabaseConnection.connection, SQLStoredProcedures.saveTransactionStaging, request, _connection, _transaction);
         }
 
         public void UpdateTransactionRequest(UpdateTransactionRequest request)
         {
-            Update<UpdateTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.updateTransaction, request, _connection, _transaction);
+            Update(DatabaseConnection.connection, SQLStoredProcedures.updateTransaction, request, _connection, _transaction);
         }
 
         public void DeleteTransactionStagingRequest(DeleteTransactionRequest request)
         {
-            Delete<DeleteTransactionRequest>(DatabaseConnection.connection, SQLStoredProcedures.deleteTransaction, request, _connection, _transaction);
+            Delete(DatabaseConnection.connection, SQLStoredProcedures.deleteTransaction, request, _connection, _transaction);
         }
     }
 }

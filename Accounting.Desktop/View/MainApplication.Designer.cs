@@ -130,6 +130,7 @@
             this.button29 = new System.Windows.Forms.Button();
             this.dataGridViewImportFile = new System.Windows.Forms.DataGridView();
             this.tabPage19 = new System.Windows.Forms.TabPage();
+            this.deleteMapping = new System.Windows.Forms.Button();
             this.addMapping = new System.Windows.Forms.Button();
             this.dataViewMapping = new System.Windows.Forms.DataGridView();
             this.analyticsTab = new System.Windows.Forms.TabPage();
@@ -151,7 +152,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
-            this.deleteMapping = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -1213,6 +1213,7 @@
             this.button24.TabIndex = 60;
             this.button24.Text = "Delete Import";
             this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.DeleteImport_Click);
             // 
             // button25
             // 
@@ -1225,6 +1226,7 @@
             this.button25.TabIndex = 59;
             this.button25.Text = "Export All";
             this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.ExportAll_Click);
             // 
             // button26
             // 
@@ -1237,6 +1239,7 @@
             this.button26.TabIndex = 58;
             this.button26.Text = "Complete Import";
             this.button26.UseVisualStyleBackColor = false;
+            this.button26.Click += new System.EventHandler(this.Complete_Click);
             // 
             // button27
             // 
@@ -1249,6 +1252,7 @@
             this.button27.TabIndex = 57;
             this.button27.Text = "Rolback Import";
             this.button27.UseVisualStyleBackColor = false;
+            this.button27.Click += new System.EventHandler(this.Rollback_Click);
             // 
             // button28
             // 
@@ -1261,6 +1265,7 @@
             this.button28.TabIndex = 56;
             this.button28.Text = "Import";
             this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.Import_Click);
             // 
             // button29
             // 
@@ -1273,6 +1278,7 @@
             this.button29.TabIndex = 55;
             this.button29.Text = "Export";
             this.button29.UseVisualStyleBackColor = false;
+            this.button29.Click += new System.EventHandler(this.Export_Click);
             // 
             // dataGridViewImportFile
             // 
@@ -1308,6 +1314,19 @@
             this.tabPage19.TabIndex = 4;
             this.tabPage19.Text = "Manage Mapping";
             this.tabPage19.UseVisualStyleBackColor = true;
+            // 
+            // deleteMapping
+            // 
+            this.deleteMapping.BackColor = System.Drawing.Color.DarkGray;
+            this.deleteMapping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteMapping.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.deleteMapping.Location = new System.Drawing.Point(30, 49);
+            this.deleteMapping.Name = "deleteMapping";
+            this.deleteMapping.Size = new System.Drawing.Size(148, 23);
+            this.deleteMapping.TabIndex = 57;
+            this.deleteMapping.Text = "Delete Mapping";
+            this.deleteMapping.UseVisualStyleBackColor = false;
+            this.deleteMapping.Click += new System.EventHandler(this.deleteMapping_Click);
             // 
             // addMapping
             // 
@@ -1654,19 +1673,6 @@
             this.dataGridAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridAccount.Size = new System.Drawing.Size(679, 515);
             this.dataGridAccount.TabIndex = 29;
-            // 
-            // deleteMapping
-            // 
-            this.deleteMapping.BackColor = System.Drawing.Color.DarkGray;
-            this.deleteMapping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteMapping.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.deleteMapping.Location = new System.Drawing.Point(30, 49);
-            this.deleteMapping.Name = "deleteMapping";
-            this.deleteMapping.Size = new System.Drawing.Size(148, 23);
-            this.deleteMapping.TabIndex = 57;
-            this.deleteMapping.Text = "Delete Mapping";
-            this.deleteMapping.UseVisualStyleBackColor = false;
-            this.deleteMapping.Click += new System.EventHandler(this.deleteMapping_Click);
             // 
             // MainApplication
             // 

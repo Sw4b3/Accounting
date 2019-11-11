@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Accounting
 {
-    public class AnalyticsRepository: IAnalyticsRepository
+    public class AnalyticsRepository: BaseRepository, IAnalyticsRepository
     {
         private IDbConnection _connection;
         private IDbTransaction _transaction;
@@ -24,26 +24,26 @@ namespace Accounting
 
         public IList<Statistic> GetAnalyticsStatistics(DateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<Statistic>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsStatistics, request, _connection, _transaction);
+            var res = GetWithParamater<Statistic>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsStatistics, request, _connection, _transaction);
             return res;
         }
 
         public IList<AnalyticsOverview> GetAnalyticOverviewRequest(DateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<AnalyticsOverview>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsOverview, request, _connection, _transaction);
+            var res = GetWithParamater<AnalyticsOverview>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsOverview, request, _connection, _transaction);
             return res;
         }
 
 
         public IList<AnalysisByDay> GetAnalyticsByDayRequest(DateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<AnalysisByDay>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsByDay, request, _connection, _transaction);
+            var res = GetWithParamater<AnalysisByDay>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsByDay, request, _connection, _transaction);
             return res;
         }
 
         public IList<AnalysisByMonth> GetAnalyticsByMonthRequest()
         {
-            var res = DapperRepository.ExecuteStoredProc<AnalysisByMonth>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsByMonth, _connection, _transaction);
+            var res = Get<AnalysisByMonth>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsByMonth, _connection, _transaction);
             return res;
         }
     }

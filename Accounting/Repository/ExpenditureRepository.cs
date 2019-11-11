@@ -31,31 +31,31 @@ namespace Accounting.Repository
 
         public IList<ExpenditureType> GetExpenditureTypes()
         {
-            var res = DapperRepository.ExecuteStoredProc<ExpenditureType>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureTypes, _connection, _transaction);
+            var res = Get<ExpenditureType>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureTypes, _connection, _transaction);
             return res;
         }
 
         public IList<ExpenditureRule> GetExpenditureRules()
         {
-            var res = DapperRepository.ExecuteStoredProc<ExpenditureRule>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRules, _connection, _transaction);
+            var res = Get<ExpenditureRule>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRules, _connection, _transaction);
             return res;
         }
 
         public IList<ExpenditureOverview> GetExpenditureOverview(DateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresOverview, request,  _connection, _transaction);
+            var res = GetWithParamater<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpendituresOverview, request, _connection, _transaction);
             return res;
         }
 
         public IList<ExpenditureOverview> GetExpenditureRuleOverview(DateRequest request)
         {
-            var res = DapperRepository.ExecuteStoredProc<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRuleOverview, request, _connection, _transaction);
+            var res = GetWithParamater<ExpenditureOverview>(DatabaseConnection.connection, SQLStoredProcedures.getExpenditureRuleOverview, request, _connection, _transaction);
             return res;
         }
 
         public void ImportExpenditure(DateRequest request)
         {
-            DapperRepository.ExecuteStoredProc(DatabaseConnection.connection, SQLStoredProcedures.saveExpenditure, request, _connection, _transaction);
+            Save(DatabaseConnection.connection, SQLStoredProcedures.saveExpenditure, request, _connection, _transaction);
         }
 
         public void SaveExpenditureRule(SaveExpenditureTypeRequest request)

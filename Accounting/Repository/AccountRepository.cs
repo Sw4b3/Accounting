@@ -29,7 +29,7 @@ namespace Accounting.Repository.Interface
 
         public Account GetAccountRequest(GetAccountRequest AccountNo)
         {
-            var res = DapperRepository.ExecuteStoredProc<Account>(DatabaseConnection.connection, SQLStoredProcedures.getGetAccount, AccountNo, _connection, _transaction);
+            var res = GetWithParamater<Account>(DatabaseConnection.connection, SQLStoredProcedures.getGetAccount, AccountNo, _connection, _transaction);
             return res.SingleOrDefault();
         }
 
