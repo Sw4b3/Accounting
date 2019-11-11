@@ -79,24 +79,25 @@ namespace Accounting.Desktop
             dataGridViewRecentTransactions.DataSource = _transactionController.GetRecentTransactions();
             _expenditureController.PopluateExpenditurePanel(tableLayoutPanel1);
 
-            dataGridViewExpenditure.DataSource= _expenditureController.GetExpenditure(date);
-
-            var _expenditureRule = new DataGridViewComboBoxColumn();
-
-            _expenditureRule.DataSource = _expenditureController.GetExpenditureRules();
-            _expenditureRule.HeaderText = "ExpenditureRuleId";
-            _expenditureRule.DisplayMember = "ExpenditureDesc";
-            _expenditureRule.ValueMember = "ExpenditureRuleId";
-            _expenditureRule.FlatStyle = FlatStyle.Flat;
+            dataGridViewExpenditure.DataSource = _expenditureController.GetExpenditure(date);
+            dataGridViewExpenditure.AutoGenerateColumns = false;
 
             if (!isInitialized)
             {
+                var _expenditureRule = new DataGridViewComboBoxColumn();
+
+                _expenditureRule.DataSource = _expenditureController.GetExpenditureRulesList();
+                _expenditureRule.HeaderText = "ExpenditureRuleId";
+                _expenditureRule.DisplayMember = "ExpenditureDesc";
+                _expenditureRule.ValueMember = "ExpenditureRuleId";
+                _expenditureRule.FlatStyle = FlatStyle.Flat;
+
                 dataGridViewExpenditure.Columns.Add(_expenditureRule);
                 isInitialized = true;
             }
 
-            _expenditureController.GetExpenditureRules(dataGridViewSetting);
-            _expenditureController.GetExpenditureBreakdown(dataGridExpenditureBreakdown);
+            dataGridViewSetting.DataSource = _expenditureController.GetExpenditureRules();
+            dataGridExpenditureBreakdown.DataSource = _expenditureController.GetExpenditureBreakdown();
             _expenditureController.GetExpenditureOverview(circularProgressBar1, labelRule1, labelCurrent1, labelLimit1,
                 circularProgressBar2, labelRule2, labelCurrent2, labelLimit2,
                 circularProgressBar3, labelRule3, labelCurrent3, labelLimit3);
@@ -312,8 +313,8 @@ namespace Accounting.Desktop
 
                 DateTime date = dateTimePicker4.Value;
                 _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
-                _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings, date);
-                _expenditureController.FilterExpenditureByDate(dataGridExpenditureBreakdown, date);
+                dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings, date);
+                dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
             }
         }
 
@@ -328,8 +329,8 @@ namespace Accounting.Desktop
         {
             DateTime date = dateTimePicker4.Value;
             _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
-            _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings, date);
-            _expenditureController.FilterExpenditureByDate(dataGridExpenditureBreakdown, date);
+            dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings, date);
+            dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
         }
 
         private void EditAccount_Click(object sender, EventArgs e)
@@ -340,13 +341,13 @@ namespace Accounting.Desktop
         private void comboBoxMappings_SelectedIndexChanged(object sender, EventArgs e)
         {
             DateTime date = dateTimePicker4.Value;
-            _expenditureController.FilterExpenditure(dataGridViewExpenditure, comboBoxMappings, date);
+            dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings, date);
         }
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
         {
             DateTime date = dateTimePicker3.Value;
-            _expenditureController.FilterExpenditureByDate(dataGridExpenditureBreakdown, date);
+            dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
         }
 
         private void Rollback_Click(object sender, EventArgs e)
@@ -403,7 +404,7 @@ namespace Accounting.Desktop
         private void DateTimePicker4_ValueChanged(object sender, EventArgs e)
         {
             DateTime date = dateTimePicker4.Value;
-            dataGridViewExpenditure.DataSource =_expenditureController.GetExpenditure(date);
+            dataGridViewExpenditure.DataSource = _expenditureController.GetExpenditure(date);
         }
 
         private void AddMapping_Click(object sender, EventArgs e)

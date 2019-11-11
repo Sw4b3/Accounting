@@ -4,6 +4,7 @@ using Accounting.Domain.Services.Service;
 using Accounting.Domain.Services.Service.Interface;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
+using Accounting.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -39,16 +40,17 @@ namespace Accounting.Desktop.Controller
             .Select(x => new ExpenditureViewModel
             {
                 ExpenditureId = x.ExpenditureId,
+                TransactionId = x.TransactionId,
                 Description = x.Description,
                 Amount = x.Amount,
                 TransactionTimestamp = x.TransactionTimestamp,
-                
-        }).ToList();
+
+            }).ToList();
 
             return res;
         }
 
-        public List<ExpenditureRuleItem> GetExpenditureRules()
+        public List<ExpenditureRuleItem> GetExpenditureRulesList()
         {
             var res = _expenditureService.GetExpenditureRules()
                 .Select(x => new ExpenditureRuleItem { ExpenditureDesc = x.ExpenditureDesc, ExpenditureRuleId = x.ExpenditureRuleId }).ToList();
@@ -56,7 +58,7 @@ namespace Accounting.Desktop.Controller
             return res;
         }
 
-        public void FilterExpenditureByDate(DataGridView dataGridView, DateTime date)
+        public List<ExpenditureBreakdown> FilterExpenditureBreakdownByDate(DateTime date)
         {
             var startDate = new DateTime(date.Year, date.Month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
@@ -65,11 +67,18 @@ namespace Accounting.Desktop.Controller
             {
                 StartDate = startDate,
                 EndDate = endDate
-            }).Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal, Difference = x.ExpenditureLimit - x.ExpenditureTotal }).ToList();
-            dataGridView.DataSource = res;
+            }).Select(x => new ExpenditureBreakdown
+            {
+                ExpenditureDesc = x.ExpenditureDesc,
+                ExpenditureLimit = x.ExpenditureLimit,
+                ExpenditureTotal = x.ExpenditureTotal,
+                Difference = x.ExpenditureLimit - x.ExpenditureTotal
+            }).ToList();
+
+            return res;
         }
 
-        public void FilterExpenditure(DataGridView dataGridView, ComboBox comboBox, DateTime date)
+        public List<ExpenditureViewModel> FilterExpenditure(ComboBox comboBox, DateTime date)
         {
 
             if (comboBox.SelectedItem.ToString() == "Unmapped")
@@ -82,8 +91,17 @@ namespace Accounting.Desktop.Controller
                     StartDate = startDate,
                     EndDate = endDate
                 }).Where(x => x.ExpenditureRuleId == 0)
-              .Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
-                dataGridView.DataSource = res;
+               .Select(x => new ExpenditureViewModel
+               {
+                   ExpenditureId = x.ExpenditureId,
+                   TransactionId = x.TransactionId,
+                   Description = x.Description,
+                   Amount = x.Amount,
+                   TransactionTimestamp = x.TransactionTimestamp,
+
+               }).ToList();
+
+                return res;
             }
             else
             {
@@ -94,9 +112,18 @@ namespace Accounting.Desktop.Controller
                 {
                     StartDate = startDate,
                     EndDate = endDate
-                }).Select(x => new { x.ExpenditureId, x.TransactionId, x.Description, x.Amount, x.TransactionTimestamp }).ToList();
-                dataGridView.DataSource = res;
+                }).Where(x => x.ExpenditureRuleId != 0)
+                .Select(x => new ExpenditureViewModel
+                {
+                    ExpenditureId = x.ExpenditureId,
+                    TransactionId = x.TransactionId,
+                    Description = x.Description,
+                    Amount = x.Amount,
+                    TransactionTimestamp = x.TransactionTimestamp,
 
+                }).ToList();
+
+                return res;
             }
 
         }
@@ -112,9 +139,10 @@ namespace Accounting.Desktop.Controller
             return ((ExpenditureTypeItem)comboBox.SelectedItem).ExpenditureTypeId;
         }
 
-        public void GetExpenditureRules(DataGridView dataGridView)
+        public List<ExpenditureRule> GetExpenditureRules()
         {
-            dataGridView.DataSource = _expenditureService.GetExpenditureRules().Select(x => new { x.ExpenditureRuleId, x.ExpenditureDesc, x.ExpenditureLimit, x.ShouldDisplay }).ToList();
+            var res = _expenditureService.GetExpenditureRules().ToList();
+            return res;
         }
 
         public void GetExpenditureOverview(CircularProgressBar.CircularProgressBar bar1, Label rule1, Label current1, Label limit1,
@@ -223,10 +251,17 @@ namespace Accounting.Desktop.Controller
 
         }
 
-        public void GetExpenditureBreakdown(DataGridView dataGridView)
+        public List<ExpenditureBreakdown> GetExpenditureBreakdown()
         {
-            var res = _expenditureService.GetExpenditureRuleOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal, Difference = x.ExpenditureLimit - x.ExpenditureTotal }).ToList();
-            dataGridView.DataSource = res;
+            var res = _expenditureService.GetExpenditureRuleOverview().
+                Select(x => new ExpenditureBreakdown
+                {
+                    ExpenditureDesc = x.ExpenditureDesc,
+                    ExpenditureLimit = x.ExpenditureLimit,
+                    ExpenditureTotal = x.ExpenditureTotal,
+                    Difference = x.ExpenditureLimit - x.ExpenditureTotal
+                }).ToList();
+            return res;
         }
 
         public void ImportExpenditure(DateTime date)

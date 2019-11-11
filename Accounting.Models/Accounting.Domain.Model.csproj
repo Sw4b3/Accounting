@@ -75,6 +75,7 @@
     <Compile Include="Requests\UpdateTransactionRequest.cs" />
     <Compile Include="Requests\SaveTransactionRequest.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\ExpenditureBreakdownViewModel.cs" />
     <Compile Include="ViewModels\ExpenditureViewModel.cs" />
     <Compile Include="ViewModels\TransactionSummaryViewModel.cs" />
     <Compile Include="ViewModels\TransferViewModel.cs" />
