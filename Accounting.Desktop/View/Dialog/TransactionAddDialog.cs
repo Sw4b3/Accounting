@@ -1,5 +1,6 @@
 ﻿using Accounting.Desktop.Common;
 using Accounting.Desktop.Controller;
+using Accounting.Desktop.Model;
 using Accounting.Models.Requests;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Accounting.Desktop.View
     {
         private TransactionController _transactionController;
 
-        private AccountController _AccountController;
+        private AccountController _accountController;
         private MainApplication _mainform;
         private int _transactionType;
 
@@ -26,7 +27,7 @@ namespace Accounting.Desktop.View
             InitializeComponent();
             _transactionController = transactionController;
 
-            _AccountController = new AccountController();
+            _accountController = new AccountController();
             _mainform = mainform;
             _transactionType = transactionType;
             PopulateAccountComboBox();
@@ -39,7 +40,7 @@ namespace Accounting.Desktop.View
 
         public void PopulateAccountComboBox()
         {
-            _AccountController.GetAccountComboBox(comboBox2);
+            comboBoxAccounts.DataSource = _accountController.GetAccountsItem();
         }
 
         public void SaveTransaction() {
@@ -48,7 +49,7 @@ namespace Accounting.Desktop.View
                 _transactionController.SaveTransactionStaging(new SaveTransactionRequest
                 {
                     Amount = decimal.Parse(textBox1.Text.Trim()),
-                    AccountTypeId = int.Parse((_AccountController.GetAccountId(comboBox2).ToString().Trim())),
+                    AccountTypeId = int.Parse(((AccountItem)comboBoxAccounts.SelectedItem).AccountId.ToString().Trim()),
                     TransactionTypeId = _transactionType,
                     Description = textBox3.Text.ToUpper().Trim(),
                     TransactionTimestamp = dateTimePicker1.Value

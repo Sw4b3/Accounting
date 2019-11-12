@@ -4,7 +4,6 @@ using Accounting.Domain.Services.Utillies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 using Accounting.Models.Models;
 using Accounting.Models.ViewModels;
 
@@ -41,9 +40,9 @@ namespace Accounting.Desktop.Controller
             return res;
         }
 
-        public List<TransactionViewModel> GetTransactions(int i)
+        public List<TransactionViewModel> GetTransactions(int accountTypeId)
         {
-            var res = _transactions.Where(x => x.AccountTypeId == i)
+            var res = _transactions.Where(x => x.AccountTypeId == accountTypeId)
                  .Select(x => new TransactionViewModel
                  {
                      TransactionId = x.TransactionId,
@@ -121,23 +120,6 @@ namespace Accounting.Desktop.Controller
             return _transactions.Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
         }
 
-        public UpdateTransactionRequest GetTransactionDetailsFromDataGridView(DataGridView dataGridView)
-        {
-            if (!dataGridView.SelectedRows.Count.Equals(0))
-            {
-                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
-                return new UpdateTransactionRequest
-                {
-                    TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()),
-                    Description = selectedRow.Cells[1].Value.ToString(),
-                    Amount = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
-                    Date = DateTime.Parse(selectedRow.Cells[3].Value.ToString())
-                };
-            }
-            return null;
-        }
-
         public void SaveTransaction(SaveTransactionRequest transaction)
         {
             _transactionService.SaveTransaction(transaction);
@@ -153,11 +135,9 @@ namespace Accounting.Desktop.Controller
             _transactionService.UpdateTransaction(transaction);
         }
 
-        public void DeleteTransaction(DataGridView dataGridView)
+        public void DeleteTransaction(Guid transactionId)
         {
-            int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
-            DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
-            var transaction = new DeleteTransactionRequest { TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()) };
+            var transaction = new DeleteTransactionRequest() { TransactionId = transactionId };
             _transactionService.DeleteTransaction(transaction);
         }
     }

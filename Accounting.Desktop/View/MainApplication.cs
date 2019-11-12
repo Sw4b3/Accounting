@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Accounting.Desktop.Componets;
 using Accounting.Desktop.Controller;
+using Accounting.Desktop.Model;
 using Accounting.Desktop.View;
 using Accounting.Desktop.View.Dialog;
 using Accounting.Models.Requests;
@@ -62,7 +63,7 @@ namespace Accounting.Desktop
 
         public void PopulateAccountTable()
         {
-            dataGridAccount.DataSource = _accountController.GetAccount();
+            dataGridAccount.DataSource = _accountController.GetAccounts();
         }
 
         public void PopulationAnalyticsTable()
@@ -80,8 +81,8 @@ namespace Accounting.Desktop
             DateTime date = dateTimePicker4.Value;
             comboBoxMappings.SelectedItem = "Unmapped";
             dataGridViewRecentTransactions.DataSource = _transactionController.GetRecentTransactions();
-            
-            var expenditureOverview =_expenditureController.GetExpenditureRuleOverview();
+
+            var expenditureOverview = _expenditureController.GetExpenditureRuleOverview();
 
             tableLayoutPanel.Controls.Clear();
 
@@ -155,7 +156,7 @@ namespace Accounting.Desktop
         {
             dataViewTransaction.DataSource = _transactionController.SearchTransactionsByDate(new SearchTransactionByDateRequest()
             {
-                AccountTypeId = int.Parse((_accountController.GetAccountId(comboBoxAccount).ToString().Trim())),
+                AccountTypeId = int.Parse(((AccountItem)comboBoxAccount.SelectedItem).AccountId.ToString().Trim()),
                 StartDate = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd")),
                 EndDate = DateTime.Parse(dateTimePicker2.Value.ToString("yyyy-MM-dd")),
             });
@@ -163,15 +164,16 @@ namespace Accounting.Desktop
 
         public void PopulateTransactionComboBoxs()
         {
-            _accountController.GetAccountComboBox(comboBoxAccount);
-            _accountController.GetAccountComboBox(comboBoxTransferFrom);
-            _accountController.GetAccountComboBox(comboBoxTransferTo);
+            comboBoxAccount.DataSource = _accountController.GetAccountsItem();
+            comboBoxTransferFrom.DataSource = _accountController.GetAccountsItem();
+            comboBoxTransferTo.DataSource = _accountController.GetAccountsItem();
             comboBoxTransferFrom.SelectedIndex = 1;
         }
 
         public void FilterTransactionByAccount()
         {
-            var accountId = _accountController.GetAccountId(comboBoxAccount);
+            var accountId = ((AccountItem)comboBoxAccount.SelectedItem).AccountId;
+
             var balance = _accountController.GetAccountBalance(accountId);
             _transactionController.GetTransactions();
             dataViewTransaction.DataSource = _transactionController.GetTransactions(1);
@@ -193,7 +195,7 @@ namespace Accounting.Desktop
 
         public void PopulateBalanceLabel()
         {
-            var accountId = _accountController.GetAccountId(comboBoxAccount);
+            var accountId = ((AccountItem)comboBoxAccount.SelectedItem).AccountId;
             var balance = _accountController.GetAccountBalance(accountId);
             var availableBalance = _accountController.GetAccountAvaliableBalance(accountId);
             labelBalanceOverview.Text = "Balance: " + balance;
@@ -257,14 +259,31 @@ namespace Accounting.Desktop
 
         private void Transfer_Click(object sender, EventArgs e)
         {
-            var transfer1 = _accountController.GetAccountId(comboBoxTransferFrom);
-            var transfer2 = _accountController.GetAccountId(comboBoxTransferTo);
+            var transfer1 = ((AccountItem)comboBoxTransferFrom.SelectedItem).AccountId;
+            var transfer2 = ((AccountItem)comboBoxTransferTo.SelectedItem).AccountId;
             new TransferDialog(this, transfer1, transfer2).Show();
         }
 
         private void dataViewTransaction_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            new TransactionEditDialog(_transactionController.GetTransactionDetailsFromDataGridView(dataViewTransaction), this).Show();
+            new TransactionEditDialog(GetTransactionDetailsFromDataGridView(dataViewTransaction), this).Show();
+        }
+
+        public UpdateTransactionRequest GetTransactionDetailsFromDataGridView(DataGridView dataGridView)
+        {
+            if (!dataGridView.SelectedRows.Count.Equals(0))
+            {
+                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
+                return new UpdateTransactionRequest
+                {
+                    TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()),
+                    Description = selectedRow.Cells[1].Value.ToString(),
+                    Amount = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
+                    Date = DateTime.Parse(selectedRow.Cells[3].Value.ToString())
+                };
+            }
+            return null;
         }
 
         private void dataViewTransaction_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -315,11 +334,14 @@ namespace Accounting.Desktop
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record", "Delete", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                _transactionController.DeleteTransaction(dataViewTransaction);
+                int selectedrowindex = dataViewTransaction.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataViewTransaction.Rows[selectedrowindex];
+                var transactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString());
+
+                _transactionController.DeleteTransaction(transactionId);
                 _transactionController.GetTransactions();
                 dataViewTransfer.DataSource = _transactionController.GetTransfers();
                 dataViewTransactionDebit.DataSource = _transactionController.GetTransactionsDebit();
@@ -327,10 +349,6 @@ namespace Accounting.Desktop
                 FilterTransactionByAccount();
                 PopulateTransactionLabels();
             }
-            else if (dialogResult == DialogResult.No)
-            {
-            }
-
         }
 
         private void AddRule_Click(object sender, EventArgs e)
@@ -377,7 +395,17 @@ namespace Accounting.Desktop
 
         private void EditAccount_Click(object sender, EventArgs e)
         {
-            new AccountEditDialog(_accountController.GetAccountDetailsFromDataGridView(dataGridAccount), this).Show();
+            if (!dataGridAccount.SelectedRows.Count.Equals(0))
+            {
+                int selectedrowindex = dataGridAccount.SelectedCells[1].RowIndex;
+                DataGridViewRow selectedRow = dataGridAccount.Rows[selectedrowindex];
+                var update = new UpdateAccountRequest
+                {
+                    AccountId = int.Parse(selectedRow.Cells[1].Value.ToString()),
+                };
+
+                new AccountEditDialog(update, this).Show();
+            }
         }
 
         private void comboBoxMappings_SelectedIndexChanged(object sender, EventArgs e)
