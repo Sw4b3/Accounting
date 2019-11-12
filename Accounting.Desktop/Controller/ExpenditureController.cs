@@ -40,7 +40,6 @@ namespace Accounting.Desktop.Controller
                 Description = x.Description,
                 Amount = x.Amount,
                 TransactionTimestamp = x.TransactionTimestamp,
-
             }).ToList();
 
             return res;
@@ -55,7 +54,7 @@ namespace Accounting.Desktop.Controller
 
         public List<ExpenditureRuleItem> GetExpenditureRulesList()
         {
-            var res = _expenditureService.GetExpenditureRules()
+            var res = _expenditureService.GetExpenditureRules().Where(x => !x.IsArchived)
                 .Select(x => new ExpenditureRuleItem { ExpenditureDesc = x.ExpenditureDesc, ExpenditureRuleId = x.ExpenditureRuleId }).ToList();
 
             return res;

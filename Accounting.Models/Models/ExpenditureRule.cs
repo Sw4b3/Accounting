@@ -15,5 +15,7 @@ namespace Accounting.Models.Models
         public decimal ExpenditureLimit { get; set; }
 
         public bool ShouldDisplay { get; set; }
+
+        public bool IsArchived { get; set; }
     }
 }

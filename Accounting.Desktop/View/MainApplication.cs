@@ -213,6 +213,7 @@ namespace Accounting.Desktop
             var date = dateTimePickerExpitureOverview.Value;
             comboBoxExpenditureFilter.SelectedItem = "Unmapped";
 
+            dataGridViewSetting.DataSource = _expenditureController.GetExpenditureRules();
             dataGridViewRecentTransactions.DataSource = _transactionController.GetRecentTransactions();
             dataGridExpenditureBreakdown.DataSource = _expenditureController.GetExpenditureBreakdown();
             dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(date);
@@ -277,7 +278,7 @@ namespace Accounting.Desktop
 
         public void PopulateExpenditureCharts()
         {
-            dataGridViewSetting.DataSource = _expenditureController.GetExpenditureRules();
+           
             GetExpenditureOverview(circularProgressBar1, labelRule1, labelCurrent1, labelLimit1,
                 circularProgressBar2, labelRule2, labelCurrent2, labelLimit2,
                 circularProgressBar3, labelRule3, labelCurrent3, labelLimit3);
@@ -405,28 +406,10 @@ namespace Accounting.Desktop
                 int selectedrowindex = dataGridViewSetting.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = dataGridViewSetting.Rows[selectedrowindex];
                 _expenditureController.DeleteExpenditureRule(int.Parse(selectedRow.Cells[0].Value.ToString()));
-                dialogResult = MessageBox.Show("Rule Deleted", "Delete Rule", MessageBoxButtons.OK);
 
-                DateTime date = dateTimePickerExpitureOverview.Value;
+                dataGridViewSetting.DataSource = _expenditureController.GetExpenditureRules();
 
-                if (!dataGridExpenditure.SelectedRows.Count.Equals(0))
-                {
-                    foreach (DataGridViewRow rows in dataGridExpenditure.Rows)
-                    {
-                        if (rows.Cells[0].Value != null)
-                        {
-                            _expenditureController.UpdateExpenditure(new UpdateExpenditureRequest
-                            {
-                                ExpenditureId = Guid.Parse(rows.Cells[1].Value.ToString()),
-                                ExpenditureRuleId = int.Parse(rows.Cells[0].Value.ToString())
-                            });
-                        }
-
-                    }
-                }
-
-                dataGridExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
-                dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
+                MessageBox.Show("Rule Deleted", "Delete Rule", MessageBoxButtons.OK);
             }
         }
 
@@ -445,12 +428,12 @@ namespace Accounting.Desktop
             {
                 foreach (DataGridViewRow rows in dataGridExpenditure.Rows)
                 {
-                    if (rows.Cells[0].Value != null)
+                    if (rows.Cells[5].Value != null)
                     {
                         _expenditureController.UpdateExpenditure(new UpdateExpenditureRequest
                         {
-                            ExpenditureId = Guid.Parse(rows.Cells[1].Value.ToString()),
-                            ExpenditureRuleId = int.Parse(rows.Cells[0].Value.ToString())
+                            ExpenditureId = Guid.Parse(rows.Cells[0].Value.ToString()),
+                            ExpenditureRuleId = int.Parse(rows.Cells[5].Value.ToString())
                         });
                     }
 
