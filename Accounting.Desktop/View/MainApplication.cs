@@ -13,6 +13,7 @@ using Accounting.Desktop.Controller;
 using Accounting.Desktop.Model;
 using Accounting.Desktop.View;
 using Accounting.Desktop.View.Dialog;
+using Accounting.Models.Models;
 using Accounting.Models.Requests;
 
 namespace Accounting.Desktop
@@ -56,7 +57,7 @@ namespace Accounting.Desktop
             dataViewTransfer.DataSource = _transactionController.GetTransfers();
             dataViewTransactionDebit.DataSource = _transactionController.GetTransactionsDebit();
             dataViewTransactionCredit.DataSource = _transactionController.GetTransactionsCredit();
-            dataGridViewImportFile.DataSource = _reportController.GetImport();
+            dataGridViewImportFile.DataSource = _reportController.GetImports();
             dataViewMapping.DataSource = _dataImportController.GetMappings();
 
             var chartData = _analyticsController.GetAnalyticsOverviewChart();
@@ -150,14 +151,14 @@ namespace Accounting.Desktop
 
             dataGridViewSetting.DataSource = _expenditureController.GetExpenditureRules();
             dataGridExpenditureBreakdown.DataSource = _expenditureController.GetExpenditureBreakdown();
-            _expenditureController.GetExpenditureOverview(circularProgressBar1, labelRule1, labelCurrent1, labelLimit1,
+            GetExpenditureOverview(circularProgressBar1, labelRule1, labelCurrent1, labelLimit1,
                 circularProgressBar2, labelRule2, labelCurrent2, labelLimit2,
                 circularProgressBar3, labelRule3, labelCurrent3, labelLimit3);
         }
 
         public void PopulateDataImportTables()
         {
-            dataGridViewImportFile.DataSource = _reportController.GetImport();
+            dataGridViewImportFile.DataSource = _reportController.GetImports();
             dataViewMapping.DataSource = _dataImportController.GetMappings();
         }
 
@@ -367,7 +368,20 @@ namespace Accounting.Desktop
 
         private void EditRule_Click(object sender, EventArgs e)
         {
-            new ExpenditureTypeEditDialog(this, _expenditureController.GetExpenditureSettingsDetailsFromDataGridView(dataGridViewSetting)).Show();
+            if (!dataGridViewSetting.SelectedRows.Count.Equals(0))
+            {
+                int selectedrowindex = dataGridViewSetting.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridViewSetting.Rows[selectedrowindex];
+                var res = new UpdateExpenditureRuleRequest
+                {
+                    ExpenditureRuleId = int.Parse(selectedRow.Cells[0].Value.ToString()),
+                    ExpenditureDesc = selectedRow.Cells[1].Value.ToString(),
+                    ExpenditureLimit = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
+                    ShouldDisplay = bool.Parse(selectedRow.Cells[3].Value.ToString()),
+                };
+
+                new ExpenditureTypeEditDialog(this, res).Show();
+            }
         }
 
         private void DeleteRule_Click(object sender, EventArgs e)
@@ -381,7 +395,23 @@ namespace Accounting.Desktop
                 dialogResult = MessageBox.Show("Rule Deleted", "Delete Rule", MessageBoxButtons.OK);
 
                 DateTime date = dateTimePicker4.Value;
-                _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
+
+                if (!dataGridViewExpenditure.SelectedRows.Count.Equals(0))
+                {
+                    foreach (DataGridViewRow rows in dataGridViewExpenditure.Rows)
+                    {
+                        if (rows.Cells[0].Value != null)
+                        {
+                            _expenditureController.UpdateExpenditure(new UpdateExpenditureRequest
+                            {
+                                ExpenditureId = Guid.Parse(rows.Cells[1].Value.ToString()),
+                                ExpenditureRuleId = int.Parse(rows.Cells[0].Value.ToString())
+                            });
+                        }
+
+                    }
+                }
+
                 dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings.SelectedItem.ToString(), date);
                 dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
             }
@@ -397,7 +427,23 @@ namespace Accounting.Desktop
         private void UpdateExtenditure_Click(object sender, EventArgs e)
         {
             DateTime date = dateTimePicker4.Value;
-            _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
+
+            if (!dataGridViewExpenditure.SelectedRows.Count.Equals(0))
+            {
+                foreach (DataGridViewRow rows in dataGridViewExpenditure.Rows)
+                {
+                    if (rows.Cells[0].Value != null)
+                    {
+                        _expenditureController.UpdateExpenditure(new UpdateExpenditureRequest
+                        {
+                            ExpenditureId = Guid.Parse(rows.Cells[1].Value.ToString()),
+                            ExpenditureRuleId = int.Parse(rows.Cells[0].Value.ToString())
+                        });
+                    }
+
+                }
+            }
+
             dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings.SelectedItem.ToString(), date);
             dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
         }
@@ -438,7 +484,7 @@ namespace Accounting.Desktop
                 DataGridViewRow selectedRow = dataGridViewImportFile.Rows[selectedrowindex];
                 _reportController.RollbackImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
                 FilterTransactionByAccount();
-                dataGridViewImportFile.DataSource = _reportController.GetImport();
+                dataGridViewImportFile.DataSource = _reportController.GetImports();
             }
         }
 
@@ -451,7 +497,7 @@ namespace Accounting.Desktop
                 DataGridViewRow selectedRow = dataGridViewImportFile.Rows[selectedrowindex];
                 _reportController.CompleteImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
                 FilterTransactionByAccount();
-                dataGridViewImportFile.DataSource = _reportController.GetImport();
+                dataGridViewImportFile.DataSource = _reportController.GetImports();
             }
         }
 
@@ -464,7 +510,7 @@ namespace Accounting.Desktop
                 DataGridViewRow selectedRow = dataGridViewImportFile.Rows[selectedrowindex];
                 _reportController.DeleteImport(Guid.Parse(selectedRow.Cells[0].Value.ToString()));
                 FilterTransactionByAccount();
-                dataGridViewImportFile.DataSource = _reportController.GetImport();
+                dataGridViewImportFile.DataSource = _reportController.GetImports();
             }
         }
 
@@ -489,6 +535,70 @@ namespace Accounting.Desktop
         private void AddMapping_Click(object sender, EventArgs e)
         {
             new MappingAddDialog(this).Show();
+        }
+
+        public void GetExpenditureOverview(CircularProgressBar.CircularProgressBar bar1, Label rule1, Label current1, Label limit1,
+                                           CircularProgressBar.CircularProgressBar bar2, Label rule2, Label current2, Label limit2,
+                                           CircularProgressBar.CircularProgressBar bar3, Label rule3, Label current3, Label limit3)
+        {
+            var expenditureOverview = _expenditureController.GetExpenditureOverview();
+
+            if (expenditureOverview.Count != 0)
+            {
+                var debitExpense = expenditureOverview.FirstOrDefault(eo => eo.ExpenditureDesc == "Debit Expense");
+
+                bar1.Maximum = (int)debitExpense.ExpenditureLimit;
+                rule1.Text = debitExpense.ExpenditureDesc;
+
+                current1.Text = "Current: " + debitExpense.ExpenditureTotal.ToString();
+                limit1.Text = "Limit: " + debitExpense.ExpenditureLimit.ToString();
+
+                if (debitExpense.ExpenditureTotal <= debitExpense.ExpenditureLimit)
+                {
+                    bar1.Value = (int)debitExpense.ExpenditureTotal;
+                }
+                else
+                {
+                    bar1.Value = (int)debitExpense.ExpenditureLimit;
+                    bar1.ProgressColor = SystemRed;
+                }
+
+                var livingExpense = expenditureOverview.FirstOrDefault(eo => eo.ExpenditureDesc == "Living Expense");
+
+                bar2.Maximum = (int)livingExpense.ExpenditureLimit;
+                rule2.Text = livingExpense.ExpenditureDesc;
+
+                current2.Text = "Current: " + livingExpense.ExpenditureTotal.ToString();
+                limit2.Text = "Limit: " + livingExpense.ExpenditureLimit.ToString();
+
+                if (livingExpense.ExpenditureTotal <= livingExpense.ExpenditureLimit)
+                {
+                    bar2.Value = (int)livingExpense.ExpenditureTotal;
+                }
+                else
+                {
+                    bar2.Value = (int)livingExpense.ExpenditureLimit;
+                    bar2.ProgressColor = SystemRed;
+                }
+
+                var otherExpense = expenditureOverview.FirstOrDefault(eo => eo.ExpenditureDesc == "Other Expense");
+
+                bar3.Maximum = (int)otherExpense.ExpenditureLimit;
+                rule3.Text = otherExpense.ExpenditureDesc;
+
+                current3.Text = "Current: " + otherExpense.ExpenditureTotal.ToString();
+                limit3.Text = "Limit: " + otherExpense.ExpenditureLimit.ToString();
+
+                if (otherExpense.ExpenditureTotal <= otherExpense.ExpenditureLimit)
+                {
+                    bar3.Value = (int)otherExpense.ExpenditureTotal;
+                }
+                else
+                {
+                    bar3.Value = (int)otherExpense.ExpenditureLimit;
+                    bar3.ProgressColor = SystemRed;
+                }
+            }
         }
     }
 }

@@ -10,8 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.Controller
@@ -51,7 +49,7 @@ namespace Accounting.Desktop.Controller
             _mappingService.DeleteMapping(new DeleteMappingRequest { MappingId = mappingId });
         }
 
-        public List<ProssedImportFiles> GetImport()
+        public List<ProssedImportFiles> GetImports()
         {
             var res = _reportService.GetImportFile().ToList();
             return res;

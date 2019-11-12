@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Items\AccountItem.cs" />
+    <Compile Include="Items\CircularProgressBarItem.cs" />
     <Compile Include="Items\ExpenditureRuleItem.cs" />
     <Compile Include="Items\ExpenditureTypeItem.cs" />
     <Compile Include="Items\PieChartItem.cs" />
