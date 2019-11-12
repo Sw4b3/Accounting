@@ -89,8 +89,8 @@ namespace Accounting.Desktop
             dataViewTransaction.DataSource = _transactionController.SearchTransactionsByDate(new SearchTransactionByDateRequest()
             {
                 AccountTypeId = int.Parse(((AccountItem)comboBoxAccount.SelectedItem).AccountId.ToString().Trim()),
-                StartDate = DateTime.Parse(dateTimePicker1.Value.ToString("yyyy-MM-dd")),
-                EndDate = DateTime.Parse(dateTimePicker2.Value.ToString("yyyy-MM-dd")),
+                StartDate = DateTime.Parse(dateTimePickerStartDate.Value.ToString("yyyy-MM-dd")),
+                EndDate = DateTime.Parse(dateTimePickerEndDate.Value.ToString("yyyy-MM-dd")),
             });
         }
 
@@ -278,7 +278,7 @@ namespace Accounting.Desktop
 
         public void PopulateExpenditureCharts()
         {
-           
+
             GetExpenditureOverview(circularProgressBar1, labelRule1, labelCurrent1, labelLimit1,
                 circularProgressBar2, labelRule2, labelCurrent2, labelLimit2,
                 circularProgressBar3, labelRule3, labelCurrent3, labelLimit3);
@@ -535,13 +535,22 @@ namespace Accounting.Desktop
 
         #region Analytics Page
 
+        public void PopulationAnalyticsPage()
+        {
+            PopulationAnalyticsTable();
+            PopulationAnalyticsCharts();
+        }
+
         public void PopulationAnalyticsTable()
         {
             dataGridViewStatistics.DataSource = _analyticsController.GetAnalyticStatistics();
             dataGridViewAnalysis.DataSource = _analyticsController.GetAnalyticsOverview();
             dataGridViewDaily.DataSource = _analyticsController.GetAnalyticsByDay();
             dataGridViewMonthly.DataSource = _analyticsController.GetAnalyticsByMonth();
+        }
 
+        public void PopulationAnalyticsCharts()
+        {
             var chartData = _analyticsController.GetAnalyticsByDayChart();
             chartDayAnalytics.Series[0].Points.DataBindXY(chartData.Headers, chartData.Data);
 
@@ -572,12 +581,12 @@ namespace Accounting.Desktop
             {
                 int selectedrowindex = dataGridAccount.SelectedCells[1].RowIndex;
                 DataGridViewRow selectedRow = dataGridAccount.Rows[selectedrowindex];
-                var update = new UpdateAccountRequest
+                var res = new UpdateAccountRequest
                 {
                     AccountId = int.Parse(selectedRow.Cells[1].Value.ToString()),
                 };
 
-                new AccountEditDialog(update, this).Show();
+                new AccountEditDialog(res, this).Show();
             }
         }
 
@@ -590,17 +599,17 @@ namespace Accounting.Desktop
                 case "transactionsTab":
                     PopulationTransactionPage();
                     break;
-                case "analyticsTab":
-                    PopulationAnalyticsTable();
-                    break;
-                case "accountTab":
-                    PopulateAccountTable();
-                    break;
                 case "expenditureTab":
                     PopulateExpenditurePage();
                     break;
                 case "dataImportTab":
                     PopulateDataImportTables();
+                    break;
+                case "analyticsTab":
+                    PopulationAnalyticsPage();
+                    break;
+                case "accountTab":
+                    PopulateAccountTable();
                     break;
                 default:
                     break;
