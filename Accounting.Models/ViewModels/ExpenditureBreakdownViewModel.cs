@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Accounting.Models.ViewModels
 {
-    public class ExpenditureBreakdown
+    public class ExpenditureBreakdownViewModel
     {
         public string ExpenditureDesc { get; set; }
 

@@ -92,7 +92,7 @@
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridViewRecentTransactions = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.labelLimit3 = new System.Windows.Forms.Label();
             this.labelCurrent3 = new System.Windows.Forms.Label();
             this.labelLimit2 = new System.Windows.Forms.Label();
@@ -692,7 +692,7 @@
             // 
             this.tabPage15.Controls.Add(this.label3);
             this.tabPage15.Controls.Add(this.dataGridViewRecentTransactions);
-            this.tabPage15.Controls.Add(this.tableLayoutPanel1);
+            this.tabPage15.Controls.Add(this.tableLayoutPanel);
             this.tabPage15.Controls.Add(this.labelLimit3);
             this.tabPage15.Controls.Add(this.labelCurrent3);
             this.tabPage15.Controls.Add(this.labelLimit2);
@@ -748,18 +748,18 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.AutoScroll = true;
-            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 42);
-            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(500, 200);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(249, 200);
-            this.tableLayoutPanel1.TabIndex = 43;
+            this.tableLayoutPanel.AutoScroll = true;
+            this.tableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tableLayoutPanel.ColumnCount = 1;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel.Location = new System.Drawing.Point(27, 42);
+            this.tableLayoutPanel.MaximumSize = new System.Drawing.Size(500, 200);
+            this.tableLayoutPanel.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.tableLayoutPanel.RowCount = 1;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel.Size = new System.Drawing.Size(249, 200);
+            this.tableLayoutPanel.TabIndex = 43;
             // 
             // labelLimit3
             // 
@@ -1787,7 +1787,7 @@
         private System.Windows.Forms.Label labelRule1;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.DataGridView dataGridViewRecentTransactions;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button12;

@@ -26,6 +26,9 @@ namespace Accounting.Desktop
         private DataImportController _dataImportController;
         private bool isInitialized = false;
 
+        private Color SystemGreen = Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
+        private Color SystemRed = Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))));
+
         public MainApplication()
         {
             InitializeComponent();
@@ -77,7 +80,46 @@ namespace Accounting.Desktop
             DateTime date = dateTimePicker4.Value;
             comboBoxMappings.SelectedItem = "Unmapped";
             dataGridViewRecentTransactions.DataSource = _transactionController.GetRecentTransactions();
-            _expenditureController.PopluateExpenditurePanel(tableLayoutPanel1);
+            
+            var expenditureOverview =_expenditureController.GetExpenditureRuleOverview();
+
+            tableLayoutPanel.Controls.Clear();
+
+            foreach (var item in expenditureOverview)
+            {
+                if (item.ShouldDisplay && item.ExpenditureLimit != 0)
+                {
+                    //tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+                    tableLayoutPanel.Controls.Add(new Label()
+                    {
+                        Text = item.ExpenditureDesc.ToString()
+                    });
+
+                    if (item.ExpenditureTotal <= item.ExpenditureLimit)
+                    {
+                        tableLayoutPanel.Controls.Add(new CustomProgressBar()
+                        {
+                            Maximum = (int)item.ExpenditureLimit,
+                            Value = (int)item.ExpenditureTotal,
+                            BackColor = Color.WhiteSmoke,
+                            ForeColor = SystemGreen,
+                            Width = 200
+                        });
+                    }
+                    else
+                    {
+                        tableLayoutPanel.Controls.Add(new CustomProgressBar()
+                        {
+                            Maximum = (int)item.ExpenditureLimit,
+                            Value = (int)item.ExpenditureLimit,
+                            BackColor = Color.WhiteSmoke,
+                            ForeColor = SystemRed,
+                            Width = 200
+                        });
+                    }
+                }
+            }
+
 
             dataGridViewExpenditure.DataSource = _expenditureController.GetExpenditure(date);
             dataGridViewExpenditure.AutoGenerateColumns = false;
@@ -313,7 +355,7 @@ namespace Accounting.Desktop
 
                 DateTime date = dateTimePicker4.Value;
                 _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
-                dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings, date);
+                dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings.SelectedItem.ToString(), date);
                 dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
             }
         }
@@ -329,7 +371,7 @@ namespace Accounting.Desktop
         {
             DateTime date = dateTimePicker4.Value;
             _expenditureController.GetExpenditureDetailsFromDataGridView(dataGridViewExpenditure);
-            dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings, date);
+            dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings.SelectedItem.ToString(), date);
             dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
         }
 
@@ -341,7 +383,7 @@ namespace Accounting.Desktop
         private void comboBoxMappings_SelectedIndexChanged(object sender, EventArgs e)
         {
             DateTime date = dateTimePicker4.Value;
-            dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings, date);
+            dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxMappings.SelectedItem.ToString(), date);
         }
 
         private void dateTimePicker3_ValueChanged(object sender, EventArgs e)

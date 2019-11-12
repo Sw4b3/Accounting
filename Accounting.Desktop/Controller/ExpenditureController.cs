@@ -17,7 +17,6 @@ namespace Accounting.Desktop.Controller
     {
         private IExpenditureService _expenditureService;
 
-        private Color SystemGreen = Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
         private Color SystemRed = Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))));
 
         public ExpenditureController()
@@ -58,7 +57,7 @@ namespace Accounting.Desktop.Controller
             return res;
         }
 
-        public List<ExpenditureBreakdown> FilterExpenditureBreakdownByDate(DateTime date)
+        public List<ExpenditureBreakdownViewModel> FilterExpenditureBreakdownByDate(DateTime date)
         {
             var startDate = new DateTime(date.Year, date.Month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
@@ -67,7 +66,7 @@ namespace Accounting.Desktop.Controller
             {
                 StartDate = startDate,
                 EndDate = endDate
-            }).Select(x => new ExpenditureBreakdown
+            }).Select(x => new ExpenditureBreakdownViewModel
             {
                 ExpenditureDesc = x.ExpenditureDesc,
                 ExpenditureLimit = x.ExpenditureLimit,
@@ -78,10 +77,10 @@ namespace Accounting.Desktop.Controller
             return res;
         }
 
-        public List<ExpenditureViewModel> FilterExpenditure(ComboBox comboBox, DateTime date)
+        public List<ExpenditureViewModel> FilterExpenditure(string value, DateTime date)
         {
 
-            if (comboBox.SelectedItem.ToString() == "Unmapped")
+            if (value == "Unmapped")
             {
                 var startDate = new DateTime(date.Year, date.Month, 1);
                 var endDate = startDate.AddMonths(1).AddDays(-1);
@@ -128,17 +127,16 @@ namespace Accounting.Desktop.Controller
 
         }
 
-        public void GetExpenditureTypes(ComboBox comboBox)
+        public List<ExpenditureTypeItem> GetExpenditureTypes()
         {
-            var expenditureTypes = _expenditureService.GetExpenditureTypes().Select(x => new ExpenditureTypeItem { ExpenditureTypeId = x.ExpenditureTypeId, ExpenditureDesc = x.ExpenditureDesc }).ToList();
-            comboBox.DataSource = expenditureTypes.ToList();
+            var res = _expenditureService.GetExpenditureTypes().Select(x => new ExpenditureTypeItem { 
+                ExpenditureTypeId = x.ExpenditureTypeId, 
+                ExpenditureDesc = x.ExpenditureDesc 
+            }).ToList();
+            return res;
         }
 
-        public int GetExpenditureTypeId(ComboBox comboBox)
-        {
-            return ((ExpenditureTypeItem)comboBox.SelectedItem).ExpenditureTypeId;
-        }
-
+    
         public List<ExpenditureRule> GetExpenditureRules()
         {
             var res = _expenditureService.GetExpenditureRules().ToList();
@@ -209,52 +207,16 @@ namespace Accounting.Desktop.Controller
             }
         }
 
-        public void PopluateExpenditurePanel(TableLayoutPanel tableLayoutPanel)
+        public List<ExpenditureOverview> GetExpenditureRuleOverview()
         {
-            var expenditureOverview = _expenditureService.GetExpenditureRuleOverview().Select(x => new { x.ExpenditureDesc, x.ExpenditureLimit, x.ExpenditureTotal, x.ShouldDisplay }).ToList();
-            tableLayoutPanel.Controls.Clear();
-
-            foreach (var item in expenditureOverview)
-            {
-                if (item.ShouldDisplay && item.ExpenditureLimit != 0)
-                {
-                    //tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-                    tableLayoutPanel.Controls.Add(new Label()
-                    {
-                        Text = item.ExpenditureDesc.ToString()
-                    });
-
-                    if (item.ExpenditureTotal <= item.ExpenditureLimit)
-                    {
-                        tableLayoutPanel.Controls.Add(new CustomProgressBar()
-                        {
-                            Maximum = (int)item.ExpenditureLimit,
-                            Value = (int)item.ExpenditureTotal,
-                            BackColor = Color.WhiteSmoke,
-                            ForeColor = SystemGreen,
-                            Width = 200
-                        });
-                    }
-                    else
-                    {
-                        tableLayoutPanel.Controls.Add(new CustomProgressBar()
-                        {
-                            Maximum = (int)item.ExpenditureLimit,
-                            Value = (int)item.ExpenditureLimit,
-                            BackColor = Color.WhiteSmoke,
-                            ForeColor = SystemRed,
-                            Width = 200
-                        });
-                    }
-                }
-            }
-
+            var res = _expenditureService.GetExpenditureRuleOverview().ToList();
+            return res;
         }
 
-        public List<ExpenditureBreakdown> GetExpenditureBreakdown()
+        public List<ExpenditureBreakdownViewModel> GetExpenditureBreakdown()
         {
             var res = _expenditureService.GetExpenditureRuleOverview().
-                Select(x => new ExpenditureBreakdown
+                Select(x => new ExpenditureBreakdownViewModel
                 {
                     ExpenditureDesc = x.ExpenditureDesc,
                     ExpenditureLimit = x.ExpenditureLimit,

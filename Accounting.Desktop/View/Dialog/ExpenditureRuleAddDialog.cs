@@ -1,14 +1,8 @@
 ﻿using Accounting.Desktop.Common;
 using Accounting.Desktop.Controller;
+using Accounting.Desktop.Model;
 using Accounting.Models.Requests;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.View
@@ -29,7 +23,7 @@ namespace Accounting.Desktop.View
 
         private void PopulateExpenditureTypeComboBox()
         {
-            _expenditureController.GetExpenditureTypes(comboBox1);
+            comboBoxExpenditureTypes.DataSource = _expenditureController.GetExpenditureTypes();
         }
 
         public void SaveExpenditureTypes()
@@ -42,7 +36,7 @@ namespace Accounting.Desktop.View
                     {
                         ExpenditureDesc = textBox3.Text,
                         ExpenditureLimit = decimal.Parse(textBox1.Text),
-                        ExpenditureTypeId = int.Parse(_expenditureController.GetExpenditureTypeId(comboBox1).ToString().Trim())
+                        ExpenditureTypeId = int.Parse(GetExpenditureTypeId(comboBoxExpenditureTypes).ToString().Trim())
                     });
                     _mainForm.PopulateExpenditureTable();
                     this.Dispose();
@@ -56,6 +50,11 @@ namespace Accounting.Desktop.View
             {
                 MessageBox.Show("Please enter valid Desciption", "Error", MessageBoxButtons.OK);
             }
+        }
+
+        public int GetExpenditureTypeId(ComboBox comboBox)
+        {
+            return ((ExpenditureTypeItem)comboBox.SelectedItem).ExpenditureTypeId;
         }
 
         private void Cancel_Click(object sender, EventArgs e)
