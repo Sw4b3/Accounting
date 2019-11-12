@@ -28,8 +28,10 @@ namespace Accounting.Desktop
         private DataImportController _dataImportController;
         private bool isInitialized = false;
 
-        private Color SystemGreen = Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145)))));
-        private Color SystemRed = Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137)))));
+        private Color SystemGreen = Color.FromArgb(184, 227, 145);
+        private Color SystemGreenForecolor = Color.FromArgb(103, 190, 86);
+        private Color SystemRed = Color.FromArgb(247, 147, 137);
+        private Color SystemRedForecolor = Color.FromArgb(245, 115, 101);
 
         public MainApplication()
         {
@@ -97,10 +99,9 @@ namespace Accounting.Desktop
         public void FilterTransactionByAccount()
         {
             var accountId = ((AccountItem)comboBoxAccount.SelectedItem).AccountId;
-
-            var balance = _accountController.GetAccountBalance(accountId);
             _transactionController.GetTransactions();
-            dataViewTransaction.DataSource = _transactionController.GetTransactions(1);
+
+            dataViewTransaction.DataSource = _transactionController.GetTransactions(accountId);
             PopulateBalanceLabel();
         }
 
@@ -110,7 +111,6 @@ namespace Accounting.Desktop
             labelIncome.Text = "Subtotal: " + _transactionController.GetIncomeSubtotal().ToString();
         }
 
-
         public void PopulateBalanceLabel()
         {
             var accountId = ((AccountItem)comboBoxAccount.SelectedItem).AccountId;
@@ -119,6 +119,43 @@ namespace Accounting.Desktop
             labelBalanceOverview.Text = "Balance: " + balance;
             labelBalanceTransaction.Text = "Balance: " + balance;
             labelAvailableBalanceTransaction.Text = "Available Balance: " + availableBalance;
+        }
+
+        private void DataViewTransaction_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!dataViewTransaction.SelectedRows.Count.Equals(0))
+            {
+                int selectedrowindex = dataViewTransaction.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataViewTransaction.Rows[selectedrowindex];
+                var res = new UpdateTransactionRequest
+                {
+                    TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()),
+                    Description = selectedRow.Cells[1].Value.ToString(),
+                    Amount = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
+                    Date = DateTime.Parse(selectedRow.Cells[3].Value.ToString())
+                };
+                new TransactionEditDialog(res, this).Show();
+            }
+        }
+
+        private void DataViewTransaction_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataViewTransaction[5, e.RowIndex].Value != null && dataViewTransaction[5, e.RowIndex].Value.ToString() != "Pending")
+            {
+                if (dataViewTransaction[4, e.RowIndex].Value.ToString() == "Withdraw")
+                {
+                    dataViewTransaction[5, e.RowIndex].Style.ForeColor = SystemRedForecolor;
+                }
+                else
+                {
+                    dataViewTransaction[5, e.RowIndex].Style.ForeColor = SystemGreenForecolor;
+                }
+            }
+        }
+
+        private void ComboBoxAccount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterTransactionByAccount();
         }
 
         private void Deposit_Click(object sender, EventArgs e)
@@ -155,100 +192,11 @@ namespace Accounting.Desktop
             PopulationTransactionTableByDate();
         }
 
-        private void FilterByAccount_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            FilterTransactionByAccount();
-        }
-
         private void Transfer_Click(object sender, EventArgs e)
         {
             var transfer1 = ((AccountItem)comboBoxTransferFrom.SelectedItem).AccountId;
             var transfer2 = ((AccountItem)comboBoxTransferTo.SelectedItem).AccountId;
             new TransferDialog(this, transfer1, transfer2).Show();
-        }
-
-        private void DataViewTransaction_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (!dataViewTransaction.SelectedRows.Count.Equals(0))
-            {
-                int selectedrowindex = dataViewTransaction.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataViewTransaction.Rows[selectedrowindex];
-                var res =  new UpdateTransactionRequest
-                {
-                    TransactionId = Guid.Parse(selectedRow.Cells[0].Value.ToString()),
-                    Description = selectedRow.Cells[1].Value.ToString(),
-                    Amount = decimal.Parse(selectedRow.Cells[2].Value.ToString()),
-                    Date = DateTime.Parse(selectedRow.Cells[3].Value.ToString())
-                };
-                new TransactionEditDialog(res, this).Show();
-            }
-        }
-
-        private void DataViewTransaction_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dataViewTransaction[5, e.RowIndex].Value != null && dataViewTransaction[5, e.RowIndex].Value.ToString() != "Pending")
-            {
-                if (dataViewTransaction[4, e.RowIndex].Value.ToString() == "Withdraw")
-                {
-                    dataViewTransaction[5, e.RowIndex].Style.ForeColor = Color.FromArgb(245, 115, 101);
-                }
-                else
-                {
-                    dataViewTransaction[5, e.RowIndex].Style.ForeColor = Color.FromArgb(103, 190, 86);
-                }
-            }
-        }
-
-
-
-        #endregion
-
-        #region Accounts Page
-
-        public void PopulateAccountTable()
-        {
-            dataGridAccount.DataSource = _accountController.GetAccounts();
-        }
-
-        private void AddAccount_Click(object sender, EventArgs e)
-        {
-            new AccountDialog(this).Show();
-        }
-
-        private void EditAccount_Click(object sender, EventArgs e)
-        {
-            if (!dataGridAccount.SelectedRows.Count.Equals(0))
-            {
-                int selectedrowindex = dataGridAccount.SelectedCells[1].RowIndex;
-                DataGridViewRow selectedRow = dataGridAccount.Rows[selectedrowindex];
-                var update = new UpdateAccountRequest
-                {
-                    AccountId = int.Parse(selectedRow.Cells[1].Value.ToString()),
-                };
-
-                new AccountEditDialog(update, this).Show();
-            }
-        }
-
-        #endregion
-
-        #region Analytics Page
-
-        public void PopulationAnalyticsTable()
-        {
-            dataGridViewStatistics.DataSource = _analyticsController.GetAnalyticStatistics();
-            dataGridViewAnalysis.DataSource = _analyticsController.GetAnalyticsOverview();
-            dataGridViewDaily.DataSource = _analyticsController.GetAnalyticsByDay();
-            dataGridViewMonthly.DataSource = _analyticsController.GetAnalyticsByMonth();
-
-            var chartData = _analyticsController.GetAnalyticsByDayChart();
-            chartDayAnalytics.Series[0].Points.DataBindXY(chartData.Headers, chartData.Data);
-
-            var chartDataColum = _analyticsController.GetAnalyticsByMonthChart();
-
-            chartMonthAnalytics.Series[0].Points.DataBindXY(chartDataColum[0].Headers, chartDataColum[0].Data);
-            chartMonthAnalytics.Series[1].Points.DataBindXY(chartDataColum[1].Headers, chartDataColum[1].Data);
-            chartMonthAnalytics.Series[2].Points.DataBindXY(chartDataColum[2].Headers, chartDataColum[2].Data);
         }
 
         #endregion
@@ -264,9 +212,27 @@ namespace Accounting.Desktop
 
         public void PopulateExpenditureTable()
         {
-            DateTime date = dateTimePickerExpitureOverview.Value;
+            var date = dateTimePickerExpitureOverview.Value;
             comboBoxExpenditureFilter.SelectedItem = "Unmapped";
+
             dataGridViewRecentTransactions.DataSource = _transactionController.GetRecentTransactions();
+            dataGridExpenditureBreakdown.DataSource = _expenditureController.GetExpenditureBreakdown();
+            dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(date);
+            dataGridExpenditure.AutoGenerateColumns = false;
+
+            if (!isInitialized)
+            {
+                var _expenditureRule = new DataGridViewComboBoxColumn();
+
+                _expenditureRule.DataSource = _expenditureController.GetExpenditureRulesList();
+                _expenditureRule.HeaderText = "ExpenditureRuleId";
+                _expenditureRule.DisplayMember = "ExpenditureDesc";
+                _expenditureRule.ValueMember = "ExpenditureRuleId";
+                _expenditureRule.FlatStyle = FlatStyle.Flat;
+
+                dataGridExpenditure.Columns.Add(_expenditureRule);
+                isInitialized = true;
+            }
         }
 
         public void PopulateExpenditureTableLayout()
@@ -313,27 +279,7 @@ namespace Accounting.Desktop
 
         public void PopulateExpenditureCharts()
         {
-            DateTime date = dateTimePickerExpitureOverview.Value;
-          
-            dataGridViewExpenditure.DataSource = _expenditureController.GetExpenditure(date);
-            dataGridViewExpenditure.AutoGenerateColumns = false;
-
-            if (!isInitialized)
-            {
-                var _expenditureRule = new DataGridViewComboBoxColumn();
-
-                _expenditureRule.DataSource = _expenditureController.GetExpenditureRulesList();
-                _expenditureRule.HeaderText = "ExpenditureRuleId";
-                _expenditureRule.DisplayMember = "ExpenditureDesc";
-                _expenditureRule.ValueMember = "ExpenditureRuleId";
-                _expenditureRule.FlatStyle = FlatStyle.Flat;
-
-                dataGridViewExpenditure.Columns.Add(_expenditureRule);
-                isInitialized = true;
-            }
-
             dataGridViewSetting.DataSource = _expenditureController.GetExpenditureRules();
-            dataGridExpenditureBreakdown.DataSource = _expenditureController.GetExpenditureBreakdown();
             GetExpenditureOverview(circularProgressBar1, labelRule1, labelCurrent1, labelLimit1,
                 circularProgressBar2, labelRule2, labelCurrent2, labelLimit2,
                 circularProgressBar3, labelRule3, labelCurrent3, labelLimit3);
@@ -421,7 +367,7 @@ namespace Accounting.Desktop
         private void ComboBoxExpenditureFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             DateTime date = dateTimePickerExpitureOverview.Value;
-            dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
+            dataGridExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
         }
 
         private void DateTimePickerExpenditure_ValueChanged(object sender, EventArgs e)
@@ -465,9 +411,9 @@ namespace Accounting.Desktop
 
                 DateTime date = dateTimePickerExpitureOverview.Value;
 
-                if (!dataGridViewExpenditure.SelectedRows.Count.Equals(0))
+                if (!dataGridExpenditure.SelectedRows.Count.Equals(0))
                 {
-                    foreach (DataGridViewRow rows in dataGridViewExpenditure.Rows)
+                    foreach (DataGridViewRow rows in dataGridExpenditure.Rows)
                     {
                         if (rows.Cells[0].Value != null)
                         {
@@ -481,7 +427,7 @@ namespace Accounting.Desktop
                     }
                 }
 
-                dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
+                dataGridExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
                 dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
             }
         }
@@ -497,9 +443,9 @@ namespace Accounting.Desktop
         {
             DateTime date = dateTimePickerExpitureOverview.Value;
 
-            if (!dataGridViewExpenditure.SelectedRows.Count.Equals(0))
+            if (!dataGridExpenditure.SelectedRows.Count.Equals(0))
             {
-                foreach (DataGridViewRow rows in dataGridViewExpenditure.Rows)
+                foreach (DataGridViewRow rows in dataGridExpenditure.Rows)
                 {
                     if (rows.Cells[0].Value != null)
                     {
@@ -513,14 +459,14 @@ namespace Accounting.Desktop
                 }
             }
 
-            dataGridViewExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
+            dataGridExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
             dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
         }
 
         private void DateTimePickerExpitureOverview_ValueChanged(object sender, EventArgs e)
         {
             DateTime date = dateTimePickerExpitureOverview.Value;
-            dataGridViewExpenditure.DataSource = _expenditureController.GetExpenditure(date);
+            dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(date);
         }
 
         #endregion
@@ -601,6 +547,56 @@ namespace Accounting.Desktop
                 DataGridViewRow selectedRow = dataViewMapping.Rows[selectedrowindex];
                 _DataImportController.DeleteMapping(int.Parse(selectedRow.Cells[0].Value.ToString()));
                 dataViewMapping.DataSource = _DataImportController.GetMappings();
+            }
+        }
+
+        #endregion
+
+        #region Analytics Page
+
+        public void PopulationAnalyticsTable()
+        {
+            dataGridViewStatistics.DataSource = _analyticsController.GetAnalyticStatistics();
+            dataGridViewAnalysis.DataSource = _analyticsController.GetAnalyticsOverview();
+            dataGridViewDaily.DataSource = _analyticsController.GetAnalyticsByDay();
+            dataGridViewMonthly.DataSource = _analyticsController.GetAnalyticsByMonth();
+
+            var chartData = _analyticsController.GetAnalyticsByDayChart();
+            chartDayAnalytics.Series[0].Points.DataBindXY(chartData.Headers, chartData.Data);
+
+            var chartDataColum = _analyticsController.GetAnalyticsByMonthChart();
+
+            chartMonthAnalytics.Series[0].Points.DataBindXY(chartDataColum[0].Headers, chartDataColum[0].Data);
+            chartMonthAnalytics.Series[1].Points.DataBindXY(chartDataColum[1].Headers, chartDataColum[1].Data);
+            chartMonthAnalytics.Series[2].Points.DataBindXY(chartDataColum[2].Headers, chartDataColum[2].Data);
+        }
+
+        #endregion
+
+        #region Accounts Page
+
+        public void PopulateAccountTable()
+        {
+            dataGridAccount.DataSource = _accountController.GetAccounts();
+        }
+
+        private void AddAccount_Click(object sender, EventArgs e)
+        {
+            new AccountDialog(this).Show();
+        }
+
+        private void EditAccount_Click(object sender, EventArgs e)
+        {
+            if (!dataGridAccount.SelectedRows.Count.Equals(0))
+            {
+                int selectedrowindex = dataGridAccount.SelectedCells[1].RowIndex;
+                DataGridViewRow selectedRow = dataGridAccount.Rows[selectedrowindex];
+                var update = new UpdateAccountRequest
+                {
+                    AccountId = int.Parse(selectedRow.Cells[1].Value.ToString()),
+                };
+
+                new AccountEditDialog(update, this).Show();
             }
         }
 

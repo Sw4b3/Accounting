@@ -113,7 +113,7 @@
             this.comboBoxExpenditureFilter = new System.Windows.Forms.ComboBox();
             this.button11 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.dataGridViewExpenditure = new System.Windows.Forms.DataGridView();
+            this.dataGridExpenditure = new System.Windows.Forms.DataGridView();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.button18 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -171,7 +171,7 @@
             this.tabPage16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).BeginInit();
             this.tabPage14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditure)).BeginInit();
             this.tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).BeginInit();
             this.dataImportTab.SuspendLayout();
@@ -460,7 +460,7 @@
             this.comboBoxAccount.Name = "comboBoxAccount";
             this.comboBoxAccount.Size = new System.Drawing.Size(148, 21);
             this.comboBoxAccount.TabIndex = 47;
-            this.comboBoxAccount.SelectedIndexChanged += new System.EventHandler(this.FilterByAccount_SelectedIndexChanged);
+            this.comboBoxAccount.SelectedIndexChanged += new System.EventHandler(this.ComboBoxAccount_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -1003,7 +1003,7 @@
             this.tabPage14.Controls.Add(this.comboBoxExpenditureFilter);
             this.tabPage14.Controls.Add(this.button11);
             this.tabPage14.Controls.Add(this.button13);
-            this.tabPage14.Controls.Add(this.dataGridViewExpenditure);
+            this.tabPage14.Controls.Add(this.dataGridExpenditure);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
@@ -1067,24 +1067,24 @@
             // 
             // dataGridViewExpenditure
             // 
-            this.dataGridViewExpenditure.AllowUserToResizeRows = false;
+            this.dataGridExpenditure.AllowUserToResizeRows = false;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewExpenditure.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewExpenditure.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridExpenditure.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridExpenditure.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewExpenditure.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewExpenditure.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewExpenditure.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewExpenditure.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewExpenditure.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridViewExpenditure.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewExpenditure.Location = new System.Drawing.Point(200, 20);
-            this.dataGridViewExpenditure.Name = "dataGridViewExpenditure";
-            this.dataGridViewExpenditure.RowHeadersVisible = false;
-            this.dataGridViewExpenditure.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewExpenditure.Size = new System.Drawing.Size(775, 521);
-            this.dataGridViewExpenditure.TabIndex = 28;
+            this.dataGridExpenditure.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridExpenditure.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridExpenditure.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridExpenditure.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridExpenditure.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridExpenditure.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridExpenditure.Location = new System.Drawing.Point(200, 20);
+            this.dataGridExpenditure.Name = "dataGridViewExpenditure";
+            this.dataGridExpenditure.RowHeadersVisible = false;
+            this.dataGridExpenditure.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridExpenditure.Size = new System.Drawing.Size(775, 521);
+            this.dataGridExpenditure.TabIndex = 28;
             // 
             // tabPage13
             // 
@@ -1711,7 +1711,7 @@
             this.tabPage16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditureBreakdown)).EndInit();
             this.tabPage14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExpenditure)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridExpenditure)).EndInit();
             this.tabPage13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSetting)).EndInit();
             this.dataImportTab.ResumeLayout(false);
@@ -1768,7 +1768,7 @@
         private System.Windows.Forms.TabControl tabControl5;
         private System.Windows.Forms.TabPage tabPage14;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.DataGridView dataGridViewExpenditure;
+        private System.Windows.Forms.DataGridView dataGridExpenditure;
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.DataGridView dataGridViewSetting;
