@@ -52,13 +52,15 @@ namespace Accounting.Desktop
         public void PopulateTransactionTables()
         {
             _transactionController.GetTransactions();
-            _analyticsController.GetAnalyticsOverview(chart1);
             dataViewTransaction.DataSource = _transactionController.GetTransactions(1);
             dataViewTransfer.DataSource = _transactionController.GetTransfers();
             dataViewTransactionDebit.DataSource = _transactionController.GetTransactionsDebit();
             dataViewTransactionCredit.DataSource = _transactionController.GetTransactionsCredit();
             dataGridViewImportFile.DataSource = _reportController.GetImport();
             dataViewMapping.DataSource = _dataImportController.GetMappings();
+
+            var chartData = _analyticsController.GetAnalyticsOverviewChart();
+            chartTransactionOverview.Series[0].Points.DataBindXY(new[] { "Expense", "Income" }, new[] { chartData.Expense, chartData.Income });
         }
 
         public void PopulateAccountTable()
@@ -72,8 +74,15 @@ namespace Accounting.Desktop
             dataGridViewAnalysis.DataSource = _analyticsController.GetAnalyticsOverview();
             dataGridViewDaily.DataSource = _analyticsController.GetAnalyticsByDay();
             dataGridViewMonthly.DataSource = _analyticsController.GetAnalyticsByMonth();
-            _analyticsController.GetAnalyticsByDay(chartDayAnalytics);
-            _analyticsController.GetAnalyticsByMonth(chartMonthAnalytics);
+
+            var chartData = _analyticsController.GetAnalyticsByDayChart();
+            chartDayAnalytics.Series[0].Points.DataBindXY(chartData.Headers, chartData.Data);
+
+            var chartDataColum = _analyticsController.GetAnalyticsByMonthChart();
+
+            chartMonthAnalytics.Series[0].Points.DataBindXY(chartDataColum[0].Headers, chartDataColum[0].Data);
+            chartMonthAnalytics.Series[1].Points.DataBindXY(chartDataColum[1].Headers, chartDataColum[1].Data);
+            chartMonthAnalytics.Series[2].Points.DataBindXY(chartDataColum[2].Headers, chartDataColum[2].Data);
         }
 
         public void PopulateExpenditureTable()

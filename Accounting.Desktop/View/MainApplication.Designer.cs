@@ -59,7 +59,7 @@
             this.transactionsTab = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartTransactionOverview = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelIncome = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -157,7 +157,7 @@
             this.transactionsTab.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTransactionOverview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionCredit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionDebit)).BeginInit();
             this.tabPage2.SuspendLayout();
@@ -268,7 +268,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.chart1);
+            this.tabPage1.Controls.Add(this.chartTransactionOverview);
             this.tabPage1.Controls.Add(this.labelIncome);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
@@ -286,19 +286,19 @@
             // 
             // chart1
             // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.chart1.BorderlineColor = System.Drawing.Color.Black;
+            this.chartTransactionOverview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.chartTransactionOverview.BorderlineColor = System.Drawing.Color.Black;
             chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
             chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray;
             chartArea1.AxisX.MajorGrid.LineWidth = 0;
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chartTransactionOverview.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(77, 262);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
+            this.chartTransactionOverview.Legends.Add(legend1);
+            this.chartTransactionOverview.Location = new System.Drawing.Point(77, 262);
+            this.chartTransactionOverview.Name = "chart1";
+            this.chartTransactionOverview.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartTransactionOverview.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(147)))), ((int)(((byte)(137))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(227)))), ((int)(((byte)(145))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(146)))), ((int)(((byte)(200)))))};
@@ -308,10 +308,10 @@
             series1.LabelForeColor = System.Drawing.Color.Transparent;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(412, 231);
-            this.chart1.TabIndex = 56;
-            this.chart1.Text = "chart1";
+            this.chartTransactionOverview.Series.Add(series1);
+            this.chartTransactionOverview.Size = new System.Drawing.Size(412, 231);
+            this.chartTransactionOverview.TabIndex = 56;
+            this.chartTransactionOverview.Text = "chart1";
             // 
             // labelIncome
             // 
@@ -1694,7 +1694,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTransactionOverview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionCredit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTransactionDebit)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -1799,7 +1799,7 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTransactionOverview;
         private System.Windows.Forms.Label labelIncome;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

@@ -45,6 +45,7 @@
     <Compile Include="Items\AccountItem.cs" />
     <Compile Include="Items\ExpenditureRuleItem.cs" />
     <Compile Include="Items\ExpenditureTypeItem.cs" />
+    <Compile Include="Items\PieChartItem.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\ExpenditureOverview.cs" />
     <Compile Include="Models\Expenditure.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Requests\GetTransactionByDateRequest.cs" />
     <Compile Include="Requests\UpdateTransactionRequest.cs" />
     <Compile Include="Requests\SaveTransactionRequest.cs" />
+    <Compile Include="Items\BarChartItem.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="ViewModels\ExpenditureBreakdownViewModel.cs" />
     <Compile Include="ViewModels\ExpenditureViewModel.cs" />
