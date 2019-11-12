@@ -20,10 +20,10 @@ namespace Accounting.Desktop.View.Dialog
         private MainApplication _mainform;
         private string _filename;
 
-        public ImportDialog(TransactionController transactionController, MainApplication mainform, string filename)
+        public ImportDialog(MainApplication mainform, string filename)
         {
             InitializeComponent();
-            _transactionController = transactionController;
+            _transactionController = new TransactionController();
             _accountController = new AccountController();
             _reportController = new DataImportController();
             _filename = filename;

@@ -14,19 +14,17 @@ using System.Windows.Forms;
 
 namespace Accounting.Desktop.Controller
 {
-    class DataImportController
+    public class DataImportController
     {
-        private TransactionController _transactionController;
-        private AccountController _accountController;
-        private ITransactionService _transactionService;
-        private IReportService _reportService;
-        private ReportHandler _reportHanlder;
-        private IMappingService _mappingService;
+        private readonly AccountService _accountService;
+        private readonly ITransactionService _transactionService;
+        private readonly IReportService _reportService;
+        private readonly ReportHandler _reportHanlder;
+        private readonly IMappingService _mappingService;
 
         public DataImportController()
         {
-            _transactionController = new TransactionController();
-            _accountController = new AccountController();
+            _accountService = new AccountService();
             _transactionService = new TransactionService();
             _reportService = new ReportService();
             _reportHanlder = new ReportHandler();
@@ -114,7 +112,7 @@ namespace Accounting.Desktop.Controller
                 //var isSuccessful = Int64.TryParse(accountNoString, out accountNo);
 
 
-                var account = _accountController.GetAccount(new GetAccountRequest
+                var account = _accountService.GetAccount(new GetAccountRequest
                 {
                     AccountNo = accountNoString
                 });
@@ -131,12 +129,12 @@ namespace Accounting.Desktop.Controller
                     }
                     else
                     {
-                        new ImportDialog(_transactionController, mainForm, filename).Show();
+                        new ImportDialog(mainForm, filename).Show();
                     }
                 }
                 else
                 {
-                    new ImportDialog(_transactionController, mainForm, filename).Show();
+                    new ImportDialog(mainForm, filename).Show();
                 }
             }
         }

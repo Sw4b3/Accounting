@@ -14,7 +14,7 @@ namespace Accounting.Desktop.Controller
 {
     public class ExpenditureController
     {
-        private IExpenditureService _expenditureService;
+        private readonly IExpenditureService _expenditureService;
 
         public ExpenditureController()
         {

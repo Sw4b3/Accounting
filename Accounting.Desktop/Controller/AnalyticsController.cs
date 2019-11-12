@@ -9,8 +9,8 @@ namespace Accounting.Desktop.Controller
 {
     class AnalyticsController
     {
-        TransactionService _transactionService;
-        AnalyticsService _analyticsService;
+        private readonly TransactionService _transactionService;
+        private readonly AnalyticsService _analyticsService;
 
         public AnalyticsController()
         {

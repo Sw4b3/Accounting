@@ -11,7 +11,7 @@ namespace Accounting.Desktop.Controller
 {
     public class TransactionController
     {
-        private TransactionService _transactionService;
+        private readonly TransactionService _transactionService;
         private IList<Transaction> _transactions;
 
         public TransactionController()

@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Accounting.Desktop.Controller
 {
-    class AccountController
+    public class AccountController
     {
         private readonly AccountService _accountService;
 
