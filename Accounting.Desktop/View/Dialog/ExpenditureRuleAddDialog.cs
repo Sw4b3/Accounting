@@ -38,7 +38,7 @@ namespace Accounting.Desktop.View
                         ExpenditureLimit = decimal.Parse(textBox1.Text),
                         ExpenditureTypeId = int.Parse(GetExpenditureTypeId(comboBoxExpenditureTypes).ToString().Trim())
                     });
-                    _mainForm.PopulateExpenditureTable();
+                    _mainForm.PopulateExpenditurePage();
                     this.Dispose();
                 }
                 else

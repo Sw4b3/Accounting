@@ -49,7 +49,7 @@ namespace Accounting.Desktop.View
                         ExpenditureLimit = decimal.Parse(textBox1.Text),
                         ShouldDisplay = checkBox1.Checked
                     });
-                    _mainForm.PopulateExpenditureTable();
+                    _mainForm.PopulateExpenditurePage();
                     this.Dispose();
                 }
                 else

@@ -55,7 +55,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApplication));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabControlMain = new System.Windows.Forms.TabControl();
             this.transactionsTab = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -106,11 +106,11 @@
             this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
             this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
             this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerExpenditure = new System.Windows.Forms.DateTimePicker();
             this.dataGridExpenditureBreakdown = new System.Windows.Forms.DataGridView();
             this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxMappings = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerExpitureOverview = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxExpenditureFilter = new System.Windows.Forms.ComboBox();
             this.button11 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.dataGridViewExpenditure = new System.Windows.Forms.DataGridView();
@@ -153,7 +153,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.tabControl2.SuspendLayout();
+            this.tabControlMain.SuspendLayout();
             this.transactionsTab.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -226,20 +226,20 @@
             // 
             // tabControl2
             // 
-            this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl2.Controls.Add(this.transactionsTab);
-            this.tabControl2.Controls.Add(this.expenditureTab);
-            this.tabControl2.Controls.Add(this.dataImportTab);
-            this.tabControl2.Controls.Add(this.analyticsTab);
-            this.tabControl2.Controls.Add(this.accountTab);
-            this.tabControl2.Location = new System.Drawing.Point(166, 0);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1011, 619);
-            this.tabControl2.TabIndex = 27;
-            this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
+            this.tabControlMain.Controls.Add(this.transactionsTab);
+            this.tabControlMain.Controls.Add(this.expenditureTab);
+            this.tabControlMain.Controls.Add(this.dataImportTab);
+            this.tabControlMain.Controls.Add(this.analyticsTab);
+            this.tabControlMain.Controls.Add(this.accountTab);
+            this.tabControlMain.Location = new System.Drawing.Point(166, 0);
+            this.tabControlMain.Name = "tabControl2";
+            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.Size = new System.Drawing.Size(1011, 619);
+            this.tabControlMain.TabIndex = 27;
+            this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.TabControlMain_SelectedIndexChanged);
             // 
             // transactionsTab
             // 
@@ -460,7 +460,7 @@
             this.comboBoxAccount.Name = "comboBoxAccount";
             this.comboBoxAccount.Size = new System.Drawing.Size(148, 21);
             this.comboBoxAccount.TabIndex = 47;
-            this.comboBoxAccount.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBoxAccount.SelectedIndexChanged += new System.EventHandler(this.FilterByAccount_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -568,8 +568,8 @@
             this.dataViewTransaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataViewTransaction.Size = new System.Drawing.Size(775, 440);
             this.dataViewTransaction.TabIndex = 28;
-            this.dataViewTransaction.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewTransaction_CellDoubleClick);
-            this.dataViewTransaction.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataViewTransaction_CellFormatting);
+            this.dataViewTransaction.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataViewTransaction_CellDoubleClick);
+            this.dataViewTransaction.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataViewTransaction_CellFormatting);
             // 
             // tabPage3
             // 
@@ -952,7 +952,7 @@
             // 
             // tabPage16
             // 
-            this.tabPage16.Controls.Add(this.dateTimePicker3);
+            this.tabPage16.Controls.Add(this.dateTimePickerExpenditure);
             this.tabPage16.Controls.Add(this.dataGridExpenditureBreakdown);
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
@@ -964,15 +964,15 @@
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
-            this.dateTimePicker3.CustomFormat = "MMMM";
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(24, 19);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.ShowUpDown = true;
-            this.dateTimePicker3.Size = new System.Drawing.Size(129, 20);
-            this.dateTimePicker3.TabIndex = 43;
-            this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
+            this.dateTimePickerExpenditure.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
+            this.dateTimePickerExpenditure.CustomFormat = "MMMM";
+            this.dateTimePickerExpenditure.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerExpenditure.Location = new System.Drawing.Point(24, 19);
+            this.dateTimePickerExpenditure.Name = "dateTimePicker3";
+            this.dateTimePickerExpenditure.ShowUpDown = true;
+            this.dateTimePickerExpenditure.Size = new System.Drawing.Size(129, 20);
+            this.dateTimePickerExpenditure.TabIndex = 43;
+            this.dateTimePickerExpenditure.ValueChanged += new System.EventHandler(this.DateTimePickerExpenditure_ValueChanged);
             // 
             // dataGridExpenditureBreakdown
             // 
@@ -995,12 +995,12 @@
             this.dataGridExpenditureBreakdown.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridExpenditureBreakdown.Size = new System.Drawing.Size(952, 481);
             this.dataGridExpenditureBreakdown.TabIndex = 29;
-            this.dataGridExpenditureBreakdown.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridExpenditureBreakdown_CellFormatting);
+            this.dataGridExpenditureBreakdown.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridExpenditureBreakdown_CellFormatting);
             // 
             // tabPage14
             // 
-            this.tabPage14.Controls.Add(this.dateTimePicker4);
-            this.tabPage14.Controls.Add(this.comboBoxMappings);
+            this.tabPage14.Controls.Add(this.dateTimePickerExpitureOverview);
+            this.tabPage14.Controls.Add(this.comboBoxExpenditureFilter);
             this.tabPage14.Controls.Add(this.button11);
             this.tabPage14.Controls.Add(this.button13);
             this.tabPage14.Controls.Add(this.dataGridViewExpenditure);
@@ -1014,30 +1014,30 @@
             // 
             // dateTimePicker4
             // 
-            this.dateTimePicker4.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
-            this.dateTimePicker4.CustomFormat = "MMMM";
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker4.Location = new System.Drawing.Point(37, 20);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.ShowUpDown = true;
-            this.dateTimePicker4.Size = new System.Drawing.Size(148, 20);
-            this.dateTimePicker4.TabIndex = 49;
-            this.dateTimePicker4.ValueChanged += new System.EventHandler(this.DateTimePicker4_ValueChanged);
+            this.dateTimePickerExpitureOverview.CalendarMonthBackground = System.Drawing.SystemColors.MenuHighlight;
+            this.dateTimePickerExpitureOverview.CustomFormat = "MMMM";
+            this.dateTimePickerExpitureOverview.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerExpitureOverview.Location = new System.Drawing.Point(37, 20);
+            this.dateTimePickerExpitureOverview.Name = "dateTimePicker4";
+            this.dateTimePickerExpitureOverview.ShowUpDown = true;
+            this.dateTimePickerExpitureOverview.Size = new System.Drawing.Size(148, 20);
+            this.dateTimePickerExpitureOverview.TabIndex = 49;
+            this.dateTimePickerExpitureOverview.ValueChanged += new System.EventHandler(this.DateTimePickerExpitureOverview_ValueChanged);
             // 
             // comboBoxMappings
             // 
-            this.comboBoxMappings.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBoxMappings.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMappings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxMappings.FormattingEnabled = true;
-            this.comboBoxMappings.Items.AddRange(new object[] {
+            this.comboBoxExpenditureFilter.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxExpenditureFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxExpenditureFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxExpenditureFilter.FormattingEnabled = true;
+            this.comboBoxExpenditureFilter.Items.AddRange(new object[] {
             "Unmapped",
             "Mapped"});
-            this.comboBoxMappings.Location = new System.Drawing.Point(37, 46);
-            this.comboBoxMappings.Name = "comboBoxMappings";
-            this.comboBoxMappings.Size = new System.Drawing.Size(148, 21);
-            this.comboBoxMappings.TabIndex = 48;
-            this.comboBoxMappings.SelectedIndexChanged += new System.EventHandler(this.comboBoxMappings_SelectedIndexChanged);
+            this.comboBoxExpenditureFilter.Location = new System.Drawing.Point(37, 46);
+            this.comboBoxExpenditureFilter.Name = "comboBoxMappings";
+            this.comboBoxExpenditureFilter.Size = new System.Drawing.Size(148, 21);
+            this.comboBoxExpenditureFilter.TabIndex = 48;
+            this.comboBoxExpenditureFilter.SelectedIndexChanged += new System.EventHandler(this.ComboBoxExpenditureFilter_SelectedIndexChanged);
             // 
             // button11
             // 
@@ -1681,7 +1681,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1175, 619);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tabControl2);
+            this.Controls.Add(this.tabControlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1689,7 +1689,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Accounting";
             this.panel1.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
+            this.tabControlMain.ResumeLayout(false);
             this.transactionsTab.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1744,7 +1744,7 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage transactionsTab;
         private System.Windows.Forms.TabPage accountTab;
         private System.Windows.Forms.DataGridView dataGridAccount;
@@ -1791,11 +1791,11 @@
         private System.Windows.Forms.DataGridView dataGridViewRecentTransactions;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.ComboBox comboBoxMappings;
+        private System.Windows.Forms.ComboBox comboBoxExpenditureFilter;
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.DataGridView dataGridExpenditureBreakdown;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker dateTimePickerExpenditure;
+        private System.Windows.Forms.DateTimePicker dateTimePickerExpitureOverview;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
