@@ -124,8 +124,7 @@ namespace Accounting.Desktop.Controller
                     {
                         MessageBox.Show("Account Type detected as " + account.AccountType, "Account Detection", MessageBoxButtons.OK);
                         ImportFromExcel(filename, account.AccountId);
-                        mainForm.PopulateTransactionTables();
-                        mainForm.FilterTransactionByAccount();
+                        mainForm.PopulateDataImportTables();
                     }
                     else
                     {
