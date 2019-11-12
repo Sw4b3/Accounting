@@ -62,14 +62,12 @@ namespace Accounting.Desktop
             dataViewTransfer.DataSource = _transactionController.GetTransfers();
             dataViewTransactionDebit.DataSource = _transactionController.GetTransactionsDebit();
             dataViewTransactionCredit.DataSource = _transactionController.GetTransactionsCredit();
-            dataGridViewImportFile.DataSource = _DataImportController.GetImports();
-            dataViewMapping.DataSource = _dataImportController.GetMappings();
         }
 
         public void PopulateTransactionCharts()
         {
             var chartData = _analyticsController.GetAnalyticsOverviewChart();
-            chartTransactionOverview.Series[0].Points.DataBindXY(new[] { "Expense", "Income" }, new[] { chartData.Expense, chartData.Income });
+            chartTransactionOverview.Series[0].Points.DataBindXY(chartData.Headers, chartData.Data);
         }
 
         public void PopulateTransactionComboBoxs()

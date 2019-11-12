@@ -31,14 +31,23 @@ namespace Accounting.Desktop.Controller
             return res;
         }
 
-        public PieChartItem GetAnalyticsOverviewChart()
+        public ChartItem GetAnalyticsOverviewChart()
         {
             var accountDetails = _transactionService.GetTransactionsByDate(Extensions.GetCurrentMonth());
+            var expense = accountDetails.Where(x => x.TransactionTypeId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
+            var income = accountDetails.Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
 
-            var res = new PieChartItem()
+            var res = new ChartItem()
             {
-                Expense = accountDetails.Where(x => x.TransactionTypeId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum(),
-                Income = accountDetails.Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum(),
+                Headers = new string[]{
+                     "Expense",
+                     "Income"
+                },
+                Data = new decimal[]
+                {
+                     expense,
+                      income,
+                }
             };
 
             return res;
@@ -56,11 +65,11 @@ namespace Accounting.Desktop.Controller
             return res;
         }
 
-        public BarChartItem GetAnalyticsByDayChart()
+        public ChartItem GetAnalyticsByDayChart()
         {
             var transaction = _analyticsService.GetAnalyticsByDay();
 
-            var res = new BarChartItem()
+            var res = new ChartItem()
             {
                 Data = transaction.Select(x => x.Amount).ToList(),
                 Headers = transaction.Select(x => x.TransactionTimestamp.ToString("dd/MMM")).ToList(),
@@ -69,7 +78,7 @@ namespace Accounting.Desktop.Controller
             return res;
         }
 
-        public IList<BarChartItem> GetAnalyticsByMonthChart()
+        public IList<ChartItem> GetAnalyticsByMonthChart()
         {
             var transaction = _analyticsService.GetAnalyticsByMonth();
             var credit = transaction.Select(x => x.Credit).ToList();
@@ -77,16 +86,16 @@ namespace Accounting.Desktop.Controller
             var balance = transaction.Select(x => x.Balance).ToList();
             var month = transaction.Select(x => x.Date.ToString("MMM")).ToList();
 
-            var res = new List<BarChartItem> {
-                new BarChartItem(){
+            var res = new List<ChartItem> {
+                new ChartItem(){
                        Headers = month,
                        Data = credit,
                 },
-                 new BarChartItem(){
+                 new ChartItem(){
                       Headers = month,
                       Data = debit,
                 },
-                  new BarChartItem(){
+                  new ChartItem(){
                        Headers = month,
                       Data = balance,
 

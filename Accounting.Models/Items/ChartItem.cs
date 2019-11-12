@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Accounting.Models.Models
 {
-    public class PieChartItem
+    public class ChartItem
     {
-        public decimal Expense { get; set; }
+        public IList<string> Headers { get; set; }
 
-        public decimal Income { get; set; }
+        public IList<decimal> Data { get; set; }
 
     }
 }
