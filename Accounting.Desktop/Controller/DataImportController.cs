@@ -10,34 +10,31 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.Controller
 {
-    class DataImportController
+    public class DataImportController
     {
-        private TransactionController _transactionController;
-        private AccountController _accountController;
-        private ITransactionService _transactionService;
-        private IReportService _reportService;
-        private ReportHandler _reportHanlder;
-        private IMappingService _mappingService;
+        private readonly AccountService _accountService;
+        private readonly ITransactionService _transactionService;
+        private readonly IReportService _reportService;
+        private readonly ReportHandler _reportHanlder;
+        private readonly IMappingService _mappingService;
 
         public DataImportController()
         {
-            _transactionController = new TransactionController();
-            _accountController = new AccountController();
+            _accountService = new AccountService();
             _transactionService = new TransactionService();
             _reportService = new ReportService();
             _reportHanlder = new ReportHandler();
             _mappingService = new MappingService();
         }
 
-        public void GetMappings(DataGridView dataGridView)
+        public List<Mapping> GetMappings()
         {
-            dataGridView.DataSource = _mappingService.GetMappings().ToList();
+            var res = _mappingService.GetMappings().ToList();
+            return res;
         }
 
         public void SaveMapping(SaveMappingRequest request)
@@ -50,9 +47,10 @@ namespace Accounting.Desktop.Controller
             _mappingService.DeleteMapping(new DeleteMappingRequest { MappingId = mappingId });
         }
 
-        public void GetImport(DataGridView dataGridView)
+        public List<ProssedImportFiles> GetImports()
         {
-            dataGridView.DataSource = _reportService.GetImportFile();
+            var res = _reportService.GetImportFile().ToList();
+            return res;
         }
 
         public void RollbackImport(Guid fileId)
@@ -114,7 +112,7 @@ namespace Accounting.Desktop.Controller
                 //var isSuccessful = Int64.TryParse(accountNoString, out accountNo);
 
 
-                var account = _accountController.GetAccount(new GetAccountRequest
+                var account = _accountService.GetAccount(new GetAccountRequest
                 {
                     AccountNo = accountNoString
                 });
@@ -126,17 +124,16 @@ namespace Accounting.Desktop.Controller
                     {
                         MessageBox.Show("Account Type detected as " + account.AccountType, "Account Detection", MessageBoxButtons.OK);
                         ImportFromExcel(filename, account.AccountId);
-                        mainForm.PopulateTransactionTables();
-                        mainForm.FilterTransactionByAccount();
+                        mainForm.PopulateDataImportTables();
                     }
                     else
                     {
-                        new ImportDialog(_transactionController, mainForm, filename).Show();
+                        new ImportDialog(mainForm, filename).Show();
                     }
                 }
                 else
                 {
-                    new ImportDialog(_transactionController, mainForm, filename).Show();
+                    new ImportDialog(mainForm, filename).Show();
                 }
             }
         }
@@ -156,7 +153,7 @@ namespace Accounting.Desktop.Controller
                     {
                         foreach (var vaules in pendingTransactionList.ToList())
                         {
-                            if (IsMatch(transaction.Description, vaules.Description, transaction.Amount, vaules.Amount, transaction.TransactionTimestamp, vaules.TransactionTimestamp))
+                            if (Extensions.IsMatch(transaction.Description, vaules.Description, transaction.Amount, vaules.Amount, transaction.TransactionTimestamp, vaules.TransactionTimestamp))
                             {
                                 _transactionService.DeleteTransaction(new DeleteTransactionRequest { TransactionId = vaules.TransactionId });
                                 pendingTransactionList.Remove(vaules);
@@ -171,16 +168,6 @@ namespace Accounting.Desktop.Controller
                 }
                 MessageBox.Show("Data Imported", "Import", MessageBoxButtons.OK);
             }
-        }
-
-        public bool IsMatch(string value1, string value2, decimal value3, decimal value4, DateTime importedDate, DateTime pendingDate)
-        {
-
-            if (value1.ToLower().Contains(value2.ToLower()) && value3.ToString("0.00").Equals(value4.ToString("0.00")) && (importedDate.AddDays(-4) >= pendingDate || pendingDate <= importedDate.AddDays(4)))
-            {
-                return true;
-            }
-            return false;
         }
     }
 }

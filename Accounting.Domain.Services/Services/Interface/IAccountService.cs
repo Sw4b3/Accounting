@@ -10,7 +10,7 @@ namespace Accounting.Domain.Services.Service.Interface
 {
     public interface IAccountService
     {
-        IList<Account> GetAccount();
+        IList<Account> GetAccounts();
 
         Account GetAccount(GetAccountRequest accountNo);
 

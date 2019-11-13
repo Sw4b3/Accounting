@@ -2,13 +2,13 @@
 using Accounting.Domain.Services.Service;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
-using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
+
 
 namespace Accounting.Desktop.Controller
 {
-    class AccountController
+    public class AccountController
     {
         private readonly AccountService _accountService;
 
@@ -17,19 +17,18 @@ namespace Accounting.Desktop.Controller
             _accountService = new AccountService();
         }
 
-        public string GetAccountBalance(int accountId)
+        public List<AccountViewModel> GetAccounts()
         {
-            return _accountService.GetAccount().FirstOrDefault(x =>  x.AccountId== accountId).CurrentBalance.ToString();
-        }
-
-        public string GetAccountAvaliableBalance(int accountId)
-        {
-            return _accountService.GetAccount().FirstOrDefault(x => x.AccountId == accountId).AvailableBalance.ToString();
-        }
-
-        public void GetAccount(DataGridView dataGrid)
-        {
-            dataGrid.DataSource = _accountService.GetAccount().Select(x => new { x.AccountId, x.AccountNo , x.AccountType, x.Status, x.CurrentBalance, x.AvailableBalance }).ToList();
+            var res = _accountService.GetAccounts().Select(x => new AccountViewModel
+            {
+                AccountId = x.AccountId,
+                AccountNo = x.AccountNo,
+                AccountType = x.AccountType,
+                Status = x.Status,
+                CurrentBalance = x.CurrentBalance,
+                AvailableBalance = x.AvailableBalance
+            }).ToList();
+            return res;
         }
 
         public Account GetAccount(GetAccountRequest getAccountRequest)
@@ -37,16 +36,22 @@ namespace Accounting.Desktop.Controller
             return _accountService.GetAccount(getAccountRequest);
         }
 
-        public void GetAccountComboBox(ComboBox comboBox)
+        public List<AccountItem> GetAccountsItem()
         {
-            var expenses = _accountService.GetAccount().Select(x => new AccountItem { AccountId = x.AccountId, AccountType = x.AccountType }).ToList();
-            comboBox.DataSource = expenses.ToList();
+            var res = _accountService.GetAccounts().Select(x => new AccountItem { AccountId = x.AccountId, AccountType = x.AccountType }).ToList();
+            return res;
         }
 
-        public int GetAccountId(ComboBox comboBox)
+        public string GetAccountBalance(int accountId)
         {
-            return ((AccountItem)comboBox.SelectedItem).AccountId;
+            return _accountService.GetAccounts().FirstOrDefault(x => x.AccountId == accountId).CurrentBalance.ToString();
         }
+
+        public string GetAccountAvaliableBalance(int accountId)
+        {
+            return _accountService.GetAccounts().FirstOrDefault(x => x.AccountId == accountId).AvailableBalance.ToString();
+        }
+
 
         public void SaveAccount(SaveAccountRequest account)
         {
@@ -57,20 +62,5 @@ namespace Accounting.Desktop.Controller
         {
             _accountService.UpdateAccount(request);
         }
-
-        public UpdateAccountRequest GetAccountDetailsFromDataGridView(DataGridView dataGridView)
-        {
-            if (!dataGridView.SelectedRows.Count.Equals(0))
-            {
-                int selectedrowindex = dataGridView.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataGridView.Rows[selectedrowindex];
-                return new UpdateAccountRequest
-                {
-                    AccountId = int.Parse(selectedRow.Cells[0].Value.ToString()),
-                };
-            }
-            return null;
-        }
-
     }
 }

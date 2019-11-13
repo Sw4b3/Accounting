@@ -1,20 +1,16 @@
 ﻿using Accounting.Domain.Services.Service;
 using Accounting.Domain.Services.Utillies;
+using Accounting.Models.Models;
 using Accounting.Models.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Accounting.Desktop.Controller
 {
     class AnalyticsController
     {
-        TransactionService _transactionService;
-        AnalyticsService _analyticsService;
+        private readonly TransactionService _transactionService;
+        private readonly AnalyticsService _analyticsService;
 
         public AnalyticsController()
         {
@@ -23,36 +19,66 @@ namespace Accounting.Desktop.Controller
         }
 
 
-        public void GetAnalyticsOverview(DataGridView dataGridView)
+        public List<AnalyticsOverview> GetAnalyticsOverview()
         {
-            dataGridView.DataSource = _analyticsService.GetAnalysicOverview();
+            var res = _analyticsService.GetAnalysicOverview().ToList();
+            return res;
         }
 
-        public void GetAnalyticStatistics(DataGridView dataGridView)
+        public List<Statistic> GetAnalyticStatistics()
         {
-            dataGridView.DataSource = _analyticsService.GetStatistics();
+            var res = _analyticsService.GetStatistics().ToList();
+            return res;
         }
 
-        public void GetAnalyticsOverview(Chart chartPie)
+        public ChartItem GetAnalyticsOverviewChart()
         {
             var accountDetails = _transactionService.GetTransactionsByDate(Extensions.GetCurrentMonth());
             var expense = accountDetails.Where(x => x.TransactionTypeId == 2 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
             var income = accountDetails.Where(x => x.TransactionTypeId == 1 && x.AccountTypeId == 1).Select(x => x.Amount).Sum();
 
-            chartPie.Series[0].Points.DataBindXY(new[] { "Expense", "Income" }, new[] { expense, income });
+            var res = new ChartItem()
+            {
+                Headers = new string[]{
+                     "Expense",
+                     "Income"
+                },
+                Data = new decimal[]
+                {
+                     expense,
+                      income,
+                }
+            };
+
+            return res;
         }
 
-        public void GetAnalyticsByDay(DataGridView dataGridView, Chart chartBar)
+        public List<AnalysisByDay> GetAnalyticsByDay()
+        {
+            var res = _analyticsService.GetAnalyticsByDay().ToList();
+            return res;
+        }
+
+        public List<AnalysisByMonth> GetAnalyticsByMonth()
+        {
+            var res = _analyticsService.GetAnalyticsByMonth().ToList();
+            return res;
+        }
+
+        public ChartItem GetAnalyticsByDayChart()
         {
             var transaction = _analyticsService.GetAnalyticsByDay();
-            var dayAnalytics = transaction.Select(x => x.Amount).ToList();
-            var dayAnalyticsHeader = transaction.Select(x => x.TransactionTimestamp.ToString("dd/MMM")).ToList();
 
-            chartBar.Series[0].Points.DataBindXY(dayAnalyticsHeader, dayAnalytics);
-            dataGridView.DataSource = transaction;
+            var res = new ChartItem()
+            {
+                Data = transaction.Select(x => x.Amount).ToList(),
+                Headers = transaction.Select(x => x.TransactionTimestamp.ToString("dd/MMM")).ToList(),
+            };
+
+            return res;
         }
 
-        public void GetAnalyticsByMonth(DataGridView dataGridView, Chart chartColumn)
+        public IList<ChartItem> GetAnalyticsByMonthChart()
         {
             var transaction = _analyticsService.GetAnalyticsByMonth();
             var credit = transaction.Select(x => x.Credit).ToList();
@@ -60,11 +86,23 @@ namespace Accounting.Desktop.Controller
             var balance = transaction.Select(x => x.Balance).ToList();
             var month = transaction.Select(x => x.Date.ToString("MMM")).ToList();
 
-            chartColumn.Series[0].Points.DataBindXY(month, credit);
-            chartColumn.Series[1].Points.DataBindXY(month, debit);
-            chartColumn.Series[2].Points.DataBindXY(month, balance);
+            var res = new List<ChartItem> {
+                new ChartItem(){
+                       Headers = month,
+                       Data = credit,
+                },
+                 new ChartItem(){
+                      Headers = month,
+                      Data = debit,
+                },
+                  new ChartItem(){
+                       Headers = month,
+                      Data = balance,
 
-            dataGridView.DataSource = transaction;
+                },
+            };
+
+            return res;
         }
     }
 }

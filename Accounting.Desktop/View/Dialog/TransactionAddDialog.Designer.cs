@@ -36,7 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxAccounts = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
@@ -110,16 +110,16 @@
             this.textBox3.Size = new System.Drawing.Size(134, 20);
             this.textBox3.TabIndex = 0;
             // 
-            // comboBox2
+            // comboBoxAccounts
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(134, 117);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(134, 21);
-            this.comboBox2.TabIndex = 3;
+            this.comboBoxAccounts.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxAccounts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAccounts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxAccounts.FormattingEnabled = true;
+            this.comboBoxAccounts.Location = new System.Drawing.Point(134, 117);
+            this.comboBoxAccounts.Name = "comboBoxAccounts";
+            this.comboBoxAccounts.Size = new System.Drawing.Size(134, 21);
+            this.comboBoxAccounts.TabIndex = 3;
             // 
             // label5
             // 
@@ -148,7 +148,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBoxAccounts);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button2);
@@ -175,7 +175,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxAccounts;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }

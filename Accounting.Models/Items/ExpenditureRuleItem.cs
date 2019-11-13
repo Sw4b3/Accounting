@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Accounting.Desktop.Model
 {
-    class AccountItem
+    public class ExpenditureRuleItem
     {
-        public int AccountId { get; set; }
+        public int ExpenditureRuleId { get; set; }
 
-        public string AccountType { get; set; }
+        public string ExpenditureDesc { get; set; }
 
         public override string ToString()
         {
-            return AccountType;
+            return ExpenditureDesc;
         }
     }
 }

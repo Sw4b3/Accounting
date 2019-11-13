@@ -60,7 +60,7 @@ namespace Accounting.Desktop.View.Dialog
             {
                 TranferWithdraw();
                 TranferDepost();
-                _mainform.PopulationAll();
+                _mainform.PopulationTransactionPage();
                 _mainform.PopulateTransactionLabels();
                 this.Dispose();
             }

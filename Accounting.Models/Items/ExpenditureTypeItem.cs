@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Accounting.Desktop.Model
 {
-    class ExpenditureTypeItem
+    public class ExpenditureTypeItem
     {
         public int ExpenditureTypeId { get; set; }
 

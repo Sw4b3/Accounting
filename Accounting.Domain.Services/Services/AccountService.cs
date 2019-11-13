@@ -19,7 +19,7 @@ namespace Accounting.Domain.Services.Service
             uow = new UnitOfWork();
         }
 
-        public IList<Account> GetAccount()
+        public IList<Account> GetAccounts()
         {
             try
             {

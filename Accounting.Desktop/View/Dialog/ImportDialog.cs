@@ -1,4 +1,5 @@
 ﻿using Accounting.Desktop.Controller;
+using Accounting.Desktop.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,10 +20,10 @@ namespace Accounting.Desktop.View.Dialog
         private MainApplication _mainform;
         private string _filename;
 
-        public ImportDialog(TransactionController transactionController, MainApplication mainform, string filename)
+        public ImportDialog(MainApplication mainform, string filename)
         {
             InitializeComponent();
-            _transactionController = transactionController;
+            _transactionController = new TransactionController();
             _accountController = new AccountController();
             _reportController = new DataImportController();
             _filename = filename;
@@ -33,13 +34,14 @@ namespace Accounting.Desktop.View.Dialog
 
         public void PopulateAccountComboBox()
         {
-            _accountController.GetAccountComboBox(comboBox2);
+            comboBoxAccounts.DataSource = _accountController.GetAccountsItem();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var accountTypeId = int.Parse((_accountController.GetAccountId(comboBox2).ToString().Trim()));
+            var accountTypeId = int.Parse(((AccountItem)comboBoxAccounts.SelectedItem).AccountId.ToString().Trim());
+
             _reportController.ImportFromExcel(_filename, accountTypeId);
             _mainform.PopulateTransactionTables();
             _mainform.FilterTransactionByAccount();
