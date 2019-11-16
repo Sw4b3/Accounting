@@ -5,9 +5,10 @@
     [AvailableBalance] DECIMAL (15, 2) NULL,
     [Status]           VARCHAR (256)   CONSTRAINT [DF_Accounts_Status] DEFAULT ('Active') NULL,
     [AccountNo]        VARCHAR (50)    NULL,
-    CONSTRAINT [PK_AccountTypes] PRIMARY KEY CLUSTERED ([AccountId] ASC),
-    CONSTRAINT [FK_AccountTypes_AccountTypes] FOREIGN KEY ([AccountId]) REFERENCES [dbo].[Accounts] ([AccountId])
+    CONSTRAINT [PK_AccountTypes] PRIMARY KEY CLUSTERED ([AccountId] ASC)
 );
+
+
 
 
 
