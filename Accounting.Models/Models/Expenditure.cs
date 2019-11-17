@@ -19,5 +19,7 @@ namespace Accounting.Models.Models
         public string Description { get; set; }
 
         public DateTime TransactionTimestamp { get; set; }
+
+        public string ExpenditureDesc { get; set; }
     }
 }

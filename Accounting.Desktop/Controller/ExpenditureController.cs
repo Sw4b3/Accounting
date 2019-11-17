@@ -22,27 +22,55 @@ namespace Accounting.Desktop.Controller
 
         }
 
-        public List<ExpenditureViewModel> GetExpenditure(DateTime date)
+        public List<ExpenditureViewModel> GetExpenditure(string value, DateTime date)
         {
-            var startDate = new DateTime(date.Year, date.Month, 1);
-            var endDate = startDate.AddMonths(1).AddDays(-1);
-
-            var res = _expenditureService.GetExpenditureByDateRequest(new DateRequest()
+            if (value == "Unmapped")
             {
-                StartDate = startDate,
-                EndDate = endDate
-            })
-            .Where(x => x.ExpenditureRuleId == 0)
-            .Select(x => new ExpenditureViewModel
-            {
-                ExpenditureId = x.ExpenditureId,
-                TransactionId = x.TransactionId,
-                Description = x.Description,
-                Amount = x.Amount,
-                TransactionTimestamp = x.TransactionTimestamp,
-            }).ToList();
+                var startDate = new DateTime(date.Year, date.Month, 1);
+                var endDate = startDate.AddMonths(1).AddDays(-1);
 
-            return res;
+                var res = _expenditureService.GetExpenditureByDateRequest(new DateRequest()
+                {
+                    StartDate = startDate,
+                    EndDate = endDate
+                })
+               .Where(x => x.ExpenditureRuleId == 0)
+               .Select(x => new ExpenditureViewModel
+               {
+                   ExpenditureId = x.ExpenditureId,
+                   TransactionId = x.TransactionId,
+                   Description = x.Description,
+                   Amount = x.Amount,
+                   TransactionTimestamp = x.TransactionTimestamp,
+               }).ToList();
+
+                return res;
+            }
+            else
+            {
+                var startDate = new DateTime(date.Year, date.Month, 1);
+                var endDate = startDate.AddMonths(1).AddDays(-1);
+
+                var res = _expenditureService.GetExpenditureByDateRequest(new DateRequest()
+                {
+                    StartDate = startDate,
+                    EndDate = endDate
+                })
+                .Where(x => x.ExpenditureRuleId != 0)
+                .Select(x => new ExpenditureViewModel
+                {
+                    ExpenditureId = x.ExpenditureId,
+                    TransactionId = x.TransactionId,
+                    Description = x.Description,
+                    Amount = x.Amount,
+                    TransactionTimestamp = x.TransactionTimestamp,
+                    ExpenditureDesc = x.ExpenditureDesc
+
+                }).ToList();
+
+                return res;
+            }
+
         }
 
         public IList<ExpenditureOverview> GetExpenditureOverview()
@@ -78,56 +106,6 @@ namespace Accounting.Desktop.Controller
             }).ToList();
 
             return res;
-        }
-
-        public List<ExpenditureViewModel> FilterExpenditure(string value, DateTime date)
-        {
-
-            if (value == "Unmapped")
-            {
-                var startDate = new DateTime(date.Year, date.Month, 1);
-                var endDate = startDate.AddMonths(1).AddDays(-1);
-
-                var res = _expenditureService.GetExpenditureByDateRequest(new DateRequest()
-                {
-                    StartDate = startDate,
-                    EndDate = endDate
-                }).Where(x => x.ExpenditureRuleId == 0)
-               .Select(x => new ExpenditureViewModel
-               {
-                   ExpenditureId = x.ExpenditureId,
-                   TransactionId = x.TransactionId,
-                   Description = x.Description,
-                   Amount = x.Amount,
-                   TransactionTimestamp = x.TransactionTimestamp,
-
-               }).ToList();
-
-                return res;
-            }
-            else
-            {
-                var startDate = new DateTime(date.Year, date.Month, 1);
-                var endDate = startDate.AddMonths(1).AddDays(-1);
-
-                var res = _expenditureService.GetExpenditureByDateRequest(new DateRequest()
-                {
-                    StartDate = startDate,
-                    EndDate = endDate
-                }).Where(x => x.ExpenditureRuleId != 0)
-                .Select(x => new ExpenditureViewModel
-                {
-                    ExpenditureId = x.ExpenditureId,
-                    TransactionId = x.TransactionId,
-                    Description = x.Description,
-                    Amount = x.Amount,
-                    TransactionTimestamp = x.TransactionTimestamp,
-
-                }).ToList();
-
-                return res;
-            }
-
         }
 
         public List<ExpenditureTypeItem> GetExpenditureTypes()

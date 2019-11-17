@@ -216,7 +216,6 @@ namespace Accounting.Desktop
             dataGridViewSetting.DataSource = _expenditureController.GetExpenditureRules();
             dataGridViewRecentTransactions.DataSource = _transactionController.GetRecentTransactions();
             dataGridExpenditureBreakdown.DataSource = _expenditureController.GetExpenditureBreakdown();
-            dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(date);
             dataGridExpenditure.AutoGenerateColumns = false;
 
             if (!isInitialized)
@@ -365,8 +364,12 @@ namespace Accounting.Desktop
 
         private void ComboBoxExpenditureFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var type = comboBoxExpenditureFilter.SelectedItem.ToString();
+            var shouldDisplay = type.Equals("Unmapped") ? false : true;
             DateTime date = dateTimePickerExpitureOverview.Value;
-            dataGridExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
+
+            dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(type, date);
+            dataGridExpenditure.Columns["ExpenditureDesc"].Visible = shouldDisplay;
         }
 
         private void DateTimePickerExpenditure_ValueChanged(object sender, EventArgs e)
@@ -428,26 +431,26 @@ namespace Accounting.Desktop
             {
                 foreach (DataGridViewRow rows in dataGridExpenditure.Rows)
                 {
-                    if (rows.Cells[5].Value != null)
+                    if (rows.Cells[6].Value != null)
                     {
                         _expenditureController.UpdateExpenditure(new UpdateExpenditureRequest
                         {
                             ExpenditureId = Guid.Parse(rows.Cells[0].Value.ToString()),
-                            ExpenditureRuleId = int.Parse(rows.Cells[5].Value.ToString())
+                            ExpenditureRuleId = int.Parse(rows.Cells[6].Value.ToString())
                         });
                     }
 
                 }
             }
 
-            dataGridExpenditure.DataSource = _expenditureController.FilterExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
+            dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
             dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
         }
 
         private void DateTimePickerExpitureOverview_ValueChanged(object sender, EventArgs e)
         {
             DateTime date = dateTimePickerExpitureOverview.Value;
-            dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(date);
+            dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
         }
 
         #endregion
