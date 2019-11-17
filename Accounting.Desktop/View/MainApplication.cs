@@ -365,17 +365,11 @@ namespace Accounting.Desktop
         private void ComboBoxExpenditureFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             var type = comboBoxExpenditureFilter.SelectedItem.ToString();
+            var shouldDisplay = type.Equals("Unmapped") ? false : true;
             DateTime date = dateTimePickerExpitureOverview.Value;
-            dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(type, date);
 
-            if (type.Equals("Unmapped"))
-            {
-                dataGridExpenditure.Columns["ExpenditureDesc"].Visible = false;
-            }
-            else
-            {
-                dataGridExpenditure.Columns["ExpenditureDesc"].Visible = true;
-            }
+            dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(type, date);
+            dataGridExpenditure.Columns["ExpenditureDesc"].Visible = shouldDisplay;
         }
 
         private void DateTimePickerExpenditure_ValueChanged(object sender, EventArgs e)
