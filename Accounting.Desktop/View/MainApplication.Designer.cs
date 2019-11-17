@@ -493,21 +493,21 @@
             this.label1.TabIndex = 44;
             this.label1.Text = "From";
             // 
-            // dateTimePicker2
+            // dateTimePickerEndDate
             // 
             this.dateTimePickerEndDate.CustomFormat = "yyyyy-MM-dd";
             this.dateTimePickerEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerEndDate.Location = new System.Drawing.Point(501, 33);
-            this.dateTimePickerEndDate.Name = "dateTimePicker2";
+            this.dateTimePickerEndDate.Name = "dateTimePickerEndDate";
             this.dateTimePickerEndDate.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerEndDate.TabIndex = 43;
             // 
-            // dateTimePicker1
+            // dateTimePickerStartDate
             // 
             this.dateTimePickerStartDate.CustomFormat = "yyyy-MM-dd";
             this.dateTimePickerStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerStartDate.Location = new System.Drawing.Point(235, 33);
-            this.dateTimePickerStartDate.Name = "dateTimePicker1";
+            this.dateTimePickerStartDate.Name = "dateTimePickerStartDate";
             this.dateTimePickerStartDate.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerStartDate.TabIndex = 42;
             // 
@@ -1666,12 +1666,12 @@
             this.dataGridAccount.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridAccount.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridAccount.Location = new System.Drawing.Point(269, 38);
+            this.dataGridAccount.Location = new System.Drawing.Point(200, 38);
             this.dataGridAccount.Name = "dataGridAccount";
             this.dataGridAccount.ReadOnly = true;
             this.dataGridAccount.RowHeadersVisible = false;
             this.dataGridAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridAccount.Size = new System.Drawing.Size(679, 515);
+            this.dataGridAccount.Size = new System.Drawing.Size(775, 521);
             this.dataGridAccount.TabIndex = 29;
             // 
             // MainApplication
