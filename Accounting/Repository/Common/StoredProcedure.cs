@@ -35,6 +35,7 @@ namespace Accounting.Repository.Common
         public const string updateExpendituresRules = "spUpdateExpenditureRules";
         public const string deleteExpendituresRules = "spDeleteExpenditureRules";
         public const string updateExpenditure = "spUpdateExpenditure";
+        public const string autoResolveMappings = "spAutoResolveMappings";
         public const string getImportFile = "spGetImportFile";
         public const string saveImportFile = "spSaveImportFile";
         public const string completeImportFile = "spCompleteImportFile";

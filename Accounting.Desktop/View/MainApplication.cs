@@ -447,6 +447,14 @@ namespace Accounting.Desktop
             dataGridExpenditureBreakdown.DataSource = _expenditureController.FilterExpenditureBreakdownByDate(date);
         }
 
+        private void ResolveExpenditure_Click(object sender, EventArgs e)
+        {
+            DateTime date = dateTimePickerExpitureOverview.Value;
+
+            _expenditureController.AutoResolveMappings(date);
+            dataGridExpenditure.DataSource = _expenditureController.GetExpenditure(comboBoxExpenditureFilter.SelectedItem.ToString(), date);
+        }
+
         private void DateTimePickerExpitureOverview_ValueChanged(object sender, EventArgs e)
         {
             DateTime date = dateTimePickerExpitureOverview.Value;

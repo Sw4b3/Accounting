@@ -107,5 +107,6 @@
     <Build Include="dbo\Stored Procedures\spDeleteExpenditureRules.sql" />
     <Build Include="dbo\Stored Procedures\spSaveMapping.sql" />
     <Build Include="dbo\Stored Procedures\spDeleteMapping.sql" />
+    <Build Include="dbo\Stored Procedures\spAutoResolveMappings.sql" />
   </ItemGroup>
 </Project>

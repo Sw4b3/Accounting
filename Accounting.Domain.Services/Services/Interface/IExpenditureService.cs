@@ -31,6 +31,7 @@ namespace Accounting.Domain.Services.Service.Interface
         void UpdateExpenditureRule(UpdateExpenditureRuleRequest expenditureRequest);
 
         void DeleteExpenditureRule(DeleteExpenditureRuleRequest expenditureRequest);
-        
+
+        void AutoResolveMappings(DateRequest request);
     }
 }
