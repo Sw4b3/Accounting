@@ -21,8 +21,6 @@ BEGIN
 									from Expenditure e
 									inner join Transactions t
 										on e.TransactionId = t.TransactionId
-										and t.TransactionTimestamp > @startDate 
-										and TransactionTimestamp < @endDate
 									where e.ExpenditureRuleId is not null
 										and t.Description = @description)
 			
