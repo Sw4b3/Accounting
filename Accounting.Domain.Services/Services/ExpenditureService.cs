@@ -180,5 +180,19 @@ namespace Accounting.Domain.Services.Service
                 throw;
             }
         }
+
+        public void AutoResolveMappings(DateRequest request)
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                uow.ExpenditureRepository.AutoResolveMappings(request);
+                uow.Commit();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 }

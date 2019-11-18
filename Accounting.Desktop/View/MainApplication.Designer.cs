@@ -111,8 +111,8 @@
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.dateTimePickerExpitureOverview = new System.Windows.Forms.DateTimePicker();
             this.comboBoxExpenditureFilter = new System.Windows.Forms.ComboBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.UpdateExpenditure = new System.Windows.Forms.Button();
+            this.ImportExpenditure = new System.Windows.Forms.Button();
             this.dataGridExpenditure = new System.Windows.Forms.DataGridView();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.button18 = new System.Windows.Forms.Button();
@@ -152,6 +152,7 @@
             this.button12 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridAccount = new System.Windows.Forms.DataGridView();
+            this.ResolveExpenditure = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.transactionsTab.SuspendLayout();
@@ -999,10 +1000,11 @@
             // 
             // tabPage14
             // 
+            this.tabPage14.Controls.Add(this.ResolveExpenditure);
             this.tabPage14.Controls.Add(this.dateTimePickerExpitureOverview);
             this.tabPage14.Controls.Add(this.comboBoxExpenditureFilter);
-            this.tabPage14.Controls.Add(this.button11);
-            this.tabPage14.Controls.Add(this.button13);
+            this.tabPage14.Controls.Add(this.UpdateExpenditure);
+            this.tabPage14.Controls.Add(this.ImportExpenditure);
             this.tabPage14.Controls.Add(this.dataGridExpenditure);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
@@ -1039,31 +1041,31 @@
             this.comboBoxExpenditureFilter.TabIndex = 48;
             this.comboBoxExpenditureFilter.SelectedIndexChanged += new System.EventHandler(this.ComboBoxExpenditureFilter_SelectedIndexChanged);
             // 
-            // button11
+            // UpdateExpenditure
             // 
-            this.button11.BackColor = System.Drawing.Color.DarkGray;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button11.Location = new System.Drawing.Point(37, 101);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(148, 23);
-            this.button11.TabIndex = 32;
-            this.button11.Text = "Update Transactions";
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.UpdateExtenditure_Click);
+            this.UpdateExpenditure.BackColor = System.Drawing.Color.DarkGray;
+            this.UpdateExpenditure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateExpenditure.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UpdateExpenditure.Location = new System.Drawing.Point(37, 101);
+            this.UpdateExpenditure.Name = "UpdateExpenditure";
+            this.UpdateExpenditure.Size = new System.Drawing.Size(148, 23);
+            this.UpdateExpenditure.TabIndex = 32;
+            this.UpdateExpenditure.Text = "Update Transactions";
+            this.UpdateExpenditure.UseVisualStyleBackColor = false;
+            this.UpdateExpenditure.Click += new System.EventHandler(this.UpdateExtenditure_Click);
             // 
-            // button13
+            // ImportExpenditure
             // 
-            this.button13.BackColor = System.Drawing.Color.DarkGray;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button13.Location = new System.Drawing.Point(37, 73);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(148, 23);
-            this.button13.TabIndex = 31;
-            this.button13.Text = "Import Transactions";
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.ImportExpenditure_Click);
+            this.ImportExpenditure.BackColor = System.Drawing.Color.DarkGray;
+            this.ImportExpenditure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ImportExpenditure.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ImportExpenditure.Location = new System.Drawing.Point(37, 73);
+            this.ImportExpenditure.Name = "ImportExpenditure";
+            this.ImportExpenditure.Size = new System.Drawing.Size(148, 23);
+            this.ImportExpenditure.TabIndex = 31;
+            this.ImportExpenditure.Text = "Import Transactions";
+            this.ImportExpenditure.UseVisualStyleBackColor = false;
+            this.ImportExpenditure.Click += new System.EventHandler(this.ImportExpenditure_Click);
             // 
             // dataGridExpenditure
             // 
@@ -1674,6 +1676,19 @@
             this.dataGridAccount.Size = new System.Drawing.Size(775, 521);
             this.dataGridAccount.TabIndex = 29;
             // 
+            // ResolveExpenditure
+            // 
+            this.ResolveExpenditure.BackColor = System.Drawing.Color.DarkGray;
+            this.ResolveExpenditure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ResolveExpenditure.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ResolveExpenditure.Location = new System.Drawing.Point(37, 130);
+            this.ResolveExpenditure.Name = "ResolveExpenditure";
+            this.ResolveExpenditure.Size = new System.Drawing.Size(148, 23);
+            this.ResolveExpenditure.TabIndex = 50;
+            this.ResolveExpenditure.Text = "Auto Resolve";
+            this.ResolveExpenditure.UseVisualStyleBackColor = false;
+            this.ResolveExpenditure.Click += new System.EventHandler(this.ResolveExpenditure_Click);
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1768,7 +1783,7 @@
         private System.Windows.Forms.TabPage expenditureTab;
         private System.Windows.Forms.TabControl tabControl5;
         private System.Windows.Forms.TabPage tabPage14;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button ImportExpenditure;
         private System.Windows.Forms.DataGridView dataGridExpenditure;
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.Button button9;
@@ -1787,7 +1802,7 @@
         private System.Windows.Forms.Label labelRule2;
         private System.Windows.Forms.Label labelRule1;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button UpdateExpenditure;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.DataGridView dataGridViewRecentTransactions;
         private System.Windows.Forms.Label label3;
@@ -1842,6 +1857,7 @@
         private System.Windows.Forms.DataGridView dataViewMapping;
         private System.Windows.Forms.Button addMapping;
         private System.Windows.Forms.Button deleteMapping;
+        private System.Windows.Forms.Button ResolveExpenditure;
     }
 }
 

@@ -30,5 +30,7 @@ namespace Accounting.Repository.Interface
         void UpdateExpenditureRule(UpdateExpenditureRuleRequest request);
 
         void DeleteExpenditureRule(DeleteExpenditureRuleRequest expenditureRequest);
+
+        void AutoResolveMappings(DateRequest request);
     }
 }

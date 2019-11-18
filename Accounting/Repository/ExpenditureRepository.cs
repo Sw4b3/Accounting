@@ -77,5 +77,10 @@ namespace Accounting.Repository
         {
             Delete(DatabaseConnection.connection, SQLStoredProcedures.deleteExpendituresRules, request, _connection, _transaction);
         }
+
+        public void AutoResolveMappings(DateRequest request)
+        {
+            Update(DatabaseConnection.connection, SQLStoredProcedures.autoResolveMappings, request,_connection, _transaction);
+        }
     }
 }

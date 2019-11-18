@@ -179,5 +179,17 @@ namespace Accounting.Desktop.Controller
                 ArchivedDate = DateTime.Now
             });
         }
+
+        public void AutoResolveMappings(DateTime date)
+        {
+            var startDate = new DateTime(date.Year, date.Month, 1);
+            var endDate = startDate.AddMonths(1).AddDays(-1);
+
+            _expenditureService.AutoResolveMappings(new DateRequest()
+            {
+                StartDate = startDate,
+                EndDate = endDate
+            });
+        }
     }
 }
