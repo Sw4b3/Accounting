@@ -77,5 +77,20 @@ namespace Accounting.Domain.Services.Service
                 throw;
             }
         }
+
+        public IList<AnalysisBySavings> GetAnalyticsSavings()
+        {
+            try
+            {
+                uow.CreateUnitOfWork();
+                var res = uow.AnalyticsRepository.GetAnalyticsSavings();
+                uow.Commit();
+                return res;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
     }
 }

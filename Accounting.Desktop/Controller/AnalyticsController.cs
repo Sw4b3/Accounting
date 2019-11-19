@@ -2,6 +2,7 @@
 using Accounting.Domain.Services.Utillies;
 using Accounting.Models.Models;
 using Accounting.Models.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -100,6 +101,19 @@ namespace Accounting.Desktop.Controller
                       Data = balance,
 
                 },
+            };
+
+            return res;
+        }
+
+        public ChartItem GetAnalyticsSaving()
+        {
+            var transaction = _analyticsService.GetAnalyticsSavings();
+
+            var res = new ChartItem()
+            {
+                Data = transaction.Select(x => x.Amount).ToList(),
+                Headers = transaction.Select(x => x.Date.ToString("dd/MMM")).ToList(),
             };
 
             return res;

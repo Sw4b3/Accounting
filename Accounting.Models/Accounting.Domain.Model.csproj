@@ -46,6 +46,7 @@
     <Compile Include="Items\ExpenditureRuleItem.cs" />
     <Compile Include="Items\ExpenditureTypeItem.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AnalysisBySavings.cs" />
     <Compile Include="Models\ExpenditureOverview.cs" />
     <Compile Include="Models\Expenditure.cs" />
     <Compile Include="Models\ExpenditureRule.cs" />

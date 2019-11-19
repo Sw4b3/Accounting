@@ -18,5 +18,6 @@ namespace Accounting.Repository.Interface
 
         IList<AnalysisByMonth> GetAnalyticsByMonthRequest();
 
+        IList<AnalysisBySavings> GetAnalyticsSavings();
     }
 }

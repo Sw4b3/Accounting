@@ -20,6 +20,7 @@ namespace Accounting.Repository.Common
         public const string getAnalyticsOverview = "spGetAnalyticsOverview";
         public const string getAnalyticsByDay = "spGetAnalyticsByDay";
         public const string getAnalyticsByMonth = "spGetAnalyticsByMonth";
+        public const string getAnalyticsSavings = "spGetAnalyticsSavings";
         public const string getAnalyticsStatistics = "spGetAnalyticsStatistics";
         public const string getMappings = "spGetMappings";
         public const string saveMapping = "spSaveMapping";
