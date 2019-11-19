@@ -46,5 +46,11 @@ namespace Accounting
             var res = Get<AnalysisByMonth>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsByMonth, _connection, _transaction);
             return res;
         }
+
+        public IList<AnalysisBySavings> GetAnalyticsSavings()
+        {
+            var res = Get<AnalysisBySavings>(DatabaseConnection.connection, SQLStoredProcedures.getAnalyticsSavings, _connection, _transaction);
+            return res;
+        }
     }
 }

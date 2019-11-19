@@ -570,6 +570,9 @@ namespace Accounting.Desktop
             chartMonthAnalytics.Series[0].Points.DataBindXY(chartDataColum[0].Headers, chartDataColum[0].Data);
             chartMonthAnalytics.Series[1].Points.DataBindXY(chartDataColum[1].Headers, chartDataColum[1].Data);
             chartMonthAnalytics.Series[2].Points.DataBindXY(chartDataColum[2].Headers, chartDataColum[2].Data);
+
+            var chartSavingsData = _analyticsController.GetAnalyticsSaving();
+            chartSavings.Series[0].Points.DataBindXY(chartSavingsData.Headers, chartSavingsData.Data);
         }
 
         #endregion

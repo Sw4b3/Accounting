@@ -61,6 +61,7 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="dbo\Functions\" />
+    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\TransactionTypes.sql" />
@@ -108,5 +109,7 @@
     <Build Include="dbo\Stored Procedures\spSaveMapping.sql" />
     <Build Include="dbo\Stored Procedures\spDeleteMapping.sql" />
     <Build Include="dbo\Stored Procedures\spAutoResolveMappings.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAnalyticsSavings.sql" />
+    <Build Include="dbo\Functions\GetLastTransactionOfMonth.sql" />
   </ItemGroup>
 </Project>
