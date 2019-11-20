@@ -2,24 +2,17 @@
 using Accounting.Desktop.Controller;
 using Accounting.Models.Requests;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.View.Dialog
 {
     public partial class TransferDialog : Form
     {
-        private TransactionController _transactionController;
-        private MainApplication _mainform;
-        private Validator _validator;
-        private int _transfer1;
-        private int _transfer2;
+        private readonly TransactionController _transactionController;
+        private readonly MainApplication _mainform;
+        private readonly Validator _validator;
+        private readonly int _transfer1;
+        private readonly int _transfer2;
 
         public TransferDialog(MainApplication mainApplication, int transfer1, int transfer2)
         {
@@ -38,7 +31,7 @@ namespace Accounting.Desktop.View.Dialog
                 Amount = decimal.Parse(textBox3.Text),
                 AccountTypeId = _transfer1,
                 TransactionTypeId = 2,
-                Description = "TRF "+textBox1.Text.ToString().ToUpper(),
+                Description = "TRF " + textBox1.Text.ToString().ToUpper(),
                 TransactionTimestamp = DateTime.Today
             });
         }
@@ -55,7 +48,8 @@ namespace Accounting.Desktop.View.Dialog
             });
         }
 
-        public void SaveTransfer() {
+        public void SaveTransfer()
+        {
             if (Validator.IsNumber(textBox3.Text))
             {
                 TranferWithdraw();

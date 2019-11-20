@@ -2,19 +2,15 @@
 using Accounting.Models.Requests;
 using Accounting.Repository.Common;
 using Accounting.Repository.Interface;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Repository
 {
     public class ExpenditureRepository : BaseRepository, IExpenditureRepository
     {
-        private IDbConnection _connection;
-        private IDbTransaction _transaction;
+        private readonly IDbConnection _connection;
+        private readonly IDbTransaction _transaction;
 
         public ExpenditureRepository(IDbConnection connection, IDbTransaction transaction)
         {
@@ -80,7 +76,7 @@ namespace Accounting.Repository
 
         public void AutoResolveMappings(DateRequest request)
         {
-            Update(DatabaseConnection.connection, SQLStoredProcedures.autoResolveMappings, request,_connection, _transaction);
+            Update(DatabaseConnection.connection, SQLStoredProcedures.autoResolveMappings, request, _connection, _transaction);
         }
     }
 }

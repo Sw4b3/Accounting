@@ -15,7 +15,7 @@ namespace Accounting.Domain.Services.Reports
 {
     public class ReportHandler
     {
-        private IMappingService _mappingService;
+        private readonly IMappingService _mappingService;
         private static string[] currentMonths = DateTimeFormatInfo.CurrentInfo.MonthNames;
         private IList<Mapping> _vauleList;
 

@@ -2,19 +2,15 @@
 using Accounting.Models.Requests;
 using Accounting.Repository.Common;
 using Accounting.Repository.Interface;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Repository
 {
     public class ReportRepository : BaseRepository, IReportRepository
     {
-        private IDbConnection _connection;
-        private IDbTransaction _transaction;
+        private readonly IDbConnection _connection;
+        private readonly IDbTransaction _transaction;
 
         public ReportRepository(IDbConnection connection, IDbTransaction transaction)
         {
@@ -44,7 +40,7 @@ namespace Accounting.Repository
 
         public void DeleteImportRequest(ImportFileRequest request)
         {
-           Delete(DatabaseConnection.connection, SQLStoredProcedures.deleteImportFile, request, _connection, _transaction);
+            Delete(DatabaseConnection.connection, SQLStoredProcedures.deleteImportFile, request, _connection, _transaction);
         }
 
     }

@@ -1,19 +1,15 @@
 ﻿using Accounting.Domain.Services.Service.Interface;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
-using Accounting.Domain.Services.Utillies;
 using Accounting.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Models.Service
 {
-    public class TransactionService: ITransactionService
+    public class TransactionService : ITransactionService
     {
-        private UnitOfWork uow;
+        private readonly UnitOfWork uow;
 
         public TransactionService()
         {

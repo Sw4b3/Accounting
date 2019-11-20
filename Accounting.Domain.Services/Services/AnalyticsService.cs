@@ -1,17 +1,14 @@
-﻿using Accounting.Repository;
-using Accounting.Domain.Services.Utillies;
+﻿using Accounting.Domain.Services.Utillies;
+using Accounting.Models.Models;
+using Accounting.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Accounting.Models.Models;
 
 namespace Accounting.Domain.Services.Service
 {
     public class AnalyticsService
     {
-        private UnitOfWork uow;
+        private readonly UnitOfWork uow;
 
         public AnalyticsService()
         {

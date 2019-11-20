@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Dapper;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using Accounting.Models.Requests;
-using Dapper;
 
 namespace Accounting.Repository.Common
 {

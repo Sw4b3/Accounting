@@ -4,13 +4,10 @@ using Accounting.Models.Requests;
 using Accounting.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Domain.Services.Service
 {
-    public class AccountService: IAccountService
+    public class AccountService : IAccountService
     {
         private readonly UnitOfWork uow;
 

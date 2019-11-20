@@ -10,8 +10,8 @@ namespace Accounting.Repository
     class MappingRepository : BaseRepository, IMappingRepository
     {
 
-        private IDbConnection _connection;
-        private IDbTransaction _transaction;
+        private readonly IDbConnection _connection;
+        private readonly IDbTransaction _transaction;
 
         public MappingRepository(IDbConnection connection, IDbTransaction transaction)
         {
@@ -21,7 +21,7 @@ namespace Accounting.Repository
 
         public IList<Mapping> GetMappingRequest()
         {
-            return Get<Mapping>(DatabaseConnection.connection, SQLStoredProcedures.getMappings , _connection, _transaction);
+            return Get<Mapping>(DatabaseConnection.connection, SQLStoredProcedures.getMappings, _connection, _transaction);
         }
 
         public void SaveMapping(SaveMappingRequest request)

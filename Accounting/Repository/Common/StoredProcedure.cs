@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Accounting.Repository.Common
+﻿namespace Accounting.Repository.Common
 {
     public static class SQLStoredProcedures
     {
@@ -25,7 +19,7 @@ namespace Accounting.Repository.Common
         public const string getMappings = "spGetMappings";
         public const string saveMapping = "spSaveMapping";
         public const string deleteMapping = "spDeleteMapping";
-        public const string deleteTransaction= "spDeleteTransactionStaging";
+        public const string deleteTransaction = "spDeleteTransactionStaging";
         public const string getExpendituresByDate = "spGetExpendituresByDate";
         public const string saveExpenditure = "spSaveExpenditure";
         public const string getExpenditureTypes = "spGetExpenditureTypes";

@@ -2,21 +2,14 @@
 using Accounting.Desktop.Controller;
 using Accounting.Models.Requests;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.View
 {
     public partial class MappingAddDialog : Form
     {
-        private DataImportController _dataImportController;
-        private MainApplication _mainForm;
+        private readonly DataImportController _dataImportController;
+        private readonly MainApplication _mainForm;
 
         public MappingAddDialog(MainApplication mainForm)
         {
@@ -25,7 +18,8 @@ namespace Accounting.Desktop.View
             _mainForm = mainForm;
         }
 
-        public void SaveMapping() {
+        public void SaveMapping()
+        {
             if (Validator.IsString(nameTextBox.Text))
             {
                 _dataImportController.SaveMapping(new SaveMappingRequest

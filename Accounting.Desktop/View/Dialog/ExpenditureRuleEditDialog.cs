@@ -1,24 +1,16 @@
 ﻿using Accounting.Desktop.Common;
 using Accounting.Desktop.Controller;
 using Accounting.Models.Models;
-using Accounting.Models.Requests;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.View
 {
     public partial class ExpenditureTypeEditDialog : Form
     {
-        private ExpenditureController _expenditureController;
-        private MainApplication _mainForm;
-        private UpdateExpenditureRuleRequest _updateExpenditureTypeRequest;
+        private readonly ExpenditureController _expenditureController;
+        private readonly MainApplication _mainForm;
+        private readonly UpdateExpenditureRuleRequest _updateExpenditureTypeRequest;
 
         public ExpenditureTypeEditDialog(MainApplication mainForm, UpdateExpenditureRuleRequest updateExpenditureTypeRequest)
         {
@@ -31,13 +23,14 @@ namespace Accounting.Desktop.View
 
         public void SetExpenditure()
         {
-            this.Text = _updateExpenditureTypeRequest.ExpenditureDesc+" Rule";
+            this.Text = _updateExpenditureTypeRequest.ExpenditureDesc + " Rule";
             textBox3.Text = _updateExpenditureTypeRequest.ExpenditureDesc;
             textBox1.Text = _updateExpenditureTypeRequest.ExpenditureLimit.ToString();
-            checkBox1.Checked= _updateExpenditureTypeRequest.ShouldDisplay;
+            checkBox1.Checked = _updateExpenditureTypeRequest.ShouldDisplay;
         }
 
-        public void SaveExpenditureTypes() {
+        public void SaveExpenditureTypes()
+        {
             if (Validator.IsString(textBox3.Text))
             {
                 if (Validator.IsNumber(textBox1.Text))

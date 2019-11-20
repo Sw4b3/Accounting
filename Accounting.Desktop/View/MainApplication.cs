@@ -1,37 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Accounting.Desktop.Componets;
+﻿using Accounting.Desktop.Componets;
 using Accounting.Desktop.Controller;
 using Accounting.Desktop.Model;
 using Accounting.Desktop.View;
 using Accounting.Desktop.View.Dialog;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
+using System;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Accounting.Desktop
 {
     public partial class MainApplication : Form
     {
-        private TransactionController _transactionController;
-        private AccountController _accountController;
-        private AnalyticsController _analyticsController;
-        private DataImportController _DataImportController;
-        private ExpenditureController _expenditureController;
-        private DataImportController _dataImportController;
+        private readonly TransactionController _transactionController;
+        private readonly AccountController _accountController;
+        private readonly AnalyticsController _analyticsController;
+        private readonly DataImportController _DataImportController;
+        private readonly ExpenditureController _expenditureController;
+        private readonly DataImportController _dataImportController;
         private bool isInitialized = false;
 
-        private Color SystemGreen = Color.FromArgb(184, 227, 145);
-        private Color SystemGreenForecolor = Color.FromArgb(103, 190, 86);
-        private Color SystemRed = Color.FromArgb(247, 147, 137);
-        private Color SystemRedForecolor = Color.FromArgb(245, 115, 101);
+        private readonly Color SystemGreen = Color.FromArgb(184, 227, 145);
+        private readonly Color SystemGreenForecolor = Color.FromArgb(103, 190, 86);
+        private readonly Color SystemRed = Color.FromArgb(247, 147, 137);
+        private readonly Color SystemRedForecolor = Color.FromArgb(245, 115, 101);
 
         public MainApplication()
         {

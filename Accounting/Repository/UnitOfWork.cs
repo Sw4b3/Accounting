@@ -1,12 +1,6 @@
-﻿using Accounting.Repository.Common;
-using Accounting.Repository.Interface;
-using System;
-using System.Collections.Generic;
+﻿using Accounting.Repository.Interface;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Repository
 {
@@ -20,8 +14,9 @@ namespace Accounting.Repository
         private IAnalyticsRepository _analyticsRepository;
         private IExpenditureRepository _expenditureRepository;
         private IReportRepository _reportRepository;
-        
-        public void CreateUnitOfWork() {
+
+        public void CreateUnitOfWork()
+        {
             _connection = new SqlConnection(DatabaseConnection.connection);
             _connection.Open();
             _transaction = _connection.BeginTransaction();

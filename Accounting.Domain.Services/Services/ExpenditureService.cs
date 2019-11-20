@@ -1,19 +1,16 @@
 ﻿using Accounting.Domain.Services.Service.Interface;
+using Accounting.Domain.Services.Utillies;
 using Accounting.Models.Models;
 using Accounting.Models.Requests;
 using Accounting.Repository;
-using Accounting.Domain.Services.Utillies;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Domain.Services.Service
 {
     public class ExpenditureService : IExpenditureService
     {
-        private UnitOfWork uow;
+        private readonly UnitOfWork uow;
 
         public ExpenditureService()
         {

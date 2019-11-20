@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace Accounting.Desktop.Common
 {
     public class Validator
     {
-        public static bool IsString(string request) {
+        public static bool IsString(string request)
+        {
             string pattern = "[A-Za-z]";
             return Regex.IsMatch(request, pattern);
         }

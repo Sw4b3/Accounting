@@ -2,24 +2,17 @@
 using Accounting.Desktop.Controller;
 using Accounting.Models.Requests;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.View
 {
     public partial class AccountEditDialog : Form
     {
-        private AccountController _accountController;
-        private MainApplication _mainForm;
-        private UpdateAccountRequest _accountRequest;
+        private readonly AccountController _accountController;
+        private readonly MainApplication _mainForm;
+        private readonly UpdateAccountRequest _accountRequest;
 
-        public AccountEditDialog(UpdateAccountRequest accountRequest,  MainApplication mainForm)
+        public AccountEditDialog(UpdateAccountRequest accountRequest, MainApplication mainForm)
         {
             InitializeComponent();
             _accountController = new AccountController();
@@ -27,7 +20,8 @@ namespace Accounting.Desktop.View
             _accountRequest = accountRequest;
         }
 
-        public void UpdateAccount() {
+        public void UpdateAccount()
+        {
             if (Validator.IsNumber(textBox3.Text))
             {
                 _accountController.UpdateAccount(new UpdateAccountRequest

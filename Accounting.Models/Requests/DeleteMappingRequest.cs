@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Accounting.Models.Requests
+﻿namespace Accounting.Models.Requests
 {
-   public class DeleteMappingRequest
+    public class DeleteMappingRequest
     {
         public int MappingId { get; set; }
     }

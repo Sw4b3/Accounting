@@ -1,24 +1,17 @@
 ﻿using Accounting.Desktop.Controller;
 using Accounting.Desktop.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.View.Dialog
 {
     public partial class ImportDialog : Form
     {
-        private TransactionController _transactionController;
-        private DataImportController _reportController;
-        private AccountController _accountController;
-        private MainApplication _mainform;
-        private string _filename;
+        private readonly TransactionController _transactionController;
+        private readonly DataImportController _reportController;
+        private readonly AccountController _accountController;
+        private readonly MainApplication _mainform;
+        private readonly string _filename;
 
         public ImportDialog(MainApplication mainform, string filename)
         {

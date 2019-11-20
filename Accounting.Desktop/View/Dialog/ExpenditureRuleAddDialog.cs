@@ -9,8 +9,8 @@ namespace Accounting.Desktop.View
 {
     public partial class ExpenditureTypeAddDialog : Form
     {
-        private ExpenditureController _expenditureController;
-        private MainApplication _mainForm;
+        private readonly ExpenditureController _expenditureController;
+        private readonly MainApplication _mainForm;
 
         public ExpenditureTypeAddDialog(MainApplication mainForm)
         {

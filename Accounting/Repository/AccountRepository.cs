@@ -1,20 +1,17 @@
 ﻿using Accounting.Models.Models;
 using Accounting.Models.Requests;
 using Accounting.Repository.Common;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Repository.Interface
 {
     public class AccountRepository : BaseRepository, IAccountRepository
     {
 
-        private IDbConnection _connection;
-        private IDbTransaction _transaction;
+        private readonly IDbConnection _connection;
+        private readonly IDbTransaction _transaction;
 
         public AccountRepository(IDbConnection connection, IDbTransaction transaction)
         {

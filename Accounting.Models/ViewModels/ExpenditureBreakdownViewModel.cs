@@ -1,9 +1,4 @@
-﻿using Accounting.Desktop.Model;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
-namespace Accounting.Models.ViewModels
+﻿namespace Accounting.Models.ViewModels
 {
     public class ExpenditureBreakdownViewModel
     {

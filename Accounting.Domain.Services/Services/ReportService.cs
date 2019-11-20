@@ -4,15 +4,12 @@ using Accounting.Models.Requests;
 using Accounting.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting.Domain.Services.Service
 {
     public class ReportService : IReportService
     {
-        private UnitOfWork uow;
+        private readonly UnitOfWork uow;
 
         public ReportService()
         {

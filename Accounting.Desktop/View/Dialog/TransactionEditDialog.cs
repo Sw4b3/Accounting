@@ -2,22 +2,15 @@
 using Accounting.Desktop.Controller;
 using Accounting.Models.Requests;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.View
 {
     public partial class TransactionEditDialog : Form
     {
-        private TransactionController _transactionController;
-        private MainApplication _mainform;
-        private UpdateTransactionRequest _transactionRequest;
+        private readonly TransactionController _transactionController;
+        private readonly MainApplication _mainform;
+        private readonly UpdateTransactionRequest _transactionRequest;
 
 
         public TransactionEditDialog(UpdateTransactionRequest transactionRequest, MainApplication mainApplication)
@@ -29,13 +22,15 @@ namespace Accounting.Desktop.View
             SetTransaction();
         }
 
-        public void SetTransaction() {
+        public void SetTransaction()
+        {
             textBox3.Text = _transactionRequest.Description;
             textBox1.Text = _transactionRequest.Amount.ToString();
             dateTimePicker1.Value = _transactionRequest.Date;
         }
 
-        public void SaveTransaction() {
+        public void SaveTransaction()
+        {
             if (Validator.IsNumber(textBox1.Text) && Validator.IsString(textBox3.Text))
             {
                 _transactionController.UpdateTransaction(new UpdateTransactionRequest

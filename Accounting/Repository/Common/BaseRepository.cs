@@ -1,10 +1,5 @@
 ﻿using Accounting.Repository.Interface;
-using Accounting.Models.Models;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System;
-using Accounting.Models.Requests;
 using System.Data;
 
 
@@ -24,7 +19,7 @@ namespace Accounting.Repository.Common
             return res;
         }
 
-        public void Save<T>(string connectionString,string storedProcedure, T request, IDbConnection connection, IDbTransaction transaction)
+        public void Save<T>(string connectionString, string storedProcedure, T request, IDbConnection connection, IDbTransaction transaction)
         {
             DapperRepository.ExecuteStoredProc(connectionString, storedProcedure, request, connection, transaction);
         }

@@ -2,21 +2,14 @@
 using Accounting.Desktop.Controller;
 using Accounting.Models.Requests;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.View
 {
     public partial class AccountDialog : Form
     {
-        private AccountController _accountController;
-        private MainApplication _mainForm;
+        private readonly AccountController _accountController;
+        private readonly MainApplication _mainForm;
 
         public AccountDialog(MainApplication mainForm)
         {
@@ -25,7 +18,8 @@ namespace Accounting.Desktop.View
             _mainForm = mainForm;
         }
 
-        public void SaveAccount() {
+        public void SaveAccount()
+        {
             if (Validator.IsString(nameTextBox.Text))
             {
                 _accountController.SaveAccount(new SaveAccountRequest

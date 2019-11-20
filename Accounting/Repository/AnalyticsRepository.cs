@@ -2,19 +2,15 @@
 using Accounting.Models.Requests;
 using Accounting.Repository.Common;
 using Accounting.Repository.Interface;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Accounting
 {
-    public class AnalyticsRepository: BaseRepository, IAnalyticsRepository
+    public class AnalyticsRepository : BaseRepository, IAnalyticsRepository
     {
-        private IDbConnection _connection;
-        private IDbTransaction _transaction;
+        private readonly IDbConnection _connection;
+        private readonly IDbTransaction _transaction;
 
         public AnalyticsRepository(IDbConnection connection, IDbTransaction transaction)
         {

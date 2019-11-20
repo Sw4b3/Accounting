@@ -3,24 +3,17 @@ using Accounting.Desktop.Controller;
 using Accounting.Desktop.Model;
 using Accounting.Models.Requests;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Accounting.Desktop.View
 {
     public partial class TransactionAddDialog : Form
     {
-        private TransactionController _transactionController;
+        private readonly TransactionController _transactionController;
 
-        private AccountController _accountController;
-        private MainApplication _mainform;
-        private int _transactionType;
+        private readonly AccountController _accountController;
+        private readonly MainApplication _mainform;
+        private readonly int _transactionType;
 
         public TransactionAddDialog(TransactionController transactionController, MainApplication mainform, int transactionType)
         {
@@ -43,7 +36,8 @@ namespace Accounting.Desktop.View
             comboBoxAccounts.DataSource = _accountController.GetAccountsItem();
         }
 
-        public void SaveTransaction() {
+        public void SaveTransaction()
+        {
             if (Validator.IsNumber(textBox1.Text) && Validator.IsString(textBox3.Text))
             {
                 _transactionController.SaveTransactionStaging(new SaveTransactionRequest
@@ -58,7 +52,8 @@ namespace Accounting.Desktop.View
                 _mainform.PopulateTransactionLabels();
                 this.Dispose();
             }
-            else {
+            else
+            {
                 MessageBox.Show("Please enter valid description and amount", "Error", MessageBoxButtons.OK);
             }
         }
