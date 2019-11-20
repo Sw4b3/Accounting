@@ -25,7 +25,7 @@ namespace Accounting.Domain.Services.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -40,7 +40,7 @@ namespace Accounting.Domain.Services.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -54,7 +54,7 @@ namespace Accounting.Domain.Services.Service
                 uow.AccountRepository.SaveAccountRequest(account);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -68,7 +68,7 @@ namespace Accounting.Domain.Services.Service
                 uow.AccountRepository.UpdateAccountRequest(request);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }

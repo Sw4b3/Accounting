@@ -22,54 +22,18 @@ namespace Accounting.Repository
             _transaction = _connection.BeginTransaction();
         }
 
-        public IMappingRepository MappingRepository
-        {
-            get
-            {
-                return _mappingRepository ?? (_mappingRepository = new MappingRepository(_connection, _transaction));
-            }
-        }
+        public IMappingRepository MappingRepository => _mappingRepository ?? (_mappingRepository = new MappingRepository(_connection, _transaction));
 
-        public ITransactionRepository TransactionRepository
-        {
-            get
-            {
-                return _transactionRepository ?? (_transactionRepository = new TransactionRepository(_connection, _transaction));
-            }
-        }
+        public ITransactionRepository TransactionRepository => _transactionRepository ?? (_transactionRepository = new TransactionRepository(_connection, _transaction));
 
-        public IAccountRepository AccountRepository
-        {
-            get
-            {
-                return _accountRepository ?? (_accountRepository = new AccountRepository(_connection, _transaction));
-            }
-        }
+        public IAccountRepository AccountRepository => _accountRepository ?? (_accountRepository = new AccountRepository(_connection, _transaction));
 
-        public IAnalyticsRepository AnalyticsRepository
-        {
-            get
-            {
-                return _analyticsRepository ?? (_analyticsRepository = new AnalyticsRepository(_connection, _transaction));
-            }
-        }
+        public IAnalyticsRepository AnalyticsRepository => _analyticsRepository ?? (_analyticsRepository = new AnalyticsRepository(_connection, _transaction));
 
 
-        public IExpenditureRepository ExpenditureRepository
-        {
-            get
-            {
-                return _expenditureRepository ?? (_expenditureRepository = new ExpenditureRepository(_connection, _transaction));
-            }
-        }
+        public IExpenditureRepository ExpenditureRepository => _expenditureRepository ?? (_expenditureRepository = new ExpenditureRepository(_connection, _transaction));
 
-        public IReportRepository ReportRepository
-        {
-            get
-            {
-                return _reportRepository ?? (_reportRepository = new ReportRepository(_connection, _transaction));
-            }
-        }
+        public IReportRepository ReportRepository => _reportRepository ?? (_reportRepository = new ReportRepository(_connection, _transaction));
 
 
         public void Commit()

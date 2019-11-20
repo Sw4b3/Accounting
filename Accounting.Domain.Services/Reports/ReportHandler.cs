@@ -44,7 +44,7 @@ namespace Accounting.Domain.Services.Reports
             {
                 MessageBox.Show("File is currently open", "Export", MessageBoxButtons.OK);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Failed to create book", "Export", MessageBoxButtons.OK);
             }
@@ -72,7 +72,7 @@ namespace Accounting.Domain.Services.Reports
             {
                 MessageBox.Show("File is currently open", "Export", MessageBoxButtons.OK);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Failed to create book", "Export", MessageBoxButtons.OK);
             }
@@ -112,7 +112,7 @@ namespace Accounting.Domain.Services.Reports
             {
                 MessageBox.Show("File is currently open", "Import", MessageBoxButtons.OK);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 MessageBox.Show("Failed to Import", "Import", MessageBoxButtons.OK);
             }

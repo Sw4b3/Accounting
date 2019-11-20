@@ -2,7 +2,7 @@
 
 namespace Accounting
 {
-    class DatabaseConnection
+    public class DatabaseConnection
     {
         public static string connection = ConfigurationManager.AppSettings["ConnectionString"];
     }

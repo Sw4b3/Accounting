@@ -26,7 +26,7 @@ namespace Accounting.Domain.Services.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -41,7 +41,7 @@ namespace Accounting.Domain.Services.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -56,7 +56,7 @@ namespace Accounting.Domain.Services.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -71,7 +71,7 @@ namespace Accounting.Domain.Services.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -86,7 +86,7 @@ namespace Accounting.Domain.Services.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -101,7 +101,7 @@ namespace Accounting.Domain.Services.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -115,7 +115,7 @@ namespace Accounting.Domain.Services.Service
                 uow.ExpenditureRepository.ImportExpenditure(dateRequest);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -129,7 +129,7 @@ namespace Accounting.Domain.Services.Service
                 uow.ExpenditureRepository.SaveExpenditureRule(expenditureRequest);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -143,7 +143,7 @@ namespace Accounting.Domain.Services.Service
                 uow.ExpenditureRepository.UpdateExpenditure(expenditureRequest);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -158,7 +158,7 @@ namespace Accounting.Domain.Services.Service
                 uow.ExpenditureRepository.UpdateExpenditureRule(expenditureRequest);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -172,7 +172,7 @@ namespace Accounting.Domain.Services.Service
                 uow.ExpenditureRepository.DeleteExpenditureRule(expenditureRequest);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -186,7 +186,7 @@ namespace Accounting.Domain.Services.Service
                 uow.ExpenditureRepository.AutoResolveMappings(request);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }

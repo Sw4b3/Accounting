@@ -7,7 +7,7 @@ using System.Data;
 
 namespace Accounting.Repository
 {
-    class MappingRepository : BaseRepository, IMappingRepository
+    public class MappingRepository : BaseRepository, IMappingRepository
     {
 
         private readonly IDbConnection _connection;

@@ -25,7 +25,7 @@ namespace Accounting.Domain.Services.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -39,7 +39,7 @@ namespace Accounting.Domain.Services.Service
                 uow.MappingRepository.SaveMapping(request);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -53,7 +53,7 @@ namespace Accounting.Domain.Services.Service
                 uow.MappingRepository.DeleteMapping(request);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }

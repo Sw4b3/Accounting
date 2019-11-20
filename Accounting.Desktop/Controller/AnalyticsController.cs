@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Accounting.Desktop.Controller
 {
-    class AnalyticsController
+    public class AnalyticsController
     {
         private readonly TransactionService _transactionService;
         private readonly AnalyticsService _analyticsService;

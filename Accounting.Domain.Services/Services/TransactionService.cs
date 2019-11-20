@@ -25,7 +25,7 @@ namespace Accounting.Models.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -40,7 +40,7 @@ namespace Accounting.Models.Service
                 uow.Commit();
                 return res;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -54,7 +54,7 @@ namespace Accounting.Models.Service
                 uow.TransactionRepository.SaveTransactionRequest(transaction);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -68,7 +68,7 @@ namespace Accounting.Models.Service
                 uow.TransactionRepository.SaveTransactionStagingRequest(transaction);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -82,7 +82,7 @@ namespace Accounting.Models.Service
                 uow.TransactionRepository.UpdateTransactionRequest(transaction);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -96,7 +96,7 @@ namespace Accounting.Models.Service
                 uow.TransactionRepository.DeleteTransactionStagingRequest(transaction);
                 uow.Commit();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }

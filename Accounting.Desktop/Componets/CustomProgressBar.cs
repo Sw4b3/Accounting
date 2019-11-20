@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Accounting.Desktop.Componets
 {
-    class CustomProgressBar : ProgressBar
+    public class CustomProgressBar : ProgressBar
     {
         private SolidBrush brush = null;
 
